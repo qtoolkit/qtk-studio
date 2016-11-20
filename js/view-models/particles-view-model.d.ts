@@ -1,0 +1,34 @@
+import { IDocument } from "../models/idocument";
+import { IParticlesViewModel } from "./iparticles-view-model";
+import { ViewModel, ValidationResult } from "qtk";
+import { PagePropsDesc, ItemsStorage } from "qtk";
+export declare abstract class ParticlesViewModel extends ViewModel implements IParticlesViewModel {
+    canvas: any;
+    protected type: string;
+    protected doc: IDocument;
+    protected fileName: string;
+    protected storage: ItemsStorage;
+    protected docList: Array<string>;
+    protected abstract createEmitter(): any;
+    protected abstract registerConverters(): any;
+    protected abstract registerCommands(): any;
+    protected onDocReplaced(): void;
+    getDocList(): Array<string>;
+    getDocName(): string;
+    getPropsDesc(): Array<PagePropsDesc>;
+    saveDoc(fileName: string): void;
+    protected syncData(data: any): void;
+    createDoc(templateName: string): void;
+    protected loadData(json: any): void;
+    openDoc(fileName: string): void;
+    removeDoc(fileName: string): void;
+    getFormatList(): Array<string>;
+    exportDoc(format: string): string;
+    setProp(path: string, value: any, converter?: string, validationRule?: string): ValidationResult;
+    getTemplateList(): Array<string>;
+    protected updateDocList(): void;
+    getPropTitleWidth(): string;
+    saveTemp(): void;
+    loadTemp(): void;
+    constructor(data: any, type: string, storage: ItemsStorage);
+}
