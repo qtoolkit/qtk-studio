@@ -49,7 +49,7 @@ var MainMenuBar = (function (_super) {
         function addItem(key, descs) {
             var w = key.length > 5 ? 70 : 50;
             bar.addItem(key, function (menu) {
-                menu.w = 200;
+                menu.w = 240;
                 for (var cmd in descs) {
                     var desc = descs[cmd];
                     bar.addMenuItem(menu, desc.text, desc.shortcut, desc.command);

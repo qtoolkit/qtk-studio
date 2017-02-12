@@ -97,6 +97,7 @@ var ShapeManager = (function (_super) {
         var selectedShapes = this.getSelectedRectShapes(true);
         if (selectedShapes.length < 3)
             return true;
+        selectedShapes.sort(function (a, b) { return a.y - b.y; });
         var first = selectedShapes[0];
         var last = selectedShapes[selectedShapes.length - 1];
         var y = first.y;
@@ -107,8 +108,8 @@ var ShapeManager = (function (_super) {
         var gap = (last.y + last.h - first.y - h) / (selectedShapes.length - 1);
         selectedShapes.forEach(function (iter) {
             iter.saveXYWH();
-            y += iter.h + gap;
             iter.y = y;
+            y += iter.h + gap;
             cmd.add(cmd_move_resize_1.CmdMoveResize.create(iter));
         });
         this.execCmd(cmd);
@@ -122,6 +123,7 @@ var ShapeManager = (function (_super) {
         var selectedShapes = this.getSelectedRectShapes(true);
         if (selectedShapes.length < 3)
             return true;
+        selectedShapes.sort(function (a, b) { return a.x - b.x; });
         var first = selectedShapes[0];
         var last = selectedShapes[selectedShapes.length - 1];
         var x = first.x;
@@ -148,11 +150,27 @@ var ShapeManager = (function (_super) {
         });
     };
     /**
+     * 让当前被选中的Rect Shapes以第一个被选中的shape的水平中心为基准对齐。
+     */
+    ShapeManager.prototype.alignCenter = function () {
+        return this.align(function (iter, first) {
+            iter.x = first.x + (first.w >> 1) - (iter.w >> 1);
+        });
+    };
+    /**
      * 让当前被选中的Rect Shapes以第一个被选中的shape的顶部为基准对齐。
      */
     ShapeManager.prototype.alignTop = function () {
         return this.align(function (iter, first) {
             iter.y = first.y;
+        });
+    };
+    /**
+     * 让当前被选中的Rect Shapes以第一个被选中的shape的垂直中心为基准对齐。
+     */
+    ShapeManager.prototype.alignMiddle = function () {
+        return this.align(function (iter, first) {
+            iter.y = first.y + (first.h >> 1) - (iter.h >> 1);
         });
     };
     /**

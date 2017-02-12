@@ -13,6 +13,7 @@ export declare class GroupShape extends RectShape {
      * 当前的接受指针事件和按键事件的Shape。
      */
     target: IShape;
+    private selectedRectShapes;
     constructor(type?: string);
     /**
      * 通过名称查找其容纳的子Shapes。

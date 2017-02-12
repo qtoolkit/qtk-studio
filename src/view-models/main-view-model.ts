@@ -67,6 +67,8 @@ export class MainViewModel extends ViewModel {
 		this.registerDelegateCommand("align-right", this.alignRight, this.canAlign);
 		this.registerDelegateCommand("align-top", this.alignTop, this.canAlign);
 		this.registerDelegateCommand("align-bottom", this.alignBottom, this.canAlign);
+		this.registerDelegateCommand("align-center", this.alignCenter, this.canAlign);
+		this.registerDelegateCommand("align-middle", this.alignMiddle, this.canAlign);
 		this.registerDelegateCommand("align-width", this.alignToSameWidth, this.canAlign);
 		this.registerDelegateCommand("align-height", this.alignToSameHeight, this.canAlign);
 		this.registerDelegateCommand("align-dist-h", this.alignDistH, this.canDistribute);
@@ -203,6 +205,14 @@ export class MainViewModel extends ViewModel {
 	
 	public canAlign() : boolean {
 		return this.countSelectedWidget() > 1;
+	}
+
+	public alignMiddle() : boolean {
+		return this.model.alignMiddle();
+	}
+
+	public alignCenter() : boolean {
+		return this.model.alignCenter();
 	}
 
 	public alignLeft() : boolean {

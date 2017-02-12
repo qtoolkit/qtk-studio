@@ -107,26 +107,44 @@ exports.MainCmdsDesc = {
     },
     "Arrange": {
         "align-left": {
+            toolbar: true,
             text: "Align Left",
-            icon: null,
+            icon: "align-left",
             command: "align-left",
             shortcut: "Ctrl+Shift+L"
         },
+        "align-center": {
+            toolbar: true,
+            text: "Align Center",
+            icon: "align-center",
+            command: "align-center",
+            shortcut: "Ctrl+Shift+C"
+        },
         "align-right": {
+            toolbar: true,
             text: "Align Right",
-            icon: null,
+            icon: "align-right",
             command: "align-right",
             shortcut: "Ctrl+Shift+R"
         },
         "align-top": {
+            toolbar: true,
             text: "Align Top",
-            icon: null,
+            icon: "align-top",
             command: "align-top",
             shortcut: "Ctrl+Shift+T"
         },
+        "align-middle": {
+            toolbar: true,
+            text: "Align Middle",
+            icon: "align-middle",
+            command: "align-middle",
+            shortcut: "Ctrl+Shift+M"
+        },
         "align-bottom": {
+            toolbar: true,
             text: "Align Bottom",
-            icon: null,
+            icon: "align-bottom",
             command: "align-bottom",
             shortcut: "Ctrl+Shift+B"
         },

@@ -33,6 +33,7 @@ var MainToolBar = (function (_super) {
                     }
                 }
             }
+            this.addSpacer(10);
         }
     };
     MainToolBar.prototype.onInit = function () {

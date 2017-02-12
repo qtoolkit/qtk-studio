@@ -18,6 +18,8 @@ export class GroupShape extends RectShape {
      */
     public target : IShape;
 
+    private selectedRectShapes : Array<RectShape>;
+
     constructor(type?:string) {
         super(type);
         this.shapes = [];
@@ -222,29 +224,47 @@ export class GroupShape extends RectShape {
 		this.translatePointEvent(evt);
         this.target = this.findShapeByPoint(evt.localX, evt.localY);
         if(this.target) {
-            this.target.onPointerDown(evt);
+            this.selectedRectShapes = this.getSelectedRectShapes(false);
+            if(this.countSelectedShapes() === 1) {
+                this.target.onPointerDown(evt);
+            }else if(this.selectedRectShapes){
+                this.selectedRectShapes.forEach((iter:RectShape) => iter.saveXYWH());
+            }
         }
         this.untranslatePointEvent(evt);
     }
     
 	public onPointerMove(evt:Events.PointerEvent) {
         if(this.target) {
-		    this.translatePointEvent(evt);
-            this.target.onPointerMove(evt);
-            this.untranslatePointEvent(evt);
+            var dx = evt.dx;
+            var dy = evt.dy;
+
+            if(this.countSelectedShapes() === 1) {
+                this.translatePointEvent(evt);
+                this.target.onPointerMove(evt);
+                this.untranslatePointEvent(evt);
+            }else if(this.selectedRectShapes && this.selectedRectShapes.length > 0) {
+                this.selectedRectShapes.forEach((iter:RectShape) => {
+                    iter.moveResize(iter.xSave+dx, iter.ySave+dy, iter.w, iter.h);
+                });
+            }
         }
     }
 
 	public onPointerUp(evt:Events.PointerEvent) {
         if(this.target) {
-		    this.translatePointEvent(evt);
-            this.target.onPointerUp(evt);
-            this.untranslatePointEvent(evt);
+            if(this.countSelectedShapes() === 1) {
+		        this.translatePointEvent(evt);
+                this.target.onPointerUp(evt);
+                this.untranslatePointEvent(evt);
+            }else if(this.selectedRectShapes){
+                this.selectedRectShapes = null;
+            }
         }
     }  
 
     public onClick(evt:Events.PointerEvent) {
-        if(evt.dx > 0 && evt.dy > 0) {
+        if(Math.abs(evt.dx) > 0 && Math.abs(evt.dy) > 0) {
             return;
         }
         

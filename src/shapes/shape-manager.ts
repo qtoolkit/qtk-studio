@@ -110,6 +110,9 @@ export class ShapeManager extends GroupShape {
 		var cmd = CmdComposite.create();
 		var selectedShapes = this.getSelectedRectShapes(true);
 		if(selectedShapes.length < 3) return true;
+		
+		selectedShapes.sort((a:RectShape, b:RectShape) => a.y - b.y);
+
 		var first = selectedShapes[0];
 		var last = selectedShapes[selectedShapes.length-1];
 
@@ -122,8 +125,8 @@ export class ShapeManager extends GroupShape {
 		
 		selectedShapes.forEach((iter:RectShape) => {
 			iter.saveXYWH();
-			y += iter.h + gap;
 			iter.y = y;
+			y += iter.h + gap;
 			cmd.add(CmdMoveResize.create(iter));
 		});
 
@@ -139,6 +142,9 @@ export class ShapeManager extends GroupShape {
 		var cmd = CmdComposite.create();
 		var selectedShapes = this.getSelectedRectShapes(true);
 		if(selectedShapes.length < 3) return true;
+		
+		selectedShapes.sort((a:RectShape, b:RectShape) => a.x - b.x);
+		
 		var first = selectedShapes[0];
 		var last = selectedShapes[selectedShapes.length-1];
 
@@ -171,6 +177,15 @@ export class ShapeManager extends GroupShape {
 	}
 
 	/**
+	 * 让当前被选中的Rect Shapes以第一个被选中的shape的水平中心为基准对齐。
+	 */	
+	public alignCenter() {
+		return this.align((iter:RectShape, first:RectShape) => {
+			iter.x = first.x+(first.w>>1) - (iter.w >> 1);
+		});
+	}
+
+	/**
 	 * 让当前被选中的Rect Shapes以第一个被选中的shape的顶部为基准对齐。
 	 */	
 	public alignTop() {
@@ -179,6 +194,14 @@ export class ShapeManager extends GroupShape {
 		});
 	}
 	
+	/**
+	 * 让当前被选中的Rect Shapes以第一个被选中的shape的垂直中心为基准对齐。
+	 */	
+	public alignMiddle() {
+		return this.align((iter:RectShape, first:RectShape) => {
+			iter.y = first.y+(first.h>>1) - (iter.h>>1);
+		});
+	}
 	/**
 	 * 让当前被选中的Rect Shapes以第一个被选中的shape的右边为基准对齐。
 	 */	

@@ -50,9 +50,17 @@ export declare class ShapeManager extends GroupShape {
      */
     alignLeft(): boolean;
     /**
+     * 让当前被选中的Rect Shapes以第一个被选中的shape的水平中心为基准对齐。
+     */
+    alignCenter(): boolean;
+    /**
      * 让当前被选中的Rect Shapes以第一个被选中的shape的顶部为基准对齐。
      */
     alignTop(): boolean;
+    /**
+     * 让当前被选中的Rect Shapes以第一个被选中的shape的垂直中心为基准对齐。
+     */
+    alignMiddle(): boolean;
     /**
      * 让当前被选中的Rect Shapes以第一个被选中的shape的右边为基准对齐。
      */

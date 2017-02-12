@@ -28,6 +28,7 @@ export class MainToolBar extends ToolBar {
                     }
                 }
             }
+            this.addSpacer(10);
         }
     } 
 

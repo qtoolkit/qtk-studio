@@ -54,6 +54,8 @@ var MainViewModel = (function (_super) {
         this.registerDelegateCommand("align-right", this.alignRight, this.canAlign);
         this.registerDelegateCommand("align-top", this.alignTop, this.canAlign);
         this.registerDelegateCommand("align-bottom", this.alignBottom, this.canAlign);
+        this.registerDelegateCommand("align-center", this.alignCenter, this.canAlign);
+        this.registerDelegateCommand("align-middle", this.alignMiddle, this.canAlign);
         this.registerDelegateCommand("align-width", this.alignToSameWidth, this.canAlign);
         this.registerDelegateCommand("align-height", this.alignToSameHeight, this.canAlign);
         this.registerDelegateCommand("align-dist-h", this.alignDistH, this.canDistribute);
@@ -160,6 +162,12 @@ var MainViewModel = (function (_super) {
     };
     MainViewModel.prototype.canAlign = function () {
         return this.countSelectedWidget() > 1;
+    };
+    MainViewModel.prototype.alignMiddle = function () {
+        return this.model.alignMiddle();
+    };
+    MainViewModel.prototype.alignCenter = function () {
+        return this.model.alignCenter();
     };
     MainViewModel.prototype.alignLeft = function () {
         return this.model.alignLeft();

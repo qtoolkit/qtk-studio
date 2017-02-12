@@ -14,7 +14,7 @@ export class MainModel extends ShapeManager {
 
 	public doDraw(ctx:CanvasRenderingContext2D) {
         super.doDraw(ctx);
-        var rect = this.selectingRect;
+        var rect = this.selectingRect.normalize(Rect.rect);
 
         if(rect.w && rect.h) {
             ctx.beginPath();
@@ -36,6 +36,8 @@ export class MainModel extends ShapeManager {
         if(evt.pointerDown && !this.target) {
             rect.w = evt.dx;
             rect.h = evt.dy;
+            
+            rect = rect.normalize(Rect.rect);
             this.selectShapesInRect(rect);
         }
     }

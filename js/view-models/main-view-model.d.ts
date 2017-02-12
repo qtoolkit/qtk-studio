@@ -35,6 +35,8 @@ export declare class MainViewModel extends ViewModel {
     openDoc(docName: string): boolean;
     removeDoc(docName: string): boolean;
     canAlign(): boolean;
+    alignMiddle(): boolean;
+    alignCenter(): boolean;
     alignLeft(): boolean;
     alignTop(): boolean;
     alignRight(): boolean;

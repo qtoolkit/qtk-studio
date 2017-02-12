@@ -416,10 +416,24 @@ var app =
 /***/ function(module, exports) {
 
 	"use strict";
+	/**
+	 * @class Rect
+	 * 用左上角坐标、宽度和高度来描述一个矩形区域。
+	 */
 	var Rect = (function () {
 	    function Rect(x, y, w, h) {
 	        this.init(x, y, w, h);
 	    }
+	    /**
+	     * @method init
+	     * 初始化Rect。
+	     * @param {number} x 左上角X坐标。
+	     * @param {number} y 左上角Y坐标。
+	     * @param {number} w 宽度。
+	     * @param {number} h 高度。
+	     *
+	     * return {Rect} Rect自己。
+	     */
 	    Rect.prototype.init = function (x, y, w, h) {
 	        this.x = x;
 	        this.y = y;
@@ -429,15 +443,33 @@ var app =
 	    };
 	    Rect.prototype.dispose = function () {
 	    };
+	    /**
+	     * @method clone
+	     * 克隆。
+	     */
 	    Rect.prototype.clone = function () {
 	        return Rect.create(this.x, this.y, this.w, this.h);
 	    };
+	    /**
+	     * @method equal
+	     * 判断两个Rect的区域是否相同。
+	     */
 	    Rect.prototype.equal = function (other) {
 	        return this.x === other.x && this.y === other.y && this.w === other.w && this.h === other.h;
 	    };
+	    /**
+	     * @method copy
+	     * 拷贝另外一个Rect的属性到当前的Rect。
+	     */
 	    Rect.prototype.copy = function (other) {
 	        return this.init(other.x, other.y, other.w, other.h);
 	    };
+	    /**
+	     * @method merge
+	     * 扩展当前的Rect去包含指定的Rect。
+	     *
+	     * @return {Rect} Rect本身。
+	     */
 	    Rect.prototype.merge = function (other) {
 	        var x = Math.min(this.x, other.x);
 	        var y = Math.min(this.y, other.y);
@@ -447,8 +479,29 @@ var app =
 	        this.y = y;
 	        return this;
 	    };
+	    /**
+	     * @method containsPoint
+	     * 判断Rect是否包含指定的点。
+	     */
 	    Rect.prototype.containsPoint = function (x, y) {
 	        return x >= this.x && x < (this.x + this.w) && y >= this.y && y < (this.y + this.h);
+	    };
+	    /**
+	     * @method normalize
+	     * 规范化Rect，让w/h总是非负的，但表示的区域不变。
+	     * @param {Rect} out 保存规范化之后的Rect，如果为空，则直接修改Rect本身。
+	     * @return {Rect} 规范化之后的Rect。
+	     */
+	    Rect.prototype.normalize = function (out) {
+	        var x = this.w > 0 ? this.x : (this.x + this.w);
+	        var y = this.h > 0 ? this.y : (this.y + this.h);
+	        var w = Math.abs(this.w);
+	        var h = Math.abs(this.h);
+	        if (!out) {
+	            out = this;
+	        }
+	        out.init(x, y, w, h);
+	        return out;
 	    };
 	    Rect.create = function (x, y, w, h) {
 	        var r = new Rect(x || 0, y || 0, w || 0, h || 0);
@@ -7141,7 +7194,7 @@ var app =
 	        });
 	    };
 	    Widget.prototype.hitTest = function (x, y) {
-	        return this.doHitTest(x, y, rect_1.Rect.rect.init(0, 0, this.w, this.h));
+	        return this.doHitTest(x, y, rect_1.Rect.rect.init(0, 0, this.w + 1, this.h + 1));
 	    };
 	    Widget.prototype.doHitTest = function (x, y, r) {
 	        return r.containsPoint(x, y) ? HitTestResult.MM : HitTestResult.NONE;
@@ -61967,7 +62020,7 @@ var app =
 	        function addItem(key, descs) {
 	            var w = key.length > 5 ? 70 : 50;
 	            bar.addItem(key, function (menu) {
-	                menu.w = 200;
+	                menu.w = 240;
 	                for (var cmd in descs) {
 	                    var desc = descs[cmd];
 	                    bar.addMenuItem(menu, desc.text, desc.shortcut, desc.command);
@@ -62108,26 +62161,44 @@ var app =
 	    },
 	    "Arrange": {
 	        "align-left": {
+	            toolbar: true,
 	            text: "Align Left",
-	            icon: null,
+	            icon: "align-left",
 	            command: "align-left",
 	            shortcut: "Ctrl+Shift+L"
 	        },
+	        "align-center": {
+	            toolbar: true,
+	            text: "Align Center",
+	            icon: "align-center",
+	            command: "align-center",
+	            shortcut: "Ctrl+Shift+C"
+	        },
 	        "align-right": {
+	            toolbar: true,
 	            text: "Align Right",
-	            icon: null,
+	            icon: "align-right",
 	            command: "align-right",
 	            shortcut: "Ctrl+Shift+R"
 	        },
 	        "align-top": {
+	            toolbar: true,
 	            text: "Align Top",
-	            icon: null,
+	            icon: "align-top",
 	            command: "align-top",
 	            shortcut: "Ctrl+Shift+T"
 	        },
+	        "align-middle": {
+	            toolbar: true,
+	            text: "Align Middle",
+	            icon: "align-middle",
+	            command: "align-middle",
+	            shortcut: "Ctrl+Shift+M"
+	        },
 	        "align-bottom": {
+	            toolbar: true,
 	            text: "Align Bottom",
-	            icon: null,
+	            icon: "align-bottom",
 	            command: "align-bottom",
 	            shortcut: "Ctrl+Shift+B"
 	        },
@@ -62212,6 +62283,7 @@ var app =
 	                    }
 	                }
 	            }
+	            this.addSpacer(10);
 	        }
 	    };
 	    MainToolBar.prototype.onInit = function () {
@@ -62491,6 +62563,8 @@ var app =
 	        this.registerDelegateCommand("align-right", this.alignRight, this.canAlign);
 	        this.registerDelegateCommand("align-top", this.alignTop, this.canAlign);
 	        this.registerDelegateCommand("align-bottom", this.alignBottom, this.canAlign);
+	        this.registerDelegateCommand("align-center", this.alignCenter, this.canAlign);
+	        this.registerDelegateCommand("align-middle", this.alignMiddle, this.canAlign);
 	        this.registerDelegateCommand("align-width", this.alignToSameWidth, this.canAlign);
 	        this.registerDelegateCommand("align-height", this.alignToSameHeight, this.canAlign);
 	        this.registerDelegateCommand("align-dist-h", this.alignDistH, this.canDistribute);
@@ -62597,6 +62671,12 @@ var app =
 	    };
 	    MainViewModel.prototype.canAlign = function () {
 	        return this.countSelectedWidget() > 1;
+	    };
+	    MainViewModel.prototype.alignMiddle = function () {
+	        return this.model.alignMiddle();
+	    };
+	    MainViewModel.prototype.alignCenter = function () {
+	        return this.model.alignCenter();
 	    };
 	    MainViewModel.prototype.alignLeft = function () {
 	        return this.model.alignLeft();
@@ -62969,7 +63049,7 @@ var app =
 	    }
 	    MainModel.prototype.doDraw = function (ctx) {
 	        _super.prototype.doDraw.call(this, ctx);
-	        var rect = this.selectingRect;
+	        var rect = this.selectingRect.normalize(qtk_1.Rect.rect);
 	        if (rect.w && rect.h) {
 	            ctx.beginPath();
 	            ctx.lineWidth = 1;
@@ -62988,6 +63068,7 @@ var app =
 	        if (evt.pointerDown && !this.target) {
 	            rect.w = evt.dx;
 	            rect.h = evt.dy;
+	            rect = rect.normalize(qtk_1.Rect.rect);
 	            this.selectShapesInRect(rect);
 	        }
 	    };
@@ -63213,6 +63294,7 @@ var app =
 	        var selectedShapes = this.getSelectedRectShapes(true);
 	        if (selectedShapes.length < 3)
 	            return true;
+	        selectedShapes.sort(function (a, b) { return a.y - b.y; });
 	        var first = selectedShapes[0];
 	        var last = selectedShapes[selectedShapes.length - 1];
 	        var y = first.y;
@@ -63223,8 +63305,8 @@ var app =
 	        var gap = (last.y + last.h - first.y - h) / (selectedShapes.length - 1);
 	        selectedShapes.forEach(function (iter) {
 	            iter.saveXYWH();
-	            y += iter.h + gap;
 	            iter.y = y;
+	            y += iter.h + gap;
 	            cmd.add(cmd_move_resize_1.CmdMoveResize.create(iter));
 	        });
 	        this.execCmd(cmd);
@@ -63238,6 +63320,7 @@ var app =
 	        var selectedShapes = this.getSelectedRectShapes(true);
 	        if (selectedShapes.length < 3)
 	            return true;
+	        selectedShapes.sort(function (a, b) { return a.x - b.x; });
 	        var first = selectedShapes[0];
 	        var last = selectedShapes[selectedShapes.length - 1];
 	        var x = first.x;
@@ -63264,11 +63347,27 @@ var app =
 	        });
 	    };
 	    /**
+	     * 让当前被选中的Rect Shapes以第一个被选中的shape的水平中心为基准对齐。
+	     */
+	    ShapeManager.prototype.alignCenter = function () {
+	        return this.align(function (iter, first) {
+	            iter.x = first.x + (first.w >> 1) - (iter.w >> 1);
+	        });
+	    };
+	    /**
 	     * 让当前被选中的Rect Shapes以第一个被选中的shape的顶部为基准对齐。
 	     */
 	    ShapeManager.prototype.alignTop = function () {
 	        return this.align(function (iter, first) {
 	            iter.y = first.y;
+	        });
+	    };
+	    /**
+	     * 让当前被选中的Rect Shapes以第一个被选中的shape的垂直中心为基准对齐。
+	     */
+	    ShapeManager.prototype.alignMiddle = function () {
+	        return this.align(function (iter, first) {
+	            iter.y = first.y + (first.h >> 1) - (iter.h >> 1);
 	        });
 	    };
 	    /**
@@ -63523,26 +63622,46 @@ var app =
 	        this.translatePointEvent(evt);
 	        this.target = this.findShapeByPoint(evt.localX, evt.localY);
 	        if (this.target) {
-	            this.target.onPointerDown(evt);
+	            this.selectedRectShapes = this.getSelectedRectShapes(false);
+	            if (this.countSelectedShapes() === 1) {
+	                this.target.onPointerDown(evt);
+	            }
+	            else if (this.selectedRectShapes) {
+	                this.selectedRectShapes.forEach(function (iter) { return iter.saveXYWH(); });
+	            }
 	        }
 	        this.untranslatePointEvent(evt);
 	    };
 	    GroupShape.prototype.onPointerMove = function (evt) {
 	        if (this.target) {
-	            this.translatePointEvent(evt);
-	            this.target.onPointerMove(evt);
-	            this.untranslatePointEvent(evt);
+	            var dx = evt.dx;
+	            var dy = evt.dy;
+	            if (this.countSelectedShapes() === 1) {
+	                this.translatePointEvent(evt);
+	                this.target.onPointerMove(evt);
+	                this.untranslatePointEvent(evt);
+	            }
+	            else if (this.selectedRectShapes && this.selectedRectShapes.length > 0) {
+	                this.selectedRectShapes.forEach(function (iter) {
+	                    iter.moveResize(iter.xSave + dx, iter.ySave + dy, iter.w, iter.h);
+	                });
+	            }
 	        }
 	    };
 	    GroupShape.prototype.onPointerUp = function (evt) {
 	        if (this.target) {
-	            this.translatePointEvent(evt);
-	            this.target.onPointerUp(evt);
-	            this.untranslatePointEvent(evt);
+	            if (this.countSelectedShapes() === 1) {
+	                this.translatePointEvent(evt);
+	                this.target.onPointerUp(evt);
+	                this.untranslatePointEvent(evt);
+	            }
+	            else if (this.selectedRectShapes) {
+	                this.selectedRectShapes = null;
+	            }
 	        }
 	    };
 	    GroupShape.prototype.onClick = function (evt) {
-	        if (evt.dx > 0 && evt.dy > 0) {
+	        if (Math.abs(evt.dx) > 0 && Math.abs(evt.dy) > 0) {
 	            return;
 	        }
 	        this.translatePointEvent(evt);

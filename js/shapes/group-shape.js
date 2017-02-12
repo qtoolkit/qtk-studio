@@ -187,26 +187,46 @@ var GroupShape = (function (_super) {
         this.translatePointEvent(evt);
         this.target = this.findShapeByPoint(evt.localX, evt.localY);
         if (this.target) {
-            this.target.onPointerDown(evt);
+            this.selectedRectShapes = this.getSelectedRectShapes(false);
+            if (this.countSelectedShapes() === 1) {
+                this.target.onPointerDown(evt);
+            }
+            else if (this.selectedRectShapes) {
+                this.selectedRectShapes.forEach(function (iter) { return iter.saveXYWH(); });
+            }
         }
         this.untranslatePointEvent(evt);
     };
     GroupShape.prototype.onPointerMove = function (evt) {
         if (this.target) {
-            this.translatePointEvent(evt);
-            this.target.onPointerMove(evt);
-            this.untranslatePointEvent(evt);
+            var dx = evt.dx;
+            var dy = evt.dy;
+            if (this.countSelectedShapes() === 1) {
+                this.translatePointEvent(evt);
+                this.target.onPointerMove(evt);
+                this.untranslatePointEvent(evt);
+            }
+            else if (this.selectedRectShapes && this.selectedRectShapes.length > 0) {
+                this.selectedRectShapes.forEach(function (iter) {
+                    iter.moveResize(iter.xSave + dx, iter.ySave + dy, iter.w, iter.h);
+                });
+            }
         }
     };
     GroupShape.prototype.onPointerUp = function (evt) {
         if (this.target) {
-            this.translatePointEvent(evt);
-            this.target.onPointerUp(evt);
-            this.untranslatePointEvent(evt);
+            if (this.countSelectedShapes() === 1) {
+                this.translatePointEvent(evt);
+                this.target.onPointerUp(evt);
+                this.untranslatePointEvent(evt);
+            }
+            else if (this.selectedRectShapes) {
+                this.selectedRectShapes = null;
+            }
         }
     };
     GroupShape.prototype.onClick = function (evt) {
-        if (evt.dx > 0 && evt.dy > 0) {
+        if (Math.abs(evt.dx) > 0 && Math.abs(evt.dy) > 0) {
             return;
         }
         this.translatePointEvent(evt);

@@ -106,26 +106,44 @@ export declare var MainCmdsDesc: {
     };
     "Arrange": {
         "align-left": {
+            toolbar: boolean;
             text: string;
-            icon: any;
+            icon: string;
+            command: string;
+            shortcut: string;
+        };
+        "align-center": {
+            toolbar: boolean;
+            text: string;
+            icon: string;
             command: string;
             shortcut: string;
         };
         "align-right": {
+            toolbar: boolean;
             text: string;
-            icon: any;
+            icon: string;
             command: string;
             shortcut: string;
         };
         "align-top": {
+            toolbar: boolean;
             text: string;
-            icon: any;
+            icon: string;
+            command: string;
+            shortcut: string;
+        };
+        "align-middle": {
+            toolbar: boolean;
+            text: string;
+            icon: string;
             command: string;
             shortcut: string;
         };
         "align-bottom": {
+            toolbar: boolean;
             text: string;
-            icon: any;
+            icon: string;
             command: string;
             shortcut: string;
         };

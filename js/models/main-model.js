@@ -24,7 +24,7 @@ var MainModel = (function (_super) {
     }
     MainModel.prototype.doDraw = function (ctx) {
         _super.prototype.doDraw.call(this, ctx);
-        var rect = this.selectingRect;
+        var rect = this.selectingRect.normalize(qtk_1.Rect.rect);
         if (rect.w && rect.h) {
             ctx.beginPath();
             ctx.lineWidth = 1;
@@ -43,6 +43,7 @@ var MainModel = (function (_super) {
         if (evt.pointerDown && !this.target) {
             rect.w = evt.dx;
             rect.h = evt.dy;
+            rect = rect.normalize(qtk_1.Rect.rect);
             this.selectShapesInRect(rect);
         }
     };
