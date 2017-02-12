@@ -1,14 +1,14 @@
 {
   "name": "qtk-studio",
   "version": "1.0.0",
-  "description": "studio for qtoolkit by qtoolkit",
+  "description": "qtk ui editor.",
   "main": "js/index.js",
   "types": "js/index.d.ts",
   "scripts": {
     "start": "node app.js",
     "clean": "rm -rf doc index.js coverage/ src/*.js",
     "test": "tsc && webpack && ./node_modules/karma/bin/karma start",
-    "build": "tsc && webpack && cp -fv index.js www",
+    "build": "tsc && webpack",
     "gendoc": "./node_modules/typedoc/bin/typedoc --mode modules --out doc src/"
   },
   "repository": {
@@ -38,7 +38,6 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
-    "qtk": "git+https://github.com/qtoolkit/qtk.git",
-    "save-as": "^0.1.7"
+    "qtk": "git+https://github.com/qtoolkit/qtk.git"
   }
 }

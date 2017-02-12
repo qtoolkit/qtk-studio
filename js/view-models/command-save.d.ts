@@ -1,11 +1,11 @@
-import { StudioViewModel } from "./studio-view-model";
+import { MainViewModel } from "./main-view-model";
 import { ICommand, InputInfo } from "qtk";
 export declare class CommandSave implements ICommand {
     protected _isSaveAs: boolean;
     protected _inputInfo: InputInfo;
-    protected _viewModel: StudioViewModel;
-    constructor(viewModel: StudioViewModel, isSaveAs: boolean);
+    protected _viewModel: MainViewModel;
+    constructor(viewModel: MainViewModel, isSaveAs: boolean);
     canExecute(): boolean;
     execute(args: any): boolean;
-    static create(viewModel: StudioViewModel, isSaveAs: boolean): ICommand;
+    static create(viewModel: MainViewModel, isSaveAs: boolean): ICommand;
 }

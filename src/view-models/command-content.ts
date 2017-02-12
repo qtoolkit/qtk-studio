@@ -1,11 +1,11 @@
 import {ICommand} from "qtk";
-import {StudioViewModel} from "./studio-view-model";
+import {MainViewModel} from "./main-view-model";
 
 export class CommandContent implements ICommand {
 	protected _helpURL : string;
-	protected _viewModel : StudioViewModel;
+	protected _viewModel : MainViewModel;
 
-	constructor(viewModel:StudioViewModel, helpURL:string) {
+	constructor(viewModel:MainViewModel, helpURL:string) {
 		this._viewModel = viewModel;
 		this._helpURL = helpURL;
 	}
@@ -20,7 +20,7 @@ export class CommandContent implements ICommand {
 		return true;
 	}
 
-	public static create(viewModel:StudioViewModel, helpURL:string) : ICommand {
-		return new CommandContent(viewModel, helpURL);
+	public static create(viewModel:MainViewModel) : ICommand {
+		return new CommandContent(viewModel, "https://github.com/qtoolkit/qtk");
 	}
 };

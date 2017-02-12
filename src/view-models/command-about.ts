@@ -1,11 +1,11 @@
-import {StudioViewModel} from "./studio-view-model";
+import {MainViewModel} from "./main-view-model";
 import {ICommand, InteractionRequest, PropsInfo, PagePropsDesc} from "qtk";
 
 export class CommandAbout implements ICommand {
 	protected _propsInfo : PropsInfo;
-	protected _viewModel : StudioViewModel;
+	protected _viewModel : MainViewModel;
 
-	constructor(viewModel:StudioViewModel, propsInfo:PropsInfo) {
+	constructor(viewModel:MainViewModel, propsInfo:PropsInfo) {
 		this._viewModel = viewModel;
 		this._propsInfo = propsInfo;
 	}
@@ -21,17 +21,17 @@ export class CommandAbout implements ICommand {
 		return true;
 	}
 
-	public static create(viewModel:StudioViewModel) : ICommand {
+	public static create(viewModel:MainViewModel) : ICommand {
 		var data = {
 			author: "Li XianJing",
 			email: "xianjimli@hotmail.com",
-			home: "https://github.com/qtoolkit/qtk",
+			home: "https://github.com/qtoolkit/qtk"
 		};
 		
 		var descJson = [
 			{type:"text-readonly", name:"Author", path:"author"},
 			{type:"link", name:"Email", path:"email"},
-			{type:"link", name:"Home", path:"home"},
+			{type:"link", name:"Home", path:"home"}
 		];
 
 		var pagePropsDesc = PagePropsDesc.create("About", descJson);
@@ -40,3 +40,4 @@ export class CommandAbout implements ICommand {
 		return new CommandAbout(viewModel, propsInfo);
 	}
 };
+

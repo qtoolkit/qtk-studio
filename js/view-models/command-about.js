@@ -17,12 +17,12 @@ var CommandAbout = (function () {
         var data = {
             author: "Li XianJing",
             email: "xianjimli@hotmail.com",
-            home: "https://github.com/qtoolkit/qtk",
+            home: "https://github.com/qtoolkit/qtk"
         };
         var descJson = [
             { type: "text-readonly", name: "Author", path: "author" },
             { type: "link", name: "Email", path: "email" },
-            { type: "link", name: "Home", path: "home" },
+            { type: "link", name: "Home", path: "home" }
         ];
         var pagePropsDesc = qtk_1.PagePropsDesc.create("About", descJson);
         var propsInfo = qtk_1.PropsInfo.create(pagePropsDesc, data, false, 300);

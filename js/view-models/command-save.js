@@ -7,13 +7,16 @@ var CommandSave = (function () {
         this._inputInfo = qtk_1.InputInfo.create("Please input file name:", null);
     }
     CommandSave.prototype.canExecute = function () {
-        return false;
+        return true;
     };
     CommandSave.prototype.execute = function (args) {
         var viewModel = this._viewModel;
-        var fileName = null;
-        if (!fileName || this._isSaveAs) {
+        var fileName = viewModel.getDocName();
+        if (viewModel.isNoName(fileName) || this._isSaveAs) {
             qtk_1.InteractionRequest.input(this._inputInfo, function (ret) {
+                if (ret.value) {
+                    viewModel.saveDoc(ret.value);
+                }
             });
         }
         else {

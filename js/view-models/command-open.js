@@ -6,7 +6,8 @@ var CommandOpen = (function () {
     }
     CommandOpen.prototype.canExecute = function () {
         var viewModel = this._viewModel;
-        return true;
+        var docList = viewModel.getDocList();
+        return docList && docList.length > 0;
     };
     CommandOpen.prototype.execute = function (args) {
         var viewModel = this._viewModel;

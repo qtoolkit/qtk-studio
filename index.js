@@ -46,9 +46,9 @@ var app =
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var studio_app_1 = __webpack_require__(1);
+	var app_1 = __webpack_require__(1);
 	function run() {
-	    studio_app_1.StudioApp.run();
+	    app_1.App.run();
 	}
 	exports.run = run;
 	//# sourceMappingURL=index.js.map
@@ -64,32 +64,31 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var qtk_1 = __webpack_require__(2);
-	var main_window_1 = __webpack_require__(365);
-	var studio_view_model_1 = __webpack_require__(368);
-	var themeDataURL = "/www/assets/theme/default/theme.json";
-	var StudioApp = (function (_super) {
-	    __extends(StudioApp, _super);
-	    function StudioApp() {
-	        _super.apply(this, arguments);
+	var main_model_1 = __webpack_require__(370);
+	var main_window_1 = __webpack_require__(371);
+	var main_view_model_1 = __webpack_require__(372);
+	var appThemeDataURL = "https://qtoolkit.github.io/qtk-todo-mvc/assets/theme/default/theme.json";
+	var themeDataURL = "https://qtoolkit.github.io/demos/assets/theme/default/theme.json";
+	var App = (function (_super) {
+	    __extends(App, _super);
+	    function App() {
+	        return _super.apply(this, arguments) || this;
 	    }
-	    StudioApp.prototype.createViewModel = function () {
-	        return studio_view_model_1.StudioViewModel.create({});
-	    };
-	    StudioApp.prototype.onReady = function () {
-	        var viewModel = this.createViewModel();
+	    App.prototype.onReady = function () {
+	        var viewModel = main_view_model_1.MainViewModel.create(main_model_1.MainModel.create());
 	        var mainWindow = main_window_1.MainWindow.create({ app: this, viewModel: viewModel }).maximize();
 	    };
-	    StudioApp.run = function () {
-	        var app = new StudioApp("qtk-studio");
-	        app.init({ sysThemeDataURL: themeDataURL });
+	    App.run = function () {
+	        var app = new App("hello world");
+	        app.init({ sysThemeDataURL: themeDataURL, appThemeDataURL: appThemeDataURL });
 	        app.run();
 	        return app;
 	    };
-	    return StudioApp;
+	    return App;
 	}(qtk_1.Application));
-	exports.StudioApp = StudioApp;
+	exports.App = App;
 	;
-	//# sourceMappingURL=studio-app.js.map
+	//# sourceMappingURL=app.js.map
 
 /***/ },
 /* 2 */
@@ -112,147 +111,145 @@ var app =
 	exports.Label = label_1.Label;
 	var emitter_1 = __webpack_require__(6);
 	exports.Emitter = emitter_1.Emitter;
-	var page_1 = __webpack_require__(89);
+	var page_1 = __webpack_require__(94);
 	exports.Page = page_1.Page;
 	var key_event_1 = __webpack_require__(18);
 	exports.KeyEvent = key_event_1.KeyEvent;
-	var view_port_1 = __webpack_require__(90);
+	var view_port_1 = __webpack_require__(95);
 	exports.ViewPort = view_port_1.ViewPort;
-	var pages_1 = __webpack_require__(91);
+	var pages_1 = __webpack_require__(96);
 	exports.Pages = pages_1.Pages;
-	var main_loop_1 = __webpack_require__(92);
+	var main_loop_1 = __webpack_require__(97);
 	exports.MainLoop = main_loop_1.MainLoop;
-	var image_1 = __webpack_require__(93);
+	var image_1 = __webpack_require__(98);
 	exports.Image = image_1.Image;
-	var group_1 = __webpack_require__(94);
+	var group_1 = __webpack_require__(99);
 	exports.Group = group_1.Group;
-	var dialog_1 = __webpack_require__(95);
+	var dialog_1 = __webpack_require__(100);
 	exports.Dialog = dialog_1.Dialog;
-	var button_1 = __webpack_require__(97);
+	var button_1 = __webpack_require__(102);
 	exports.Button = button_1.Button;
-	var slider_1 = __webpack_require__(98);
+	var slider_1 = __webpack_require__(103);
 	exports.Slider = slider_1.Slider;
-	var switch_1 = __webpack_require__(100);
+	var switch_1 = __webpack_require__(105);
 	exports.Switch = switch_1.Switch;
 	var matrix_stack_1 = __webpack_require__(24);
 	exports.MatrixStack = matrix_stack_1.MatrixStack;
-	var tab_page_1 = __webpack_require__(101);
+	var tab_page_1 = __webpack_require__(106);
 	exports.TabPage = tab_page_1.TabPage;
-	var rich_text_1 = __webpack_require__(102);
+	var rich_text_1 = __webpack_require__(107);
 	exports.RichText = rich_text_1.RichText;
-	var tab_button_1 = __webpack_require__(107);
+	var tab_button_1 = __webpack_require__(112);
 	exports.TabButton = tab_button_1.TabButton;
-	var tab_control_1 = __webpack_require__(111);
+	var tab_control_1 = __webpack_require__(116);
 	exports.TabControl = tab_control_1.TabControl;
 	var image_tile_1 = __webpack_require__(9);
 	exports.ImageDrawType = image_tile_1.ImageDrawType;
 	exports.ImageTile = image_tile_1.ImageTile;
-	var rich_text_edit_1 = __webpack_require__(113);
+	var rich_text_edit_1 = __webpack_require__(118);
 	exports.RichTextEdit = rich_text_edit_1.RichTextEdit;
-	var tab_button_group_1 = __webpack_require__(112);
+	var tab_button_group_1 = __webpack_require__(117);
 	exports.TabButtonGroup = tab_button_group_1.TabButtonGroup;
-	var combo_box_1 = __webpack_require__(114);
+	var combo_box_1 = __webpack_require__(119);
 	exports.ComboBox = combo_box_1.ComboBox;
 	exports.ComboBoxEditable = combo_box_1.ComboBoxEditable;
-	var grid_view_1 = __webpack_require__(119);
+	var grid_view_1 = __webpack_require__(124);
 	exports.GridView = grid_view_1.GridView;
-	var list_view_1 = __webpack_require__(115);
+	var list_view_1 = __webpack_require__(120);
 	exports.ListView = list_view_1.ListView;
-	var tree_item_1 = __webpack_require__(121);
+	var tree_item_1 = __webpack_require__(126);
 	exports.TreeItem = tree_item_1.TreeItem;
-	var tree_view_1 = __webpack_require__(122);
+	var tree_view_1 = __webpack_require__(127);
 	exports.TreeView = tree_view_1.TreeView;
-	var application_1 = __webpack_require__(124);
+	var application_1 = __webpack_require__(129);
 	exports.Application = application_1.Application;
-	var movable_1 = __webpack_require__(168);
+	var movable_1 = __webpack_require__(172);
 	exports.Movable = movable_1.Movable;
-	var theme_manager_1 = __webpack_require__(125);
+	var theme_manager_1 = __webpack_require__(130);
 	exports.ThemeManager = theme_manager_1.ThemeManager;
-	var draggable_1 = __webpack_require__(169);
+	var draggable_1 = __webpack_require__(173);
 	exports.Draggable = draggable_1.Draggable;
-	var droppable_1 = __webpack_require__(170);
+	var droppable_1 = __webpack_require__(174);
 	exports.Droppable = droppable_1.Droppable;
-	var resizable_1 = __webpack_require__(171);
+	var resizable_1 = __webpack_require__(175);
 	exports.Resizable = resizable_1.Resizable;
 	exports.ResizableOptions = resizable_1.ResizableOptions;
-	var menu_1 = __webpack_require__(172);
+	var menu_1 = __webpack_require__(176);
 	exports.Menu = menu_1.Menu;
 	exports.MenuItem = menu_1.MenuItem;
-	var radio_button_1 = __webpack_require__(109);
+	var radio_button_1 = __webpack_require__(114);
 	exports.RadioButton = radio_button_1.RadioButton;
-	var tree_item_data_1 = __webpack_require__(123);
+	var tree_item_data_1 = __webpack_require__(128);
 	exports.TreeItemData = tree_item_data_1.TreeItemData;
-	var check_button_1 = __webpack_require__(110);
+	var check_button_1 = __webpack_require__(115);
 	exports.CheckButton = check_button_1.CheckButton;
-	var window_normal_1 = __webpack_require__(173);
+	var window_normal_1 = __webpack_require__(177);
 	exports.WindowNormal = window_normal_1.WindowNormal;
 	var widget_factory_1 = __webpack_require__(25);
 	exports.WidgetFactory = widget_factory_1.WidgetFactory;
-	var menu_bar_1 = __webpack_require__(174);
+	var menu_bar_1 = __webpack_require__(178);
 	exports.MenuBar = menu_bar_1.MenuBar;
 	exports.MenuBarItem = menu_bar_1.MenuBarItem;
-	var color_tile_1 = __webpack_require__(145);
+	var color_tile_1 = __webpack_require__(149);
 	exports.ColorTile = color_tile_1.ColorTile;
 	exports.ColorLine = color_tile_1.ColorLine;
-	var list_item_1 = __webpack_require__(117);
+	var list_item_1 = __webpack_require__(122);
 	exports.ListItem = list_item_1.ListItem;
 	exports.ListItemStyle = list_item_1.ListItemStyle;
-	var chart_view_1 = __webpack_require__(175);
+	var chart_view_1 = __webpack_require__(179);
 	exports.ChartView = chart_view_1.ChartView;
 	var graphics_1 = __webpack_require__(27);
 	exports.RoundType = graphics_1.RoundType;
 	exports.Graphics = graphics_1.Graphics;
-	var accordion_1 = __webpack_require__(332);
+	var accordion_1 = __webpack_require__(337);
 	exports.Accordion = accordion_1.Accordion;
-	var service_locator_1 = __webpack_require__(127);
-	exports.ServiceLocator = service_locator_1.ServiceLocator;
-	var ruler_1 = __webpack_require__(335);
+	var ruler_1 = __webpack_require__(340);
 	exports.VRuler = ruler_1.VRuler;
 	exports.HRuler = ruler_1.HRuler;
-	var title_content_1 = __webpack_require__(333);
+	var title_content_1 = __webpack_require__(338);
 	exports.TitleContent = title_content_1.TitleContent;
-	var title_label_1 = __webpack_require__(147);
+	var title_label_1 = __webpack_require__(151);
 	exports.TitleLabel = title_label_1.TitleLabel;
-	var title_range_1 = __webpack_require__(149);
+	var title_range_1 = __webpack_require__(153);
 	exports.TitleRange = title_range_1.TitleRange;
-	var title_vector_1 = __webpack_require__(151);
+	var title_vector_1 = __webpack_require__(155);
 	exports.TitleVector = title_vector_1.TitleVector;
-	var title_edit_1 = __webpack_require__(146);
+	var title_edit_1 = __webpack_require__(150);
 	exports.TitleEdit = title_edit_1.TitleEdit;
-	var title_slider_1 = __webpack_require__(153);
+	var title_slider_1 = __webpack_require__(157);
 	exports.TitleSlider = title_slider_1.TitleSlider;
-	var property_page_1 = __webpack_require__(141);
+	var property_page_1 = __webpack_require__(145);
 	exports.PropertyPage = property_page_1.PropertyPage;
-	var property_dialog_1 = __webpack_require__(140);
+	var property_dialog_1 = __webpack_require__(144);
 	exports.PropertyDialog = property_dialog_1.PropertyDialog;
-	var range_edit_1 = __webpack_require__(150);
+	var range_edit_1 = __webpack_require__(154);
 	exports.RangeEdit = range_edit_1.RangeEdit;
-	var vector_edit_1 = __webpack_require__(152);
+	var vector_edit_1 = __webpack_require__(156);
 	exports.VectorEdit = vector_edit_1.VectorEdit;
-	var choosable_edit_1 = __webpack_require__(156);
+	var choosable_edit_1 = __webpack_require__(160);
 	exports.ChoosableEdit = choosable_edit_1.ChoosableEdit;
-	var title_text_area_1 = __webpack_require__(154);
+	var title_text_area_1 = __webpack_require__(158);
 	exports.TitleTextArea = title_text_area_1.TitleTextArea;
-	var property_sheets_1 = __webpack_require__(336);
+	var property_sheets_1 = __webpack_require__(341);
 	exports.PropertySheets = property_sheets_1.PropertySheets;
-	var progress_bar_1 = __webpack_require__(99);
+	var progress_bar_1 = __webpack_require__(104);
 	exports.ProgressBarType = progress_bar_1.ProgressBarType;
 	exports.ProgressBar = progress_bar_1.ProgressBar;
-	var title_choosable_edit_1 = __webpack_require__(155);
+	var title_choosable_edit_1 = __webpack_require__(159);
 	exports.TitleChoosableEdit = title_choosable_edit_1.TitleChoosableEdit;
-	var dock_layouter_1 = __webpack_require__(136);
+	var dock_layouter_1 = __webpack_require__(140);
 	exports.DockLayouter = dock_layouter_1.DockLayouter;
 	exports.DockLayouterParam = dock_layouter_1.DockLayouterParam;
-	var grid_layouter_1 = __webpack_require__(120);
+	var grid_layouter_1 = __webpack_require__(125);
 	exports.GridLayouter = grid_layouter_1.GridLayouter;
 	exports.GridLayouterParam = grid_layouter_1.GridLayouterParam;
-	var list_layouter_1 = __webpack_require__(116);
+	var list_layouter_1 = __webpack_require__(121);
 	exports.ListLayouter = list_layouter_1.ListLayouter;
 	exports.ListLayouterParam = list_layouter_1.ListLayouterParam;
-	var simple_layouter_1 = __webpack_require__(118);
+	var simple_layouter_1 = __webpack_require__(123);
 	exports.SimpleLayouter = simple_layouter_1.SimpleLayouter;
 	exports.SimpleLayouterParam = simple_layouter_1.SimpleLayouterParam;
-	var linear_layouter_1 = __webpack_require__(137);
+	var linear_layouter_1 = __webpack_require__(141);
 	exports.LinearLayouter = linear_layouter_1.LinearLayouter;
 	exports.LinearLayouterParam = linear_layouter_1.LinearLayouterParam;
 	var widget_1 = __webpack_require__(21);
@@ -260,62 +257,61 @@ var app =
 	exports.WidgetState = widget_1.WidgetState;
 	exports.WidgetMode = widget_1.WidgetMode;
 	exports.HitTestResult = widget_1.HitTestResult;
-	var consts_1 = __webpack_require__(108);
+	var consts_1 = __webpack_require__(113);
 	exports.Direction = consts_1.Direction;
 	exports.Align = consts_1.Align;
 	exports.AlignH = consts_1.AlignH;
 	exports.AlignV = consts_1.AlignV;
 	exports.Orientation = consts_1.Orientation;
-	exports.Services = consts_1.Services;
-	var title_combo_box_1 = __webpack_require__(158);
+	var title_combo_box_1 = __webpack_require__(162);
 	exports.TitleComboBox = title_combo_box_1.TitleComboBox;
 	exports.TitleComboBoxEditable = title_combo_box_1.TitleComboBoxEditable;
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	exports.ButtonOption = message_box_1.ButtonOption;
 	exports.ButtonsOptions = message_box_1.ButtonsOptions;
 	exports.TitleOptions = message_box_1.TitleOptions;
 	exports.MessageBox = message_box_1.MessageBox;
-	var scroll_view_1 = __webpack_require__(103);
+	var scroll_view_1 = __webpack_require__(108);
 	exports.ScrollerBarVisibility = scroll_view_1.ScrollerBarVisibility;
 	exports.ScrollBarStyle = scroll_view_1.ScrollBarStyle;
 	exports.ScrollView = scroll_view_1.ScrollView;
-	var device_info_1 = __webpack_require__(126);
+	var device_info_1 = __webpack_require__(131);
 	exports.DeviceInfo = device_info_1.DeviceInfo;
-	var view_model_1 = __webpack_require__(159);
+	var view_model_1 = __webpack_require__(163);
 	exports.ViewModel = view_model_1.ViewModel;
-	var recyclable_creator_1 = __webpack_require__(86);
+	var recyclable_creator_1 = __webpack_require__(91);
 	exports.RecyclableCreator = recyclable_creator_1.RecyclableCreator;
-	var delegate_command_1 = __webpack_require__(337);
+	var delegate_command_1 = __webpack_require__(342);
 	exports.DelegateCommand = delegate_command_1.DelegateCommand;
-	var collection_view_model_1 = __webpack_require__(338);
+	var collection_view_model_1 = __webpack_require__(343);
 	exports.CollectionViewModel = collection_view_model_1.CollectionViewModel;
-	var delegate_value_converter_1 = __webpack_require__(339);
+	var delegate_value_converter_1 = __webpack_require__(344);
 	exports.DelegateValueConverter = delegate_value_converter_1.DelegateValueConverter;
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	exports.WidgetRecyclableCreator = widget_recyclable_creator_1.WidgetRecyclableCreator;
-	var ivalidation_rule_1 = __webpack_require__(163);
+	var ivalidation_rule_1 = __webpack_require__(167);
 	exports.ValidationResult = ivalidation_rule_1.ValidationResult;
-	var delegate_validation_rule_1 = __webpack_require__(340);
+	var delegate_validation_rule_1 = __webpack_require__(345);
 	exports.DelegateValidationRule = delegate_validation_rule_1.DelegateValidationRule;
-	var binding_rule_1 = __webpack_require__(82);
+	var binding_rule_1 = __webpack_require__(88);
 	exports.BindingRule = binding_rule_1.BindingRule;
 	exports.BindingDataSource = binding_rule_1.BindingDataSource;
 	exports.BindingCommandSource = binding_rule_1.BindingCommandSource;
 	exports.BindingRuleItem = binding_rule_1.BindingRuleItem;
-	var iview_model_1 = __webpack_require__(84);
+	var iview_model_1 = __webpack_require__(87);
 	exports.BindingMode = iview_model_1.BindingMode;
-	var props_desc_1 = __webpack_require__(157);
+	var props_desc_1 = __webpack_require__(161);
 	exports.PagePropsDesc = props_desc_1.PagePropsDesc;
 	exports.PropsDesc = props_desc_1.PropsDesc;
 	exports.PropDesc = props_desc_1.PropDesc;
 	exports.NumberPropDesc = props_desc_1.NumberPropDesc;
 	exports.SliderPropDesc = props_desc_1.SliderPropDesc;
-	var props_desc_2 = __webpack_require__(157);
+	var props_desc_2 = __webpack_require__(161);
 	exports.TextPropDesc = props_desc_2.TextPropDesc;
 	exports.ReadonlyTextPropDesc = props_desc_2.ReadonlyTextPropDesc;
 	exports.OptionsPropDesc = props_desc_2.OptionsPropDesc;
 	exports.RangePropDesc = props_desc_2.RangePropDesc;
-	var props_desc_3 = __webpack_require__(157);
+	var props_desc_3 = __webpack_require__(161);
 	exports.Vector2PropDesc = props_desc_3.Vector2PropDesc;
 	exports.Vector3PropDesc = props_desc_3.Vector3PropDesc;
 	exports.LinePropDesc = props_desc_3.LinePropDesc;
@@ -324,63 +320,65 @@ var app =
 	exports.TWEEN = TWEEN;
 	var Events = __webpack_require__(8);
 	exports.Events = Events;
-	var Assets = __webpack_require__(13);
-	exports.Assets = Assets;
 	var inputEventAdapter = __webpack_require__(17);
 	exports.inputEventAdapter = inputEventAdapter;
-	var toast_info_1 = __webpack_require__(341);
+	var assets_1 = __webpack_require__(13);
+	exports.AssetManager = assets_1.AssetManager;
+	exports.AssetGroup = assets_1.AssetGroup;
+	exports.AssetItem = assets_1.AssetItem;
+	var toast_info_1 = __webpack_require__(346);
 	exports.ToastInfo = toast_info_1.ToastInfo;
-	var input_info_1 = __webpack_require__(342);
+	var input_info_1 = __webpack_require__(347);
 	exports.InputInfo = input_info_1.InputInfo;
-	var props_info_1 = __webpack_require__(343);
+	var props_info_1 = __webpack_require__(348);
 	exports.PropsInfo = props_info_1.PropsInfo;
-	var choice_info_1 = __webpack_require__(344);
+	var choice_info_1 = __webpack_require__(349);
 	exports.ChoiceInfo = choice_info_1.ChoiceInfo;
-	var progress_info_1 = __webpack_require__(345);
+	var progress_info_1 = __webpack_require__(350);
 	exports.ProgressInfo = progress_info_1.ProgressInfo;
-	var confirmation_info_1 = __webpack_require__(346);
+	var confirmation_info_1 = __webpack_require__(351);
 	exports.ConfirmationInfo = confirmation_info_1.ConfirmationInfo;
-	var notification_info_1 = __webpack_require__(347);
+	var notification_info_1 = __webpack_require__(352);
 	exports.NotificationInfo = notification_info_1.NotificationInfo;
-	var interaction_types_1 = __webpack_require__(132);
+	var interaction_types_1 = __webpack_require__(136);
 	exports.InteractionTypes = interaction_types_1.InteractionTypes;
-	var interaction_request_1 = __webpack_require__(131);
+	var interaction_request_1 = __webpack_require__(135);
 	exports.InteractionRequest = interaction_request_1.InteractionRequest;
-	var interaction_service_1 = __webpack_require__(133);
+	var interaction_service_1 = __webpack_require__(137);
 	exports.InteractionService = interaction_service_1.InteractionService;
-	var items_storage_1 = __webpack_require__(348);
+	var items_storage_1 = __webpack_require__(353);
 	exports.ItemsStorage = items_storage_1.ItemsStorage;
-	var table_row_1 = __webpack_require__(349);
+	var table_row_1 = __webpack_require__(354);
 	exports.TableRow = table_row_1.TableRow;
-	var table_client_1 = __webpack_require__(350);
+	var table_client_1 = __webpack_require__(355);
 	exports.TableClient = table_client_1.TableClient;
-	var table_index_1 = __webpack_require__(352);
+	var table_index_1 = __webpack_require__(357);
 	exports.TableIndex = table_index_1.TableIndex;
-	var table_header_1 = __webpack_require__(354);
+	var table_header_1 = __webpack_require__(359);
 	exports.TableHeader = table_header_1.TableHeader;
-	var table_1 = __webpack_require__(355);
+	var table_1 = __webpack_require__(360);
 	exports.Table = table_1.Table;
 	exports.TableColInfo = table_1.TableColInfo;
-	var table_index_item_1 = __webpack_require__(356);
+	var table_index_item_1 = __webpack_require__(361);
 	exports.TableIndexItem = table_index_item_1.TableIndexItem;
-	var table_header_item_1 = __webpack_require__(357);
+	var table_header_item_1 = __webpack_require__(362);
 	exports.TableHeaderItem = table_header_item_1.TableHeaderItem;
-	var delegate_filter_1 = __webpack_require__(358);
+	var delegate_filter_1 = __webpack_require__(363);
 	exports.DelegateFilter = delegate_filter_1.DelegateFilter;
-	var delegate_comparator_1 = __webpack_require__(359);
+	var delegate_comparator_1 = __webpack_require__(364);
 	exports.DelegateComparator = delegate_comparator_1.DelegateComparator;
-	var comparators_1 = __webpack_require__(360);
+	var comparators_1 = __webpack_require__(365);
 	exports.NumberComparator = comparators_1.NumberComparator;
 	exports.StringComparator = comparators_1.StringComparator;
 	exports.RevertComparator = comparators_1.RevertComparator;
 	exports.ObjectPropComparator = comparators_1.ObjectPropComparator;
-	var range_fixer_1 = __webpack_require__(361);
+	var range_fixer_1 = __webpack_require__(366);
 	exports.RangeFixer = range_fixer_1.RangeFixer;
-	var number_fixer_1 = __webpack_require__(362);
+	var number_fixer_1 = __webpack_require__(367);
 	exports.NumberFixer = number_fixer_1.NumberFixer;
-	var vector2_fixer_1 = __webpack_require__(363);
+	var vector2_fixer_1 = __webpack_require__(368);
 	exports.Vector2Fixer = vector2_fixer_1.Vector2Fixer;
-	var vector3_fixer_1 = __webpack_require__(364);
+	var vector3_fixer_1 = __webpack_require__(369);
 	exports.Vector3Fixer = vector3_fixer_1.Vector3Fixer;
 
 
@@ -1957,7 +1955,7 @@ var app =
 	__webpack_require__(10);
 	var path = __webpack_require__(11);
 	var emitter_1 = __webpack_require__(6);
-	var Assets = __webpack_require__(13);
+	var assets_1 = __webpack_require__(13);
 	var Events = __webpack_require__(8);
 	(function (ImageDrawType) {
 	    /**
@@ -2103,7 +2101,7 @@ var app =
 	    });
 	    ImageTile.prototype.createNormal = function (src) {
 	        var _this = this;
-	        Assets.loadImage(src).then(function (img) {
+	        assets_1.AssetManager.loadImage(src).then(function (img) {
 	            _this.init(img, 0, 0, img.width, img.height);
 	        }).catch(function (err) {
 	            _this.init(null, 0, 0, 0, 0);
@@ -2116,7 +2114,7 @@ var app =
 	        var y = parseInt(xywh[2]);
 	        var w = parseInt(xywh[3]);
 	        var h = parseInt(xywh[4]);
-	        Assets.loadImage(base).then(function (img) {
+	        assets_1.AssetManager.loadImage(base).then(function (img) {
 	            _this.init(img, x, y, w, h);
 	        }).catch(function (err) {
 	            _this.init(null, 0, 0, 0, 0);
@@ -2128,7 +2126,7 @@ var app =
 	        var rows = parseInt(rowcolIndex[1]);
 	        var cols = parseInt(rowcolIndex[2]);
 	        var index = parseInt(rowcolIndex[3]);
-	        Assets.loadImage(base).then(function (img) {
+	        assets_1.AssetManager.loadImage(base).then(function (img) {
 	            var w = img.width / cols;
 	            var h = img.height / rows;
 	            var r = (index / cols) >> 0;
@@ -2142,10 +2140,10 @@ var app =
 	    };
 	    ImageTile.prototype.createTexturePacker = function (jsonURL, name) {
 	        var _this = this;
-	        Assets.loadJSON(jsonURL).then(function (json) {
+	        assets_1.AssetManager.loadJson(jsonURL).then(function (json) {
 	            var info = json.frames[name];
 	            var imgSRC = path.dirname(jsonURL) + "/" + (json.file || json.meta.image);
-	            Assets.loadImage(imgSRC).then(function (img) {
+	            assets_1.AssetManager.loadImage(imgSRC).then(function (img) {
 	                var rect = info.frame || info;
 	                var x = rect.x;
 	                var y = rect.y;
@@ -3265,11 +3263,6 @@ var app =
 	var path = __webpack_require__(11);
 	var Events = __webpack_require__(8);
 	var emitter_1 = __webpack_require__(6);
-	exports.AUDIO = "audio";
-	exports.IMAGE = "image";
-	exports.BLOB = "blob";
-	exports.JSON = "json";
-	exports.TEXT = "text";
 	;
 	var assetsCache = {};
 	function load(url, type) {
@@ -3279,10 +3272,10 @@ var app =
 	            if (response.status !== 200) {
 	                return Promise.reject(null);
 	            }
-	            if (type === exports.JSON) {
+	            if (type === AssetType.JSON) {
 	                return response.json();
 	            }
-	            else if (type === exports.BLOB) {
+	            else if (type === AssetType.BLOB) {
 	                return response.blob();
 	            }
 	            else {
@@ -3296,156 +3289,206 @@ var app =
 	    return item;
 	}
 	/**
-	 * Load JSON Data and Cache It.
-	 * @param url URL Of JSON.
-	 * @returns Promise
+	 * @enum AssetType
+	 * 资源类型。
 	 */
-	function loadJSON(url) {
-	    return load(url, exports.JSON);
-	}
-	exports.loadJSON = loadJSON;
+	(function (AssetType) {
+	    /**
+	     * @property {number} [AUDIO=1]
+	     * 音频资源。
+	     */
+	    AssetType[AssetType["AUDIO"] = 1] = "AUDIO";
+	    /**
+	     * @property {number} [IMAGE]
+	     * 图像资源。
+	     */
+	    AssetType[AssetType["IMAGE"] = 2] = "IMAGE";
+	    /**
+	     * @property {number} [BLOB]
+	     * 二进制资源。
+	     */
+	    AssetType[AssetType["BLOB"] = 3] = "BLOB";
+	    /**
+	     * @property {number} [JSON]
+	     * JSON资源。
+	     */
+	    AssetType[AssetType["JSON"] = 4] = "JSON";
+	    /**
+	     * @property {number} [SCRIPT]
+	     * SCRIPT资源。
+	     */
+	    AssetType[AssetType["SCRIPT"] = 5] = "SCRIPT";
+	    /**
+	     * @property {number} [TEXT]
+	     * 文本资源。
+	     */
+	    AssetType[AssetType["TEXT"] = 6] = "TEXT";
+	})(exports.AssetType || (exports.AssetType = {}));
+	var AssetType = exports.AssetType;
+	;
 	/**
-	 * Load Text Data and Cache It.
-	 * @param url URL Of Text.
-	 * @returns Promise
+	 * @class AssetManager
+	 * 资源管理类，用于加载各种资源。
 	 */
-	function loadText(url) {
-	    return load(url, exports.TEXT);
-	}
-	exports.loadText = loadText;
-	/**
-	 * Load Blob Data and Cache It.
-	 * @param url URL Of Blob.
-	 * @returns Promise
-	 */
-	function loadBlob(url) {
-	    return load(url, exports.BLOB);
-	}
-	exports.loadBlob = loadBlob;
-	/**
-	 * Load Image and Cache It.
-	 * @param url URL Of Image.
-	 * @returns Promise
-	 */
-	function loadImage(url) {
-	    var item = assetsCache[url];
-	    if (!item) {
-	        item = new Promise(function (resolve, reject) {
-	            var image = new Image();
-	            image.onload = function () {
-	                resolve(image);
+	var AssetManager = (function () {
+	    function AssetManager() {
+	    }
+	    /**
+	     * @method loadJson
+	     * 加载JSON资源。
+	     * @static
+	     * @param {String} url 资源URL。
+	     * @return {Promise}
+	     */
+	    AssetManager.loadJson = function (url) {
+	        return load(url, AssetType.JSON);
+	    };
+	    /**
+	     * @method loadText
+	     * 加载文本数据资源。
+	     * @static
+	     * @param {String} url 资源URL。
+	     * @return {Promise}
+	     */
+	    AssetManager.loadText = function (url) {
+	        return load(url, AssetType.TEXT);
+	    };
+	    /**
+	     * @method loadBlob
+	     * 加载二进制数据资源。
+	     * @static
+	     * @param {String} url 资源URL。
+	     * @return {Promise}
+	     */
+	    AssetManager.loadBlob = function (url) {
+	        return load(url, AssetType.BLOB);
+	    };
+	    /**
+	     * @method loadImage
+	     * 加载图片资源。
+	     * @static
+	     * @param {String} url 资源URL。
+	     * @return {Promise}
+	     */
+	    AssetManager.loadImage = function (url) {
+	        var item = assetsCache[url];
+	        if (!item) {
+	            item = new Promise(function (resolve, reject) {
+	                var image = new Image();
+	                image.onload = function () {
+	                    resolve(image);
+	                };
+	                image.onerror = function (err) {
+	                    reject(err);
+	                };
+	                image.src = url;
+	            });
+	        }
+	        assetsCache[url] = item;
+	        return item;
+	    };
+	    /**
+	     * @method loadScript
+	     * 加载脚本资源。
+	     * @static
+	     * @param {String} url 资源URL。
+	     * @return {Promise}
+	     */
+	    AssetManager.loadScript = function (url) {
+	        var item = new Promise(function (resolve, reject) {
+	            var node = document.head ? document.head : document.body;
+	            var script = document.createElement("script");
+	            script.onload = function () {
+	                resolve(script);
 	            };
-	            image.onerror = function (err) {
+	            script.onerror = function (err) {
 	                reject(err);
 	            };
-	            image.src = url;
+	            script.src = url;
+	            node.appendChild(script);
 	        });
-	    }
-	    assetsCache[url] = item;
-	    return item;
-	}
-	exports.loadImage = loadImage;
+	        return item;
+	    };
+	    /**
+	     * @method loadAudio
+	     * 加载音频资源。
+	     * @static
+	     * @param {String} url 资源URL。
+	     * @return {Promise}
+	     */
+	    AssetManager.loadAudio = function (url) {
+	        var item = assetsCache[url];
+	        if (!item) {
+	            item = new Promise(function (resolve, reject) {
+	                var audio = new Audio();
+	                audio.onload = function () {
+	                    resolve(audio);
+	                };
+	                audio.onerror = function (err) {
+	                    reject(err);
+	                };
+	                audio.src = url;
+	            });
+	        }
+	        assetsCache[url] = item;
+	        return item;
+	    };
+	    /**
+	     * @method clear
+	     * 清除指定URL资源的缓存。
+	     * @static
+	     * @param {String} url 资源URL。
+	     */
+	    AssetManager.clear = function (url) {
+	        delete assetsCache[url];
+	    };
+	    return AssetManager;
+	}());
+	exports.AssetManager = AssetManager;
 	/**
-	 * Load Script
-	 * @param url URL Of Script.
-	 * @returns Promise
+	 * @class AssetItem
+	 * 表示一个资源项, 用于预加载资源。
+	 *
 	 */
-	function loadScript(url) {
-	    var item = new Promise(function (resolve, reject) {
-	        var node = document.head ? document.head : document.body;
-	        var script = document.createElement("script");
-	        script.onload = function () {
-	            resolve(script);
-	        };
-	        script.onerror = function (err) {
-	            reject(err);
-	        };
-	        script.src = url;
-	        node.appendChild(script);
-	    });
-	    return item;
-	}
-	exports.loadScript = loadScript;
-	/**
-	 * Load Audio and Cache It.
-	 * @param url URL Of Audio.
-	 * @returns Promise
-	 */
-	function loadAudio(url) {
-	    var item = assetsCache[url];
-	    if (!item) {
-	        item = new Promise(function (resolve, reject) {
-	            var audio = new Audio();
-	            audio.onload = function () {
-	                resolve(audio);
-	            };
-	            audio.onerror = function (err) {
-	                reject(err);
-	            };
-	            audio.src = url;
-	        });
-	    }
-	    assetsCache[url] = item;
-	    return item;
-	}
-	exports.loadAudio = loadAudio;
-	/**
-	 * Clear asset cache
-	 * @param url URL Of asset.
-	 */
-	function clear(url) {
-	    delete assetsCache[url];
-	}
-	exports.clear = clear;
-	/**
-	 * Present one asset.
-	 */
-	var Item = (function () {
-	    function Item(src, type) {
+	var AssetItem = (function () {
+	    function AssetItem(src, type) {
 	        if (!type) {
 	            var name = path.extname(src).toLowerCase();
 	            if (name === ".json") {
-	                type = exports.JSON;
+	                type = AssetType.JSON;
 	            }
 	            else if (name === ".jpg" || name === ".png" || name === ".svg") {
-	                type = exports.IMAGE;
+	                type = AssetType.IMAGE;
 	            }
-	            else if (type === ".txt") {
-	                type = exports.TEXT;
+	            else if (name === ".txt") {
+	                type = AssetType.TEXT;
+	            }
+	            else if (name === ".js") {
+	                type = AssetType.SCRIPT;
 	            }
 	            else {
-	                type = exports.BLOB;
+	                type = AssetType.BLOB;
 	            }
 	        }
 	        this.src = src;
 	        this.type = type;
 	    }
-	    Item.create = function (src, type) {
-	        return new Item(src, type);
+	    AssetItem.create = function (src, type) {
+	        return new AssetItem(src, type);
 	    };
-	    return Item;
+	    return AssetItem;
 	}());
-	exports.Item = Item;
+	exports.AssetItem = AssetItem;
 	;
 	/**
-	 * Assets group to preload
-	 * Example:
-	 * ```
-	 *  var items = [
-	 *    {type:qtk.Assets.TEXT, src:"http://localhost:9876/base/www/test.txt"},
-	 *    {type:qtk.Assets.JSON, src:"http://localhost:9876/base/www/test.json"},
-	 *    {type:qtk.Assets.IMAGE, src:"http://localhost:9876/base/www/test.jpg"},
-	 *    {type:qtk.Assets.BLOB, src:"http://localhost:9876/base/www/test.blob"}
-	 * ];
-	 * var assets = new qtk.Assets.Group(items);
-	 * assets.onProgress(function(info) {
-	 *   console.log(info.loaded + "/" + info.total);
-	 * });
-	 * ```
+	 * @class AssetGroup
+	 *
+	 * 表示一个资源分组, 用于预加载资源。
+	 *
 	 */
-	var Group = (function (_super) {
-	    __extends(Group, _super);
-	    function Group(items, onProgress) {
+	var AssetGroup = (function (_super) {
+	    __extends(AssetGroup, _super);
+	    function AssetGroup(items, onProgress) {
 	        _super.call(this);
 	        this.event = {
 	            total: 0,
@@ -3463,46 +3506,57 @@ var app =
 	        items.forEach(this.loadOne.bind(this));
 	    }
 	    /**
-	     * Register of a progress callback function
+	     * 注册加载进度的回调函数。
 	     */
-	    Group.prototype.onProgress = function (callback) {
+	    AssetGroup.prototype.onProgress = function (callback) {
 	        this.on(Events.PROGRESS, callback);
 	    };
-	    Group.prototype.addLoaded = function () {
+	    AssetGroup.prototype.addLoaded = function () {
 	        this.loaded++;
 	        this.event.loaded = this.loaded;
 	        this.dispatchEvent(this.event);
 	    };
-	    Group.prototype.loadOne = function (item) {
+	    AssetGroup.prototype.loadOne = function (item) {
 	        var src = item.src;
 	        var type = item.type;
 	        var addLoaded = this.addLoaded.bind(this);
 	        var name = path.extname(src).toLowerCase();
-	        if (type === exports.JSON || (!type && name === '.json')) {
-	            loadJSON(src).then(addLoaded, addLoaded);
+	        if (type === AssetType.JSON || (!type && name === '.json')) {
+	            AssetManager.loadJson(src).then(addLoaded, addLoaded);
 	        }
-	        else if (type === exports.IMAGE || (!type && (name === ".jpg" || name === ".png" || name === ".svg"))) {
-	            loadImage(src).then(addLoaded, addLoaded);
+	        else if (type === AssetType.IMAGE || (!type && (name === ".jpg" || name === ".png" || name === ".svg"))) {
+	            AssetManager.loadImage(src).then(addLoaded, addLoaded);
 	        }
-	        else if (type === exports.BLOB) {
-	            loadBlob(src).then(addLoaded, addLoaded);
+	        else if (type === AssetType.BLOB) {
+	            AssetManager.loadBlob(src).then(addLoaded, addLoaded);
+	        }
+	        else if (type === AssetType.SCRIPT) {
+	            AssetManager.loadScript(src).then(addLoaded, addLoaded);
 	        }
 	        else {
-	            loadText(src).then(addLoaded, addLoaded);
+	            AssetManager.loadText(src).then(addLoaded, addLoaded);
 	        }
 	    };
-	    Group.create = function (items, onProgress) {
-	        return new Group(items, onProgress);
+	    AssetGroup.create = function (items, onProgress) {
+	        return new AssetGroup(items, onProgress);
 	    };
-	    Group.preload = function (assetsURLS, onProgress) {
+	    /**
+	     * @method preload
+	     * 预加载指定的资源。
+	     * @static
+	     * @param {Array<string>} assetsURLS 资源URL列表。
+	     * @param {Function} onProgress 资源进度回调函数。
+	     * @return {AssetGroup} 资源分组对象。
+	     */
+	    AssetGroup.preload = function (assetsURLS, onProgress) {
 	        var arr = assetsURLS.map(function (iter) {
-	            return Item.create(iter);
+	            return AssetItem.create(iter);
 	        });
-	        return Group.create(arr, onProgress);
+	        return AssetGroup.create(arr, onProgress);
 	    };
-	    return Group;
+	    return AssetGroup;
 	}(emitter_1.Emitter));
-	exports.Group = Group;
+	exports.AssetGroup = AssetGroup;
 
 
 /***/ },
@@ -3651,6 +3705,8 @@ var app =
 	var event_detail_1 = __webpack_require__(16);
 	var inputEventAdapter = __webpack_require__(17);
 	/**
+	 *
+	 * @class Canvas
 	 * Canvas是对HTMLCanvasElement的包装，主要解决两个问题：
 	 *
 	 * 1.对指针事件坐标的转换，让绝对坐标变成相对与Canvas左上角的坐标。
@@ -3662,7 +3718,6 @@ var app =
 	    __extends(Canvas, _super);
 	    function Canvas(x, y, w, h, devicePixelRatio, offline) {
 	        _super.call(this);
-	        this._id = "canvas";
 	        this._x = x || 0;
 	        this._y = y || 0;
 	        this._w = w || 0;
@@ -3687,26 +3742,11 @@ var app =
 	            e.dispose();
 	        };
 	    }
-	    Canvas.prototype.transformXY = function (detail) {
-	        detail.x -= this.x;
-	        detail.y -= this.y;
-	        detail.pointerDownX -= this.x;
-	        detail.pointerDownY -= this.y;
-	    };
-	    Object.defineProperty(Canvas.prototype, "id", {
-	        get: function () {
-	            return this._id;
-	        },
-	        set: function (value) {
-	            this._id = value;
-	            if (this.canvas) {
-	                this.canvas.id = value;
-	            }
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    Object.defineProperty(Canvas.prototype, "x", {
+	        /**
+	         * @property {number} x
+	         * X 坐标
+	         */
 	        get: function () {
 	            return this._x;
 	        },
@@ -3718,6 +3758,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Canvas.prototype, "y", {
+	        /**
+	         * @property {number} y
+	         * Y 坐标
+	         */
 	        get: function () {
 	            return this._y;
 	        },
@@ -3728,23 +3772,28 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(Canvas.prototype, "w", {
-	        get: function () {
-	            return this._w;
-	        },
+	    Object.defineProperty(Canvas.prototype, "z", {
+	        /**
+	         * @property {number} z
+	         * Z 坐标
+	         */
 	        set: function (value) {
-	            this._w = value;
-	            this.resizeCanvas(this.canvas);
+	            this._z = value;
+	            this.canvas.style.zIndex = value;
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(Canvas.prototype, "h", {
+	    Object.defineProperty(Canvas.prototype, "w", {
 	        get: function () {
-	            return this._h;
+	            return this._w;
 	        },
+	        /**
+	         * @property {number} w
+	         * 宽度
+	         */
 	        set: function (value) {
-	            this._h = value;
+	            this._w = value;
 	            this.resizeCanvas(this.canvas);
 	        },
 	        enumerable: true,
@@ -3760,6 +3809,21 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(Canvas.prototype, "h", {
+	        /**
+	         * @property {number} h
+	         * 高度
+	         */
+	        get: function () {
+	            return this._h;
+	        },
+	        set: function (value) {
+	            this._h = value;
+	            this.resizeCanvas(this.canvas);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Canvas.prototype, "height", {
 	        get: function () {
 	            return this._h;
@@ -3770,17 +3834,56 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(Canvas.prototype, "id", {
+	        get: function () {
+	            return this._id;
+	        },
+	        /**
+	         * @property {string} id
+	         * ID
+	         */
+	        set: function (value) {
+	            this._id = value;
+	            if (this.canvas) {
+	                this.canvas.id = value;
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @method grabKey
+	     * Grab Key事件。
+	     */
 	    Canvas.prototype.grabKey = function () {
 	        inputEventAdapter.grabKey(this.canvas);
 	    };
+	    /**
+	     * @method ungrabKey
+	     * ungrabKey Key事件。
+	     */
 	    Canvas.prototype.ungrabKey = function () {
 	        inputEventAdapter.ungrabKey(this.canvas);
 	    };
+	    /**
+	     * @method grab
+	     * grab事件。
+	     */
 	    Canvas.prototype.grab = function () {
 	        inputEventAdapter.grab(this.canvas);
 	    };
+	    /**
+	     * @method ungrab
+	     * ungrab事件。
+	     */
 	    Canvas.prototype.ungrab = function () {
 	        inputEventAdapter.ungrab(this.canvas);
+	    };
+	    Canvas.prototype.transformXY = function (detail) {
+	        detail.x -= this.x;
+	        detail.y -= this.y;
+	        detail.pointerDownX -= this.x;
+	        detail.pointerDownY -= this.y;
 	    };
 	    Canvas.prototype.moveCanvas = function (canvas) {
 	        if (canvas) {
@@ -3801,14 +3904,6 @@ var app =
 	            canvas.style.height = h + "px";
 	        }
 	    };
-	    Object.defineProperty(Canvas.prototype, "z", {
-	        set: function (value) {
-	            this._z = value;
-	            this.canvas.style.zIndex = value;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    Canvas.prototype.dispose = function () {
 	        var canvas = this.canvas;
 	        if (!this._offline) {
@@ -3852,6 +3947,10 @@ var app =
 	            this.canvas = this.createCanvas();
 	        }
 	    };
+	    /**
+	     * @method getContext
+	     * 获取Canvas的绘图Context。
+	     */
 	    Canvas.prototype.getContext = function (type) {
 	        if (!this.canvas) {
 	            this.canvas = this.createCanvas();
@@ -3861,6 +3960,17 @@ var app =
 	        ctx.scale(this._devicePixelRatio, this._devicePixelRatio);
 	        return ctx;
 	    };
+	    /**
+	     * @method create
+	     * @static
+	     * 创建一个Canvas对象。
+	     * @param {number} x X坐标。
+	     * @param {number} y Y坐标。
+	     * @param {number} w 宽度。
+	     * @param {number} h 高度。
+	     * @param {number} devicePixelRatio 屏幕密度。
+	     * @param {boolean} offline 是否是离线Canvas。
+	     */
 	    Canvas.create = function (x, y, w, h, devicePixelRatio, offline) {
 	        return new Canvas(x, y, w, h, devicePixelRatio, offline);
 	    };
@@ -4396,11 +4506,11 @@ var app =
 	var label_1 = __webpack_require__(20);
 	var Events = __webpack_require__(8);
 	var key_event_1 = __webpack_require__(18);
-	var html_edit_1 = __webpack_require__(87);
+	var html_edit_1 = __webpack_require__(92);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var graphics_1 = __webpack_require__(27);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 编辑器。multiLineMode决定是多行编辑器还是单行编辑器。
 	 */
@@ -4648,7 +4758,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var graphics_1 = __webpack_require__(27);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 文本控件。
 	 */
@@ -4778,43 +4888,123 @@ var app =
 	var matrix_stack_1 = __webpack_require__(24);
 	var widget_factory_1 = __webpack_require__(25);
 	var graphics_1 = __webpack_require__(27);
-	var dirty_rect_context_1 = __webpack_require__(79);
+	var dirty_rect_context_1 = __webpack_require__(84);
 	var image_tile_1 = __webpack_require__(9);
-	var behavior_1 = __webpack_require__(80);
-	var layouter_1 = __webpack_require__(81);
-	var binding_rule_1 = __webpack_require__(82);
-	var iview_model_1 = __webpack_require__(84);
+	var behavior_1 = __webpack_require__(85);
+	var layouter_1 = __webpack_require__(86);
+	var iview_model_1 = __webpack_require__(87);
+	var binding_rule_1 = __webpack_require__(88);
+	/**
+	 * @enum WidgetMode
+	 * 控件当前的运行模式。
+	 */
 	(function (WidgetMode) {
+	    /**
+	     * @property {number}
+	     * 运行模式
+	     */
 	    WidgetMode[WidgetMode["RUNTIME"] = 0] = "RUNTIME";
+	    /**
+	     * @property {number}
+	     * 设计模式
+	     */
 	    WidgetMode[WidgetMode["DESIGN"] = 1] = "DESIGN";
 	})(exports.WidgetMode || (exports.WidgetMode = {}));
 	var WidgetMode = exports.WidgetMode;
 	;
+	/**
+	 * @enum WidgetState
+	 * 控件的状态
+	 */
 	(function (WidgetState) {
+	    /**
+	     * @property {number}
+	     * 正常状态。
+	     */
 	    WidgetState[WidgetState["NORMAL"] = 0] = "NORMAL";
+	    /**
+	     * @property {number}
+	     * Pointer在控件上。
+	     */
 	    WidgetState[WidgetState["OVER"] = 1] = "OVER";
+	    /**
+	     * @property {number}
+	     * Pointer按下的状态。
+	     */
 	    WidgetState[WidgetState["ACTIVE"] = 2] = "ACTIVE";
+	    /**
+	     * @property {number}
+	     * 禁用状态。
+	     */
 	    WidgetState[WidgetState["DISABLE"] = 3] = "DISABLE";
+	    /**
+	     * @property {number}
+	     * 选中状态。只对部分设备有效。
+	     */
 	    WidgetState[WidgetState["SELECTED"] = 4] = "SELECTED";
 	})(exports.WidgetState || (exports.WidgetState = {}));
 	var WidgetState = exports.WidgetState;
 	;
+	/**
+	 * @enum HitTestResult
+	 * 点击测试结果。
+	 */
 	(function (HitTestResult) {
+	    /**
+	     * @property {number}
+	     * 点击在控件之外。
+	     */
 	    HitTestResult[HitTestResult["NONE"] = 0] = "NONE";
+	    /**
+	     * @property {number}
+	     * 点击在控件左上角。
+	     */
 	    HitTestResult[HitTestResult["TL"] = 1] = "TL";
+	    /**
+	     * @property {number}
+	     * 点击在控件上面中间。
+	     */
 	    HitTestResult[HitTestResult["TM"] = 2] = "TM";
+	    /**
+	     * @property {number}
+	     * 点击在控件右上角。
+	     */
 	    HitTestResult[HitTestResult["TR"] = 3] = "TR";
+	    /**
+	     * @property {number}
+	     * 点击在控件左边中间。
+	     */
 	    HitTestResult[HitTestResult["ML"] = 4] = "ML";
+	    /**
+	     * @property {number}
+	     * 点击在控件中间区域。
+	     */
 	    HitTestResult[HitTestResult["MM"] = 5] = "MM";
+	    /**
+	     * @property {number}
+	     * 点击在控件右边中间。
+	     */
 	    HitTestResult[HitTestResult["MR"] = 6] = "MR";
-	    HitTestResult[HitTestResult["RL"] = 7] = "RL";
-	    HitTestResult[HitTestResult["RM"] = 8] = "RM";
-	    HitTestResult[HitTestResult["RR"] = 9] = "RR";
+	    /**
+	     * @property {number}
+	     * 点击在控件左下角。
+	     */
+	    HitTestResult[HitTestResult["BL"] = 7] = "BL";
+	    /**
+	     * @property {number}
+	     * 点击在控件下面中间。
+	     */
+	    HitTestResult[HitTestResult["BM"] = 8] = "BM";
+	    /**
+	     * @property {number}
+	     * 点击在控件右下角。
+	     */
+	    HitTestResult[HitTestResult["BR"] = 9] = "BR";
 	})(exports.HitTestResult || (exports.HitTestResult = {}));
 	var HitTestResult = exports.HitTestResult;
 	;
-	var states = ["normal", "over", "active", "disable", "selected"];
 	/**
+	 * @class Widget
 	 * Widget是所有控件的基类。
 	 */
 	var Widget = (function (_super) {
@@ -4835,6 +5025,7 @@ var app =
 	        this.type = type;
 	    }
 	    /**
+	     * @method set
 	     * 同时设置多个属性。
 	     */
 	    Widget.prototype.set = function (props) {
@@ -4848,21 +5039,21 @@ var app =
 	        }
 	        return this;
 	    };
-	    /**
-	     * 同时获取多个属性。
-	     */
 	    Widget.prototype.get = function (props) {
 	        if (props) {
 	            for (var key in props) {
-	                props[key] = this[key];
+	                var value = this[key];
+	                if (value !== undefined) {
+	                    props[key] = value;
+	                }
 	            }
 	        }
-	        return props;
+	        return this;
 	    };
 	    /**
 	     * 把全局的坐标转换成相对于当前控件左上角的坐标。
-	     * @param p 全局坐标。
-	     * @returns 相对于当前控件左上角的坐标。
+	     * @param {Pointer} p 全局坐标。
+	     * @return {Pointer} 相对于当前控件左上角的坐标。
 	     */
 	    Widget.prototype.toLocalPoint = function (p) {
 	        p.x -= this.x;
@@ -4877,8 +5068,8 @@ var app =
 	    };
 	    /**
 	     * 把Pointer事件的坐标转换成相对于当前控件左上角的坐标。
-	     * @param p Pointer事件的坐标。
-	     * @returns 相对于当前控件左上角的坐标。
+	     * @param {Pointer} p Pointer事件的坐标。
+	     * @return {Pointer} 相对于当前控件左上角的坐标。
 	     */
 	    Widget.prototype.eventPointToLocal = function (p) {
 	        if (this._canvas) {
@@ -4899,8 +5090,8 @@ var app =
 	    };
 	    /**
 	     * 把相对于当前控件左上角的坐标转换成全局坐标。
-	     * @param p 相对于当前控件左上角的坐标。
-	     * @returns 全局坐标。
+	     * @param {Point} p 相对于当前控件左上角的坐标。
+	     * @return {Point} 全局坐标。
 	     */
 	    Widget.prototype.toGlobalPoint = function (p) {
 	        p.x += this.x;
@@ -4915,8 +5106,8 @@ var app =
 	    };
 	    /**
 	     * 把相对于当前控件左上角的坐标转换成屏幕上的坐标。
-	     * @param p 相对于当前控件左上角的坐标。
-	     * @returns 屏幕上的坐标。
+	     * @param {Point} p 相对于当前控件左上角的坐标。
+	     * @return {Point}  屏幕上的坐标。
 	     */
 	    Widget.prototype.toViewPoint = function (p) {
 	        p.x += this.x;
@@ -4941,9 +5132,6 @@ var app =
 	            this.app = this.parent.app;
 	        }
 	    };
-	    /**
-	     * 初始化。在窗口打开后，对窗口上所有控件调用，或者在窗口打开后，对新创建的控件调用。
-	     */
 	    Widget.prototype.init = function () {
 	        this.onInit();
 	        this.children.forEach(function (child) {
@@ -4954,7 +5142,7 @@ var app =
 	    Widget.prototype.onDeinit = function () {
 	        this._inited = false;
 	    };
-	    /**
+	    /*
 	     * ~初始化。在窗口关闭后，对窗口上所有控件调用，或者对被移出的控件调用。
 	     */
 	    Widget.prototype.deinit = function () {
@@ -4962,38 +5150,6 @@ var app =
 	            child.deinit();
 	        });
 	        this.onDeinit();
-	    };
-	    /**
-	     * 分发一个事件到当前控件及其子控件。
-	     */
-	    Widget.prototype.dispatchEventToAll = function (evt) {
-	        this.dispatchEvent(evt);
-	        this.children.forEach(function (child) {
-	            child.dispatchEvent(evt);
-	        });
-	    };
-	    /**
-	     * 测试点是否落在当前控件中。
-	     * @param x X坐标，相对于全局原点的坐标。
-	     * @param y Y坐标，相对于全局原点的坐标。
-	     * @param ctx 矩阵变换上下文。ctx包含了从顶级父控件到当前控件的变化。
-	     * @returns 测试结果HitTestResult。
-	     */
-	    Widget.prototype.hitTest = function (x, y, ctx) {
-	        return this.doHitTest(x, y, rect_1.Rect.rect.init(0, 0, this.w, this.h), ctx);
-	    };
-	    Widget.prototype.doHitTest = function (x, y, r, ctx) {
-	        var m = ctx.invert();
-	        if (m) {
-	            var p = m.transformPoint(x, y);
-	            if (p.x >= r.x && p.x <= (r.x + r.w) && p.y >= r.y && p.y <= (r.y + r.h)) {
-	                return HitTestResult.MM;
-	            }
-	        }
-	        return HitTestResult.NONE;
-	    };
-	    Widget.prototype.selfHitTest = function (x, y, ctx) {
-	        return this.hitTest(x, y, ctx);
 	    };
 	    Widget.prototype.dispatchPointerDown = function (evt, ctx) {
 	        if (!this._enable || !this._sensitive) {
@@ -5241,6 +5397,14 @@ var app =
 	        this.requestRedraw();
 	        return tween;
 	    };
+	    /**
+	     * @method scaleTo
+	     * 设置控件的缩放比例到指定的值。如果duration > 0则启用动画，并返回TWEEN.Tween，否则返回null。
+	     * @param {number} sx 宽度缩放比例。
+	     * @param {number} sy 高度缩放比例。
+	     * @param {number} duration 动画时间。
+	     * @return {TWEEN.Tween}
+	     */
 	    Widget.prototype.scaleTo = function (sx, sy, duration) {
 	        this.requestRedraw();
 	        if (duration > 0) {
@@ -5254,6 +5418,13 @@ var app =
 	            return null;
 	        }
 	    };
+	    /**
+	     * @method opacityTo
+	     * 设置控件的透明度到指定的值。如果duration > 0则启用动画，并返回TWEEN.Tween，否则返回null。
+	     * @param {number} opacity 不透明度[0-1]
+	     * @param {number} duration 动画时间。
+	     * @return {TWEEN.Tween}
+	     */
 	    Widget.prototype.opacityTo = function (opacity, duration) {
 	        this.requestRedraw();
 	        if (duration > 0) {
@@ -5267,6 +5438,13 @@ var app =
 	            return null;
 	        }
 	    };
+	    /**
+	     * @method rotateTo
+	     * 设置控件的旋转角度到指定的值。如果duration > 0则启用动画，并返回TWEEN.Tween，否则返回null。
+	     * @param {number} rotation 旋转角度，单位为弧度。
+	     * @param {number} duration 动画时间。
+	     * @return {TWEEN.Tween}
+	     */
 	    Widget.prototype.rotateTo = function (rotation, duration) {
 	        this.requestRedraw();
 	        if (duration > 0) {
@@ -5279,6 +5457,14 @@ var app =
 	            return null;
 	        }
 	    };
+	    /**
+	     * @method moveTo
+	     * 设置控件的位置到指定的值。如果duration > 0则启用动画，并返回TWEEN.Tween，否则返回null。
+	     * @param {number} x X 坐标。
+	     * @param {number} y Y 坐标。
+	     * @param {number} duration 动画时间。
+	     * @return {TWEEN.Tween}
+	     */
 	    Widget.prototype.moveTo = function (x, y, duration) {
 	        this.requestRedraw();
 	        if (duration > 0) {
@@ -5292,6 +5478,16 @@ var app =
 	            return null;
 	        }
 	    };
+	    /**
+	     * @method moveResizeTo
+	     * 设置控件的位置和大小到指定的值。如果duration > 0则启用动画，并返回TWEEN.Tween，否则返回null。
+	     * @param {number} x X 坐标。
+	     * @param {number} y Y 坐标。
+	     * @param {number} w 宽度。
+	     * @param {number} h 高度。
+	     * @param {number} duration 动画时间。
+	     * @return {TWEEN.Tween}
+	     */
 	    Widget.prototype.moveResizeTo = function (x, y, w, h, duration) {
 	        if (duration > 0) {
 	            var tween = new TWEEN.Tween(this);
@@ -5306,6 +5502,14 @@ var app =
 	            return null;
 	        }
 	    };
+	    /**
+	     * @method resizeTo
+	     * 设置控件的大小到指定的值。如果duration > 0则启用动画，并返回TWEEN.Tween，否则返回null。
+	     * @param {number} w 宽度。
+	     * @param {number} h 高度。
+	     * @param {number} duration 动画时间。
+	     * @return {TWEEN.Tween}
+	     */
 	    Widget.prototype.resizeTo = function (w, h, duration) {
 	        if (duration > 0) {
 	            var tween = new TWEEN.Tween(this);
@@ -5341,7 +5545,7 @@ var app =
 	        }
 	        return this;
 	    };
-	    /**
+	    /*
 	     * 根据当前的childrenLayouter创建子控件的布局参数。
 	     */
 	    Widget.prototype.createChildLayoutParam = function (options) {
@@ -5360,7 +5564,8 @@ var app =
 	            return this._childrenLayouter;
 	        },
 	        /**
-	         * 设置childrenLayouter。
+	         * @property {Layouter} childrenLayouter
+	         * 用于子控件布局的Layouter。
 	         */
 	        set: function (layouter) {
 	            if (typeof layouter === "string") {
@@ -5378,7 +5583,8 @@ var app =
 	            return this._layoutParam;
 	        },
 	        /**
-	         * 布局参数是父控件在布局当前控件时使用的。
+	         * @property {Object} layoutParam
+	         * 布局参数是父控件在布局当前控件时使用的参数。
 	         */
 	        set: function (param) {
 	            this._layoutParam = param;
@@ -5390,9 +5596,21 @@ var app =
 	        configurable: true
 	    });
 	    ///////////////////////////////////////////
+	    /**
+	     * @method indexOfChild
+	     * 获取指定子控件的位置序数。
+	     * @param {Widget} child 子控件
+	     * @return {number} 位置序数。
+	     */
 	    Widget.prototype.indexOfChild = function (child) {
 	        return this.children.indexOf(child);
 	    };
+	    /**
+	     * @method findChild
+	     * 查找满足指定条件的子控件。
+	     * @param {Function} func 比较函数。
+	     * @return {Widget} 如果找到，返回该子控件，否则返回null。
+	     */
 	    Widget.prototype.findChild = function (func) {
 	        var i = 0;
 	        var arr = this._children;
@@ -5405,26 +5623,28 @@ var app =
 	        }
 	        return null;
 	    };
+	    /**
+	     * @method findChildByName
+	     * 按名称查找子控件。
+	     * @param {string} name 子控件的名称。
+	     * @return {Widget} 如果找到，返回该子控件，否则返回null。
+	     */
 	    Widget.prototype.findChildByName = function (name) {
 	        var ret = this.findChild(function (child) {
 	            return child.name === name;
 	        });
 	        return ret;
 	    };
+	    /**
+	     * @method findChildByID
+	     * 按ID查找子控件。
+	     * @param {string} id 子控件的ID。
+	     * @return {Widget} 如果找到，返回该子控件，否则返回null。
+	     */
 	    Widget.prototype.findChildByID = function (id) {
 	        var ret = this.findChild(function (child) {
 	            return child.id === id;
 	        });
-	        return ret;
-	    };
-	    Widget.prototype.find = function (path) {
-	        var items = path.split("/");
-	        var n = items.length;
-	        var ret = this;
-	        for (var i = 0; i < n; i++) {
-	            var name = items[i];
-	            ret = ret.findChildByName(name);
-	        }
 	        return ret;
 	    };
 	    Widget.prototype.drawColorBackground = function (ctx, style) {
@@ -5457,20 +5677,15 @@ var app =
 	        return this;
 	    };
 	    /**
+	     * @method getLocaleText
 	     * 获取本地化后的文本。
 	     */
 	    Widget.prototype.getLocaleText = function () {
 	        return this.text;
 	    };
-	    /**
-	     * 获取前景图片区域。
-	     */
 	    Widget.prototype.getFgImageRect = function (style) {
 	        return rect_1.Rect.rect.init(this.leftPadding, this.topPadding, this.clientW, this.clientH);
 	    };
-	    /**
-	     * 绘制前景图片，子控件根据需要重载。
-	     */
 	    Widget.prototype.drawImage = function (ctx, style) {
 	        if (style.foreGroundImage) {
 	            var r = this.getFgImageRect(style);
@@ -5478,9 +5693,6 @@ var app =
 	        }
 	        return this;
 	    };
-	    /**
-	     * 获取文本显示区域。
-	     */
 	    Widget.prototype.getTextRect = function (style) {
 	        return rect_1.Rect.rect.init(this.leftPadding, this.topPadding, this.clientW, this.clientH);
 	    };
@@ -5507,9 +5719,6 @@ var app =
 	            ctx.addRect(-5, -5, this.w + 10, this.h + 10);
 	        }
 	    };
-	    /**
-	     * 计算脏矩形。
-	     */
 	    Widget.prototype.computeDirtyRect = function (ctx) {
 	        ctx.save();
 	        this.applyTransform(ctx);
@@ -5551,19 +5760,29 @@ var app =
 	        return;
 	    };
 	    Widget.prototype.stateToString = function (state) {
-	        return states[state];
+	        return WidgetState[state].toLowerCase();
 	    };
-	    ;
 	    Object.defineProperty(Widget.prototype, "styleType", {
 	        get: function () {
 	            return this._styleType;
 	        },
+	        /**
+	         * @property {string} styleType
+	         * 用于从主题中获取style数据。
+	         */
 	        set: function (styleType) {
 	            this._styleType = styleType;
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @method setStyle
+	     * 设置控件的Style。
+	     * @param {WidgetState} state 状态。
+	     * @param {Style} style 控件的Style。
+	     * return {Widget} 控件本身。
+	     */
 	    Widget.prototype.setStyle = function (state, style) {
 	        if (!this._styles) {
 	            this._styles = {};
@@ -5606,6 +5825,11 @@ var app =
 	        });
 	        return this;
 	    };
+	    /**
+	     * @method removeAllChildren
+	     * 移出并销毁所有的子控件。
+	     * return {Widget} 控件本身。
+	     */
 	    Widget.prototype.removeAllChildren = function () {
 	        this.children.forEach(function (child) {
 	            child.deinit();
@@ -5618,6 +5842,14 @@ var app =
 	    };
 	    Widget.prototype.onRemoveChild = function (child) {
 	    };
+	    /**
+	     * @method removeChild
+	     * 移出子控件。批量删除时，请使用快速模式，并在完成时调用relayoutChildren。
+	     * @param {Widget} child 子控件。
+	     * @param {boolean} fastMode 快速模式下，不重新布局子控件。
+	     * @param {boolean} destroy 是否销毁子控件。
+	     * return {Widget} 控件本身。
+	     */
 	    Widget.prototype.removeChild = function (child, fastMode, destroy) {
 	        var arr = this._children;
 	        var index = arr.indexOf(child);
@@ -5636,6 +5868,13 @@ var app =
 	    };
 	    Widget.prototype.onAddChild = function (child) {
 	    };
+	    /**
+	     * @method addChild
+	     * 增加子控件。批量增加时，请使用快速模式，并在完成时调用relayoutChildren。
+	     * @param {Widget} child 子控件。
+	     * @param {boolean} fastMode 快速模式下，不重新布局子控件。
+	     * return {Widget} 控件本身。
+	     */
 	    Widget.prototype.addChild = function (child, fastMode) {
 	        var arr = this._children;
 	        arr.push(child);
@@ -5651,6 +5890,10 @@ var app =
 	        this.onAddChild(child);
 	        return this;
 	    };
+	    /**
+	     * @method dispose
+	     * 销毁控件及其全部子控件。
+	     */
 	    Widget.prototype.dispose = function () {
 	        this.dispatchEvent({ type: Events.DISPOSE });
 	        if (this._canvas) {
@@ -5673,6 +5916,10 @@ var app =
 	            this.recycle();
 	        }
 	    };
+	    /**
+	     * @method requestRedraw
+	     * 请求重绘。
+	     */
 	    Widget.prototype.requestRedraw = function () {
 	        var app = this._app;
 	        this._dirty = true;
@@ -5808,6 +6055,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "x", {
+	        /**
+	         * @property {number} x
+	         * 控件的X坐标。
+	         */
 	        get: function () {
 	            return this._x;
 	        },
@@ -5818,6 +6069,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "y", {
+	        /**
+	         * @property {number} y
+	         * 控件的Y坐标。
+	         */
 	        get: function () {
 	            return this._y;
 	        },
@@ -5828,6 +6083,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "z", {
+	        /**
+	         * @property {number} z
+	         * 控件的位置序数。
+	         */
 	        get: function () {
 	            return this._z;
 	        },
@@ -5841,6 +6100,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "desireWidth", {
+	        /**
+	         * @property {number} w
+	         * 控件的宽度。
+	         */
 	        get: function () {
 	            return this._w;
 	        },
@@ -5882,6 +6145,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "height", {
+	        /**
+	         * @property {number} h
+	         * 控件的高度。
+	         */
 	        get: function () {
 	            return this._h;
 	        },
@@ -5902,6 +6169,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "state", {
+	        /**
+	         * @property {WidgetState} state
+	         * 控件的状态。
+	         */
 	        get: function () {
 	            return this._state;
 	        },
@@ -5914,6 +6185,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "value", {
+	        /**
+	         * @property {any} value
+	         * 控件的值。不同的控件，值的定义不一样。
+	         */
 	        get: function () {
 	            return this._value;
 	        },
@@ -5924,6 +6199,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "selected", {
+	        /**
+	         * @property {boolean} selected
+	         * 控件是否被选中。
+	         */
 	        get: function () {
 	            return this._selected;
 	        },
@@ -5944,6 +6223,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "enable", {
+	        /**
+	         * @property {boolean} enable
+	         * 控件是否处于enable状态。
+	         */
 	        get: function () {
 	            if (this.isEnableFunc) {
 	                return this.isEnableFunc();
@@ -5956,7 +6239,22 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(Widget.prototype, "inputable", {
+	        /**
+	         * @property {boolean} inputable
+	         * [只读] 控件是否可输入，也就是是否可以通过界面修改它的值。
+	         */
+	        get: function () {
+	            return false;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Widget.prototype, "visible", {
+	        /**
+	         * @property {boolean} visible
+	         * 控件是否可见。
+	         */
 	        get: function () {
 	            return this._visible;
 	        },
@@ -5969,22 +6267,16 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(Widget.prototype, "inputable", {
-	        /**
-	         * 用户是否可以通过本控件输入/选择数据。
-	         */
-	        get: function () {
-	            return false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    Widget.prototype.setVisible = function (value) {
 	        this.setProp("visible", value, true);
 	        this.dispatchEvent({ type: value ? Events.SHOW : Events.HIDE });
 	        this.requestRedraw();
 	    };
 	    Object.defineProperty(Widget.prototype, "opacity", {
+	        /**
+	         * @property {number} opacity
+	         * 控件的不透明度(0-1)。
+	         */
 	        get: function () {
 	            return this._opacity;
 	        },
@@ -5995,6 +6287,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "scaleX", {
+	        /**
+	         * @property {number} scaleX
+	         * 控件的宽度缩放比例。
+	         */
 	        get: function () {
 	            return this._scaleX;
 	        },
@@ -6005,6 +6301,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "scaleY", {
+	        /**
+	         * @property {number} scaleY
+	         * 控件的高度缩放比例。
+	         */
 	        get: function () {
 	            return this._scaleY;
 	        },
@@ -6015,6 +6315,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "rotation", {
+	        /**
+	         * @property {number} rotation
+	         * 控件的旋转角度。
+	         */
 	        get: function () {
 	            return this._rotation;
 	        },
@@ -6024,17 +6328,11 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(Widget.prototype, "focusable", {
-	        get: function () {
-	            return this._focusable;
-	        },
-	        set: function (value) {
-	            this.setProp("focusable", value, true);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    Object.defineProperty(Widget.prototype, "sensitive", {
+	        /**
+	         * @property {number} sensitive
+	         * 控件是否接受用户事件。
+	         */
 	        get: function () {
 	            return this._sensitive;
 	        },
@@ -6045,6 +6343,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "pivotX", {
+	        /**
+	         * @property {number} pivotX
+	         * 控件的X轴点，也就旋转点的X坐标。
+	         */
 	        get: function () {
 	            return this._pivotX;
 	        },
@@ -6055,6 +6357,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "pivotY", {
+	        /**
+	         * @property {number} pivotY
+	         * 控件的Y轴点，也就旋转点的Y坐标。
+	         */
 	        get: function () {
 	            return this._pivotY;
 	        },
@@ -6065,6 +6371,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "tips", {
+	        /**
+	         * @property {string} tips
+	         * 控件的提示文本。
+	         */
 	        get: function () {
 	            return this._tips;
 	        },
@@ -6075,6 +6385,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "text", {
+	        /**
+	         * @property {string} text
+	         * 控件的文本。
+	         */
 	        get: function () {
 	            return this._text;
 	        },
@@ -6085,6 +6399,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "name", {
+	        /**
+	         * @property {string} name
+	         * 控件的名称。
+	         */
 	        get: function () {
 	            return this._name;
 	        },
@@ -6095,6 +6413,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "type", {
+	        /**
+	         * @property {string} type
+	         * 控件的类型。
+	         */
 	        get: function () {
 	            return this._type;
 	        },
@@ -6105,23 +6427,21 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "id", {
+	        /**
+	         * @property {string} id
+	         * 控件的ID。
+	         */
 	        get: function () {
 	            return this._id;
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(Widget.prototype, "tag", {
-	        get: function () {
-	            return this._tag;
-	        },
-	        set: function (value) {
-	            this.setProp("tag", value, true);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    Object.defineProperty(Widget.prototype, "userData", {
+	        /**
+	         * @property {any} userData
+	         * 控件的应用数据。
+	         */
 	        get: function () {
 	            return this._userData;
 	        },
@@ -6152,6 +6472,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "parent", {
+	        /**
+	         * @property {Widget} parent
+	         * 控件的父控件。
+	         */
 	        get: function () {
 	            return this._parent;
 	        },
@@ -6162,6 +6486,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "app", {
+	        /**
+	         * @property {IApplication} app
+	         * 应用程序。
+	         */
 	        get: function () {
 	            return this._app;
 	        },
@@ -6179,6 +6507,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "win", {
+	        /**
+	         * @property {Window} win
+	         * 控件所在的窗口。
+	         */
 	        get: function () {
 	            for (var iter = this; iter !== null; iter = iter._parent) {
 	                if (iter._isWindow) {
@@ -6191,6 +6523,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "children", {
+	        /**
+	         * @property {Array<Widget>} children
+	         * 控件的全部子控件。
+	         */
 	        get: function () {
 	            return this._children;
 	        },
@@ -6208,6 +6544,10 @@ var app =
 	        return this._isWindow;
 	    };
 	    Object.defineProperty(Widget.prototype, "leftPadding", {
+	        /**
+	         * @property {number} leftPadding
+	         * 控件的左边界。
+	         */
 	        get: function () {
 	            return this._lp;
 	        },
@@ -6218,6 +6558,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "rightPadding", {
+	        /**
+	         * @property {number} rightPadding
+	         * 控件的右边界。
+	         */
 	        get: function () {
 	            return this._rp;
 	        },
@@ -6228,6 +6572,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "topPadding", {
+	        /**
+	         * @property {number} topPadding
+	         * 控件的上边界。
+	         */
 	        get: function () {
 	            return this._tp;
 	        },
@@ -6238,6 +6586,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "bottomPadding", {
+	        /**
+	         * @property {number} bottomPadding
+	         * 控件的下边界。
+	         */
 	        get: function () {
 	            return this._bp;
 	        },
@@ -6248,6 +6600,10 @@ var app =
 	        configurable: true
 	    });
 	    Object.defineProperty(Widget.prototype, "padding", {
+	        /**
+	         * @property {number} padding
+	         * 控件的边界。
+	         */
 	        get: function () {
 	            return this._tp;
 	        },
@@ -6277,14 +6633,21 @@ var app =
 	    Widget.prototype.setText = function (text, notify) {
 	        return this.setProp("text", text, notify);
 	    };
-	    Widget.prototype.useBehavior = function (type, options) {
+	    /**
+	     * @method useBehavior
+	     * 启用指定名称的Behavior
+	     * @param {string} name Behavior的名称。
+	     * @param {any} options 选项。
+	     * @return {Behavior}
+	     */
+	    Widget.prototype.useBehavior = function (name, options) {
 	        var behavior;
-	        if (!this._behaviors[type]) {
-	            behavior = behavior_1.BehaviorFactory.create(type, this, options);
-	            this._behaviors[type] = behavior;
+	        if (!this._behaviors[name]) {
+	            behavior = behavior_1.BehaviorFactory.create(name, this, options);
+	            this._behaviors[name] = behavior;
 	        }
 	        else {
-	            behavior = this._behaviors[type];
+	            behavior = this._behaviors[name];
 	            behavior.setOptions(options);
 	        }
 	        return behavior;
@@ -6359,6 +6722,11 @@ var app =
 	    };
 	    Widget.prototype.onFromJson = function (json) {
 	    };
+	    /**
+	     * @method fromJson
+	     * 用JSON数据初始化当前控件。
+	     * @param {any} json 数据。
+	     */
 	    Widget.prototype.fromJson = function (json) {
 	        var _this = this;
 	        var defProps = this.getDefProps();
@@ -6399,6 +6767,11 @@ var app =
 	        this.onFromJson(json);
 	        return this;
 	    };
+	    /**
+	     * @method clone
+	     * CLONE当前控件。
+	     * @return {Widget} 新对象。
+	     */
 	    Widget.prototype.clone = function () {
 	        var json = this.toJson();
 	        var widget = widget_factory_1.WidgetFactory.createWithJson(json);
@@ -6406,6 +6779,11 @@ var app =
 	    };
 	    Widget.prototype.onToJson = function (json) {
 	    };
+	    /**
+	     * @method toJson
+	     * 序列化当前的控件到JSON数据。
+	     * @return {any} JSON数据。
+	     */
 	    Widget.prototype.toJson = function () {
 	        var json = {};
 	        json.type = this._type;
@@ -6446,6 +6824,10 @@ var app =
 	        get: function () {
 	            return this._templateItem;
 	        },
+	        /**
+	         * @property {Widget} templateItem
+	         * 模板项。用于在数据绑定时，自动生成子控件的模板。
+	         */
 	        set: function (value) {
 	            this._templateItem = value;
 	            this._templateItemJson = value ? value.toJson() : null;
@@ -6477,6 +6859,7 @@ var app =
 	            return this._dataBindingRule;
 	        },
 	        /**
+	         * @property {any} dataBindingRule
 	         * 数据绑定规则。
 	         */
 	        set: function (dataBindingRule) {
@@ -6486,6 +6869,7 @@ var app =
 	        configurable: true
 	    });
 	    /**
+	     * @method updateExplicit
 	     * 显式的更新ViewModel。
 	     */
 	    Widget.prototype.updateExplicit = function () {
@@ -6495,6 +6879,7 @@ var app =
 	        this.children.forEach(function (child) {
 	            child.updateExplicit();
 	        });
+	        return this;
 	    };
 	    Widget.prototype.removeBinding = function () {
 	        var viewModel = this._viewModel;
@@ -6510,7 +6895,10 @@ var app =
 	    Widget.prototype.onAfterBindData = function () {
 	    };
 	    /**
+	     * @method bindData
 	     * 绑定数据。
+	     * @param {IViewModel} viewModel View Model。
+	     * @return {Widget} 控件本身。
 	     */
 	    Widget.prototype.bindData = function (viewModel) {
 	        var _this = this;
@@ -6544,17 +6932,17 @@ var app =
 	                return enable;
 	            };
 	        }
-	        this.bindChildren(viewModel);
+	        this.bindDataToChildren(viewModel);
 	        if (viewModel.isCollection && this._templateItemJson) {
 	            var collectionViewModel = viewModel;
 	            collectionViewModel.onItemsChange(function (evt) {
-	                _this.bindChildren(viewModel);
+	                _this.bindDataToChildren(viewModel);
 	            });
 	        }
 	        this.onAfterBindData();
 	        return this;
 	    };
-	    Widget.prototype.bindChildren = function (viewModel) {
+	    Widget.prototype.bindDataToChildren = function (viewModel) {
 	        if (viewModel.isCollection) {
 	            if (this._templateItemJson) {
 	                //对于集合viewModel，如果有模板项存在，则动态生成子控件。
@@ -6583,6 +6971,9 @@ var app =
 	            });
 	        }
 	    };
+	    /*
+	     * 绑定命令，注册相应的事件处理函数。
+	     */
 	    Widget.prototype.onBindCommand = function (viewModel, dataBindingRule) {
 	        var _this = this;
 	        dataBindingRule.forEach(function (prop, item) {
@@ -6649,14 +7040,12 @@ var app =
 	            }
 	        });
 	    };
+	    /*
+	     * 把界面数据更新到模型。
+	     */
 	    Widget.prototype.updateValueToSource = function (value, dataSource, oldValue) {
 	        var result = this._viewModel.setPropEx(dataSource, value, oldValue);
-	        if (result.code) {
-	            this.onInvalidInput(result.message);
-	        }
-	        else {
-	            this.onInvalidInput(null);
-	        }
+	        this.onInvalidInput(result.code ? result.message : null);
 	    };
 	    /*
 	     * 监控控件单个属性的变化。
@@ -6695,6 +7084,22 @@ var app =
 	            }
 	        });
 	    };
+	    Widget.prototype.hitTest = function (x, y, ctx) {
+	        return this.doHitTest(x, y, rect_1.Rect.rect.init(0, 0, this.w, this.h), ctx);
+	    };
+	    Widget.prototype.doHitTest = function (x, y, r, ctx) {
+	        var m = ctx.invert();
+	        if (m) {
+	            var p = m.transformPoint(x, y);
+	            if (p.x >= r.x && p.x <= (r.x + r.w) && p.y >= r.y && p.y <= (r.y + r.h)) {
+	                return HitTestResult.MM;
+	            }
+	        }
+	        return HitTestResult.NONE;
+	    };
+	    Widget.prototype.selfHitTest = function (x, y, ctx) {
+	        return this.hitTest(x, y, ctx);
+	    };
 	    Widget.defProps = {
 	        _x: 0,
 	        _y: 0,
@@ -6712,12 +7117,10 @@ var app =
 	        _pivotX: 0.5,
 	        _pivotY: 0.5,
 	        _rotation: 0,
-	        _focusable: false,
 	        _sensitive: true,
 	        _tips: null,
 	        _text: null,
 	        _name: null,
-	        _tag: null,
 	        _hitTestResult: 0,
 	        _isWindow: false,
 	        _mode: 0,
@@ -11350,11 +11753,11 @@ var app =
 /***/ function(module, exports, __webpack_require__) {
 
 	var Stream = __webpack_require__(50).Stream,
-	    util = __webpack_require__(71),
-	    TokenType = __webpack_require__(74),
-	    BreakType = __webpack_require__(75),
-	    tokenizer = __webpack_require__(76),
-	    LineBreak = __webpack_require__(78);
+	    util = __webpack_require__(76),
+	    TokenType = __webpack_require__(79),
+	    BreakType = __webpack_require__(80),
+	    tokenizer = __webpack_require__(81),
+	    LineBreak = __webpack_require__(83);
 
 	function TokenizerStream() {
 	    Stream.call(this);
@@ -11441,10 +11844,10 @@ var app =
 
 	inherits(Stream, EE);
 	Stream.Readable = __webpack_require__(53);
-	Stream.Writable = __webpack_require__(67);
-	Stream.Duplex = __webpack_require__(68);
-	Stream.Transform = __webpack_require__(69);
-	Stream.PassThrough = __webpack_require__(70);
+	Stream.Writable = __webpack_require__(72);
+	Stream.Duplex = __webpack_require__(73);
+	Stream.Transform = __webpack_require__(74);
+	Stream.PassThrough = __webpack_require__(75);
 
 	// Backwards-compat with node 0.4.x
 	Stream.Stream = Stream;
@@ -11883,15 +12286,21 @@ var app =
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {exports = module.exports = __webpack_require__(54);
-	exports.Stream = __webpack_require__(50);
+	/* WEBPACK VAR INJECTION */(function(process) {var Stream = (function (){
+	  try {
+	    return __webpack_require__(50); // hack to fix a circular dependency issue when used with browserify
+	  } catch(_){}
+	}());
+	exports = module.exports = __webpack_require__(54);
+	exports.Stream = Stream || exports;
 	exports.Readable = exports;
-	exports.Writable = __webpack_require__(63);
-	exports.Duplex = __webpack_require__(62);
-	exports.Transform = __webpack_require__(65);
-	exports.PassThrough = __webpack_require__(66);
-	if (!process.browser && process.env.READABLE_STREAM === 'disable') {
-	  module.exports = __webpack_require__(50);
+	exports.Writable = __webpack_require__(65);
+	exports.Duplex = __webpack_require__(64);
+	exports.Transform = __webpack_require__(70);
+	exports.PassThrough = __webpack_require__(71);
+
+	if (!process.browser && process.env.READABLE_STREAM === 'disable' && Stream) {
+	  module.exports = Stream;
 	}
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
@@ -11900,85 +12309,106 @@ var app =
 /* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	module.exports = Readable;
 
 	/*<replacement>*/
-	var isArray = __webpack_require__(55);
+	var processNextTick = __webpack_require__(55);
 	/*</replacement>*/
 
+	/*<replacement>*/
+	var isArray = __webpack_require__(56);
+	/*</replacement>*/
 
 	/*<replacement>*/
-	var Buffer = __webpack_require__(56).Buffer;
+	var Duplex;
 	/*</replacement>*/
 
 	Readable.ReadableState = ReadableState;
 
+	/*<replacement>*/
 	var EE = __webpack_require__(51).EventEmitter;
 
-	/*<replacement>*/
-	if (!EE.listenerCount) EE.listenerCount = function(emitter, type) {
+	var EElistenerCount = function (emitter, type) {
 	  return emitter.listeners(type).length;
 	};
 	/*</replacement>*/
 
-	var Stream = __webpack_require__(50);
+	/*<replacement>*/
+	var Stream;
+	(function () {
+	  try {
+	    Stream = __webpack_require__(50);
+	  } catch (_) {} finally {
+	    if (!Stream) Stream = __webpack_require__(51).EventEmitter;
+	  }
+	})();
+	/*</replacement>*/
+
+	var Buffer = __webpack_require__(57).Buffer;
+	/*<replacement>*/
+	var bufferShim = __webpack_require__(60);
+	/*</replacement>*/
 
 	/*<replacement>*/
-	var util = __webpack_require__(60);
+	var util = __webpack_require__(61);
 	util.inherits = __webpack_require__(52);
 	/*</replacement>*/
 
-	var StringDecoder;
-
-
 	/*<replacement>*/
-	var debug = __webpack_require__(61);
-	if (debug && debug.debuglog) {
-	  debug = debug.debuglog('stream');
+	var debugUtil = __webpack_require__(62);
+	var debug = void 0;
+	if (debugUtil && debugUtil.debuglog) {
+	  debug = debugUtil.debuglog('stream');
 	} else {
 	  debug = function () {};
 	}
 	/*</replacement>*/
 
+	var BufferList = __webpack_require__(63);
+	var StringDecoder;
 
 	util.inherits(Readable, Stream);
 
+	function prependListener(emitter, event, fn) {
+	  // Sadly this is not cacheable as some libraries bundle their own
+	  // event emitter implementation with them.
+	  if (typeof emitter.prependListener === 'function') {
+	    return emitter.prependListener(event, fn);
+	  } else {
+	    // This is a hack to make sure that our error handler is attached before any
+	    // userland ones.  NEVER DO THIS. This is here only because this code needs
+	    // to continue to work with older versions of Node.js that do not include
+	    // the prependListener() method. The goal is to eventually remove this hack.
+	    if (!emitter._events || !emitter._events[event]) emitter.on(event, fn);else if (isArray(emitter._events[event])) emitter._events[event].unshift(fn);else emitter._events[event] = [fn, emitter._events[event]];
+	  }
+	}
+
 	function ReadableState(options, stream) {
-	  var Duplex = __webpack_require__(62);
+	  Duplex = Duplex || __webpack_require__(64);
 
 	  options = options || {};
+
+	  // object stream flag. Used to make read(n) ignore n and to
+	  // make all the buffer merging and length checks go away
+	  this.objectMode = !!options.objectMode;
+
+	  if (stream instanceof Duplex) this.objectMode = this.objectMode || !!options.readableObjectMode;
 
 	  // the point at which it stops calling _read() to fill the buffer
 	  // Note: 0 is a valid value, means "don't call _read preemptively ever"
 	  var hwm = options.highWaterMark;
-	  var defaultHwm = options.objectMode ? 16 : 16 * 1024;
-	  this.highWaterMark = (hwm || hwm === 0) ? hwm : defaultHwm;
+	  var defaultHwm = this.objectMode ? 16 : 16 * 1024;
+	  this.highWaterMark = hwm || hwm === 0 ? hwm : defaultHwm;
 
 	  // cast to ints.
-	  this.highWaterMark = ~~this.highWaterMark;
+	  this.highWaterMark = ~ ~this.highWaterMark;
 
-	  this.buffer = [];
+	  // A linked list is used to store data chunks instead of an array because the
+	  // linked list can remove elements from the beginning faster than
+	  // array.shift()
+	  this.buffer = new BufferList();
 	  this.length = 0;
 	  this.pipes = null;
 	  this.pipesCount = 0;
@@ -11998,14 +12428,7 @@ var app =
 	  this.needReadable = false;
 	  this.emittedReadable = false;
 	  this.readableListening = false;
-
-
-	  // object stream flag. Used to make read(n) ignore n and to
-	  // make all the buffer merging and length checks go away
-	  this.objectMode = !!options.objectMode;
-
-	  if (stream instanceof Duplex)
-	    this.objectMode = this.objectMode || !!options.readableObjectMode;
+	  this.resumeScheduled = false;
 
 	  // Crypto is kind of old and crusty.  Historically, its default string
 	  // encoding is 'binary' so we have to make this configurable.
@@ -12025,23 +12448,23 @@ var app =
 	  this.decoder = null;
 	  this.encoding = null;
 	  if (options.encoding) {
-	    if (!StringDecoder)
-	      StringDecoder = __webpack_require__(64).StringDecoder;
+	    if (!StringDecoder) StringDecoder = __webpack_require__(69).StringDecoder;
 	    this.decoder = new StringDecoder(options.encoding);
 	    this.encoding = options.encoding;
 	  }
 	}
 
 	function Readable(options) {
-	  var Duplex = __webpack_require__(62);
+	  Duplex = Duplex || __webpack_require__(64);
 
-	  if (!(this instanceof Readable))
-	    return new Readable(options);
+	  if (!(this instanceof Readable)) return new Readable(options);
 
 	  this._readableState = new ReadableState(options, this);
 
 	  // legacy
 	  this.readable = true;
+
+	  if (options && typeof options.read === 'function') this._read = options.read;
 
 	  Stream.call(this);
 	}
@@ -12050,13 +12473,13 @@ var app =
 	// This returns true if the highWaterMark has not been hit yet,
 	// similar to how Writable.write() returns true if you should
 	// write() some more.
-	Readable.prototype.push = function(chunk, encoding) {
+	Readable.prototype.push = function (chunk, encoding) {
 	  var state = this._readableState;
 
-	  if (util.isString(chunk) && !state.objectMode) {
+	  if (!state.objectMode && typeof chunk === 'string') {
 	    encoding = encoding || state.defaultEncoding;
 	    if (encoding !== state.encoding) {
-	      chunk = new Buffer(chunk, encoding);
+	      chunk = bufferShim.from(chunk, encoding);
 	      encoding = '';
 	    }
 	  }
@@ -12065,47 +12488,52 @@ var app =
 	};
 
 	// Unshift should *always* be something directly out of read()
-	Readable.prototype.unshift = function(chunk) {
+	Readable.prototype.unshift = function (chunk) {
 	  var state = this._readableState;
 	  return readableAddChunk(this, state, chunk, '', true);
+	};
+
+	Readable.prototype.isPaused = function () {
+	  return this._readableState.flowing === false;
 	};
 
 	function readableAddChunk(stream, state, chunk, encoding, addToFront) {
 	  var er = chunkInvalid(state, chunk);
 	  if (er) {
 	    stream.emit('error', er);
-	  } else if (util.isNullOrUndefined(chunk)) {
+	  } else if (chunk === null) {
 	    state.reading = false;
-	    if (!state.ended)
-	      onEofChunk(stream, state);
+	    onEofChunk(stream, state);
 	  } else if (state.objectMode || chunk && chunk.length > 0) {
 	    if (state.ended && !addToFront) {
 	      var e = new Error('stream.push() after EOF');
 	      stream.emit('error', e);
 	    } else if (state.endEmitted && addToFront) {
-	      var e = new Error('stream.unshift() after end event');
-	      stream.emit('error', e);
+	      var _e = new Error('stream.unshift() after end event');
+	      stream.emit('error', _e);
 	    } else {
-	      if (state.decoder && !addToFront && !encoding)
+	      var skipAdd;
+	      if (state.decoder && !addToFront && !encoding) {
 	        chunk = state.decoder.write(chunk);
+	        skipAdd = !state.objectMode && chunk.length === 0;
+	      }
 
-	      if (!addToFront)
-	        state.reading = false;
+	      if (!addToFront) state.reading = false;
 
-	      // if we want the data now, just emit it.
-	      if (state.flowing && state.length === 0 && !state.sync) {
-	        stream.emit('data', chunk);
-	        stream.read(0);
-	      } else {
-	        // update the buffer info.
-	        state.length += state.objectMode ? 1 : chunk.length;
-	        if (addToFront)
-	          state.buffer.unshift(chunk);
-	        else
-	          state.buffer.push(chunk);
+	      // Don't add to the buffer if we've decoded to an empty string chunk and
+	      // we're not in object mode
+	      if (!skipAdd) {
+	        // if we want the data now, just emit it.
+	        if (state.flowing && state.length === 0 && !state.sync) {
+	          stream.emit('data', chunk);
+	          stream.read(0);
+	        } else {
+	          // update the buffer info.
+	          state.length += state.objectMode ? 1 : chunk.length;
+	          if (addToFront) state.buffer.unshift(chunk);else state.buffer.push(chunk);
 
-	        if (state.needReadable)
-	          emitReadable(stream);
+	          if (state.needReadable) emitReadable(stream);
+	        }
 	      }
 
 	      maybeReadMore(stream, state);
@@ -12117,8 +12545,6 @@ var app =
 	  return needMoreData(state);
 	}
 
-
-
 	// if it's past the high water mark, we can push in some more.
 	// Also, if we have no data yet, we can stand some
 	// more bytes.  This is to work around cases where hwm=0,
@@ -12127,92 +12553,71 @@ var app =
 	// needReadable was set, then we ought to push more, so that another
 	// 'readable' event will be triggered.
 	function needMoreData(state) {
-	  return !state.ended &&
-	         (state.needReadable ||
-	          state.length < state.highWaterMark ||
-	          state.length === 0);
+	  return !state.ended && (state.needReadable || state.length < state.highWaterMark || state.length === 0);
 	}
 
 	// backwards compatibility.
-	Readable.prototype.setEncoding = function(enc) {
-	  if (!StringDecoder)
-	    StringDecoder = __webpack_require__(64).StringDecoder;
+	Readable.prototype.setEncoding = function (enc) {
+	  if (!StringDecoder) StringDecoder = __webpack_require__(69).StringDecoder;
 	  this._readableState.decoder = new StringDecoder(enc);
 	  this._readableState.encoding = enc;
 	  return this;
 	};
 
-	// Don't raise the hwm > 128MB
+	// Don't raise the hwm > 8MB
 	var MAX_HWM = 0x800000;
-	function roundUpToNextPowerOf2(n) {
+	function computeNewHighWaterMark(n) {
 	  if (n >= MAX_HWM) {
 	    n = MAX_HWM;
 	  } else {
-	    // Get the next highest power of 2
+	    // Get the next highest power of 2 to prevent increasing hwm excessively in
+	    // tiny amounts
 	    n--;
-	    for (var p = 1; p < 32; p <<= 1) n |= n >> p;
+	    n |= n >>> 1;
+	    n |= n >>> 2;
+	    n |= n >>> 4;
+	    n |= n >>> 8;
+	    n |= n >>> 16;
 	    n++;
 	  }
 	  return n;
 	}
 
+	// This function is designed to be inlinable, so please take care when making
+	// changes to the function body.
 	function howMuchToRead(n, state) {
-	  if (state.length === 0 && state.ended)
-	    return 0;
-
-	  if (state.objectMode)
-	    return n === 0 ? 0 : 1;
-
-	  if (isNaN(n) || util.isNull(n)) {
-	    // only flow one buffer at a time
-	    if (state.flowing && state.buffer.length)
-	      return state.buffer[0].length;
-	    else
-	      return state.length;
+	  if (n <= 0 || state.length === 0 && state.ended) return 0;
+	  if (state.objectMode) return 1;
+	  if (n !== n) {
+	    // Only flow one buffer at a time
+	    if (state.flowing && state.length) return state.buffer.head.data.length;else return state.length;
 	  }
-
-	  if (n <= 0)
+	  // If we're asking for more than the current hwm, then raise the hwm.
+	  if (n > state.highWaterMark) state.highWaterMark = computeNewHighWaterMark(n);
+	  if (n <= state.length) return n;
+	  // Don't have enough
+	  if (!state.ended) {
+	    state.needReadable = true;
 	    return 0;
-
-	  // If we're asking for more than the target buffer level,
-	  // then raise the water mark.  Bump up to the next highest
-	  // power of 2, to prevent increasing it excessively in tiny
-	  // amounts.
-	  if (n > state.highWaterMark)
-	    state.highWaterMark = roundUpToNextPowerOf2(n);
-
-	  // don't have that much.  return null, unless we've ended.
-	  if (n > state.length) {
-	    if (!state.ended) {
-	      state.needReadable = true;
-	      return 0;
-	    } else
-	      return state.length;
 	  }
-
-	  return n;
+	  return state.length;
 	}
 
 	// you can override either this method, or the async _read(n) below.
-	Readable.prototype.read = function(n) {
+	Readable.prototype.read = function (n) {
 	  debug('read', n);
+	  n = parseInt(n, 10);
 	  var state = this._readableState;
 	  var nOrig = n;
 
-	  if (!util.isNumber(n) || n > 0)
-	    state.emittedReadable = false;
+	  if (n !== 0) state.emittedReadable = false;
 
 	  // if we're doing read(0) to trigger a readable event, but we
 	  // already have a bunch of data in the buffer, then just trigger
 	  // the 'readable' event and move on.
-	  if (n === 0 &&
-	      state.needReadable &&
-	      (state.length >= state.highWaterMark || state.ended)) {
+	  if (n === 0 && state.needReadable && (state.length >= state.highWaterMark || state.ended)) {
 	    debug('read: emitReadable', state.length, state.ended);
-	    if (state.length === 0 && state.ended)
-	      endReadable(this);
-	    else
-	      emitReadable(this);
+	    if (state.length === 0 && state.ended) endReadable(this);else emitReadable(this);
 	    return null;
 	  }
 
@@ -12220,8 +12625,7 @@ var app =
 
 	  // if we've ended, and we're now clear, then finish it up.
 	  if (n === 0 && state.ended) {
-	    if (state.length === 0)
-	      endReadable(this);
+	    if (state.length === 0) endReadable(this);
 	    return null;
 	  }
 
@@ -12262,67 +12666,55 @@ var app =
 	  if (state.ended || state.reading) {
 	    doRead = false;
 	    debug('reading or ended', doRead);
-	  }
-
-	  if (doRead) {
+	  } else if (doRead) {
 	    debug('do read');
 	    state.reading = true;
 	    state.sync = true;
 	    // if the length is currently zero, then we *need* a readable event.
-	    if (state.length === 0)
-	      state.needReadable = true;
+	    if (state.length === 0) state.needReadable = true;
 	    // call internal read method
 	    this._read(state.highWaterMark);
 	    state.sync = false;
+	    // If _read pushed data synchronously, then `reading` will be false,
+	    // and we need to re-evaluate how much data we can return to the user.
+	    if (!state.reading) n = howMuchToRead(nOrig, state);
 	  }
-
-	  // If _read pushed data synchronously, then `reading` will be false,
-	  // and we need to re-evaluate how much data we can return to the user.
-	  if (doRead && !state.reading)
-	    n = howMuchToRead(nOrig, state);
 
 	  var ret;
-	  if (n > 0)
-	    ret = fromList(n, state);
-	  else
-	    ret = null;
+	  if (n > 0) ret = fromList(n, state);else ret = null;
 
-	  if (util.isNull(ret)) {
+	  if (ret === null) {
 	    state.needReadable = true;
 	    n = 0;
+	  } else {
+	    state.length -= n;
 	  }
 
-	  state.length -= n;
+	  if (state.length === 0) {
+	    // If we have nothing in the buffer, then we want to know
+	    // as soon as we *do* get something into the buffer.
+	    if (!state.ended) state.needReadable = true;
 
-	  // If we have nothing in the buffer, then we want to know
-	  // as soon as we *do* get something into the buffer.
-	  if (state.length === 0 && !state.ended)
-	    state.needReadable = true;
+	    // If we tried to read() past the EOF, then emit end on the next tick.
+	    if (nOrig !== n && state.ended) endReadable(this);
+	  }
 
-	  // If we tried to read() past the EOF, then emit end on the next tick.
-	  if (nOrig !== n && state.ended && state.length === 0)
-	    endReadable(this);
-
-	  if (!util.isNull(ret))
-	    this.emit('data', ret);
+	  if (ret !== null) this.emit('data', ret);
 
 	  return ret;
 	};
 
 	function chunkInvalid(state, chunk) {
 	  var er = null;
-	  if (!util.isBuffer(chunk) &&
-	      !util.isString(chunk) &&
-	      !util.isNullOrUndefined(chunk) &&
-	      !state.objectMode) {
+	  if (!Buffer.isBuffer(chunk) && typeof chunk !== 'string' && chunk !== null && chunk !== undefined && !state.objectMode) {
 	    er = new TypeError('Invalid non-string/buffer chunk');
 	  }
 	  return er;
 	}
 
-
 	function onEofChunk(stream, state) {
-	  if (state.decoder && !state.ended) {
+	  if (state.ended) return;
+	  if (state.decoder) {
 	    var chunk = state.decoder.end();
 	    if (chunk && chunk.length) {
 	      state.buffer.push(chunk);
@@ -12344,12 +12736,7 @@ var app =
 	  if (!state.emittedReadable) {
 	    debug('emitReadable', state.flowing);
 	    state.emittedReadable = true;
-	    if (state.sync)
-	      process.nextTick(function() {
-	        emitReadable_(stream);
-	      });
-	    else
-	      emitReadable_(stream);
+	    if (state.sync) processNextTick(emitReadable_, stream);else emitReadable_(stream);
 	  }
 	}
 
@@ -12358,7 +12745,6 @@ var app =
 	  stream.emit('readable');
 	  flow(stream);
 	}
-
 
 	// at this point, the user has presumably seen the 'readable' event,
 	// and called read() to consume some data.  that may have triggered
@@ -12369,23 +12755,18 @@ var app =
 	function maybeReadMore(stream, state) {
 	  if (!state.readingMore) {
 	    state.readingMore = true;
-	    process.nextTick(function() {
-	      maybeReadMore_(stream, state);
-	    });
+	    processNextTick(maybeReadMore_, stream, state);
 	  }
 	}
 
 	function maybeReadMore_(stream, state) {
 	  var len = state.length;
-	  while (!state.reading && !state.flowing && !state.ended &&
-	         state.length < state.highWaterMark) {
+	  while (!state.reading && !state.flowing && !state.ended && state.length < state.highWaterMark) {
 	    debug('maybeReadMore read 0');
 	    stream.read(0);
 	    if (len === state.length)
 	      // didn't get any data, stop spinning.
-	      break;
-	    else
-	      len = state.length;
+	      break;else len = state.length;
 	  }
 	  state.readingMore = false;
 	}
@@ -12394,11 +12775,11 @@ var app =
 	// call cb(er, data) where data is <= n in length.
 	// for virtual (non-string, non-buffer) streams, "length" is somewhat
 	// arbitrary, and perhaps not very meaningful.
-	Readable.prototype._read = function(n) {
-	  this.emit('error', new Error('not implemented'));
+	Readable.prototype._read = function (n) {
+	  this.emit('error', new Error('_read() is not implemented'));
 	};
 
-	Readable.prototype.pipe = function(dest, pipeOpts) {
+	Readable.prototype.pipe = function (dest, pipeOpts) {
 	  var src = this;
 	  var state = this._readableState;
 
@@ -12416,15 +12797,10 @@ var app =
 	  state.pipesCount += 1;
 	  debug('pipe count=%d opts=%j', state.pipesCount, pipeOpts);
 
-	  var doEnd = (!pipeOpts || pipeOpts.end !== false) &&
-	              dest !== process.stdout &&
-	              dest !== process.stderr;
+	  var doEnd = (!pipeOpts || pipeOpts.end !== false) && dest !== process.stdout && dest !== process.stderr;
 
 	  var endFn = doEnd ? onend : cleanup;
-	  if (state.endEmitted)
-	    process.nextTick(endFn);
-	  else
-	    src.once('end', endFn);
+	  if (state.endEmitted) processNextTick(endFn);else src.once('end', endFn);
 
 	  dest.on('unpipe', onunpipe);
 	  function onunpipe(readable) {
@@ -12446,6 +12822,7 @@ var app =
 	  var ondrain = pipeOnDrain(src);
 	  dest.on('drain', ondrain);
 
+	  var cleanedUp = false;
 	  function cleanup() {
 	    debug('cleanup');
 	    // cleanup event handlers once the pipe is broken
@@ -12458,24 +12835,36 @@ var app =
 	    src.removeListener('end', cleanup);
 	    src.removeListener('data', ondata);
 
+	    cleanedUp = true;
+
 	    // if the reader is waiting for a drain event from this
 	    // specific writer, then it would cause it to never start
 	    // flowing again.
 	    // So, if this is awaiting a drain, then we just call it now.
 	    // If we don't know, then assume that we are waiting for one.
-	    if (state.awaitDrain &&
-	        (!dest._writableState || dest._writableState.needDrain))
-	      ondrain();
+	    if (state.awaitDrain && (!dest._writableState || dest._writableState.needDrain)) ondrain();
 	  }
 
+	  // If the user pushes more data while we're writing to dest then we'll end up
+	  // in ondata again. However, we only want to increase awaitDrain once because
+	  // dest will only emit one 'drain' event for the multiple writes.
+	  // => Introduce a guard on increasing awaitDrain.
+	  var increasedAwaitDrain = false;
 	  src.on('data', ondata);
 	  function ondata(chunk) {
 	    debug('ondata');
+	    increasedAwaitDrain = false;
 	    var ret = dest.write(chunk);
-	    if (false === ret) {
-	      debug('false write response, pause',
-	            src._readableState.awaitDrain);
-	      src._readableState.awaitDrain++;
+	    if (false === ret && !increasedAwaitDrain) {
+	      // If the user unpiped during `dest.write()`, it is possible
+	      // to get stuck in a permanently paused state if that write
+	      // also returned false.
+	      // => Check whether `dest` is still a piping destination.
+	      if ((state.pipesCount === 1 && state.pipes === dest || state.pipesCount > 1 && indexOf(state.pipes, dest) !== -1) && !cleanedUp) {
+	        debug('false write response, pause', src._readableState.awaitDrain);
+	        src._readableState.awaitDrain++;
+	        increasedAwaitDrain = true;
+	      }
 	      src.pause();
 	    }
 	  }
@@ -12486,19 +12875,11 @@ var app =
 	    debug('onerror', er);
 	    unpipe();
 	    dest.removeListener('error', onerror);
-	    if (EE.listenerCount(dest, 'error') === 0)
-	      dest.emit('error', er);
+	    if (EElistenerCount(dest, 'error') === 0) dest.emit('error', er);
 	  }
-	  // This is a brutally ugly hack to make sure that our error handler
-	  // is attached before any userland ones.  NEVER DO THIS.
-	  if (!dest._events || !dest._events.error)
-	    dest.on('error', onerror);
-	  else if (isArray(dest._events.error))
-	    dest._events.error.unshift(onerror);
-	  else
-	    dest._events.error = [onerror, dest._events.error];
 
-
+	  // Make sure our error handler is attached before userland ones.
+	  prependListener(dest, 'error', onerror);
 
 	  // Both close and finish should trigger unpipe, but only once.
 	  function onclose() {
@@ -12531,41 +12912,35 @@ var app =
 	};
 
 	function pipeOnDrain(src) {
-	  return function() {
+	  return function () {
 	    var state = src._readableState;
 	    debug('pipeOnDrain', state.awaitDrain);
-	    if (state.awaitDrain)
-	      state.awaitDrain--;
-	    if (state.awaitDrain === 0 && EE.listenerCount(src, 'data')) {
+	    if (state.awaitDrain) state.awaitDrain--;
+	    if (state.awaitDrain === 0 && EElistenerCount(src, 'data')) {
 	      state.flowing = true;
 	      flow(src);
 	    }
 	  };
 	}
 
-
-	Readable.prototype.unpipe = function(dest) {
+	Readable.prototype.unpipe = function (dest) {
 	  var state = this._readableState;
 
 	  // if we're not piping anywhere, then do nothing.
-	  if (state.pipesCount === 0)
-	    return this;
+	  if (state.pipesCount === 0) return this;
 
 	  // just one destination.  most common case.
 	  if (state.pipesCount === 1) {
 	    // passed in one, but it's not the right one.
-	    if (dest && dest !== state.pipes)
-	      return this;
+	    if (dest && dest !== state.pipes) return this;
 
-	    if (!dest)
-	      dest = state.pipes;
+	    if (!dest) dest = state.pipes;
 
 	    // got a match.
 	    state.pipes = null;
 	    state.pipesCount = 0;
 	    state.flowing = false;
-	    if (dest)
-	      dest.emit('unpipe', this);
+	    if (dest) dest.emit('unpipe', this);
 	    return this;
 	  }
 
@@ -12579,20 +12954,18 @@ var app =
 	    state.pipesCount = 0;
 	    state.flowing = false;
 
-	    for (var i = 0; i < len; i++)
+	    for (var i = 0; i < len; i++) {
 	      dests[i].emit('unpipe', this);
-	    return this;
+	    }return this;
 	  }
 
 	  // try to find the right one.
-	  var i = indexOf(state.pipes, dest);
-	  if (i === -1)
-	    return this;
+	  var index = indexOf(state.pipes, dest);
+	  if (index === -1) return this;
 
-	  state.pipes.splice(i, 1);
+	  state.pipes.splice(index, 1);
 	  state.pipesCount -= 1;
-	  if (state.pipesCount === 1)
-	    state.pipes = state.pipes[0];
+	  if (state.pipesCount === 1) state.pipes = state.pipes[0];
 
 	  dest.emit('unpipe', this);
 
@@ -12601,27 +12974,19 @@ var app =
 
 	// set up data events if they are asked for
 	// Ensure readable listeners eventually get something
-	Readable.prototype.on = function(ev, fn) {
+	Readable.prototype.on = function (ev, fn) {
 	  var res = Stream.prototype.on.call(this, ev, fn);
 
-	  // If listening to data, and it has not explicitly been paused,
-	  // then call resume to start the flow of data on the next tick.
-	  if (ev === 'data' && false !== this._readableState.flowing) {
-	    this.resume();
-	  }
-
-	  if (ev === 'readable' && this.readable) {
+	  if (ev === 'data') {
+	    // Start flowing on next tick if stream isn't explicitly paused
+	    if (this._readableState.flowing !== false) this.resume();
+	  } else if (ev === 'readable') {
 	    var state = this._readableState;
-	    if (!state.readableListening) {
-	      state.readableListening = true;
+	    if (!state.endEmitted && !state.readableListening) {
+	      state.readableListening = state.needReadable = true;
 	      state.emittedReadable = false;
-	      state.needReadable = true;
 	      if (!state.reading) {
-	        var self = this;
-	        process.nextTick(function() {
-	          debug('readable nexttick read 0');
-	          self.read(0);
-	        });
+	        processNextTick(nReadingNextTick, this);
 	      } else if (state.length) {
 	        emitReadable(this, state);
 	      }
@@ -12632,17 +12997,18 @@ var app =
 	};
 	Readable.prototype.addListener = Readable.prototype.on;
 
+	function nReadingNextTick(self) {
+	  debug('readable nexttick read 0');
+	  self.read(0);
+	}
+
 	// pause() and resume() are remnants of the legacy readable stream API
 	// If the user uses them, then switch into old mode.
-	Readable.prototype.resume = function() {
+	Readable.prototype.resume = function () {
 	  var state = this._readableState;
 	  if (!state.flowing) {
 	    debug('resume');
 	    state.flowing = true;
-	    if (!state.reading) {
-	      debug('resume read 0');
-	      this.read(0);
-	    }
 	    resume(this, state);
 	  }
 	  return this;
@@ -12651,21 +13017,24 @@ var app =
 	function resume(stream, state) {
 	  if (!state.resumeScheduled) {
 	    state.resumeScheduled = true;
-	    process.nextTick(function() {
-	      resume_(stream, state);
-	    });
+	    processNextTick(resume_, stream, state);
 	  }
 	}
 
 	function resume_(stream, state) {
+	  if (!state.reading) {
+	    debug('resume read 0');
+	    stream.read(0);
+	  }
+
 	  state.resumeScheduled = false;
+	  state.awaitDrain = 0;
 	  stream.emit('resume');
 	  flow(stream);
-	  if (state.flowing && !state.reading)
-	    stream.read(0);
+	  if (state.flowing && !state.reading) stream.read(0);
 	}
 
-	Readable.prototype.pause = function() {
+	Readable.prototype.pause = function () {
 	  debug('call pause flowing=%j', this._readableState.flowing);
 	  if (false !== this._readableState.flowing) {
 	    debug('pause');
@@ -12678,38 +13047,33 @@ var app =
 	function flow(stream) {
 	  var state = stream._readableState;
 	  debug('flow', state.flowing);
-	  if (state.flowing) {
-	    do {
-	      var chunk = stream.read();
-	    } while (null !== chunk && state.flowing);
-	  }
+	  while (state.flowing && stream.read() !== null) {}
 	}
 
 	// wrap an old-style stream as the async data source.
 	// This is *not* part of the readable stream interface.
 	// It is an ugly unfortunate mess of history.
-	Readable.prototype.wrap = function(stream) {
+	Readable.prototype.wrap = function (stream) {
 	  var state = this._readableState;
 	  var paused = false;
 
 	  var self = this;
-	  stream.on('end', function() {
+	  stream.on('end', function () {
 	    debug('wrapped end');
 	    if (state.decoder && !state.ended) {
 	      var chunk = state.decoder.end();
-	      if (chunk && chunk.length)
-	        self.push(chunk);
+	      if (chunk && chunk.length) self.push(chunk);
 	    }
 
 	    self.push(null);
 	  });
 
-	  stream.on('data', function(chunk) {
+	  stream.on('data', function (chunk) {
 	    debug('wrapped data');
-	    if (state.decoder)
-	      chunk = state.decoder.write(chunk);
-	    if (!chunk || !state.objectMode && !chunk.length)
-	      return;
+	    if (state.decoder) chunk = state.decoder.write(chunk);
+
+	    // don't skip over falsy values in objectMode
+	    if (state.objectMode && (chunk === null || chunk === undefined)) return;else if (!state.objectMode && (!chunk || !chunk.length)) return;
 
 	    var ret = self.push(chunk);
 	    if (!ret) {
@@ -12721,22 +13085,24 @@ var app =
 	  // proxy all the other methods.
 	  // important when wrapping filters and duplexes.
 	  for (var i in stream) {
-	    if (util.isFunction(stream[i]) && util.isUndefined(this[i])) {
-	      this[i] = function(method) { return function() {
-	        return stream[method].apply(stream, arguments);
-	      }}(i);
+	    if (this[i] === undefined && typeof stream[i] === 'function') {
+	      this[i] = function (method) {
+	        return function () {
+	          return stream[method].apply(stream, arguments);
+	        };
+	      }(i);
 	    }
 	  }
 
 	  // proxy certain important events.
 	  var events = ['error', 'close', 'destroy', 'pause', 'resume'];
-	  forEach(events, function(ev) {
+	  forEach(events, function (ev) {
 	    stream.on(ev, self.emit.bind(self, ev));
 	  });
 
 	  // when we try to consume some more bytes, simply unpause the
 	  // underlying stream.
-	  self._read = function(n) {
+	  self._read = function (n) {
 	    debug('wrapped _read', n);
 	    if (paused) {
 	      paused = false;
@@ -12747,74 +13113,106 @@ var app =
 	  return self;
 	};
 
-
-
 	// exposed for testing purposes only.
 	Readable._fromList = fromList;
 
 	// Pluck off n bytes from an array of buffers.
 	// Length is the combined lengths of all the buffers in the list.
+	// This function is designed to be inlinable, so please take care when making
+	// changes to the function body.
 	function fromList(n, state) {
-	  var list = state.buffer;
-	  var length = state.length;
-	  var stringMode = !!state.decoder;
-	  var objectMode = !!state.objectMode;
+	  // nothing buffered
+	  if (state.length === 0) return null;
+
 	  var ret;
-
-	  // nothing in the list, definitely empty.
-	  if (list.length === 0)
-	    return null;
-
-	  if (length === 0)
-	    ret = null;
-	  else if (objectMode)
-	    ret = list.shift();
-	  else if (!n || n >= length) {
-	    // read it all, truncate the array.
-	    if (stringMode)
-	      ret = list.join('');
-	    else
-	      ret = Buffer.concat(list, length);
-	    list.length = 0;
+	  if (state.objectMode) ret = state.buffer.shift();else if (!n || n >= state.length) {
+	    // read it all, truncate the list
+	    if (state.decoder) ret = state.buffer.join('');else if (state.buffer.length === 1) ret = state.buffer.head.data;else ret = state.buffer.concat(state.length);
+	    state.buffer.clear();
 	  } else {
-	    // read just some of it.
-	    if (n < list[0].length) {
-	      // just take a part of the first list item.
-	      // slice is the same for buffers and strings.
-	      var buf = list[0];
-	      ret = buf.slice(0, n);
-	      list[0] = buf.slice(n);
-	    } else if (n === list[0].length) {
-	      // first list is a perfect match
-	      ret = list.shift();
-	    } else {
-	      // complex case.
-	      // we have enough to cover it, but it spans past the first buffer.
-	      if (stringMode)
-	        ret = '';
-	      else
-	        ret = new Buffer(n);
-
-	      var c = 0;
-	      for (var i = 0, l = list.length; i < l && c < n; i++) {
-	        var buf = list[0];
-	        var cpy = Math.min(n - c, buf.length);
-
-	        if (stringMode)
-	          ret += buf.slice(0, cpy);
-	        else
-	          buf.copy(ret, c, 0, cpy);
-
-	        if (cpy < buf.length)
-	          list[0] = buf.slice(cpy);
-	        else
-	          list.shift();
-
-	        c += cpy;
-	      }
-	    }
+	    // read part of list
+	    ret = fromListPartial(n, state.buffer, state.decoder);
 	  }
 
+	  return ret;
+	}
+
+	// Extracts only enough buffered data to satisfy the amount requested.
+	// This function is designed to be inlinable, so please take care when making
+	// changes to the function body.
+	function fromListPartial(n, list, hasStrings) {
+	  var ret;
+	  if (n < list.head.data.length) {
+	    // slice is the same for buffers and strings
+	    ret = list.head.data.slice(0, n);
+	    list.head.data = list.head.data.slice(n);
+	  } else if (n === list.head.data.length) {
+	    // first chunk is a perfect match
+	    ret = list.shift();
+	  } else {
+	    // result spans more than one buffer
+	    ret = hasStrings ? copyFromBufferString(n, list) : copyFromBuffer(n, list);
+	  }
+	  return ret;
+	}
+
+	// Copies a specified amount of characters from the list of buffered data
+	// chunks.
+	// This function is designed to be inlinable, so please take care when making
+	// changes to the function body.
+	function copyFromBufferString(n, list) {
+	  var p = list.head;
+	  var c = 1;
+	  var ret = p.data;
+	  n -= ret.length;
+	  while (p = p.next) {
+	    var str = p.data;
+	    var nb = n > str.length ? str.length : n;
+	    if (nb === str.length) ret += str;else ret += str.slice(0, n);
+	    n -= nb;
+	    if (n === 0) {
+	      if (nb === str.length) {
+	        ++c;
+	        if (p.next) list.head = p.next;else list.head = list.tail = null;
+	      } else {
+	        list.head = p;
+	        p.data = str.slice(nb);
+	      }
+	      break;
+	    }
+	    ++c;
+	  }
+	  list.length -= c;
+	  return ret;
+	}
+
+	// Copies a specified amount of bytes from the list of buffered data chunks.
+	// This function is designed to be inlinable, so please take care when making
+	// changes to the function body.
+	function copyFromBuffer(n, list) {
+	  var ret = bufferShim.allocUnsafe(n);
+	  var p = list.head;
+	  var c = 1;
+	  p.data.copy(ret);
+	  n -= p.data.length;
+	  while (p = p.next) {
+	    var buf = p.data;
+	    var nb = n > buf.length ? buf.length : n;
+	    buf.copy(ret, ret.length - n, 0, nb);
+	    n -= nb;
+	    if (n === 0) {
+	      if (nb === buf.length) {
+	        ++c;
+	        if (p.next) list.head = p.next;else list.head = list.tail = null;
+	      } else {
+	        list.head = p;
+	        p.data = buf.slice(nb);
+	      }
+	      break;
+	    }
+	    ++c;
+	  }
+	  list.length -= c;
 	  return ret;
 	}
 
@@ -12823,51 +13221,103 @@ var app =
 
 	  // If we get here before consuming all the bytes, then that is a
 	  // bug in node.  Should never happen.
-	  if (state.length > 0)
-	    throw new Error('endReadable called on non-empty stream');
+	  if (state.length > 0) throw new Error('"endReadable()" called on non-empty stream');
 
 	  if (!state.endEmitted) {
 	    state.ended = true;
-	    process.nextTick(function() {
-	      // Check that we didn't get one last unshift.
-	      if (!state.endEmitted && state.length === 0) {
-	        state.endEmitted = true;
-	        stream.readable = false;
-	        stream.emit('end');
-	      }
-	    });
+	    processNextTick(endReadableNT, state, stream);
 	  }
 	}
 
-	function forEach (xs, f) {
+	function endReadableNT(state, stream) {
+	  // Check that we didn't get one last unshift.
+	  if (!state.endEmitted && state.length === 0) {
+	    state.endEmitted = true;
+	    stream.readable = false;
+	    stream.emit('end');
+	  }
+	}
+
+	function forEach(xs, f) {
 	  for (var i = 0, l = xs.length; i < l; i++) {
 	    f(xs[i], i);
 	  }
 	}
 
-	function indexOf (xs, x) {
+	function indexOf(xs, x) {
 	  for (var i = 0, l = xs.length; i < l; i++) {
 	    if (xs[i] === x) return i;
 	  }
 	  return -1;
 	}
-
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ },
 /* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	if (!process.version ||
+	    process.version.indexOf('v0.') === 0 ||
+	    process.version.indexOf('v1.') === 0 && process.version.indexOf('v1.8.') !== 0) {
+	  module.exports = nextTick;
+	} else {
+	  module.exports = process.nextTick;
+	}
+
+	function nextTick(fn, arg1, arg2, arg3) {
+	  if (typeof fn !== 'function') {
+	    throw new TypeError('"callback" argument must be a function');
+	  }
+	  var len = arguments.length;
+	  var args, i;
+	  switch (len) {
+	  case 0:
+	  case 1:
+	    return process.nextTick(fn);
+	  case 2:
+	    return process.nextTick(function afterTickOne() {
+	      fn.call(null, arg1);
+	    });
+	  case 3:
+	    return process.nextTick(function afterTickTwo() {
+	      fn.call(null, arg1, arg2);
+	    });
+	  case 4:
+	    return process.nextTick(function afterTickThree() {
+	      fn.call(null, arg1, arg2, arg3);
+	    });
+	  default:
+	    args = new Array(len - 1);
+	    i = 0;
+	    while (i < args.length) {
+	      args[i++] = arguments[i];
+	    }
+	    return process.nextTick(function afterTick() {
+	      fn.apply(null, args);
+	    });
+	  }
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+
+/***/ },
+/* 56 */
 /***/ function(module, exports) {
 
+	var toString = {}.toString;
+
 	module.exports = Array.isArray || function (arr) {
-	  return Object.prototype.toString.call(arr) == '[object Array]';
+	  return toString.call(arr) == '[object Array]';
 	};
 
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
+	/* WEBPACK VAR INJECTION */(function(global) {/*!
 	 * The buffer module from node.js, for the browser.
 	 *
 	 * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
@@ -12877,9 +13327,9 @@ var app =
 
 	'use strict'
 
-	var base64 = __webpack_require__(57)
-	var ieee754 = __webpack_require__(58)
-	var isArray = __webpack_require__(59)
+	var base64 = __webpack_require__(58)
+	var ieee754 = __webpack_require__(59)
+	var isArray = __webpack_require__(56)
 
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -14657,10 +15107,10 @@ var app =
 	  return val !== val // eslint-disable-line no-self-compare
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56).Buffer, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -14780,7 +15230,7 @@ var app =
 
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -14870,18 +15320,122 @@ var app =
 
 
 /***/ },
-/* 59 */
-/***/ function(module, exports) {
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
 
-	var toString = {}.toString;
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
-	module.exports = Array.isArray || function (arr) {
-	  return toString.call(arr) == '[object Array]';
-	};
+	var buffer = __webpack_require__(57);
+	var Buffer = buffer.Buffer;
+	var SlowBuffer = buffer.SlowBuffer;
+	var MAX_LEN = buffer.kMaxLength || 2147483647;
+	exports.alloc = function alloc(size, fill, encoding) {
+	  if (typeof Buffer.alloc === 'function') {
+	    return Buffer.alloc(size, fill, encoding);
+	  }
+	  if (typeof encoding === 'number') {
+	    throw new TypeError('encoding must not be number');
+	  }
+	  if (typeof size !== 'number') {
+	    throw new TypeError('size must be a number');
+	  }
+	  if (size > MAX_LEN) {
+	    throw new RangeError('size is too large');
+	  }
+	  var enc = encoding;
+	  var _fill = fill;
+	  if (_fill === undefined) {
+	    enc = undefined;
+	    _fill = 0;
+	  }
+	  var buf = new Buffer(size);
+	  if (typeof _fill === 'string') {
+	    var fillBuf = new Buffer(_fill, enc);
+	    var flen = fillBuf.length;
+	    var i = -1;
+	    while (++i < size) {
+	      buf[i] = fillBuf[i % flen];
+	    }
+	  } else {
+	    buf.fill(_fill);
+	  }
+	  return buf;
+	}
+	exports.allocUnsafe = function allocUnsafe(size) {
+	  if (typeof Buffer.allocUnsafe === 'function') {
+	    return Buffer.allocUnsafe(size);
+	  }
+	  if (typeof size !== 'number') {
+	    throw new TypeError('size must be a number');
+	  }
+	  if (size > MAX_LEN) {
+	    throw new RangeError('size is too large');
+	  }
+	  return new Buffer(size);
+	}
+	exports.from = function from(value, encodingOrOffset, length) {
+	  if (typeof Buffer.from === 'function' && (!global.Uint8Array || Uint8Array.from !== Buffer.from)) {
+	    return Buffer.from(value, encodingOrOffset, length);
+	  }
+	  if (typeof value === 'number') {
+	    throw new TypeError('"value" argument must not be a number');
+	  }
+	  if (typeof value === 'string') {
+	    return new Buffer(value, encodingOrOffset);
+	  }
+	  if (typeof ArrayBuffer !== 'undefined' && value instanceof ArrayBuffer) {
+	    var offset = encodingOrOffset;
+	    if (arguments.length === 1) {
+	      return new Buffer(value);
+	    }
+	    if (typeof offset === 'undefined') {
+	      offset = 0;
+	    }
+	    var len = length;
+	    if (typeof len === 'undefined') {
+	      len = value.byteLength - offset;
+	    }
+	    if (offset >= value.byteLength) {
+	      throw new RangeError('\'offset\' is out of bounds');
+	    }
+	    if (len > value.byteLength - offset) {
+	      throw new RangeError('\'length\' is out of bounds');
+	    }
+	    return new Buffer(value.slice(offset, offset + len));
+	  }
+	  if (Buffer.isBuffer(value)) {
+	    var out = new Buffer(value.length);
+	    value.copy(out, 0, 0, value.length);
+	    return out;
+	  }
+	  if (value) {
+	    if (Array.isArray(value) || (typeof ArrayBuffer !== 'undefined' && value.buffer instanceof ArrayBuffer) || 'length' in value) {
+	      return new Buffer(value);
+	    }
+	    if (value.type === 'Buffer' && Array.isArray(value.data)) {
+	      return new Buffer(value.data);
+	    }
+	  }
 
+	  throw new TypeError('First argument must be a string, Buffer, ' + 'ArrayBuffer, Array, or array-like object.');
+	}
+	exports.allocUnsafeSlow = function allocUnsafeSlow(size) {
+	  if (typeof Buffer.allocUnsafeSlow === 'function') {
+	    return Buffer.allocUnsafeSlow(size);
+	  }
+	  if (typeof size !== 'number') {
+	    throw new TypeError('size must be a number');
+	  }
+	  if (size >= MAX_LEN) {
+	    throw new RangeError('size is too large');
+	  }
+	  return new SlowBuffer(size);
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -14992,86 +15546,138 @@ var app =
 	  return Object.prototype.toString.call(o);
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(57).Buffer))
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	'use strict';
+
+	var Buffer = __webpack_require__(57).Buffer;
+	/*<replacement>*/
+	var bufferShim = __webpack_require__(60);
+	/*</replacement>*/
+
+	module.exports = BufferList;
+
+	function BufferList() {
+	  this.head = null;
+	  this.tail = null;
+	  this.length = 0;
+	}
+
+	BufferList.prototype.push = function (v) {
+	  var entry = { data: v, next: null };
+	  if (this.length > 0) this.tail.next = entry;else this.head = entry;
+	  this.tail = entry;
+	  ++this.length;
+	};
+
+	BufferList.prototype.unshift = function (v) {
+	  var entry = { data: v, next: this.head };
+	  if (this.length === 0) this.tail = entry;
+	  this.head = entry;
+	  ++this.length;
+	};
+
+	BufferList.prototype.shift = function () {
+	  if (this.length === 0) return;
+	  var ret = this.head.data;
+	  if (this.length === 1) this.head = this.tail = null;else this.head = this.head.next;
+	  --this.length;
+	  return ret;
+	};
+
+	BufferList.prototype.clear = function () {
+	  this.head = this.tail = null;
+	  this.length = 0;
+	};
+
+	BufferList.prototype.join = function (s) {
+	  if (this.length === 0) return '';
+	  var p = this.head;
+	  var ret = '' + p.data;
+	  while (p = p.next) {
+	    ret += s + p.data;
+	  }return ret;
+	};
+
+	BufferList.prototype.concat = function (n) {
+	  if (this.length === 0) return bufferShim.alloc(0);
+	  if (this.length === 1) return this.head.data;
+	  var ret = bufferShim.allocUnsafe(n >>> 0);
+	  var p = this.head;
+	  var i = 0;
+	  while (p) {
+	    p.data.copy(ret, i);
+	    i += p.data.length;
+	    p = p.next;
+	  }
+	  return ret;
+	};
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
 
 	// a duplex stream is just a stream that is both readable and writable.
 	// Since JS doesn't have multiple prototypal inheritance, this class
 	// prototypally inherits from Readable, and then parasitically from
 	// Writable.
 
+	'use strict';
+
+	/*<replacement>*/
+
+	var objectKeys = Object.keys || function (obj) {
+	  var keys = [];
+	  for (var key in obj) {
+	    keys.push(key);
+	  }return keys;
+	};
+	/*</replacement>*/
+
 	module.exports = Duplex;
 
 	/*<replacement>*/
-	var objectKeys = Object.keys || function (obj) {
-	  var keys = [];
-	  for (var key in obj) keys.push(key);
-	  return keys;
-	}
+	var processNextTick = __webpack_require__(55);
 	/*</replacement>*/
 
-
 	/*<replacement>*/
-	var util = __webpack_require__(60);
+	var util = __webpack_require__(61);
 	util.inherits = __webpack_require__(52);
 	/*</replacement>*/
 
 	var Readable = __webpack_require__(54);
-	var Writable = __webpack_require__(63);
+	var Writable = __webpack_require__(65);
 
 	util.inherits(Duplex, Readable);
 
-	forEach(objectKeys(Writable.prototype), function(method) {
-	  if (!Duplex.prototype[method])
-	    Duplex.prototype[method] = Writable.prototype[method];
-	});
+	var keys = objectKeys(Writable.prototype);
+	for (var v = 0; v < keys.length; v++) {
+	  var method = keys[v];
+	  if (!Duplex.prototype[method]) Duplex.prototype[method] = Writable.prototype[method];
+	}
 
 	function Duplex(options) {
-	  if (!(this instanceof Duplex))
-	    return new Duplex(options);
+	  if (!(this instanceof Duplex)) return new Duplex(options);
 
 	  Readable.call(this, options);
 	  Writable.call(this, options);
 
-	  if (options && options.readable === false)
-	    this.readable = false;
+	  if (options && options.readable === false) this.readable = false;
 
-	  if (options && options.writable === false)
-	    this.writable = false;
+	  if (options && options.writable === false) this.writable = false;
 
 	  this.allowHalfOpen = true;
-	  if (options && options.allowHalfOpen === false)
-	    this.allowHalfOpen = false;
+	  if (options && options.allowHalfOpen === false) this.allowHalfOpen = false;
 
 	  this.once('end', onend);
 	}
@@ -15080,97 +15686,109 @@ var app =
 	function onend() {
 	  // if we allow half-open state, or if the writable side ended,
 	  // then we're ok.
-	  if (this.allowHalfOpen || this._writableState.ended)
-	    return;
+	  if (this.allowHalfOpen || this._writableState.ended) return;
 
 	  // no more data can be written.
 	  // But allow more writes to happen in this tick.
-	  process.nextTick(this.end.bind(this));
+	  processNextTick(onEndNT, this);
 	}
 
-	function forEach (xs, f) {
+	function onEndNT(self) {
+	  self.end();
+	}
+
+	function forEach(xs, f) {
 	  for (var i = 0, l = xs.length; i < l; i++) {
 	    f(xs[i], i);
 	  }
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
-
 /***/ },
-/* 63 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-	// A bit simpler than readable streams.
-	// Implement an async ._write(chunk, cb), and it'll handle all
+	/* WEBPACK VAR INJECTION */(function(process, setImmediate) {// A bit simpler than readable streams.
+	// Implement an async ._write(chunk, encoding, cb), and it'll handle all
 	// the drain event emission and buffering.
+
+	'use strict';
 
 	module.exports = Writable;
 
 	/*<replacement>*/
-	var Buffer = __webpack_require__(56).Buffer;
+	var processNextTick = __webpack_require__(55);
+	/*</replacement>*/
+
+	/*<replacement>*/
+	var asyncWrite = !process.browser && ['v0.10', 'v0.9.'].indexOf(process.version.slice(0, 5)) > -1 ? setImmediate : processNextTick;
+	/*</replacement>*/
+
+	/*<replacement>*/
+	var Duplex;
 	/*</replacement>*/
 
 	Writable.WritableState = WritableState;
 
-
 	/*<replacement>*/
-	var util = __webpack_require__(60);
+	var util = __webpack_require__(61);
 	util.inherits = __webpack_require__(52);
 	/*</replacement>*/
 
-	var Stream = __webpack_require__(50);
+	/*<replacement>*/
+	var internalUtil = {
+	  deprecate: __webpack_require__(68)
+	};
+	/*</replacement>*/
+
+	/*<replacement>*/
+	var Stream;
+	(function () {
+	  try {
+	    Stream = __webpack_require__(50);
+	  } catch (_) {} finally {
+	    if (!Stream) Stream = __webpack_require__(51).EventEmitter;
+	  }
+	})();
+	/*</replacement>*/
+
+	var Buffer = __webpack_require__(57).Buffer;
+	/*<replacement>*/
+	var bufferShim = __webpack_require__(60);
+	/*</replacement>*/
 
 	util.inherits(Writable, Stream);
+
+	function nop() {}
 
 	function WriteReq(chunk, encoding, cb) {
 	  this.chunk = chunk;
 	  this.encoding = encoding;
 	  this.callback = cb;
+	  this.next = null;
 	}
 
 	function WritableState(options, stream) {
-	  var Duplex = __webpack_require__(62);
+	  Duplex = Duplex || __webpack_require__(64);
 
 	  options = options || {};
-
-	  // the point at which write() starts returning false
-	  // Note: 0 is a valid value, means that we always return false if
-	  // the entire buffer is not flushed immediately on write()
-	  var hwm = options.highWaterMark;
-	  var defaultHwm = options.objectMode ? 16 : 16 * 1024;
-	  this.highWaterMark = (hwm || hwm === 0) ? hwm : defaultHwm;
 
 	  // object stream flag to indicate whether or not this stream
 	  // contains buffers or objects.
 	  this.objectMode = !!options.objectMode;
 
-	  if (stream instanceof Duplex)
-	    this.objectMode = this.objectMode || !!options.writableObjectMode;
+	  if (stream instanceof Duplex) this.objectMode = this.objectMode || !!options.writableObjectMode;
+
+	  // the point at which write() starts returning false
+	  // Note: 0 is a valid value, means that we always return false if
+	  // the entire buffer is not flushed immediately on write()
+	  var hwm = options.highWaterMark;
+	  var defaultHwm = this.objectMode ? 16 : 16 * 1024;
+	  this.highWaterMark = hwm || hwm === 0 ? hwm : defaultHwm;
 
 	  // cast to ints.
-	  this.highWaterMark = ~~this.highWaterMark;
+	  this.highWaterMark = ~ ~this.highWaterMark;
 
+	  // drain event flag.
 	  this.needDrain = false;
 	  // at the start of calling end()
 	  this.ending = false;
@@ -15213,7 +15831,7 @@ var app =
 	  this.bufferProcessing = false;
 
 	  // the callback that's passed to _write(chunk,cb)
-	  this.onwrite = function(er) {
+	  this.onwrite = function (er) {
 	    onwrite(stream, er);
 	  };
 
@@ -15223,7 +15841,8 @@ var app =
 	  // the amount that is being written when _write is called.
 	  this.writelen = 0;
 
-	  this.buffer = [];
+	  this.bufferedRequest = null;
+	  this.lastBufferedRequest = null;
 
 	  // number of pending user-supplied write callbacks
 	  // this must be 0 before 'finish' can be emitted
@@ -15235,37 +15854,91 @@ var app =
 
 	  // True if the error was already emitted and should not be thrown again
 	  this.errorEmitted = false;
+
+	  // count buffered requests
+	  this.bufferedRequestCount = 0;
+
+	  // allocate the first CorkedRequest, there is always
+	  // one allocated and free to use, and we maintain at most two
+	  this.corkedRequestsFree = new CorkedRequest(this);
+	}
+
+	WritableState.prototype.getBuffer = function getBuffer() {
+	  var current = this.bufferedRequest;
+	  var out = [];
+	  while (current) {
+	    out.push(current);
+	    current = current.next;
+	  }
+	  return out;
+	};
+
+	(function () {
+	  try {
+	    Object.defineProperty(WritableState.prototype, 'buffer', {
+	      get: internalUtil.deprecate(function () {
+	        return this.getBuffer();
+	      }, '_writableState.buffer is deprecated. Use _writableState.getBuffer ' + 'instead.')
+	    });
+	  } catch (_) {}
+	})();
+
+	// Test _writableState for inheritance to account for Duplex streams,
+	// whose prototype chain only points to Readable.
+	var realHasInstance;
+	if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.prototype[Symbol.hasInstance] === 'function') {
+	  realHasInstance = Function.prototype[Symbol.hasInstance];
+	  Object.defineProperty(Writable, Symbol.hasInstance, {
+	    value: function (object) {
+	      if (realHasInstance.call(this, object)) return true;
+
+	      return object && object._writableState instanceof WritableState;
+	    }
+	  });
+	} else {
+	  realHasInstance = function (object) {
+	    return object instanceof this;
+	  };
 	}
 
 	function Writable(options) {
-	  var Duplex = __webpack_require__(62);
+	  Duplex = Duplex || __webpack_require__(64);
 
-	  // Writable ctor is applied to Duplexes, though they're not
-	  // instanceof Writable, they're instanceof Readable.
-	  if (!(this instanceof Writable) && !(this instanceof Duplex))
+	  // Writable ctor is applied to Duplexes, too.
+	  // `realHasInstance` is necessary because using plain `instanceof`
+	  // would return false, as no `_writableState` property is attached.
+
+	  // Trying to use the custom `instanceof` for Writable here will also break the
+	  // Node.js LazyTransform implementation, which has a non-trivial getter for
+	  // `_writableState` that would lead to infinite recursion.
+	  if (!realHasInstance.call(Writable, this) && !(this instanceof Duplex)) {
 	    return new Writable(options);
+	  }
 
 	  this._writableState = new WritableState(options, this);
 
 	  // legacy.
 	  this.writable = true;
 
+	  if (options) {
+	    if (typeof options.write === 'function') this._write = options.write;
+
+	    if (typeof options.writev === 'function') this._writev = options.writev;
+	  }
+
 	  Stream.call(this);
 	}
 
 	// Otherwise people can pipe Writable streams, which is just wrong.
-	Writable.prototype.pipe = function() {
-	  this.emit('error', new Error('Cannot pipe. Not readable.'));
+	Writable.prototype.pipe = function () {
+	  this.emit('error', new Error('Cannot pipe, not readable'));
 	};
 
-
-	function writeAfterEnd(stream, state, cb) {
+	function writeAfterEnd(stream, cb) {
 	  var er = new Error('write after end');
 	  // TODO: defer error events consistently everywhere, not just the cb
 	  stream.emit('error', er);
-	  process.nextTick(function() {
-	    cb(er);
-	  });
+	  processNextTick(cb, er);
 	}
 
 	// If we get something that is not a buffer, string, null, or undefined,
@@ -15275,40 +15948,37 @@ var app =
 	// how many bytes or characters.
 	function validChunk(stream, state, chunk, cb) {
 	  var valid = true;
-	  if (!util.isBuffer(chunk) &&
-	      !util.isString(chunk) &&
-	      !util.isNullOrUndefined(chunk) &&
-	      !state.objectMode) {
-	    var er = new TypeError('Invalid non-string/buffer chunk');
+	  var er = false;
+	  // Always throw error if a null is written
+	  // if we are not in object mode then throw
+	  // if it is not a buffer, string, or undefined.
+	  if (chunk === null) {
+	    er = new TypeError('May not write null values to stream');
+	  } else if (!Buffer.isBuffer(chunk) && typeof chunk !== 'string' && chunk !== undefined && !state.objectMode) {
+	    er = new TypeError('Invalid non-string/buffer chunk');
+	  }
+	  if (er) {
 	    stream.emit('error', er);
-	    process.nextTick(function() {
-	      cb(er);
-	    });
+	    processNextTick(cb, er);
 	    valid = false;
 	  }
 	  return valid;
 	}
 
-	Writable.prototype.write = function(chunk, encoding, cb) {
+	Writable.prototype.write = function (chunk, encoding, cb) {
 	  var state = this._writableState;
 	  var ret = false;
 
-	  if (util.isFunction(encoding)) {
+	  if (typeof encoding === 'function') {
 	    cb = encoding;
 	    encoding = null;
 	  }
 
-	  if (util.isBuffer(chunk))
-	    encoding = 'buffer';
-	  else if (!encoding)
-	    encoding = state.defaultEncoding;
+	  if (Buffer.isBuffer(chunk)) encoding = 'buffer';else if (!encoding) encoding = state.defaultEncoding;
 
-	  if (!util.isFunction(cb))
-	    cb = function() {};
+	  if (typeof cb !== 'function') cb = nop;
 
-	  if (state.ended)
-	    writeAfterEnd(this, state, cb);
-	  else if (validChunk(this, state, chunk, cb)) {
+	  if (state.ended) writeAfterEnd(this, cb);else if (validChunk(this, state, chunk, cb)) {
 	    state.pendingcb++;
 	    ret = writeOrBuffer(this, state, chunk, encoding, cb);
 	  }
@@ -15316,32 +15986,33 @@ var app =
 	  return ret;
 	};
 
-	Writable.prototype.cork = function() {
+	Writable.prototype.cork = function () {
 	  var state = this._writableState;
 
 	  state.corked++;
 	};
 
-	Writable.prototype.uncork = function() {
+	Writable.prototype.uncork = function () {
 	  var state = this._writableState;
 
 	  if (state.corked) {
 	    state.corked--;
 
-	    if (!state.writing &&
-	        !state.corked &&
-	        !state.finished &&
-	        !state.bufferProcessing &&
-	        state.buffer.length)
-	      clearBuffer(this, state);
+	    if (!state.writing && !state.corked && !state.finished && !state.bufferProcessing && state.bufferedRequest) clearBuffer(this, state);
 	  }
 	};
 
+	Writable.prototype.setDefaultEncoding = function setDefaultEncoding(encoding) {
+	  // node::ParseEncoding() requires lower case.
+	  if (typeof encoding === 'string') encoding = encoding.toLowerCase();
+	  if (!(['hex', 'utf8', 'utf-8', 'ascii', 'binary', 'base64', 'ucs2', 'ucs-2', 'utf16le', 'utf-16le', 'raw'].indexOf((encoding + '').toLowerCase()) > -1)) throw new TypeError('Unknown encoding: ' + encoding);
+	  this._writableState.defaultEncoding = encoding;
+	  return this;
+	};
+
 	function decodeChunk(state, chunk, encoding) {
-	  if (!state.objectMode &&
-	      state.decodeStrings !== false &&
-	      util.isString(chunk)) {
-	    chunk = new Buffer(chunk, encoding);
+	  if (!state.objectMode && state.decodeStrings !== false && typeof chunk === 'string') {
+	    chunk = bufferShim.from(chunk, encoding);
 	  }
 	  return chunk;
 	}
@@ -15351,21 +16022,28 @@ var app =
 	// If we return false, then we need a drain event, so set that flag.
 	function writeOrBuffer(stream, state, chunk, encoding, cb) {
 	  chunk = decodeChunk(state, chunk, encoding);
-	  if (util.isBuffer(chunk))
-	    encoding = 'buffer';
+
+	  if (Buffer.isBuffer(chunk)) encoding = 'buffer';
 	  var len = state.objectMode ? 1 : chunk.length;
 
 	  state.length += len;
 
 	  var ret = state.length < state.highWaterMark;
 	  // we must ensure that previous needDrain will not be reset to false.
-	  if (!ret)
-	    state.needDrain = true;
+	  if (!ret) state.needDrain = true;
 
-	  if (state.writing || state.corked)
-	    state.buffer.push(new WriteReq(chunk, encoding, cb));
-	  else
+	  if (state.writing || state.corked) {
+	    var last = state.lastBufferedRequest;
+	    state.lastBufferedRequest = new WriteReq(chunk, encoding, cb);
+	    if (last) {
+	      last.next = state.lastBufferedRequest;
+	    } else {
+	      state.bufferedRequest = state.lastBufferedRequest;
+	    }
+	    state.bufferedRequestCount += 1;
+	  } else {
 	    doWrite(stream, state, false, len, chunk, encoding, cb);
+	  }
 
 	  return ret;
 	}
@@ -15375,23 +16053,13 @@ var app =
 	  state.writecb = cb;
 	  state.writing = true;
 	  state.sync = true;
-	  if (writev)
-	    stream._writev(chunk, state.onwrite);
-	  else
-	    stream._write(chunk, encoding, state.onwrite);
+	  if (writev) stream._writev(chunk, state.onwrite);else stream._write(chunk, encoding, state.onwrite);
 	  state.sync = false;
 	}
 
 	function onwriteError(stream, state, sync, er, cb) {
-	  if (sync)
-	    process.nextTick(function() {
-	      state.pendingcb--;
-	      cb(er);
-	    });
-	  else {
-	    state.pendingcb--;
-	    cb(er);
-	  }
+	  --state.pendingcb;
+	  if (sync) processNextTick(cb, er);else cb(er);
 
 	  stream._writableState.errorEmitted = true;
 	  stream.emit('error', er);
@@ -15411,32 +16079,26 @@ var app =
 
 	  onwriteStateUpdate(state);
 
-	  if (er)
-	    onwriteError(stream, state, sync, er, cb);
-	  else {
+	  if (er) onwriteError(stream, state, sync, er, cb);else {
 	    // Check if we're actually ready to finish, but don't emit yet
-	    var finished = needFinish(stream, state);
+	    var finished = needFinish(state);
 
-	    if (!finished &&
-	        !state.corked &&
-	        !state.bufferProcessing &&
-	        state.buffer.length) {
+	    if (!finished && !state.corked && !state.bufferProcessing && state.bufferedRequest) {
 	      clearBuffer(stream, state);
 	    }
 
 	    if (sync) {
-	      process.nextTick(function() {
-	        afterWrite(stream, state, finished, cb);
-	      });
+	      /*<replacement>*/
+	      asyncWrite(afterWrite, stream, state, finished, cb);
+	      /*</replacement>*/
 	    } else {
-	      afterWrite(stream, state, finished, cb);
-	    }
+	        afterWrite(stream, state, finished, cb);
+	      }
 	  }
 	}
 
 	function afterWrite(stream, state, finished, cb) {
-	  if (!finished)
-	    onwriteDrain(stream, state);
+	  if (!finished) onwriteDrain(stream, state);
 	  state.pendingcb--;
 	  cb();
 	  finishMaybe(stream, state);
@@ -15452,80 +16114,83 @@ var app =
 	  }
 	}
 
-
 	// if there's something in the buffer waiting, then process it
 	function clearBuffer(stream, state) {
 	  state.bufferProcessing = true;
+	  var entry = state.bufferedRequest;
 
-	  if (stream._writev && state.buffer.length > 1) {
+	  if (stream._writev && entry && entry.next) {
 	    // Fast case, write everything using _writev()
-	    var cbs = [];
-	    for (var c = 0; c < state.buffer.length; c++)
-	      cbs.push(state.buffer[c].callback);
+	    var l = state.bufferedRequestCount;
+	    var buffer = new Array(l);
+	    var holder = state.corkedRequestsFree;
+	    holder.entry = entry;
 
-	    // count the one we are adding, as well.
-	    // TODO(isaacs) clean this up
+	    var count = 0;
+	    while (entry) {
+	      buffer[count] = entry;
+	      entry = entry.next;
+	      count += 1;
+	    }
+
+	    doWrite(stream, state, true, state.length, buffer, '', holder.finish);
+
+	    // doWrite is almost always async, defer these to save a bit of time
+	    // as the hot path ends with doWrite
 	    state.pendingcb++;
-	    doWrite(stream, state, true, state.length, state.buffer, '', function(err) {
-	      for (var i = 0; i < cbs.length; i++) {
-	        state.pendingcb--;
-	        cbs[i](err);
-	      }
-	    });
-
-	    // Clear buffer
-	    state.buffer = [];
+	    state.lastBufferedRequest = null;
+	    if (holder.next) {
+	      state.corkedRequestsFree = holder.next;
+	      holder.next = null;
+	    } else {
+	      state.corkedRequestsFree = new CorkedRequest(state);
+	    }
 	  } else {
 	    // Slow case, write chunks one-by-one
-	    for (var c = 0; c < state.buffer.length; c++) {
-	      var entry = state.buffer[c];
+	    while (entry) {
 	      var chunk = entry.chunk;
 	      var encoding = entry.encoding;
 	      var cb = entry.callback;
 	      var len = state.objectMode ? 1 : chunk.length;
 
 	      doWrite(stream, state, false, len, chunk, encoding, cb);
-
+	      entry = entry.next;
 	      // if we didn't call the onwrite immediately, then
 	      // it means that we need to wait until it does.
 	      // also, that means that the chunk and cb are currently
 	      // being processed, so move the buffer counter past them.
 	      if (state.writing) {
-	        c++;
 	        break;
 	      }
 	    }
 
-	    if (c < state.buffer.length)
-	      state.buffer = state.buffer.slice(c);
-	    else
-	      state.buffer.length = 0;
+	    if (entry === null) state.lastBufferedRequest = null;
 	  }
 
+	  state.bufferedRequestCount = 0;
+	  state.bufferedRequest = entry;
 	  state.bufferProcessing = false;
 	}
 
-	Writable.prototype._write = function(chunk, encoding, cb) {
-	  cb(new Error('not implemented'));
-
+	Writable.prototype._write = function (chunk, encoding, cb) {
+	  cb(new Error('_write() is not implemented'));
 	};
 
 	Writable.prototype._writev = null;
 
-	Writable.prototype.end = function(chunk, encoding, cb) {
+	Writable.prototype.end = function (chunk, encoding, cb) {
 	  var state = this._writableState;
 
-	  if (util.isFunction(chunk)) {
+	  if (typeof chunk === 'function') {
 	    cb = chunk;
 	    chunk = null;
 	    encoding = null;
-	  } else if (util.isFunction(encoding)) {
+	  } else if (typeof encoding === 'function') {
 	    cb = encoding;
 	    encoding = null;
 	  }
 
-	  if (!util.isNullOrUndefined(chunk))
-	    this.write(chunk, encoding);
+	  if (chunk !== null && chunk !== undefined) this.write(chunk, encoding);
 
 	  // .end() fully uncorks
 	  if (state.corked) {
@@ -15534,16 +16199,11 @@ var app =
 	  }
 
 	  // ignore unnecessary end() calls.
-	  if (!state.ending && !state.finished)
-	    endWritable(this, state, cb);
+	  if (!state.ending && !state.finished) endWritable(this, state, cb);
 	};
 
-
-	function needFinish(stream, state) {
-	  return (state.ending &&
-	          state.length === 0 &&
-	          !state.finished &&
-	          !state.writing);
+	function needFinish(state) {
+	  return state.ending && state.length === 0 && state.bufferedRequest === null && !state.finished && !state.writing;
 	}
 
 	function prefinish(stream, state) {
@@ -15554,14 +16214,15 @@ var app =
 	}
 
 	function finishMaybe(stream, state) {
-	  var need = needFinish(stream, state);
+	  var need = needFinish(state);
 	  if (need) {
 	    if (state.pendingcb === 0) {
 	      prefinish(stream, state);
 	      state.finished = true;
 	      stream.emit('finish');
-	    } else
+	    } else {
 	      prefinish(stream, state);
+	    }
 	  }
 	  return need;
 	}
@@ -15570,18 +16231,366 @@ var app =
 	  state.ending = true;
 	  finishMaybe(stream, state);
 	  if (cb) {
-	    if (state.finished)
-	      process.nextTick(cb);
-	    else
-	      stream.once('finish', cb);
+	    if (state.finished) processNextTick(cb);else stream.once('finish', cb);
 	  }
 	  state.ended = true;
+	  stream.writable = false;
 	}
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+	// It seems a linked list but it is not
+	// there will be only 2 of these for each stream
+	function CorkedRequest(state) {
+	  var _this = this;
+
+	  this.next = null;
+	  this.entry = null;
+
+	  this.finish = function (err) {
+	    var entry = _this.entry;
+	    _this.entry = null;
+	    while (entry) {
+	      var cb = entry.callback;
+	      state.pendingcb--;
+	      cb(err);
+	      entry = entry.next;
+	    }
+	    if (state.corkedRequestsFree) {
+	      state.corkedRequestsFree.next = _this;
+	    } else {
+	      state.corkedRequestsFree = _this;
+	    }
+	  };
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(66).setImmediate))
 
 /***/ },
-/* 64 */
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var apply = Function.prototype.apply;
+
+	// DOM APIs, for completeness
+
+	exports.setTimeout = function() {
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+	};
+	exports.setInterval = function() {
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+	};
+	exports.clearTimeout =
+	exports.clearInterval = function(timeout) {
+	  if (timeout) {
+	    timeout.close();
+	  }
+	};
+
+	function Timeout(id, clearFn) {
+	  this._id = id;
+	  this._clearFn = clearFn;
+	}
+	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+	Timeout.prototype.close = function() {
+	  this._clearFn.call(window, this._id);
+	};
+
+	// Does not start the time, just sets up the members needed.
+	exports.enroll = function(item, msecs) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = msecs;
+	};
+
+	exports.unenroll = function(item) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = -1;
+	};
+
+	exports._unrefActive = exports.active = function(item) {
+	  clearTimeout(item._idleTimeoutId);
+
+	  var msecs = item._idleTimeout;
+	  if (msecs >= 0) {
+	    item._idleTimeoutId = setTimeout(function onTimeout() {
+	      if (item._onTimeout)
+	        item._onTimeout();
+	    }, msecs);
+	  }
+	};
+
+	// setimmediate attaches itself to the global object
+	__webpack_require__(67);
+	exports.setImmediate = setImmediate;
+	exports.clearImmediate = clearImmediate;
+
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+	    "use strict";
+
+	    if (global.setImmediate) {
+	        return;
+	    }
+
+	    var nextHandle = 1; // Spec says greater than zero
+	    var tasksByHandle = {};
+	    var currentlyRunningATask = false;
+	    var doc = global.document;
+	    var registerImmediate;
+
+	    function setImmediate(callback) {
+	      // Callback can either be a function or a string
+	      if (typeof callback !== "function") {
+	        callback = new Function("" + callback);
+	      }
+	      // Copy function arguments
+	      var args = new Array(arguments.length - 1);
+	      for (var i = 0; i < args.length; i++) {
+	          args[i] = arguments[i + 1];
+	      }
+	      // Store and register the task
+	      var task = { callback: callback, args: args };
+	      tasksByHandle[nextHandle] = task;
+	      registerImmediate(nextHandle);
+	      return nextHandle++;
+	    }
+
+	    function clearImmediate(handle) {
+	        delete tasksByHandle[handle];
+	    }
+
+	    function run(task) {
+	        var callback = task.callback;
+	        var args = task.args;
+	        switch (args.length) {
+	        case 0:
+	            callback();
+	            break;
+	        case 1:
+	            callback(args[0]);
+	            break;
+	        case 2:
+	            callback(args[0], args[1]);
+	            break;
+	        case 3:
+	            callback(args[0], args[1], args[2]);
+	            break;
+	        default:
+	            callback.apply(undefined, args);
+	            break;
+	        }
+	    }
+
+	    function runIfPresent(handle) {
+	        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+	        // So if we're currently running a task, we'll need to delay this invocation.
+	        if (currentlyRunningATask) {
+	            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+	            // "too much recursion" error.
+	            setTimeout(runIfPresent, 0, handle);
+	        } else {
+	            var task = tasksByHandle[handle];
+	            if (task) {
+	                currentlyRunningATask = true;
+	                try {
+	                    run(task);
+	                } finally {
+	                    clearImmediate(handle);
+	                    currentlyRunningATask = false;
+	                }
+	            }
+	        }
+	    }
+
+	    function installNextTickImplementation() {
+	        registerImmediate = function(handle) {
+	            process.nextTick(function () { runIfPresent(handle); });
+	        };
+	    }
+
+	    function canUsePostMessage() {
+	        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+	        // where `global.postMessage` means something completely different and can't be used for this purpose.
+	        if (global.postMessage && !global.importScripts) {
+	            var postMessageIsAsynchronous = true;
+	            var oldOnMessage = global.onmessage;
+	            global.onmessage = function() {
+	                postMessageIsAsynchronous = false;
+	            };
+	            global.postMessage("", "*");
+	            global.onmessage = oldOnMessage;
+	            return postMessageIsAsynchronous;
+	        }
+	    }
+
+	    function installPostMessageImplementation() {
+	        // Installs an event handler on `global` for the `message` event: see
+	        // * https://developer.mozilla.org/en/DOM/window.postMessage
+	        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+	        var messagePrefix = "setImmediate$" + Math.random() + "$";
+	        var onGlobalMessage = function(event) {
+	            if (event.source === global &&
+	                typeof event.data === "string" &&
+	                event.data.indexOf(messagePrefix) === 0) {
+	                runIfPresent(+event.data.slice(messagePrefix.length));
+	            }
+	        };
+
+	        if (global.addEventListener) {
+	            global.addEventListener("message", onGlobalMessage, false);
+	        } else {
+	            global.attachEvent("onmessage", onGlobalMessage);
+	        }
+
+	        registerImmediate = function(handle) {
+	            global.postMessage(messagePrefix + handle, "*");
+	        };
+	    }
+
+	    function installMessageChannelImplementation() {
+	        var channel = new MessageChannel();
+	        channel.port1.onmessage = function(event) {
+	            var handle = event.data;
+	            runIfPresent(handle);
+	        };
+
+	        registerImmediate = function(handle) {
+	            channel.port2.postMessage(handle);
+	        };
+	    }
+
+	    function installReadyStateChangeImplementation() {
+	        var html = doc.documentElement;
+	        registerImmediate = function(handle) {
+	            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+	            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+	            var script = doc.createElement("script");
+	            script.onreadystatechange = function () {
+	                runIfPresent(handle);
+	                script.onreadystatechange = null;
+	                html.removeChild(script);
+	                script = null;
+	            };
+	            html.appendChild(script);
+	        };
+	    }
+
+	    function installSetTimeoutImplementation() {
+	        registerImmediate = function(handle) {
+	            setTimeout(runIfPresent, 0, handle);
+	        };
+	    }
+
+	    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+	    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+	    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+	    // Don't get fooled by e.g. browserify environments.
+	    if ({}.toString.call(global.process) === "[object process]") {
+	        // For Node.js before 0.9
+	        installNextTickImplementation();
+
+	    } else if (canUsePostMessage()) {
+	        // For non-IE10 modern browsers
+	        installPostMessageImplementation();
+
+	    } else if (global.MessageChannel) {
+	        // For web workers, where supported
+	        installMessageChannelImplementation();
+
+	    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+	        // For IE 6–8
+	        installReadyStateChangeImplementation();
+
+	    } else {
+	        // For older browsers
+	        installSetTimeoutImplementation();
+	    }
+
+	    attachTo.setImmediate = setImmediate;
+	    attachTo.clearImmediate = clearImmediate;
+	}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(12)))
+
+/***/ },
+/* 68 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {
+	/**
+	 * Module exports.
+	 */
+
+	module.exports = deprecate;
+
+	/**
+	 * Mark that a method should not be used.
+	 * Returns a modified function which warns once by default.
+	 *
+	 * If `localStorage.noDeprecation = true` is set, then it is a no-op.
+	 *
+	 * If `localStorage.throwDeprecation = true` is set, then deprecated functions
+	 * will throw an Error when invoked.
+	 *
+	 * If `localStorage.traceDeprecation = true` is set, then deprecated functions
+	 * will invoke `console.trace()` instead of `console.error()`.
+	 *
+	 * @param {Function} fn - the function to deprecate
+	 * @param {String} msg - the string to print to the console when `fn` is invoked
+	 * @returns {Function} a new "deprecated" version of `fn`
+	 * @api public
+	 */
+
+	function deprecate (fn, msg) {
+	  if (config('noDeprecation')) {
+	    return fn;
+	  }
+
+	  var warned = false;
+	  function deprecated() {
+	    if (!warned) {
+	      if (config('throwDeprecation')) {
+	        throw new Error(msg);
+	      } else if (config('traceDeprecation')) {
+	        console.trace(msg);
+	      } else {
+	        console.warn(msg);
+	      }
+	      warned = true;
+	    }
+	    return fn.apply(this, arguments);
+	  }
+
+	  return deprecated;
+	}
+
+	/**
+	 * Checks `localStorage` for boolean values for the given `name`.
+	 *
+	 * @param {String} name
+	 * @returns {Boolean}
+	 * @api private
+	 */
+
+	function config (name) {
+	  // accessing global.localStorage can trigger a DOMException in sandboxed iframes
+	  try {
+	    if (!global.localStorage) return false;
+	  } catch (_) {
+	    return false;
+	  }
+	  var val = global.localStorage[name];
+	  if (null == val) return false;
+	  return String(val).toLowerCase() === 'true';
+	}
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -15605,7 +16614,7 @@ var app =
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var Buffer = __webpack_require__(56).Buffer;
+	var Buffer = __webpack_require__(57).Buffer;
 
 	var isBufferEncoding = Buffer.isEncoding
 	  || function(encoding) {
@@ -15808,30 +16817,8 @@ var app =
 
 
 /***/ },
-/* 65 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 
 	// a transform stream is a readable/writable stream where you do
 	// something with the data.  Sometimes it's called a "filter",
@@ -15875,20 +16862,21 @@ var app =
 	// would be consumed, and then the rest would wait (un-transformed) until
 	// the results of the previous transformed chunk were consumed.
 
+	'use strict';
+
 	module.exports = Transform;
 
-	var Duplex = __webpack_require__(62);
+	var Duplex = __webpack_require__(64);
 
 	/*<replacement>*/
-	var util = __webpack_require__(60);
+	var util = __webpack_require__(61);
 	util.inherits = __webpack_require__(52);
 	/*</replacement>*/
 
 	util.inherits(Transform, Duplex);
 
-
-	function TransformState(options, stream) {
-	  this.afterTransform = function(er, data) {
+	function TransformState(stream) {
+	  this.afterTransform = function (er, data) {
 	    return afterTransform(stream, er, data);
 	  };
 
@@ -15896,6 +16884,7 @@ var app =
 	  this.transforming = false;
 	  this.writecb = null;
 	  this.writechunk = null;
+	  this.writeencoding = null;
 	}
 
 	function afterTransform(stream, er, data) {
@@ -15904,17 +16893,14 @@ var app =
 
 	  var cb = ts.writecb;
 
-	  if (!cb)
-	    return stream.emit('error', new Error('no writecb in Transform class'));
+	  if (!cb) return stream.emit('error', new Error('no writecb in Transform class'));
 
 	  ts.writechunk = null;
 	  ts.writecb = null;
 
-	  if (!util.isNullOrUndefined(data))
-	    stream.push(data);
+	  if (data !== null && data !== undefined) stream.push(data);
 
-	  if (cb)
-	    cb(er);
+	  cb(er);
 
 	  var rs = stream._readableState;
 	  rs.reading = false;
@@ -15923,16 +16909,13 @@ var app =
 	  }
 	}
 
-
 	function Transform(options) {
-	  if (!(this instanceof Transform))
-	    return new Transform(options);
+	  if (!(this instanceof Transform)) return new Transform(options);
 
 	  Duplex.call(this, options);
 
-	  this._transformState = new TransformState(options, this);
+	  this._transformState = new TransformState(this);
 
-	  // when the writable side finishes, then flush out anything remaining.
 	  var stream = this;
 
 	  // start out asking for a readable event once data is transformed.
@@ -15943,17 +16926,21 @@ var app =
 	  // sync guard flag.
 	  this._readableState.sync = false;
 
-	  this.once('prefinish', function() {
-	    if (util.isFunction(this._flush))
-	      this._flush(function(er) {
-	        done(stream, er);
-	      });
-	    else
-	      done(stream);
+	  if (options) {
+	    if (typeof options.transform === 'function') this._transform = options.transform;
+
+	    if (typeof options.flush === 'function') this._flush = options.flush;
+	  }
+
+	  // When the writable side finishes, then flush out anything remaining.
+	  this.once('prefinish', function () {
+	    if (typeof this._flush === 'function') this._flush(function (er, data) {
+	      done(stream, er, data);
+	    });else done(stream);
 	  });
 	}
 
-	Transform.prototype.push = function(chunk, encoding) {
+	Transform.prototype.push = function (chunk, encoding) {
 	  this._transformState.needTransform = false;
 	  return Duplex.prototype.push.call(this, chunk, encoding);
 	};
@@ -15968,31 +16955,28 @@ var app =
 	// Call `cb(err)` when you are done with this chunk.  If you pass
 	// an error, then that'll put the hurt on the whole operation.  If you
 	// never call cb(), then you'll never get another chunk.
-	Transform.prototype._transform = function(chunk, encoding, cb) {
-	  throw new Error('not implemented');
+	Transform.prototype._transform = function (chunk, encoding, cb) {
+	  throw new Error('_transform() is not implemented');
 	};
 
-	Transform.prototype._write = function(chunk, encoding, cb) {
+	Transform.prototype._write = function (chunk, encoding, cb) {
 	  var ts = this._transformState;
 	  ts.writecb = cb;
 	  ts.writechunk = chunk;
 	  ts.writeencoding = encoding;
 	  if (!ts.transforming) {
 	    var rs = this._readableState;
-	    if (ts.needTransform ||
-	        rs.needReadable ||
-	        rs.length < rs.highWaterMark)
-	      this._read(rs.highWaterMark);
+	    if (ts.needTransform || rs.needReadable || rs.length < rs.highWaterMark) this._read(rs.highWaterMark);
 	  }
 	};
 
 	// Doesn't matter what the args are here.
 	// _transform does all the work.
 	// That we got here means that the readable side wants more data.
-	Transform.prototype._read = function(n) {
+	Transform.prototype._read = function (n) {
 	  var ts = this._transformState;
 
-	  if (!util.isNull(ts.writechunk) && ts.writecb && !ts.transforming) {
+	  if (ts.writechunk !== null && ts.writecb && !ts.transforming) {
 	    ts.transforming = true;
 	    this._transform(ts.writechunk, ts.writeencoding, ts.afterTransform);
 	  } else {
@@ -16002,108 +16986,84 @@ var app =
 	  }
 	};
 
+	function done(stream, er, data) {
+	  if (er) return stream.emit('error', er);
 
-	function done(stream, er) {
-	  if (er)
-	    return stream.emit('error', er);
+	  if (data !== null && data !== undefined) stream.push(data);
 
 	  // if there's nothing in the write buffer, then that means
 	  // that nothing more will ever be provided
 	  var ws = stream._writableState;
 	  var ts = stream._transformState;
 
-	  if (ws.length)
-	    throw new Error('calling transform done when ws.length != 0');
+	  if (ws.length) throw new Error('Calling transform done when ws.length != 0');
 
-	  if (ts.transforming)
-	    throw new Error('calling transform done when still transforming');
+	  if (ts.transforming) throw new Error('Calling transform done when still transforming');
 
 	  return stream.push(null);
 	}
 
-
 /***/ },
-/* 66 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 	// a passthrough stream.
 	// basically just the most minimal sort of Transform stream.
 	// Every written chunk gets output as-is.
 
+	'use strict';
+
 	module.exports = PassThrough;
 
-	var Transform = __webpack_require__(65);
+	var Transform = __webpack_require__(70);
 
 	/*<replacement>*/
-	var util = __webpack_require__(60);
+	var util = __webpack_require__(61);
 	util.inherits = __webpack_require__(52);
 	/*</replacement>*/
 
 	util.inherits(PassThrough, Transform);
 
 	function PassThrough(options) {
-	  if (!(this instanceof PassThrough))
-	    return new PassThrough(options);
+	  if (!(this instanceof PassThrough)) return new PassThrough(options);
 
 	  Transform.call(this, options);
 	}
 
-	PassThrough.prototype._transform = function(chunk, encoding, cb) {
+	PassThrough.prototype._transform = function (chunk, encoding, cb) {
 	  cb(null, chunk);
 	};
 
-
 /***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(63)
-
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(62)
-
-
-/***/ },
-/* 69 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(65)
 
 
 /***/ },
-/* 70 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(66)
+	module.exports = __webpack_require__(64)
 
 
 /***/ },
-/* 71 */
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(70)
+
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(71)
+
+
+/***/ },
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -16631,7 +17591,7 @@ var app =
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(72);
+	exports.isBuffer = __webpack_require__(77);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -16675,7 +17635,7 @@ var app =
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(73);
+	exports.inherits = __webpack_require__(78);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -16696,7 +17656,7 @@ var app =
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(12)))
 
 /***/ },
-/* 72 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -16707,7 +17667,7 @@ var app =
 	}
 
 /***/ },
-/* 73 */
+/* 78 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -16736,7 +17696,7 @@ var app =
 
 
 /***/ },
-/* 74 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -16781,7 +17741,7 @@ var app =
 
 
 /***/ },
-/* 75 */
+/* 80 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -16813,13 +17773,13 @@ var app =
 
 
 /***/ },
-/* 76 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util = __webpack_require__(71),
+	var util = __webpack_require__(76),
 	    Stream = __webpack_require__(50).Stream,
-	    types = __webpack_require__(74),
-	    tokens = __webpack_require__(77),
+	    types = __webpack_require__(79),
+	    tokens = __webpack_require__(82),
 	    tokenClasses = Object.keys(tokens),
 	    tokenRegExp = {};
 
@@ -16919,7 +17879,7 @@ var app =
 
 
 /***/ },
-/* 77 */
+/* 82 */
 /***/ function(module, exports) {
 
 	// This file is auto-generated. Do not modify.
@@ -16966,13 +17926,13 @@ var app =
 
 
 /***/ },
-/* 78 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var EventEmitter = __webpack_require__(51).EventEmitter,
-	    TokenType = __webpack_require__(74),
-	    BreakType = __webpack_require__(75),
-	    util = __webpack_require__(71);
+	    TokenType = __webpack_require__(79),
+	    BreakType = __webpack_require__(80),
+	    util = __webpack_require__(76);
 
 	function LineBreak() {
 	    EventEmitter.call(this);
@@ -17095,7 +18055,7 @@ var app =
 
 
 /***/ },
-/* 79 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17170,7 +18130,7 @@ var app =
 
 
 /***/ },
-/* 80 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17324,7 +18284,7 @@ var app =
 
 
 /***/ },
-/* 81 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17512,7 +18472,72 @@ var app =
 
 
 /***/ },
-/* 82 */
+/* 87 */
+/***/ function(module, exports) {
+
+	"use strict";
+	;
+	;
+	/**
+	 * 数据绑定模式。
+	 */
+	(function (BindingMode) {
+	    /**
+	     * 双向数据绑定。
+	     * 界面数据变化时自动更新ViewModel，ViewModel数据有变化时自动更新界面。
+	     */
+	    BindingMode[BindingMode["TWO_WAY"] = 0] = "TWO_WAY";
+	    /**
+	     * 单向数据绑定。
+	     * 界面数据变化时不更新ViewModel，ViewModel数据有变化时自动更新界面。
+	     */
+	    BindingMode[BindingMode["ONE_WAY"] = 1] = "ONE_WAY";
+	    /**
+	     * 只在初始化时绑定。
+	     * 界面数据变化时不更新ViewModel，ViewModel数据有变化时不更新界面。
+	     */
+	    BindingMode[BindingMode["ONE_TIME"] = 2] = "ONE_TIME";
+	    /**
+	     * 单向数据绑定。
+	     * 界面数据变化时自动更新ViewModel，ViewModel数据有变化时不更新界面。
+	     */
+	    BindingMode[BindingMode["ONE_WAY_TO_SOURCE"] = 3] = "ONE_WAY_TO_SOURCE";
+	})(exports.BindingMode || (exports.BindingMode = {}));
+	var BindingMode = exports.BindingMode;
+	;
+	var BindingModeNames = ["two-way", "one-way", "one-time", "one-way-to-source"];
+	function toBindingMode(name) {
+	    return Math.max(0, BindingModeNames.indexOf(name));
+	}
+	exports.toBindingMode = toBindingMode;
+	/**
+	 * 更新ViewModel的时机。
+	 */
+	(function (UpdateTiming) {
+	    /**
+	     * 有变化时立即更新(如编辑器正在输入)。
+	     */
+	    UpdateTiming[UpdateTiming["CHANGING"] = 0] = "CHANGING";
+	    /**
+	     * 变化完成时才更新(如编辑器失去焦点时)。
+	     */
+	    UpdateTiming[UpdateTiming["CHANGED"] = 1] = "CHANGED";
+	    /**
+	     * 手动更新。
+	     */
+	    UpdateTiming[UpdateTiming["EXPLICIT"] = 2] = "EXPLICIT";
+	})(exports.UpdateTiming || (exports.UpdateTiming = {}));
+	var UpdateTiming = exports.UpdateTiming;
+	;
+	var UpdateTimingNames = ["changing", "changed", "explicit"];
+	function toUpdateTiming(name) {
+	    return Math.max(0, UpdateTimingNames.indexOf(name));
+	}
+	exports.toUpdateTiming = toUpdateTiming;
+
+
+/***/ },
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17521,9 +18546,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var json_serializer_1 = __webpack_require__(83);
-	var iview_model_1 = __webpack_require__(84);
-	var iview_model_2 = __webpack_require__(84);
+	var json_serializer_1 = __webpack_require__(89);
+	var iview_model_1 = __webpack_require__(87);
+	var iview_model_2 = __webpack_require__(87);
 	;
 	/**
 	 * 数据源。如果指定了value，直接从value获取数据。否则通过path从ViewModel中获取数据。
@@ -17676,7 +18701,7 @@ var app =
 
 
 /***/ },
-/* 83 */
+/* 89 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -17707,72 +18732,7 @@ var app =
 
 
 /***/ },
-/* 84 */
-/***/ function(module, exports) {
-
-	"use strict";
-	;
-	;
-	/**
-	 * 数据绑定模式。
-	 */
-	(function (BindingMode) {
-	    /**
-	     * 双向数据绑定。
-	     * 界面数据变化时自动更新ViewModel，ViewModel数据有变化时自动更新界面。
-	     */
-	    BindingMode[BindingMode["TWO_WAY"] = 0] = "TWO_WAY";
-	    /**
-	     * 单向数据绑定。
-	     * 界面数据变化时不更新ViewModel，ViewModel数据有变化时自动更新界面。
-	     */
-	    BindingMode[BindingMode["ONE_WAY"] = 1] = "ONE_WAY";
-	    /**
-	     * 只在初始化时绑定。
-	     * 界面数据变化时不更新ViewModel，ViewModel数据有变化时不更新界面。
-	     */
-	    BindingMode[BindingMode["ONE_TIME"] = 2] = "ONE_TIME";
-	    /**
-	     * 单向数据绑定。
-	     * 界面数据变化时自动更新ViewModel，ViewModel数据有变化时不更新界面。
-	     */
-	    BindingMode[BindingMode["ONE_WAY_TO_SOURCE"] = 3] = "ONE_WAY_TO_SOURCE";
-	})(exports.BindingMode || (exports.BindingMode = {}));
-	var BindingMode = exports.BindingMode;
-	;
-	var BindingModeNames = ["two-way", "one-way", "one-time", "one-way-to-source"];
-	function toBindingMode(name) {
-	    return Math.max(0, BindingModeNames.indexOf(name));
-	}
-	exports.toBindingMode = toBindingMode;
-	/**
-	 * 更新ViewModel的时机。
-	 */
-	(function (UpdateTiming) {
-	    /**
-	     * 有变化时立即更新(如编辑器正在输入)。
-	     */
-	    UpdateTiming[UpdateTiming["CHANGING"] = 0] = "CHANGING";
-	    /**
-	     * 变化完成时才更新(如编辑器失去焦点时)。
-	     */
-	    UpdateTiming[UpdateTiming["CHANGED"] = 1] = "CHANGED";
-	    /**
-	     * 手动更新。
-	     */
-	    UpdateTiming[UpdateTiming["EXPLICIT"] = 2] = "EXPLICIT";
-	})(exports.UpdateTiming || (exports.UpdateTiming = {}));
-	var UpdateTiming = exports.UpdateTiming;
-	;
-	var UpdateTimingNames = ["changing", "changed", "explicit"];
-	function toUpdateTiming(name) {
-	    return Math.max(0, UpdateTimingNames.indexOf(name));
-	}
-	exports.toUpdateTiming = toUpdateTiming;
-
-
-/***/ },
-/* 85 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17781,7 +18741,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var recyclable_creator_1 = __webpack_require__(86);
+	var recyclable_creator_1 = __webpack_require__(91);
 	/**
 	 * 可循环的创建器。
 	 */
@@ -17808,7 +18768,7 @@ var app =
 
 
 /***/ },
-/* 86 */
+/* 91 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -17851,7 +18811,7 @@ var app =
 
 
 /***/ },
-/* 87 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17861,7 +18821,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var html_element_1 = __webpack_require__(88);
+	var html_element_1 = __webpack_require__(93);
 	var event_detail_1 = __webpack_require__(16);
 	var HtmlEdit = (function (_super) {
 	    __extends(HtmlEdit, _super);
@@ -17968,7 +18928,7 @@ var app =
 
 
 /***/ },
-/* 88 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18099,7 +19059,7 @@ var app =
 
 
 /***/ },
-/* 89 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18110,7 +19070,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var Page = (function (_super) {
 	    __extends(Page, _super);
 	    function Page(type) {
@@ -18129,7 +19089,7 @@ var app =
 
 
 /***/ },
-/* 90 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../typings/globals/eventemitter3/index.d.ts"/>
@@ -18230,7 +19190,7 @@ var app =
 
 
 /***/ },
-/* 91 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18241,7 +19201,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 页面管理器。管理多个页面，只有一个页面处于活跃状态，仅该页面可见，可以处理事件。
 	 * value表示该活跃页面的索引。
@@ -18312,7 +19272,7 @@ var app =
 
 
 /***/ },
-/* 92 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18373,7 +19333,7 @@ var app =
 
 
 /***/ },
-/* 93 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18386,7 +19346,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var image_tile_1 = __webpack_require__(9);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 图片控件。
 	 */
@@ -18467,7 +19427,7 @@ var app =
 
 
 /***/ },
-/* 94 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18478,7 +19438,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var Group = (function (_super) {
 	    __extends(Group, _super);
 	    function Group() {
@@ -18497,7 +19457,7 @@ var app =
 
 
 /***/ },
-/* 95 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18506,9 +19466,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var window_1 = __webpack_require__(96);
+	var window_1 = __webpack_require__(101);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 对话框。
 	 */
@@ -18531,7 +19491,7 @@ var app =
 
 
 /***/ },
-/* 96 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18767,7 +19727,7 @@ var app =
 
 
 /***/ },
-/* 97 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18778,7 +19738,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var Button = (function (_super) {
 	    __extends(Button, _super);
 	    function Button() {
@@ -18797,7 +19757,7 @@ var app =
 
 
 /***/ },
-/* 98 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18807,11 +19767,11 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var button_1 = __webpack_require__(97);
+	var button_1 = __webpack_require__(102);
 	var graphics_1 = __webpack_require__(27);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var progress_bar_1 = __webpack_require__(99);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var progress_bar_1 = __webpack_require__(104);
 	/**
 	 * 滑块控件。拖动滑块可以改变它的值。
 	 */
@@ -18957,7 +19917,7 @@ var app =
 
 
 /***/ },
-/* 99 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18969,7 +19929,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var graphics_1 = __webpack_require__(27);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 进度条的类型有三种：水平，垂直和圆形。
 	 */
@@ -19072,7 +20032,7 @@ var app =
 
 
 /***/ },
-/* 100 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19085,7 +20045,7 @@ var app =
 	var TWEEN = __webpack_require__(22);
 	var graphics_1 = __webpack_require__(27);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 开关控件。
 	 */
@@ -19179,7 +20139,7 @@ var app =
 
 
 /***/ },
-/* 101 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19188,9 +20148,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var page_1 = __webpack_require__(89);
+	var page_1 = __webpack_require__(94);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TabPage = (function (_super) {
 	    __extends(TabPage, _super);
 	    function TabPage() {
@@ -19223,7 +20183,7 @@ var app =
 
 
 /***/ },
-/* 102 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -19233,8 +20193,8 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var scroll_view_1 = __webpack_require__(103);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var scroll_view_1 = __webpack_require__(108);
 	var carota = __webpack_require__(28);
 	var rect = carota.rect;
 	var createDoc = carota.document;
@@ -19335,7 +20295,7 @@ var app =
 
 
 /***/ },
-/* 103 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../../typings/globals/scroller/index.d.ts"/>
@@ -19348,12 +20308,12 @@ var app =
 	};
 	var rect_1 = __webpack_require__(3);
 	var point_1 = __webpack_require__(4);
-	var scroller_1 = __webpack_require__(104);
+	var scroller_1 = __webpack_require__(109);
 	var TWEEN = __webpack_require__(22);
 	var Events = __webpack_require__(8);
 	var graphics_1 = __webpack_require__(27);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var widget_1 = __webpack_require__(21);
 	/**
 	 * 滚动视图，同时支持PC和Mobile风格，通过dragToScroll和slideToScroll参数控制。
@@ -20000,13 +20960,13 @@ var app =
 
 
 /***/ },
-/* 104 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
 	    if (true) {
 	        // AMD
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(105), __webpack_require__(106)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(110), __webpack_require__(111)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof exports === 'object') {
 	        // CommonJS
 	        factory(exports, require('./lib/animate'), require('./lib/Scroller'));
@@ -20018,7 +20978,7 @@ var app =
 
 
 /***/ },
-/* 105 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -20255,7 +21215,7 @@ var app =
 
 
 /***/ },
-/* 106 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -20275,7 +21235,7 @@ var app =
 	(function (root, factory) {
 	    if (true) {
 	        // AMD
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(105)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(110)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof module === 'object') {
 	        // CommonJS
 	        module.exports = factory(require('./animate'));
@@ -21413,7 +22373,7 @@ var app =
 
 
 /***/ },
-/* 107 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21424,13 +22384,13 @@ var app =
 	};
 	var rect_1 = __webpack_require__(3);
 	var widget_1 = __webpack_require__(21);
-	var button_1 = __webpack_require__(97);
+	var button_1 = __webpack_require__(102);
 	var graphics_1 = __webpack_require__(27);
-	var consts_1 = __webpack_require__(108);
-	var radio_button_1 = __webpack_require__(109);
+	var consts_1 = __webpack_require__(113);
+	var radio_button_1 = __webpack_require__(114);
 	var widget_factory_1 = __webpack_require__(25);
 	var image_tile_1 = __webpack_require__(9);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 标签控件上的标签按钮。
 	 */
@@ -21624,7 +22584,7 @@ var app =
 
 
 /***/ },
-/* 108 */
+/* 113 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -21692,18 +22652,10 @@ var app =
 	})(exports.Align || (exports.Align = {}));
 	var Align = exports.Align;
 	;
-	var Services = (function () {
-	    function Services() {
-	    }
-	    Services.THEME_MANAGER = "qtk-theme-manager";
-	    return Services;
-	}());
-	exports.Services = Services;
-	;
 
 
 /***/ },
-/* 109 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21712,9 +22664,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var check_button_1 = __webpack_require__(110);
+	var check_button_1 = __webpack_require__(115);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 单选按钮。同一个父控件中，只有一个单选按钮被勾选。被勾选时value为true，否则为false。
 	 */
@@ -21746,7 +22698,7 @@ var app =
 
 
 /***/ },
-/* 110 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21758,7 +22710,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var image_tile_1 = __webpack_require__(9);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var CheckButton = (function (_super) {
 	    __extends(CheckButton, _super);
 	    function CheckButton(type) {
@@ -21864,7 +22816,7 @@ var app =
 
 
 /***/ },
-/* 111 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21874,14 +22826,14 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var rect_1 = __webpack_require__(3);
-	var pages_1 = __webpack_require__(91);
+	var pages_1 = __webpack_require__(96);
 	var widget_1 = __webpack_require__(21);
-	var tab_page_1 = __webpack_require__(101);
+	var tab_page_1 = __webpack_require__(106);
 	var Events = __webpack_require__(8);
-	var tab_button_1 = __webpack_require__(107);
-	var tab_button_group_1 = __webpack_require__(112);
+	var tab_button_1 = __webpack_require__(112);
+	var tab_button_group_1 = __webpack_require__(117);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TabControl = (function (_super) {
 	    __extends(TabControl, _super);
 	    function TabControl() {
@@ -22027,7 +22979,7 @@ var app =
 
 
 /***/ },
-/* 112 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22039,7 +22991,7 @@ var app =
 	var rect_1 = __webpack_require__(3);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TabButtonGroup = (function (_super) {
 	    __extends(TabButtonGroup, _super);
 	    function TabButtonGroup() {
@@ -22136,7 +23088,7 @@ var app =
 
 
 /***/ },
-/* 113 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22145,9 +23097,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var rich_text_1 = __webpack_require__(102);
+	var rich_text_1 = __webpack_require__(107);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var carota = __webpack_require__(28);
 	var createDoc = carota.document;
 	var dom = carota.dom;
@@ -22661,7 +23613,7 @@ var app =
 
 
 /***/ },
-/* 114 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22673,17 +23625,17 @@ var app =
 	var rect_1 = __webpack_require__(3);
 	var point_1 = __webpack_require__(4);
 	var edit_1 = __webpack_require__(19);
-	var button_1 = __webpack_require__(97);
+	var button_1 = __webpack_require__(102);
 	var widget_1 = __webpack_require__(21);
-	var dialog_1 = __webpack_require__(95);
+	var dialog_1 = __webpack_require__(100);
 	var graphics_1 = __webpack_require__(27);
 	var Events = __webpack_require__(8);
-	var list_view_1 = __webpack_require__(115);
-	var list_item_1 = __webpack_require__(117);
+	var list_view_1 = __webpack_require__(120);
+	var list_item_1 = __webpack_require__(122);
 	var widget_factory_1 = __webpack_require__(25);
-	var recyclable_creator_1 = __webpack_require__(86);
+	var recyclable_creator_1 = __webpack_require__(91);
 	var image_tile_1 = __webpack_require__(9);
-	var simple_layouter_1 = __webpack_require__(118);
+	var simple_layouter_1 = __webpack_require__(123);
 	var ComboBoxOption = (function () {
 	    function ComboBoxOption(text, value, imageURL, color) {
 	        this.text = text;
@@ -23093,7 +24045,7 @@ var app =
 
 
 /***/ },
-/* 115 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23103,10 +24055,10 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_1 = __webpack_require__(21);
-	var scroll_view_1 = __webpack_require__(103);
+	var scroll_view_1 = __webpack_require__(108);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var list_layouter_1 = __webpack_require__(116);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var list_layouter_1 = __webpack_require__(121);
 	var ListView = (function (_super) {
 	    __extends(ListView, _super);
 	    function ListView(type) {
@@ -23207,7 +24159,7 @@ var app =
 
 
 /***/ },
-/* 116 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23217,7 +24169,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var rect_1 = __webpack_require__(3);
-	var layouter_1 = __webpack_require__(81);
+	var layouter_1 = __webpack_require__(86);
 	var TYPE = "list";
 	/**
 	 * 列表布局器。
@@ -23309,7 +24261,7 @@ var app =
 
 
 /***/ },
-/* 117 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23322,7 +24274,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var graphics_1 = __webpack_require__(27);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var image_tile_1 = __webpack_require__(9);
 	(function (ListItemStyle) {
 	    ListItemStyle[ListItemStyle["NORMAL"] = 0] = "NORMAL";
@@ -23489,7 +24441,7 @@ var app =
 
 
 /***/ },
-/* 118 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23498,7 +24450,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var layouter_1 = __webpack_require__(81);
+	var layouter_1 = __webpack_require__(86);
 	var TYPE = "simple";
 	/**
 	 * 简单的布局器。
@@ -23609,7 +24561,7 @@ var app =
 
 
 /***/ },
-/* 119 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23619,9 +24571,9 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var grid_layouter_1 = __webpack_require__(120);
-	var scroll_view_1 = __webpack_require__(103);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var grid_layouter_1 = __webpack_require__(125);
+	var scroll_view_1 = __webpack_require__(108);
 	/**
 	 * 网格视图。
 	 */
@@ -23780,7 +24732,7 @@ var app =
 
 
 /***/ },
-/* 120 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23790,7 +24742,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var rect_1 = __webpack_require__(3);
-	var layouter_1 = __webpack_require__(81);
+	var layouter_1 = __webpack_require__(86);
 	var TYPE = "grid";
 	/**
 	 * 网格布局器。
@@ -23920,7 +24872,7 @@ var app =
 
 
 /***/ },
-/* 121 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23934,7 +24886,7 @@ var app =
 	var widget_factory_1 = __webpack_require__(25);
 	var graphics_1 = __webpack_require__(27);
 	var image_tile_1 = __webpack_require__(9);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var widget_1 = __webpack_require__(21);
 	/**
 	 * 树形视图中，显示的一个子项。
@@ -24171,7 +25123,7 @@ var app =
 
 
 /***/ },
-/* 122 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24180,11 +25132,11 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var tree_item_1 = __webpack_require__(121);
-	var list_view_1 = __webpack_require__(115);
-	var tree_item_data_1 = __webpack_require__(123);
+	var tree_item_1 = __webpack_require__(126);
+	var list_view_1 = __webpack_require__(120);
+	var tree_item_data_1 = __webpack_require__(128);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 树形视图。
 	 */
@@ -24326,7 +25278,7 @@ var app =
 
 
 /***/ },
-/* 123 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24415,7 +25367,7 @@ var app =
 
 
 /***/ },
-/* 124 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24426,22 +25378,22 @@ var app =
 	};
 	var path = __webpack_require__(11);
 	var TWEEN = __webpack_require__(22);
-	var Assets = __webpack_require__(13);
 	var Events = __webpack_require__(8);
-	var consts_1 = __webpack_require__(108);
-	var main_loop_1 = __webpack_require__(92);
+	var assets_1 = __webpack_require__(13);
+	var main_loop_1 = __webpack_require__(97);
 	var emitter_1 = __webpack_require__(6);
-	var view_port_1 = __webpack_require__(90);
+	var view_port_1 = __webpack_require__(95);
 	var image_tile_1 = __webpack_require__(9);
-	var theme_manager_1 = __webpack_require__(125);
-	var device_info_1 = __webpack_require__(126);
-	var service_locator_1 = __webpack_require__(127);
-	var window_manager_mobile_1 = __webpack_require__(128);
-	var window_manager_desktop_1 = __webpack_require__(130);
+	var theme_manager_1 = __webpack_require__(130);
+	var device_info_1 = __webpack_require__(131);
+	var window_manager_mobile_1 = __webpack_require__(132);
+	var window_manager_desktop_1 = __webpack_require__(134);
 	var inputEventAdapter = __webpack_require__(17);
-	var interaction_request_1 = __webpack_require__(131);
-	var interaction_service_1 = __webpack_require__(133);
+	var interaction_request_1 = __webpack_require__(135);
+	var interaction_service_1 = __webpack_require__(137);
 	/**
+	 * @class Application
+	 * @extends IApplication
 	 * 代表整个应用程序，可以通过Application获取各种服务。
 	 *
 	 */
@@ -24449,54 +25401,27 @@ var app =
 	    __extends(Application, _super);
 	    function Application(name) {
 	        _super.call(this);
-	        this.name = name;
-	        this._options = {};
-	        this.servicesManager = new service_locator_1.ServiceLocator();
-	        var options = this._options;
-	        var str = window.location.search.substr(1);
-	        var arr = str.split('&');
-	        arr.forEach(function (iter) {
-	            var keyValue = iter.split("=");
-	            options[keyValue[0]] = keyValue[1];
-	        });
+	        this._name = name;
+	        this.parseURLParams();
 	        if (!Application.instance) {
 	            Application.instance = this;
 	        }
 	    }
-	    Object.defineProperty(Application.prototype, "windowManager", {
+	    Object.defineProperty(Application.prototype, "name", {
+	        /**
+	         * @property {String} name 应用程序的名字。
+	         */
 	        get: function () {
-	            return this._windwManager;
+	            return this._name;
 	        },
-	        set: function (value) {
-	        },
+	        set: function (value) { },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(Application.prototype, "assets", {
-	        get: function () {
-	            return Assets;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Application.prototype, "isReady", {
-	        get: function () {
-	            return this._isReady;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Application.prototype, "mainLoop", {
-	        get: function () {
-	            return this._mainLoop;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Application.prototype.getMainLoop = function () {
-	        return this._mainLoop;
-	    };
 	    Object.defineProperty(Application.prototype, "options", {
+	        /**
+	         * @property {Object} options 应用程序的参数。
+	         */
 	        get: function () {
 	            return this._options;
 	        },
@@ -24505,11 +25430,41 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Application.prototype.loadScript = function (src) {
-	        Assets.loadScript(src);
+	    /**
+	     * 获取窗口管理器。
+	     */
+	    Application.prototype.getWindowManager = function () {
+	        return this._windwManager;
 	    };
+	    /**
+	     * 获取主循环。
+	     */
+	    Application.prototype.getMainLoop = function () {
+	        return this._mainLoop;
+	    };
+	    /**
+	     * 加载指定的脚本。
+	     * @param {string} src 脚本URL。
+	     */
+	    Application.prototype.loadScript = function (src) {
+	        assets_1.AssetManager.loadScript(src);
+	    };
+	    /**
+	     * 预加载指定的资源。
+	     * @param {Array<string>} assetsURLS 资源URL列表。
+	     * @param {Function} onDone 加载完成时的回调函数。
+	     * @param {Function} onProgress 每加载一个资源时的回调函数。
+	     *
+	     * 示例：
+	     *
+	     *     @example
+	     *     app.preload(assetsURLs, function onLoad() {
+	     *        app.init({sysThemeDataURL:themeURL, appThemeDataURL:appThemeURL});
+	     *        app.run();
+	     *     });
+	     */
 	    Application.prototype.preload = function (assetsURLS, onDone, onProgress) {
-	        Assets.Group.preload(assetsURLS, function (evt) {
+	        assets_1.AssetGroup.preload(assetsURLS, function (evt) {
 	            if (evt.loaded === evt.total) {
 	                if (onDone) {
 	                    onDone(evt);
@@ -24521,54 +25476,40 @@ var app =
 	        });
 	        return this;
 	    };
-	    Application.prototype.initOptions = function (args) {
-	        var options = this._options;
-	        for (var key in args) {
-	            options[key] = args[key];
-	        }
-	    };
+	    /**
+	     * 开始运行。
+	     */
 	    Application.prototype.run = function () {
 	        this.dispatchEvent({ type: Events.RUN });
 	        this._mainLoop.requestRedraw();
 	    };
+	    /**
+	     * 初始化。
+	     */
 	    Application.prototype.init = function (args) {
 	        var _this = this;
 	        this.initOptions(args);
 	        var themeManager = new theme_manager_1.ThemeManager();
-	        var sysThemeDataURL = this._options.sysThemeDataURL;
-	        var appThemeDataURL = this._options.appThemeDataURL;
 	        interaction_request_1.InteractionRequest.init(interaction_service_1.InteractionService.init());
-	        if (sysThemeDataURL) {
-	            Assets.loadJSON(sysThemeDataURL).then(function (json) {
-	                var baseURL = path.dirname(sysThemeDataURL);
-	                themeManager.load(json, baseURL);
-	                return appThemeDataURL;
-	            }).then(function (url) {
-	                if (url) {
-	                    Assets.loadJSON(url).then(function (json) {
-	                        var baseURL = path.dirname(url);
-	                        themeManager.load(json, baseURL);
-	                        _this.dispatchEventAsync({ type: Events.READY });
-	                        _this._isReady = true;
-	                        _this.onReady(_this);
-	                    });
-	                }
-	                else {
-	                    _this.dispatchEventAsync({ type: Events.READY });
-	                    _this._isReady = true;
-	                    _this.onReady(_this);
-	                }
-	            });
+	        var sysThemeJson = window.sysThemeJson;
+	        var appThemeJson = window.appThemeJson;
+	        var sysThemePath = path.dirname(this._options.sysThemeDataURL);
+	        var appThemePath = path.dirname(this._options.appThemeDataURL);
+	        if (sysThemeJson) {
+	            themeManager.load(sysThemeJson, sysThemePath);
 	        }
-	        this.registerService(consts_1.Services.THEME_MANAGER, themeManager);
+	        if (appThemeJson) {
+	            themeManager.load(appThemeJson, appThemePath);
+	        }
+	        this._themeManager = themeManager;
 	        this._viewPort = view_port_1.ViewPort.create(0, 0, 0);
 	        this._mainLoop = main_loop_1.MainLoop.create();
 	        device_info_1.DeviceInfo.init(navigator.language, navigator.userAgent);
 	        inputEventAdapter.init(document, window, device_info_1.DeviceInfo.isPointerSupported, device_info_1.DeviceInfo.isMSPointerSupported, device_info_1.DeviceInfo.isTouchSupported);
 	        if (device_info_1.DeviceInfo.isMacOS) {
-	            var density = this.viewPort.density;
+	            var density = this._viewPort.density;
 	            image_tile_1.ImageTile.init(density, 1 / density, function (img) {
-	                _this.mainLoop.requestRedraw();
+	                _this._mainLoop.requestRedraw();
 	            });
 	        }
 	        this._mainLoop.on(Events.PRETICK, function (evt) {
@@ -24582,27 +25523,37 @@ var app =
 	        else {
 	            this._windwManager = window_manager_desktop_1.WindowManagerDesktop.create({ app: this, x: 0, y: 0, w: vp.w, h: vp.h });
 	        }
+	        this.dispatchEventAsync({ type: Events.READY });
+	        this.onReady(this);
 	        return this;
 	    };
-	    Application.prototype.getService = function (name) {
-	        return this.servicesManager.get(name);
-	    };
-	    Application.prototype.registerService = function (name, service) {
-	        this.servicesManager.register(name, service);
-	        return this;
-	    };
+	    /**
+	     * 获取主题管理器。
+	     */
 	    Application.prototype.getThemeManager = function () {
-	        return this.getService(consts_1.Services.THEME_MANAGER);
+	        return this._themeManager;
 	    };
-	    Object.defineProperty(Application.prototype, "viewPort", {
-	        get: function () {
-	            return this._viewPort;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
+	    /**
+	     * 获取ViewPort。
+	     */
 	    Application.prototype.getViewPort = function () {
 	        return this._viewPort;
+	    };
+	    Application.prototype.initOptions = function (args) {
+	        var options = this._options;
+	        for (var key in args) {
+	            options[key] = args[key];
+	        }
+	    };
+	    Application.prototype.parseURLParams = function () {
+	        this._options = {};
+	        var options = this._options;
+	        var str = window.location.search.substr(1);
+	        var arr = str.split('&');
+	        arr.forEach(function (iter) {
+	            var keyValue = iter.split("=");
+	            options[keyValue[0]] = keyValue[1];
+	        });
 	    };
 	    /**
 	     * 子类可以重载此函数，做App的初始化工作。
@@ -24623,7 +25574,7 @@ var app =
 
 
 /***/ },
-/* 125 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24714,13 +25665,14 @@ var app =
 
 
 /***/ },
-/* 126 */
+/* 131 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
+	 * @class DeviceInfo
 	 * 设备信息。可以获取语言，操作系统和浏览器等相关信息(单例对象，直接调用)。
 	 */
-	"use strict";
 	var DeviceInfo = (function () {
 	    function DeviceInfo() {
 	    }
@@ -24748,32 +25700,7 @@ var app =
 
 
 /***/ },
-/* 127 */
-/***/ function(module, exports) {
-
-	"use strict";
-	/**
-	 * 管理各种服务。
-	 */
-	var ServiceLocator = (function () {
-	    function ServiceLocator() {
-	        this.services = {};
-	    }
-	    ServiceLocator.prototype.register = function (name, service) {
-	        this.services[name] = service;
-	        return this;
-	    };
-	    ServiceLocator.prototype.get = function (name) {
-	        return this.services[name];
-	    };
-	    return ServiceLocator;
-	}());
-	exports.ServiceLocator = ServiceLocator;
-	;
-
-
-/***/ },
-/* 128 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24782,10 +25709,13 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var window_1 = __webpack_require__(96);
-	var window_manager_1 = __webpack_require__(129);
+	var window_1 = __webpack_require__(101);
+	var window_manager_1 = __webpack_require__(133);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	/**
+	 * 移动应用程序的窗口管理器，所有窗口共享一个Canvas，NormalWindow总是最大化显示。
+	 */
 	var WindowManagerMobile = (function (_super) {
 	    __extends(WindowManagerMobile, _super);
 	    function WindowManagerMobile() {
@@ -24895,7 +25825,7 @@ var app =
 
 
 /***/ },
-/* 129 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24964,7 +25894,7 @@ var app =
 
 
 /***/ },
-/* 130 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24973,10 +25903,13 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var window_1 = __webpack_require__(96);
-	var window_manager_1 = __webpack_require__(129);
+	var window_1 = __webpack_require__(101);
+	var window_manager_1 = __webpack_require__(133);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	/**
+	 * 桌面应用程序的窗口管理器。
+	 */
 	var WindowManagerDesktop = (function (_super) {
 	    __extends(WindowManagerDesktop, _super);
 	    function WindowManagerDesktop() {
@@ -25005,11 +25938,11 @@ var app =
 
 
 /***/ },
-/* 131 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var interaction_types_1 = __webpack_require__(132);
+	var interaction_types_1 = __webpack_require__(136);
 	var InteractionRequest = (function () {
 	    function InteractionRequest(service) {
 	        this.service = service;
@@ -25072,7 +26005,7 @@ var app =
 
 
 /***/ },
-/* 132 */
+/* 136 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -25093,20 +26026,20 @@ var app =
 
 
 /***/ },
-/* 133 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var emitter_1 = __webpack_require__(6);
 	var Events = __webpack_require__(8);
-	var toast_dialog_1 = __webpack_require__(134);
-	var input_dialog_1 = __webpack_require__(138);
-	var props_dialog_1 = __webpack_require__(139);
-	var choice_dialog_1 = __webpack_require__(164);
-	var progress_dialog_1 = __webpack_require__(165);
-	var confirmation_dialog_1 = __webpack_require__(166);
-	var notification_dialog_1 = __webpack_require__(167);
-	var interaction_types_1 = __webpack_require__(132);
+	var toast_dialog_1 = __webpack_require__(138);
+	var input_dialog_1 = __webpack_require__(142);
+	var props_dialog_1 = __webpack_require__(143);
+	var choice_dialog_1 = __webpack_require__(168);
+	var progress_dialog_1 = __webpack_require__(169);
+	var confirmation_dialog_1 = __webpack_require__(170);
+	var notification_dialog_1 = __webpack_require__(171);
+	var interaction_types_1 = __webpack_require__(136);
 	var InteractionService = (function () {
 	    function InteractionService() {
 	        this._emitter = new emitter_1.Emitter();
@@ -25181,11 +26114,11 @@ var app =
 
 
 /***/ },
-/* 134 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	var ToastDialog = (function () {
 	    function ToastDialog() {
 	    }
@@ -25199,7 +26132,7 @@ var app =
 
 
 /***/ },
-/* 135 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25208,25 +26141,25 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var group_1 = __webpack_require__(94);
-	var dialog_1 = __webpack_require__(95);
+	var group_1 = __webpack_require__(99);
+	var dialog_1 = __webpack_require__(100);
 	var label_1 = __webpack_require__(20);
 	var edit_1 = __webpack_require__(19);
-	var button_1 = __webpack_require__(97);
+	var button_1 = __webpack_require__(102);
 	var Events = __webpack_require__(8);
 	var graphics_1 = __webpack_require__(27);
-	var list_view_1 = __webpack_require__(115);
-	var progress_bar_1 = __webpack_require__(99);
-	var application_1 = __webpack_require__(124);
+	var list_view_1 = __webpack_require__(120);
+	var progress_bar_1 = __webpack_require__(104);
+	var application_1 = __webpack_require__(129);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var consts_1 = __webpack_require__(108);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var list_item_1 = __webpack_require__(117);
-	var dock_layouter_1 = __webpack_require__(136);
-	var linear_layouter_1 = __webpack_require__(137);
-	var grid_layouter_1 = __webpack_require__(120);
-	var simple_layouter_1 = __webpack_require__(118);
+	var consts_1 = __webpack_require__(113);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var list_item_1 = __webpack_require__(122);
+	var dock_layouter_1 = __webpack_require__(140);
+	var linear_layouter_1 = __webpack_require__(141);
+	var grid_layouter_1 = __webpack_require__(125);
+	var simple_layouter_1 = __webpack_require__(123);
 	var TitleOptions = (function () {
 	    function TitleOptions(text, iconStyleType, hasCloseButton) {
 	        this.h = 0;
@@ -25576,7 +26509,7 @@ var app =
 
 
 /***/ },
-/* 136 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25586,8 +26519,8 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var consts_1 = __webpack_require__(108);
-	var layouter_1 = __webpack_require__(81);
+	var consts_1 = __webpack_require__(113);
+	var layouter_1 = __webpack_require__(86);
 	var TYPE = "dock";
 	/**
 	 * Dock布局器。
@@ -25727,7 +26660,7 @@ var app =
 
 
 /***/ },
-/* 137 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25736,9 +26669,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var consts_1 = __webpack_require__(108);
+	var consts_1 = __webpack_require__(113);
 	var utils_1 = __webpack_require__(23);
-	var layouter_1 = __webpack_require__(81);
+	var layouter_1 = __webpack_require__(86);
 	var TYPE_H = "linear-h";
 	var TYPE_V = "linear-v";
 	/**
@@ -25938,11 +26871,11 @@ var app =
 
 
 /***/ },
-/* 138 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	var InputDialog = (function () {
 	    function InputDialog() {
 	    }
@@ -25959,11 +26892,11 @@ var app =
 
 
 /***/ },
-/* 139 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var property_dialog_1 = __webpack_require__(140);
+	var property_dialog_1 = __webpack_require__(144);
 	var PropsDialog = (function () {
 	    function PropsDialog() {
 	    }
@@ -25981,7 +26914,7 @@ var app =
 
 
 /***/ },
-/* 140 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25990,13 +26923,13 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var application_1 = __webpack_require__(124);
-	var property_page_1 = __webpack_require__(141);
-	var view_model_1 = __webpack_require__(159);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var application_1 = __webpack_require__(129);
+	var property_page_1 = __webpack_require__(145);
+	var view_model_1 = __webpack_require__(163);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var widget_factory_1 = __webpack_require__(25);
-	var message_box_1 = __webpack_require__(135);
-	var simple_layouter_1 = __webpack_require__(118);
+	var message_box_1 = __webpack_require__(139);
+	var simple_layouter_1 = __webpack_require__(123);
 	/**
 	 * 属性对话框。
 	 */
@@ -26050,7 +26983,7 @@ var app =
 
 
 /***/ },
-/* 141 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26060,24 +26993,24 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var title_link_1 = __webpack_require__(142);
-	var title_line_1 = __webpack_require__(144);
-	var title_edit_1 = __webpack_require__(146);
-	var title_label_1 = __webpack_require__(147);
-	var title_check_button_1 = __webpack_require__(148);
-	var title_range_1 = __webpack_require__(149);
-	var title_vector_1 = __webpack_require__(151);
+	var title_link_1 = __webpack_require__(146);
+	var title_line_1 = __webpack_require__(148);
+	var title_edit_1 = __webpack_require__(150);
+	var title_label_1 = __webpack_require__(151);
+	var title_check_button_1 = __webpack_require__(152);
+	var title_range_1 = __webpack_require__(153);
+	var title_vector_1 = __webpack_require__(155);
 	var widget_1 = __webpack_require__(21);
-	var title_slider_1 = __webpack_require__(153);
-	var title_text_area_1 = __webpack_require__(154);
+	var title_slider_1 = __webpack_require__(157);
+	var title_text_area_1 = __webpack_require__(158);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var title_choosable_edit_1 = __webpack_require__(155);
-	var props_desc_1 = __webpack_require__(157);
-	var title_combo_box_1 = __webpack_require__(158);
-	var props_desc_2 = __webpack_require__(157);
-	var props_desc_3 = __webpack_require__(157);
-	var props_desc_4 = __webpack_require__(157);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var title_choosable_edit_1 = __webpack_require__(159);
+	var props_desc_1 = __webpack_require__(161);
+	var title_combo_box_1 = __webpack_require__(162);
+	var props_desc_2 = __webpack_require__(161);
+	var props_desc_3 = __webpack_require__(161);
+	var props_desc_4 = __webpack_require__(161);
 	/**
 	 * 属性编辑页，包装了各种TitleValue。
 	 */
@@ -26459,7 +27392,7 @@ var app =
 
 
 /***/ },
-/* 142 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26470,9 +27403,9 @@ var app =
 	};
 	var Events = __webpack_require__(8);
 	var label_1 = __webpack_require__(20);
-	var title_value_1 = __webpack_require__(143);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleLink = (function (_super) {
 	    __extends(TitleLink, _super);
 	    function TitleLink(type) {
@@ -26505,7 +27438,7 @@ var app =
 
 
 /***/ },
-/* 143 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26517,7 +27450,7 @@ var app =
 	var Events = __webpack_require__(8);
 	var label_1 = __webpack_require__(20);
 	var widget_1 = __webpack_require__(21);
-	var linear_layouter_1 = __webpack_require__(137);
+	var linear_layouter_1 = __webpack_require__(141);
 	var TitleValue = (function (_super) {
 	    __extends(TitleValue, _super);
 	    function TitleValue(type) {
@@ -26641,7 +27574,7 @@ var app =
 
 
 /***/ },
-/* 144 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26650,10 +27583,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(143);
-	var color_tile_1 = __webpack_require__(145);
+	var title_value_1 = __webpack_require__(147);
+	var color_tile_1 = __webpack_require__(149);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleLine = (function (_super) {
 	    __extends(TitleLine, _super);
 	    function TitleLine(type) {
@@ -26675,7 +27608,7 @@ var app =
 
 
 /***/ },
-/* 145 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26688,8 +27621,8 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var graphics_1 = __webpack_require__(27);
-	var consts_1 = __webpack_require__(108);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var consts_1 = __webpack_require__(113);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 颜色控件。
 	 */
@@ -26935,7 +27868,7 @@ var app =
 
 
 /***/ },
-/* 146 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26945,9 +27878,9 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var edit_1 = __webpack_require__(19);
-	var title_value_1 = __webpack_require__(143);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleEdit = (function (_super) {
 	    __extends(TitleEdit, _super);
 	    function TitleEdit(type) {
@@ -27018,7 +27951,7 @@ var app =
 
 
 /***/ },
-/* 147 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27028,9 +27961,9 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var label_1 = __webpack_require__(20);
-	var title_value_1 = __webpack_require__(143);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleLabel = (function (_super) {
 	    __extends(TitleLabel, _super);
 	    function TitleLabel(type) {
@@ -27052,7 +27985,7 @@ var app =
 
 
 /***/ },
-/* 148 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27061,10 +27994,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(143);
-	var check_button_1 = __webpack_require__(110);
+	var title_value_1 = __webpack_require__(147);
+	var check_button_1 = __webpack_require__(115);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleCheckButton = (function (_super) {
 	    __extends(TitleCheckButton, _super);
 	    function TitleCheckButton(type) {
@@ -27086,7 +28019,7 @@ var app =
 
 
 /***/ },
-/* 149 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27095,10 +28028,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var range_edit_1 = __webpack_require__(150);
-	var title_value_1 = __webpack_require__(143);
+	var range_edit_1 = __webpack_require__(154);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleRange = (function (_super) {
 	    __extends(TitleRange, _super);
 	    function TitleRange(type) {
@@ -27120,7 +28053,7 @@ var app =
 
 
 /***/ },
-/* 150 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27134,7 +28067,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var Events = __webpack_require__(8);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 范围编辑器。
 	 */
@@ -27256,7 +28189,7 @@ var app =
 
 
 /***/ },
-/* 151 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27265,10 +28198,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var vector_edit_1 = __webpack_require__(152);
-	var title_value_1 = __webpack_require__(143);
+	var vector_edit_1 = __webpack_require__(156);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleVector = (function (_super) {
 	    __extends(TitleVector, _super);
 	    function TitleVector(type) {
@@ -27307,7 +28240,7 @@ var app =
 
 
 /***/ },
-/* 152 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27321,8 +28254,8 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var Events = __webpack_require__(8);
 	var widget_factory_1 = __webpack_require__(25);
-	var recyclable_creator_1 = __webpack_require__(86);
-	var grid_layouter_1 = __webpack_require__(120);
+	var recyclable_creator_1 = __webpack_require__(91);
+	var grid_layouter_1 = __webpack_require__(125);
 	/**
 	 * 范围编辑器。
 	 */
@@ -27551,7 +28484,7 @@ var app =
 
 
 /***/ },
-/* 153 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27560,10 +28493,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slider_1 = __webpack_require__(98);
-	var title_value_1 = __webpack_require__(143);
+	var slider_1 = __webpack_require__(103);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleSlider = (function (_super) {
 	    __extends(TitleSlider, _super);
 	    function TitleSlider(type) {
@@ -27585,7 +28518,7 @@ var app =
 
 
 /***/ },
-/* 154 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27595,9 +28528,9 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var edit_1 = __webpack_require__(19);
-	var title_value_1 = __webpack_require__(143);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleTextArea = (function (_super) {
 	    __extends(TitleTextArea, _super);
 	    function TitleTextArea(type) {
@@ -27637,7 +28570,7 @@ var app =
 
 
 /***/ },
-/* 155 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27646,10 +28579,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(143);
-	var choosable_edit_1 = __webpack_require__(156);
+	var title_value_1 = __webpack_require__(147);
+	var choosable_edit_1 = __webpack_require__(160);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var TitleChoosableEdit = (function (_super) {
 	    __extends(TitleChoosableEdit, _super);
 	    function TitleChoosableEdit(type) {
@@ -27696,7 +28629,7 @@ var app =
 
 
 /***/ },
-/* 156 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27706,11 +28639,11 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var edit_1 = __webpack_require__(19);
-	var button_1 = __webpack_require__(97);
+	var button_1 = __webpack_require__(102);
 	var widget_1 = __webpack_require__(21);
 	var Events = __webpack_require__(8);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 编辑器+选择按钮。
 	 */
@@ -27795,7 +28728,7 @@ var app =
 
 
 /***/ },
-/* 157 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28177,7 +29110,7 @@ var app =
 
 
 /***/ },
-/* 158 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28186,10 +29119,10 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(143);
+	var title_value_1 = __webpack_require__(147);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var combo_box_1 = __webpack_require__(114);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var combo_box_1 = __webpack_require__(119);
 	var TitleComboBoxBase = (function (_super) {
 	    __extends(TitleComboBoxBase, _super);
 	    function TitleComboBoxBase(type) {
@@ -28259,7 +29192,7 @@ var app =
 
 
 /***/ },
-/* 159 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28268,7 +29201,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var view_model_default_1 = __webpack_require__(160);
+	var view_model_default_1 = __webpack_require__(164);
 	/**
 	 * IViewModel的基本实现。如果不能满足要求，可以重载部分函数。
 	 */
@@ -28288,7 +29221,7 @@ var app =
 
 
 /***/ },
-/* 160 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28297,11 +29230,11 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var pointer = __webpack_require__(161);
+	var pointer = __webpack_require__(165);
 	var emitter_1 = __webpack_require__(6);
 	var Events = __webpack_require__(8);
-	var ivalidation_rule_1 = __webpack_require__(163);
-	var iview_model_1 = __webpack_require__(84);
+	var ivalidation_rule_1 = __webpack_require__(167);
+	var iview_model_1 = __webpack_require__(87);
 	var ViewModelDefault = (function (_super) {
 	    __extends(ViewModelDefault, _super);
 	    function ViewModelDefault(data) {
@@ -28458,12 +29391,12 @@ var app =
 
 
 /***/ },
-/* 161 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var each = __webpack_require__(162);
+	var each = __webpack_require__(166);
 	module.exports = api;
 
 
@@ -28675,7 +29608,7 @@ var app =
 
 
 /***/ },
-/* 162 */
+/* 166 */
 /***/ function(module, exports) {
 
 	
@@ -28703,7 +29636,7 @@ var app =
 
 
 /***/ },
-/* 163 */
+/* 167 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -28736,11 +29669,11 @@ var app =
 
 
 /***/ },
-/* 164 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	var ChoiceDialog = (function () {
 	    function ChoiceDialog() {
 	    }
@@ -28757,11 +29690,11 @@ var app =
 
 
 /***/ },
-/* 165 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	var ProgressDialog = (function () {
 	    function ProgressDialog() {
 	    }
@@ -28777,11 +29710,11 @@ var app =
 
 
 /***/ },
-/* 166 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	var ConfirmationDialog = (function () {
 	    function ConfirmationDialog() {
 	    }
@@ -28801,11 +29734,11 @@ var app =
 
 
 /***/ },
-/* 167 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(135);
+	var message_box_1 = __webpack_require__(139);
 	var NotificationDialog = (function () {
 	    function NotificationDialog() {
 	    }
@@ -28821,7 +29754,7 @@ var app =
 
 
 /***/ },
-/* 168 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28832,7 +29765,7 @@ var app =
 	};
 	var Events = __webpack_require__(8);
 	var key_event_1 = __webpack_require__(18);
-	var behavior_1 = __webpack_require__(80);
+	var behavior_1 = __webpack_require__(85);
 	/**
 	 * Movable Behavior的初始化参数。
 	 */
@@ -28956,7 +29889,7 @@ var app =
 
 
 /***/ },
-/* 169 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28967,7 +29900,7 @@ var app =
 	};
 	var Events = __webpack_require__(8);
 	var key_event_1 = __webpack_require__(18);
-	var behavior_1 = __webpack_require__(80);
+	var behavior_1 = __webpack_require__(85);
 	/**
 	 * 让Widget具有拖放功能的拖动功能。
 	 *
@@ -29041,7 +29974,7 @@ var app =
 
 
 /***/ },
-/* 170 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29051,7 +29984,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var behavior_1 = __webpack_require__(80);
+	var behavior_1 = __webpack_require__(85);
 	/**
 	 * 让Widget可作为拖放功能的Drop目标。
 	 *
@@ -29092,7 +30025,7 @@ var app =
 
 
 /***/ },
-/* 171 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29104,7 +30037,7 @@ var app =
 	var point_1 = __webpack_require__(4);
 	var Events = __webpack_require__(8);
 	var key_event_1 = __webpack_require__(18);
-	var behavior_1 = __webpack_require__(80);
+	var behavior_1 = __webpack_require__(85);
 	/**
 	 * Resizable Behavior的初始化参数。
 	 */
@@ -29295,7 +30228,7 @@ var app =
 
 
 /***/ },
-/* 172 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29306,16 +30239,16 @@ var app =
 	};
 	var rect_1 = __webpack_require__(3);
 	var point_1 = __webpack_require__(4);
-	var dialog_1 = __webpack_require__(95);
+	var dialog_1 = __webpack_require__(100);
 	var graphics_1 = __webpack_require__(27);
-	var list_view_1 = __webpack_require__(115);
+	var list_view_1 = __webpack_require__(120);
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var image_tile_1 = __webpack_require__(9);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var list_layouter_1 = __webpack_require__(116);
-	var simple_layouter_1 = __webpack_require__(118);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var list_layouter_1 = __webpack_require__(121);
+	var simple_layouter_1 = __webpack_require__(123);
 	var Menu = (function (_super) {
 	    __extends(Menu, _super);
 	    function Menu() {
@@ -29661,7 +30594,7 @@ var app =
 
 
 /***/ },
-/* 173 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29670,9 +30603,9 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var window_1 = __webpack_require__(96);
+	var window_1 = __webpack_require__(101);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	var WindowNormal = (function (_super) {
 	    __extends(WindowNormal, _super);
 	    function WindowNormal() {
@@ -29692,7 +30625,7 @@ var app =
 
 
 /***/ },
-/* 174 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29701,14 +30634,14 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_1 = __webpack_require__(172);
+	var menu_1 = __webpack_require__(176);
 	var point_1 = __webpack_require__(4);
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var image_tile_1 = __webpack_require__(9);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var linear_layouter_1 = __webpack_require__(137);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var linear_layouter_1 = __webpack_require__(141);
 	var MenuBar = (function (_super) {
 	    __extends(MenuBar, _super);
 	    function MenuBar() {
@@ -29917,7 +30850,7 @@ var app =
 
 
 /***/ },
-/* 175 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29926,12 +30859,12 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	__webpack_require__(176);
+	__webpack_require__(180);
 	var point_1 = __webpack_require__(4);
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	Chart.helpers.getRelativePosition = function (evt, chart) {
 	    return { x: evt.clientX, y: evt.clientY };
 	};
@@ -30056,19 +30989,15 @@ var app =
 
 
 /***/ },
-/* 176 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * @namespace Chart
 	 */
-	var Chart = __webpack_require__(177)();
+	var Chart = __webpack_require__(181)();
 
-	__webpack_require__(178)(Chart);
-	__webpack_require__(184)(Chart);
-	__webpack_require__(185)(Chart);
-	__webpack_require__(186)(Chart);
-	__webpack_require__(187)(Chart);
+	__webpack_require__(182)(Chart);
 	__webpack_require__(188)(Chart);
 	__webpack_require__(189)(Chart);
 	__webpack_require__(190)(Chart);
@@ -30079,41 +31008,48 @@ var app =
 	__webpack_require__(195)(Chart);
 	__webpack_require__(196)(Chart);
 	__webpack_require__(197)(Chart);
-
 	__webpack_require__(198)(Chart);
 	__webpack_require__(199)(Chart);
 	__webpack_require__(200)(Chart);
 	__webpack_require__(201)(Chart);
 
-	__webpack_require__(202)(Chart);
+	// By default, we only load the browser platform.
+	Chart.platform = __webpack_require__(202)(Chart);
+
 	__webpack_require__(203)(Chart);
 	__webpack_require__(204)(Chart);
 	__webpack_require__(205)(Chart);
 	__webpack_require__(206)(Chart);
+
 	__webpack_require__(207)(Chart);
+	__webpack_require__(208)(Chart);
+	__webpack_require__(209)(Chart);
+	__webpack_require__(210)(Chart);
+	__webpack_require__(211)(Chart);
+	__webpack_require__(212)(Chart);
 
 	// Controllers must be loaded after elements
 	// See Chart.core.datasetController.dataElementType
-	__webpack_require__(319)(Chart);
-	__webpack_require__(320)(Chart);
-	__webpack_require__(321)(Chart);
-	__webpack_require__(322)(Chart);
-	__webpack_require__(323)(Chart);
 	__webpack_require__(324)(Chart);
-
 	__webpack_require__(325)(Chart);
 	__webpack_require__(326)(Chart);
 	__webpack_require__(327)(Chart);
 	__webpack_require__(328)(Chart);
 	__webpack_require__(329)(Chart);
+
 	__webpack_require__(330)(Chart);
 	__webpack_require__(331)(Chart);
+	__webpack_require__(332)(Chart);
+	__webpack_require__(333)(Chart);
+	__webpack_require__(334)(Chart);
+	__webpack_require__(335)(Chart);
+	__webpack_require__(336)(Chart);
 
 	window.Chart = module.exports = Chart;
 
 
 /***/ },
-/* 177 */
+/* 181 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30175,14 +31111,14 @@ var app =
 
 
 /***/ },
-/* 178 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global window: false */
 	/* global document: false */
 	'use strict';
 
-	var color = __webpack_require__(179);
+	var color = __webpack_require__(183);
 
 	module.exports = function(Chart) {
 		// Global Chart helpers object for utility methods and classes
@@ -30417,6 +31353,10 @@ var app =
 		helpers.almostEquals = function(x, y, epsilon) {
 			return Math.abs(x - y) < epsilon;
 		};
+		helpers.almostWhole = function(x, epsilon) {
+			var rounded = Math.round(x);
+			return (((rounded - epsilon) < x) && ((rounded + epsilon) > x));
+		};
 		helpers.max = function(array) {
 			return array.reduce(function(max, value) {
 				if (!isNaN(value)) {
@@ -30541,7 +31481,10 @@ var app =
 				pointBefore = i > 0 ? pointsWithTangents[i - 1] : null;
 				pointAfter = i < pointsLen - 1 ? pointsWithTangents[i + 1] : null;
 				if (pointAfter && !pointAfter.model.skip) {
-					pointCurrent.deltaK = (pointAfter.model.y - pointCurrent.model.y) / (pointAfter.model.x - pointCurrent.model.x);
+					var slopeDeltaX = (pointAfter.model.x - pointCurrent.model.x);
+
+					// In the case of two points that appear at the same x pixel, slopeDeltaX is 0
+					pointCurrent.deltaK = slopeDeltaX !== 0 ? (pointAfter.model.y - pointCurrent.model.y) / slopeDeltaX : 0;
 				}
 
 				if (!pointBefore || pointBefore.model.skip) {
@@ -31227,12 +32170,12 @@ var app =
 
 
 /***/ },
-/* 179 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var convert = __webpack_require__(180);
-	var string = __webpack_require__(182);
+	var convert = __webpack_require__(184);
+	var string = __webpack_require__(186);
 
 	var Color = function (obj) {
 		if (obj instanceof Color) {
@@ -31716,10 +32659,10 @@ var app =
 
 
 /***/ },
-/* 180 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var conversions = __webpack_require__(181);
+	var conversions = __webpack_require__(185);
 
 	var convert = function() {
 	   return new Converter();
@@ -31813,7 +32756,7 @@ var app =
 	module.exports = convert;
 
 /***/ },
-/* 181 */
+/* 185 */
 /***/ function(module, exports) {
 
 	/* MIT license */
@@ -32517,11 +33460,11 @@ var app =
 
 
 /***/ },
-/* 182 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var colorNames = __webpack_require__(183);
+	var colorNames = __webpack_require__(187);
 
 	module.exports = {
 	   getRgba: getRgba,
@@ -32744,7 +33687,7 @@ var app =
 
 
 /***/ },
-/* 183 */
+/* 187 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32899,7 +33842,7 @@ var app =
 	};
 
 /***/ },
-/* 184 */
+/* 188 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32946,6 +33889,14 @@ var app =
 				ctx.beginPath();
 				ctx.fillRect(x - size, y - size, 2 * size, 2 * size);
 				ctx.strokeRect(x - size, y - size, 2 * size, 2 * size);
+				break;
+			case 'rectRounded':
+				var offset = radius / Math.SQRT2;
+				var leftX = x - offset;
+				var topY = y - offset;
+				var sideSize = Math.SQRT2 * radius;
+				Chart.helpers.drawRoundedRectangle(ctx, leftX, topY, sideSize, sideSize, radius / 2);
+				ctx.fill();
 				break;
 			case 'rectRot':
 				size = 1 / Math.SQRT2 * radius;
@@ -33005,11 +33956,228 @@ var app =
 
 			ctx.stroke();
 		};
+
+		helpers.clipArea = function(ctx, clipArea) {
+			ctx.save();
+			ctx.beginPath();
+			ctx.rect(clipArea.left, clipArea.top, clipArea.right - clipArea.left, clipArea.bottom - clipArea.top);
+			ctx.clip();
+		};
+
+		helpers.unclipArea = function(ctx) {
+			ctx.restore();
+		};
+
 	};
 
 
 /***/ },
-/* 185 */
+/* 189 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function(Chart) {
+
+		var helpers = Chart.helpers;
+		var noop = helpers.noop;
+
+		Chart.defaults.global.plugins = {};
+
+		/**
+		 * The plugin service singleton
+		 * @namespace Chart.plugins
+		 * @since 2.1.0
+		 */
+		Chart.plugins = {
+			/**
+			 * Globally registered plugins.
+			 * @private
+			 */
+			_plugins: [],
+
+			/**
+			 * This identifier is used to invalidate the descriptors cache attached to each chart
+			 * when a global plugin is registered or unregistered. In this case, the cache ID is
+			 * incremented and descriptors are regenerated during following API calls.
+			 * @private
+			 */
+			_cacheId: 0,
+
+			/**
+			 * Registers the given plugin(s) if not already registered.
+			 * @param {Array|Object} plugins plugin instance(s).
+			 */
+			register: function(plugins) {
+				var p = this._plugins;
+				([]).concat(plugins).forEach(function(plugin) {
+					if (p.indexOf(plugin) === -1) {
+						p.push(plugin);
+					}
+				});
+
+				this._cacheId++;
+			},
+
+			/**
+			 * Unregisters the given plugin(s) only if registered.
+			 * @param {Array|Object} plugins plugin instance(s).
+			 */
+			unregister: function(plugins) {
+				var p = this._plugins;
+				([]).concat(plugins).forEach(function(plugin) {
+					var idx = p.indexOf(plugin);
+					if (idx !== -1) {
+						p.splice(idx, 1);
+					}
+				});
+
+				this._cacheId++;
+			},
+
+			/**
+			 * Remove all registered plugins.
+			 * @since 2.1.5
+			 */
+			clear: function() {
+				this._plugins = [];
+				this._cacheId++;
+			},
+
+			/**
+			 * Returns the number of registered plugins?
+			 * @returns {Number}
+			 * @since 2.1.5
+			 */
+			count: function() {
+				return this._plugins.length;
+			},
+
+			/**
+			 * Returns all registered plugin instances.
+			 * @returns {Array} array of plugin objects.
+			 * @since 2.1.5
+			 */
+			getAll: function() {
+				return this._plugins;
+			},
+
+			/**
+			 * Calls enabled plugins for chart, on the specified extension and with the given args.
+			 * This method immediately returns as soon as a plugin explicitly returns false. The
+			 * returned value can be used, for instance, to interrupt the current action.
+			 * @param {Object} chart chart instance for which plugins should be called.
+			 * @param {String} extension the name of the plugin method to call (e.g. 'beforeUpdate').
+			 * @param {Array} [args] extra arguments to apply to the extension call.
+			 * @returns {Boolean} false if any of the plugins return false, else returns true.
+			 */
+			notify: function(chart, extension, args) {
+				var descriptors = this.descriptors(chart);
+				var ilen = descriptors.length;
+				var i, descriptor, plugin, params, method;
+
+				for (i=0; i<ilen; ++i) {
+					descriptor = descriptors[i];
+					plugin = descriptor.plugin;
+					method = plugin[extension];
+					if (typeof method === 'function') {
+						params = [chart].concat(args || []);
+						params.push(descriptor.options);
+						if (method.apply(plugin, params) === false) {
+							return false;
+						}
+					}
+				}
+
+				return true;
+			},
+
+			/**
+			 * Returns descriptors of enabled plugins for the given chart.
+			 * @returns {Array} [{ plugin, options }]
+			 * @private
+			 */
+			descriptors: function(chart) {
+				var cache = chart._plugins || (chart._plugins = {});
+				if (cache.id === this._cacheId) {
+					return cache.descriptors;
+				}
+
+				var plugins = [];
+				var descriptors = [];
+				var config = (chart && chart.config) || {};
+				var defaults = Chart.defaults.global.plugins;
+				var options = (config.options && config.options.plugins) || {};
+
+				this._plugins.concat(config.plugins || []).forEach(function(plugin) {
+					var idx = plugins.indexOf(plugin);
+					if (idx !== -1) {
+						return;
+					}
+
+					var id = plugin.id;
+					var opts = options[id];
+					if (opts === false) {
+						return;
+					}
+
+					if (opts === true) {
+						opts = helpers.clone(defaults[id]);
+					}
+
+					plugins.push(plugin);
+					descriptors.push({
+						plugin: plugin,
+						options: opts || {}
+					});
+				});
+
+				cache.descriptors = descriptors;
+				cache.id = this._cacheId;
+				return descriptors;
+			}
+		};
+
+		/**
+		 * Plugin extension methods.
+		 * @interface Chart.PluginBase
+		 * @since 2.1.0
+		 */
+		Chart.PluginBase = helpers.inherits({
+			// Called at start of chart init
+			beforeInit: noop,
+
+			// Called at end of chart init
+			afterInit: noop,
+
+			// Called at start of update
+			beforeUpdate: noop,
+
+			// Called at end of update
+			afterUpdate: noop,
+
+			// Called at start of draw
+			beforeDraw: noop,
+
+			// Called at end of draw
+			afterDraw: noop,
+
+			// Called during destroy
+			destroy: noop
+		});
+
+		/**
+		 * Provided for backward compatibility, use Chart.plugins instead
+		 * @namespace Chart.pluginService
+		 * @deprecated since version 2.1.5
+		 * TODO remove me at version 3
+		 */
+		Chart.pluginService = Chart.plugins;
+	};
+
+
+/***/ },
+/* 190 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33111,7 +34279,7 @@ var app =
 
 
 /***/ },
-/* 186 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/* global window: false */
@@ -33256,7 +34424,7 @@ var app =
 
 
 /***/ },
-/* 187 */
+/* 192 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33274,140 +34442,6 @@ var app =
 
 		// Controllers available for dataset visualization eg. bar, line, slice, etc.
 		Chart.controllers = {};
-
-		/**
-		 * The "used" size is the final value of a dimension property after all calculations have
-		 * been performed. This method uses the computed style of `element` but returns undefined
-		 * if the computed style is not expressed in pixels. That can happen in some cases where
-		 * `element` has a size relative to its parent and this last one is not yet displayed,
-		 * for example because of `display: none` on a parent node.
-		 * TODO(SB) Move this method in the upcoming core.platform class.
-		 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/used_value
-		 * @returns {Number} Size in pixels or undefined if unknown.
-		 */
-		function readUsedSize(element, property) {
-			var value = helpers.getStyle(element, property);
-			var matches = value && value.match(/(\d+)px/);
-			return matches? Number(matches[1]) : undefined;
-		}
-
-		/**
-		 * Initializes the canvas style and render size without modifying the canvas display size,
-		 * since responsiveness is handled by the controller.resize() method. The config is used
-		 * to determine the aspect ratio to apply in case no explicit height has been specified.
-		 * TODO(SB) Move this method in the upcoming core.platform class.
-		 */
-		function initCanvas(canvas, config) {
-			var style = canvas.style;
-
-			// NOTE(SB) canvas.getAttribute('width') !== canvas.width: in the first case it
-			// returns null or '' if no explicit value has been set to the canvas attribute.
-			var renderHeight = canvas.getAttribute('height');
-			var renderWidth = canvas.getAttribute('width');
-
-			// Chart.js modifies some canvas values that we want to restore on destroy
-			canvas._chartjs = {
-				initial: {
-					height: renderHeight,
-					width: renderWidth,
-					style: {
-						display: style.display,
-						height: style.height,
-						width: style.width
-					}
-				}
-			};
-
-			// Force canvas to display as block to avoid extra space caused by inline
-			// elements, which would interfere with the responsive resize process.
-			// https://github.com/chartjs/Chart.js/issues/2538
-			style.display = style.display || 'block';
-
-			if (renderWidth === null || renderWidth === '') {
-				var displayWidth = readUsedSize(canvas, 'width');
-				if (displayWidth !== undefined) {
-					canvas.width = displayWidth;
-				}
-			}
-
-			if (renderHeight === null || renderHeight === '') {
-				if (canvas.style.height === '') {
-					// If no explicit render height and style height, let's apply the aspect ratio,
-					// which one can be specified by the user but also by charts as default option
-					// (i.e. options.aspectRatio). If not specified, use canvas aspect ratio of 2.
-					canvas.height = canvas.width / (config.options.aspectRatio || 2);
-				} else {
-					var displayHeight = readUsedSize(canvas, 'height');
-					if (displayWidth !== undefined) {
-						canvas.height = displayHeight;
-					}
-				}
-			}
-
-			return canvas;
-		}
-
-		/**
-		 * Restores the canvas initial state, such as render/display sizes and style.
-		 * TODO(SB) Move this method in the upcoming core.platform class.
-		 */
-		function releaseCanvas(canvas) {
-			if (!canvas._chartjs) {
-				return;
-			}
-
-			var initial = canvas._chartjs.initial;
-			['height', 'width'].forEach(function(prop) {
-				var value = initial[prop];
-				if (value === undefined || value === null) {
-					canvas.removeAttribute(prop);
-				} else {
-					canvas.setAttribute(prop, value);
-				}
-			});
-
-			helpers.each(initial.style || {}, function(value, key) {
-				canvas.style[key] = value;
-			});
-
-			// The canvas render size might have been changed (and thus the state stack discarded),
-			// we can't use save() and restore() to restore the initial state. So make sure that at
-			// least the canvas context is reset to the default state by setting the canvas width.
-			// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
-			canvas.width = canvas.width;
-
-			delete canvas._chartjs;
-		}
-
-		/**
-		 * TODO(SB) Move this method in the upcoming core.platform class.
-		 */
-		function acquireContext(item, config) {
-			if (typeof item === 'string') {
-				item = document.getElementById(item);
-			} else if (item.length) {
-				// Support for array based queries (such as jQuery)
-				item = item[0];
-			}
-
-			if (item && item.canvas) {
-				// Support for any object associated to a canvas (including a context2d)
-				item = item.canvas;
-			}
-
-			if (item instanceof HTMLCanvasElement) {
-				// To prevent canvas fingerprinting, some add-ons undefine the getContext
-				// method, for example: https://github.com/kkapsner/CanvasBlocker
-				// https://github.com/chartjs/Chart.js/issues/2807
-				var context = item.getContext && item.getContext('2d');
-				if (context instanceof CanvasRenderingContext2D) {
-					initCanvas(item, config);
-					return context;
-				}
-			}
-
-			return null;
-		}
 
 		/**
 		 * Initializes the given config with global and chart default values.
@@ -33430,6 +34464,26 @@ var app =
 		}
 
 		/**
+		 * Updates the config of the chart
+		 * @param chart {Chart.Controller} chart to update the options for
+		 */
+		function updateConfig(chart) {
+			var newOptions = chart.options;
+
+			// Update Scale(s) with options
+			if (newOptions.scale) {
+				chart.scale.options = newOptions.scale;
+			} else if (newOptions.scales) {
+				newOptions.scales.xAxes.concat(newOptions.scales.yAxes).forEach(function(scaleOptions) {
+					chart.scales[scaleOptions.id].options = scaleOptions;
+				});
+			}
+
+			// Tooltip
+			chart.tooltip._options = newOptions.tooltips;
+		}
+
+		/**
 		 * @class Chart.Controller
 		 * The main controller of a chart.
 		 */
@@ -33438,7 +34492,7 @@ var app =
 
 			config = initConfig(config);
 
-			var context = acquireContext(item, config);
+			var context = Chart.platform.acquireContext(item, config);
 			var canvas = context && context.canvas;
 			var height = canvas && canvas.height;
 			var width = canvas && canvas.width;
@@ -33499,7 +34553,7 @@ var app =
 				var me = this;
 
 				// Before init plugin notification
-				Chart.plugins.notify('beforeInit', [me]);
+				Chart.plugins.notify(me, 'beforeInit');
 
 				me.bindEvents();
 
@@ -33514,7 +34568,7 @@ var app =
 				me.update();
 
 				// After init plugin notification
-				Chart.plugins.notify('afterInit', [me]);
+				Chart.plugins.notify(me, 'afterInit');
 
 				return me;
 			},
@@ -33553,16 +34607,16 @@ var app =
 
 				helpers.retinaScale(chart);
 
-				// Notify any plugins about the resize
-				var newSize = {width: newWidth, height: newHeight};
-				Chart.plugins.notify('resize', [me, newSize]);
-
-				// Notify of resize
-				if (me.options.onResize) {
-					me.options.onResize(me, newSize);
-				}
-
 				if (!silent) {
+					// Notify any plugins about the resize
+					var newSize = {width: newWidth, height: newHeight};
+					Chart.plugins.notify(me, 'resize', [newSize]);
+
+					// Notify of resize
+					if (me.options.onResize) {
+						me.options.onResize(me, newSize);
+					}
+
 					me.stop();
 					me.update(me.options.responsiveAnimationDuration);
 				}
@@ -33696,9 +34750,12 @@ var app =
 				this.tooltip.initialize();
 			},
 
+
 			update: function(animationDuration, lazy) {
 				var me = this;
-				Chart.plugins.notify('beforeUpdate', [me]);
+
+				updateConfig(me);
+				Chart.plugins.notify(me, 'beforeUpdate');
 
 				// In case the entire data object changed
 				me.tooltip._data = me.data;
@@ -33714,7 +34771,7 @@ var app =
 				Chart.layoutService.update(me, me.chart.width, me.chart.height);
 
 				// Apply changes to the datasets that require the scales to have been calculated i.e BorderColor changes
-				Chart.plugins.notify('afterScaleUpdate', [me]);
+				Chart.plugins.notify(me, 'afterScaleUpdate');
 
 				// Can only reset the new controllers after the scales have been updated
 				helpers.each(newControllers, function(controller) {
@@ -33724,7 +34781,7 @@ var app =
 				me.updateDatasets();
 
 				// Do this before render so that any plugins that need final scale updates can use it
-				Chart.plugins.notify('afterUpdate', [me]);
+				Chart.plugins.notify(me, 'afterUpdate');
 
 				if (me._bufferedRender) {
 					me._bufferedRequest = {
@@ -33768,18 +34825,18 @@ var app =
 				var me = this;
 				var i, ilen;
 
-				if (Chart.plugins.notify('beforeDatasetsUpdate', [me])) {
+				if (Chart.plugins.notify(me, 'beforeDatasetsUpdate')) {
 					for (i = 0, ilen = me.data.datasets.length; i < ilen; ++i) {
 						me.getDatasetMeta(i).controller.update();
 					}
 
-					Chart.plugins.notify('afterDatasetsUpdate', [me]);
+					Chart.plugins.notify(me, 'afterDatasetsUpdate');
 				}
 			},
 
 			render: function(duration, lazy) {
 				var me = this;
-				Chart.plugins.notify('beforeRender', [me]);
+				Chart.plugins.notify(me, 'beforeRender');
 
 				var animationOptions = me.options.animation;
 				if (animationOptions && ((typeof duration !== 'undefined' && duration !== 0) || (typeof duration === 'undefined' && animationOptions.duration !== 0))) {
@@ -33815,7 +34872,7 @@ var app =
 				var easingDecimal = ease || 1;
 				me.clear();
 
-				Chart.plugins.notify('beforeDraw', [me, easingDecimal]);
+				Chart.plugins.notify(me, 'beforeDraw', [easingDecimal]);
 
 				// Draw all the scales
 				helpers.each(me.boxes, function(box) {
@@ -33825,7 +34882,7 @@ var app =
 					me.scale.draw();
 				}
 
-				Chart.plugins.notify('beforeDatasetsDraw', [me, easingDecimal]);
+				Chart.plugins.notify(me, 'beforeDatasetsDraw', [easingDecimal]);
 
 				// Draw each dataset via its respective controller (reversed to support proper line stacking)
 				helpers.each(me.data.datasets, function(dataset, datasetIndex) {
@@ -33834,12 +34891,12 @@ var app =
 					}
 				}, me, true);
 
-				Chart.plugins.notify('afterDatasetsDraw', [me, easingDecimal]);
+				Chart.plugins.notify(me, 'afterDatasetsDraw', [easingDecimal]);
 
 				// Finally draw the tooltip
 				me.tooltip.transition(easingDecimal).draw();
 
-				Chart.plugins.notify('afterDraw', [me, easingDecimal]);
+				Chart.plugins.notify(me, 'afterDraw', [easingDecimal]);
 			},
 
 			// Get the single element that was clicked on
@@ -33866,7 +34923,7 @@ var app =
 			},
 
 			getDatasetAtEvent: function(e) {
-				return Chart.Interaction.modes.dataset(this, e);
+				return Chart.Interaction.modes.dataset(this, e, {intersect: true});
 			},
 
 			getDatasetMeta: function(datasetIndex) {
@@ -33934,12 +34991,12 @@ var app =
 					helpers.unbindEvents(me, me.events);
 					helpers.removeResizeListener(canvas.parentNode);
 					helpers.clear(me.chart);
-					releaseCanvas(canvas);
+					Chart.platform.releaseContext(me.chart.ctx);
 					me.chart.canvas = null;
 					me.chart.ctx = null;
 				}
 
-				Chart.plugins.notify('destroy', [me]);
+				Chart.plugins.notify(me, 'destroy');
 
 				delete Chart.instances[me.id];
 			},
@@ -33980,7 +35037,6 @@ var app =
 
 			eventHandler: function(e) {
 				var me = this;
-				var legend = me.legend;
 				var tooltip = me.tooltip;
 				var hoverOptions = me.options.hover;
 
@@ -33988,9 +35044,12 @@ var app =
 				me._bufferedRender = true;
 				me._bufferedRequest = null;
 
-				var changed = me.handleEvent(e);
-				changed |= legend && legend.handleEvent(e);
-				changed |= tooltip && tooltip.handleEvent(e);
+				// Create platform agnostic chart event using platform specific code
+				var chartEvent = Chart.platform.createEvent(e, me.chart);
+
+				var changed = me.handleEvent(chartEvent);
+				changed |= tooltip && tooltip.handleEvent(chartEvent);
+				changed |= Chart.plugins.notify(me, 'onEvent', [chartEvent]);
 
 				var bufferedRequest = me._bufferedRequest;
 				if (bufferedRequest) {
@@ -34014,7 +35073,7 @@ var app =
 			/**
 			 * Handle an event
 			 * @private
-			 * param e {Event} the event to handle
+			 * param e {Core.Event} the event to handle
 			 * @return {Boolean} true if the chart needs to re-render
 			 */
 			handleEvent: function(e) {
@@ -34034,12 +35093,14 @@ var app =
 
 				// On Hover hook
 				if (hoverOptions.onHover) {
-					hoverOptions.onHover.call(me, me.active);
+					// Need to call with native event here to not break backwards compatibility
+					hoverOptions.onHover.call(me, e.native, me.active);
 				}
 
 				if (e.type === 'mouseup' || e.type === 'click') {
 					if (options.onClick) {
-						options.onClick.call(me, e, me.active);
+						// Use e.native here for backwards compatibility
+						options.onClick.call(me, e.native, me.active);
 					}
 				}
 
@@ -34065,7 +35126,7 @@ var app =
 
 
 /***/ },
-/* 188 */
+/* 193 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34380,7 +35441,7 @@ var app =
 
 
 /***/ },
-/* 189 */
+/* 194 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34755,7 +35816,7 @@ var app =
 
 
 /***/ },
-/* 190 */
+/* 195 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34801,142 +35862,7 @@ var app =
 
 
 /***/ },
-/* 191 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function(Chart) {
-
-		var noop = Chart.helpers.noop;
-
-		/**
-		 * The plugin service singleton
-		 * @namespace Chart.plugins
-		 * @since 2.1.0
-		 */
-		Chart.plugins = {
-			_plugins: [],
-
-			/**
-			 * Registers the given plugin(s) if not already registered.
-			 * @param {Array|Object} plugins plugin instance(s).
-			 */
-			register: function(plugins) {
-				var p = this._plugins;
-				([]).concat(plugins).forEach(function(plugin) {
-					if (p.indexOf(plugin) === -1) {
-						p.push(plugin);
-					}
-				});
-			},
-
-			/**
-			 * Unregisters the given plugin(s) only if registered.
-			 * @param {Array|Object} plugins plugin instance(s).
-			 */
-			unregister: function(plugins) {
-				var p = this._plugins;
-				([]).concat(plugins).forEach(function(plugin) {
-					var idx = p.indexOf(plugin);
-					if (idx !== -1) {
-						p.splice(idx, 1);
-					}
-				});
-			},
-
-			/**
-			 * Remove all registered plugins.
-			 * @since 2.1.5
-			 */
-			clear: function() {
-				this._plugins = [];
-			},
-
-			/**
-			 * Returns the number of registered plugins?
-			 * @returns {Number}
-			 * @since 2.1.5
-			 */
-			count: function() {
-				return this._plugins.length;
-			},
-
-			/**
-			 * Returns all registered plugin instances.
-			 * @returns {Array} array of plugin objects.
-			 * @since 2.1.5
-			 */
-			getAll: function() {
-				return this._plugins;
-			},
-
-			/**
-			 * Calls registered plugins on the specified extension, with the given args. This
-			 * method immediately returns as soon as a plugin explicitly returns false. The
-			 * returned value can be used, for instance, to interrupt the current action.
-			 * @param {String} extension the name of the plugin method to call (e.g. 'beforeUpdate').
-			 * @param {Array} [args] extra arguments to apply to the extension call.
-			 * @returns {Boolean} false if any of the plugins return false, else returns true.
-			 */
-			notify: function(extension, args) {
-				var plugins = this._plugins;
-				var ilen = plugins.length;
-				var i, plugin;
-
-				for (i=0; i<ilen; ++i) {
-					plugin = plugins[i];
-					if (typeof plugin[extension] === 'function') {
-						if (plugin[extension].apply(plugin, args || []) === false) {
-							return false;
-						}
-					}
-				}
-
-				return true;
-			}
-		};
-
-		/**
-		 * Plugin extension methods.
-		 * @interface Chart.PluginBase
-		 * @since 2.1.0
-		 */
-		Chart.PluginBase = Chart.Element.extend({
-			// Called at start of chart init
-			beforeInit: noop,
-
-			// Called at end of chart init
-			afterInit: noop,
-
-			// Called at start of update
-			beforeUpdate: noop,
-
-			// Called at end of update
-			afterUpdate: noop,
-
-			// Called at start of draw
-			beforeDraw: noop,
-
-			// Called at end of draw
-			afterDraw: noop,
-
-			// Called during destroy
-			destroy: noop
-		});
-
-		/**
-		 * Provided for backward compatibility, use Chart.plugins instead
-		 * @namespace Chart.pluginService
-		 * @deprecated since version 2.1.5
-		 * @todo remove me at version 3
-		 */
-		Chart.pluginService = Chart.plugins;
-	};
-
-
-/***/ },
-/* 192 */
+/* 196 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35008,8 +35934,8 @@ var app =
 
 					// If min, max and stepSize is set and they make an evenly spaced scale use it.
 					if (generationOptions.min && generationOptions.max && generationOptions.stepSize) {
-						var minMaxDeltaDivisibleByStepSize = ((generationOptions.max - generationOptions.min) % generationOptions.stepSize) === 0;
-						if (minMaxDeltaDivisibleByStepSize) {
+						// If very close to our whole number, use it.
+						if (helpers.almostWhole((generationOptions.max - generationOptions.min) / generationOptions.stepSize, spacing / 1000)) {
 							niceMin = generationOptions.min;
 							niceMax = generationOptions.max;
 						}
@@ -35050,27 +35976,33 @@ var app =
 					// the graph
 					var tickVal = getValueOrDefault(generationOptions.min, Math.pow(10, Math.floor(helpers.log10(dataRange.min))));
 
-					while (tickVal < dataRange.max) {
+					var endExp = Math.floor(helpers.log10(dataRange.max));
+					var endSignificand = Math.ceil(dataRange.max / Math.pow(10, endExp));
+					var exp;
+					var significand;
+
+					if (tickVal === 0) {
+						exp = Math.floor(helpers.log10(dataRange.minNotZero));
+						significand = Math.floor(dataRange.minNotZero / Math.pow(10, exp));
+
+						ticks.push(tickVal);
+						tickVal = significand * Math.pow(10, exp);
+					} else {
+						exp = Math.floor(helpers.log10(tickVal));
+						significand = Math.floor(tickVal / Math.pow(10, exp));
+					}
+
+					do {
 						ticks.push(tickVal);
 
-						var exp;
-						var significand;
-
-						if (tickVal === 0) {
-							exp = Math.floor(helpers.log10(dataRange.minNotZero));
-							significand = Math.round(dataRange.minNotZero / Math.pow(10, exp));
-						} else {
-							exp = Math.floor(helpers.log10(tickVal));
-							significand = Math.floor(tickVal / Math.pow(10, exp)) + 1;
-						}
-
+						++significand;
 						if (significand === 10) {
 							significand = 1;
 							++exp;
 						}
 
 						tickVal = significand * Math.pow(10, exp);
-					}
+					} while (exp < endExp || (exp === endExp && significand < endSignificand));
 
 					var lastTick = getValueOrDefault(generationOptions.max, tickVal);
 					ticks.push(lastTick);
@@ -35144,7 +36076,7 @@ var app =
 
 
 /***/ },
-/* 193 */
+/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35188,7 +36120,7 @@ var app =
 				minRotation: 0,
 				maxRotation: 50,
 				mirror: false,
-				padding: 10,
+				padding: 0,
 				reverse: false,
 				display: true,
 				autoSkip: true,
@@ -35198,6 +36130,27 @@ var app =
 				callback: Chart.Ticks.formatters.values
 			}
 		};
+
+		function computeTextSize(context, tick, font) {
+			return helpers.isArray(tick) ?
+				helpers.longestText(context, font, tick) :
+				context.measureText(tick).width;
+		}
+
+		function parseFontOptions(options) {
+			var getValueOrDefault = helpers.getValueOrDefault;
+			var globalDefaults = Chart.defaults.global;
+			var size = getValueOrDefault(options.fontSize, globalDefaults.defaultFontSize);
+			var style = getValueOrDefault(options.fontStyle, globalDefaults.defaultFontStyle);
+			var family = getValueOrDefault(options.fontFamily, globalDefaults.defaultFontFamily);
+
+			return {
+				size: size,
+				style: style,
+				family: family,
+				font: helpers.fontString(size, style, family)
+			};
+		}
 
 		Chart.Scale = Chart.Element.extend({
 			/**
@@ -35238,6 +36191,7 @@ var app =
 					top: 0,
 					bottom: 0
 				}, margins);
+				me.longestTextCache = me.longestTextCache || {};
 
 				// Dimensions
 				me.beforeSetDimensions();
@@ -35346,72 +36300,42 @@ var app =
 			calculateTickRotation: function() {
 				var me = this;
 				var context = me.ctx;
-				var globalDefaults = Chart.defaults.global;
-				var optionTicks = me.options.ticks;
+				var tickOpts = me.options.ticks;
 
 				// Get the width of each grid by calculating the difference
 				// between x offsets between 0 and 1.
-				var tickFontSize = helpers.getValueOrDefault(optionTicks.fontSize, globalDefaults.defaultFontSize);
-				var tickFontStyle = helpers.getValueOrDefault(optionTicks.fontStyle, globalDefaults.defaultFontStyle);
-				var tickFontFamily = helpers.getValueOrDefault(optionTicks.fontFamily, globalDefaults.defaultFontFamily);
-				var tickLabelFont = helpers.fontString(tickFontSize, tickFontStyle, tickFontFamily);
-				context.font = tickLabelFont;
+				var tickFont = parseFontOptions(tickOpts);
+				context.font = tickFont.font;
 
-				var firstWidth = context.measureText(me.ticks[0]).width;
-				var lastWidth = context.measureText(me.ticks[me.ticks.length - 1]).width;
-				var firstRotated;
+				var labelRotation = tickOpts.minRotation || 0;
 
-				me.labelRotation = optionTicks.minRotation || 0;
-				me.paddingRight = 0;
-				me.paddingLeft = 0;
+				if (me.options.display && me.isHorizontal()) {
+					var originalLabelWidth = helpers.longestText(context, tickFont.font, me.ticks, me.longestTextCache);
+					var labelWidth = originalLabelWidth;
+					var cosRotation;
+					var sinRotation;
 
-				if (me.options.display) {
-					if (me.isHorizontal()) {
-						me.paddingRight = lastWidth / 2 + 3;
-						me.paddingLeft = firstWidth / 2 + 3;
+					// Allow 3 pixels x2 padding either side for label readability
+					var tickWidth = me.getPixelForTick(1) - me.getPixelForTick(0) - 6;
 
-						if (!me.longestTextCache) {
-							me.longestTextCache = {};
+					// Max label rotation can be set or default to 90 - also act as a loop counter
+					while (labelWidth > tickWidth && labelRotation < tickOpts.maxRotation) {
+						var angleRadians = helpers.toRadians(labelRotation);
+						cosRotation = Math.cos(angleRadians);
+						sinRotation = Math.sin(angleRadians);
+
+						if (sinRotation * originalLabelWidth > me.maxHeight) {
+							// go back one step
+							labelRotation--;
+							break;
 						}
-						var originalLabelWidth = helpers.longestText(context, tickLabelFont, me.ticks, me.longestTextCache);
-						var labelWidth = originalLabelWidth;
-						var cosRotation;
-						var sinRotation;
 
-						// Allow 3 pixels x2 padding either side for label readability
-						// only the index matters for a dataset scale, but we want a consistent interface between scales
-						var tickWidth = me.getPixelForTick(1) - me.getPixelForTick(0) - 6;
-
-						// Max label rotation can be set or default to 90 - also act as a loop counter
-						while (labelWidth > tickWidth && me.labelRotation < optionTicks.maxRotation) {
-							cosRotation = Math.cos(helpers.toRadians(me.labelRotation));
-							sinRotation = Math.sin(helpers.toRadians(me.labelRotation));
-
-							firstRotated = cosRotation * firstWidth;
-
-							// We're right aligning the text now.
-							if (firstRotated + tickFontSize / 2 > me.yLabelWidth) {
-								me.paddingLeft = firstRotated + tickFontSize / 2;
-							}
-
-							me.paddingRight = tickFontSize / 2;
-
-							if (sinRotation * originalLabelWidth > me.maxHeight) {
-								// go back one step
-								me.labelRotation--;
-								break;
-							}
-
-							me.labelRotation++;
-							labelWidth = cosRotation * originalLabelWidth;
-						}
+						labelRotation++;
+						labelWidth = cosRotation * originalLabelWidth;
 					}
 				}
 
-				if (me.margins) {
-					me.paddingLeft = Math.max(me.paddingLeft - me.margins.left, 0);
-					me.paddingRight = Math.max(me.paddingRight - me.margins.right, 0);
-				}
+				me.labelRotation = labelRotation;
 			},
 			afterCalculateTickRotation: function() {
 				helpers.callCallback(this.options.afterCalculateTickRotation, [this]);
@@ -35431,20 +36355,14 @@ var app =
 				};
 
 				var opts = me.options;
-				var globalDefaults = Chart.defaults.global;
 				var tickOpts = opts.ticks;
 				var scaleLabelOpts = opts.scaleLabel;
 				var gridLineOpts = opts.gridLines;
 				var display = opts.display;
 				var isHorizontal = me.isHorizontal();
 
-				var tickFontSize = helpers.getValueOrDefault(tickOpts.fontSize, globalDefaults.defaultFontSize);
-				var tickFontStyle = helpers.getValueOrDefault(tickOpts.fontStyle, globalDefaults.defaultFontStyle);
-				var tickFontFamily = helpers.getValueOrDefault(tickOpts.fontFamily, globalDefaults.defaultFontFamily);
-				var tickLabelFont = helpers.fontString(tickFontSize, tickFontStyle, tickFontFamily);
-
-				var scaleLabelFontSize = helpers.getValueOrDefault(scaleLabelOpts.fontSize, globalDefaults.defaultFontSize);
-
+				var tickFont = parseFontOptions(tickOpts);
+				var scaleLabelFontSize = parseFontOptions(scaleLabelOpts).size * 1.5;
 				var tickMarkLength = opts.gridLines.tickMarkLength;
 
 				// Width
@@ -35465,78 +36383,79 @@ var app =
 				// Are we showing a title for the scale?
 				if (scaleLabelOpts.display && display) {
 					if (isHorizontal) {
-						minSize.height += (scaleLabelFontSize * 1.5);
+						minSize.height += scaleLabelFontSize;
 					} else {
-						minSize.width += (scaleLabelFontSize * 1.5);
+						minSize.width += scaleLabelFontSize;
 					}
 				}
 
+				// Don't bother fitting the ticks if we are not showing them
 				if (tickOpts.display && display) {
-					// Don't bother fitting the ticks if we are not showing them
-					if (!me.longestTextCache) {
-						me.longestTextCache = {};
-					}
-
-					var largestTextWidth = helpers.longestText(me.ctx, tickLabelFont, me.ticks, me.longestTextCache);
+					var largestTextWidth = helpers.longestText(me.ctx, tickFont.font, me.ticks, me.longestTextCache);
 					var tallestLabelHeightInLines = helpers.numberOfLabelLines(me.ticks);
-					var lineSpace = tickFontSize * 0.5;
+					var lineSpace = tickFont.size * 0.5;
 
 					if (isHorizontal) {
 						// A horizontal axis is more constrained by the height.
 						me.longestLabelWidth = largestTextWidth;
 
+						var angleRadians = helpers.toRadians(me.labelRotation);
+						var cosRotation = Math.cos(angleRadians);
+						var sinRotation = Math.sin(angleRadians);
+
 						// TODO - improve this calculation
-						var labelHeight = (Math.sin(helpers.toRadians(me.labelRotation)) * me.longestLabelWidth) + (tickFontSize * tallestLabelHeightInLines) + (lineSpace * tallestLabelHeightInLines);
+						var labelHeight = (sinRotation * largestTextWidth)
+							+ (tickFont.size * tallestLabelHeightInLines)
+							+ (lineSpace * tallestLabelHeightInLines);
 
 						minSize.height = Math.min(me.maxHeight, minSize.height + labelHeight);
-						me.ctx.font = tickLabelFont;
+						me.ctx.font = tickFont.font;
 
-						var firstLabelWidth = me.ctx.measureText(me.ticks[0]).width;
-						var lastLabelWidth = me.ctx.measureText(me.ticks[me.ticks.length - 1]).width;
+						var firstTick = me.ticks[0];
+						var firstLabelWidth = computeTextSize(me.ctx, firstTick, tickFont.font);
+
+						var lastTick = me.ticks[me.ticks.length - 1];
+						var lastLabelWidth = computeTextSize(me.ctx, lastTick, tickFont.font);
 
 						// Ensure that our ticks are always inside the canvas. When rotated, ticks are right aligned which means that the right padding is dominated
 						// by the font height
-						var cosRotation = Math.cos(helpers.toRadians(me.labelRotation));
-						var sinRotation = Math.sin(helpers.toRadians(me.labelRotation));
 						me.paddingLeft = me.labelRotation !== 0 ? (cosRotation * firstLabelWidth) + 3 : firstLabelWidth / 2 + 3; // add 3 px to move away from canvas edges
-						me.paddingRight = me.labelRotation !== 0 ? (sinRotation * (tickFontSize / 2)) + 3 : lastLabelWidth / 2 + 3; // when rotated
+						me.paddingRight = me.labelRotation !== 0 ? (sinRotation * lineSpace) + 3 : lastLabelWidth / 2 + 3; // when rotated
 					} else {
 						// A vertical axis is more constrained by the width. Labels are the dominant factor here, so get that length first
-						var maxLabelWidth = me.maxWidth - minSize.width;
-
 						// Account for padding
-						var mirror = tickOpts.mirror;
-						if (!mirror) {
-							largestTextWidth += me.options.ticks.padding;
-						} else {
-							// If mirrored text is on the inside so don't expand
+
+						if (tickOpts.mirror) {
 							largestTextWidth = 0;
-						}
-
-						if (largestTextWidth < maxLabelWidth) {
-							// We don't need all the room
-							minSize.width += largestTextWidth;
 						} else {
-							// Expand to max size
-							minSize.width = me.maxWidth;
+							largestTextWidth += me.options.ticks.padding;
 						}
-
-						me.paddingTop = tickFontSize / 2;
-						me.paddingBottom = tickFontSize / 2;
+						minSize.width += largestTextWidth;
+						me.paddingTop = tickFont.size / 2;
+						me.paddingBottom = tickFont.size / 2;
 					}
 				}
 
+				me.handleMargins();
+
+				me.width = minSize.width;
+				me.height = minSize.height;
+			},
+
+			/**
+			 * Handle margins and padding interactions
+			 * @private
+			 */
+			handleMargins: function() {
+				var me = this;
 				if (me.margins) {
 					me.paddingLeft = Math.max(me.paddingLeft - me.margins.left, 0);
 					me.paddingTop = Math.max(me.paddingTop - me.margins.top, 0);
 					me.paddingRight = Math.max(me.paddingRight - me.margins.right, 0);
 					me.paddingBottom = Math.max(me.paddingBottom - me.margins.bottom, 0);
 				}
-
-				me.width = minSize.width;
-				me.height = minSize.height;
-
 			},
+
 			afterFit: function() {
 				helpers.callCallback(this.options.afterFit, [this]);
 			},
@@ -35616,15 +36535,18 @@ var app =
 			},
 
 			getBasePixel: function() {
+				return this.getPixelForValue(this.getBaseValue());
+			},
+
+			getBaseValue: function() {
 				var me = this;
 				var min = me.min;
 				var max = me.max;
 
-				return me.getPixelForValue(
-					me.beginAtZero? 0:
+				return me.beginAtZero ? 0:
 					min < 0 && max < 0? max :
 					min > 0 && max > 0? min :
-					0);
+					0;
 			},
 
 			// Actually draw the scale on the canvas
@@ -35654,19 +36576,14 @@ var app =
 				}
 
 				var tickFontColor = helpers.getValueOrDefault(optionTicks.fontColor, globalDefaults.defaultFontColor);
-				var tickFontSize = helpers.getValueOrDefault(optionTicks.fontSize, globalDefaults.defaultFontSize);
-				var tickFontStyle = helpers.getValueOrDefault(optionTicks.fontStyle, globalDefaults.defaultFontStyle);
-				var tickFontFamily = helpers.getValueOrDefault(optionTicks.fontFamily, globalDefaults.defaultFontFamily);
-				var tickLabelFont = helpers.fontString(tickFontSize, tickFontStyle, tickFontFamily);
-				var tl = gridLines.tickMarkLength;
+				var tickFont = parseFontOptions(optionTicks);
+
+				var tl = gridLines.drawTicks ? gridLines.tickMarkLength : 0;
 				var borderDash = helpers.getValueOrDefault(gridLines.borderDash, globalDefaults.borderDash);
 				var borderDashOffset = helpers.getValueOrDefault(gridLines.borderDashOffset, globalDefaults.borderDashOffset);
 
 				var scaleLabelFontColor = helpers.getValueOrDefault(scaleLabel.fontColor, globalDefaults.defaultFontColor);
-				var scaleLabelFontSize = helpers.getValueOrDefault(scaleLabel.fontSize, globalDefaults.defaultFontSize);
-				var scaleLabelFontStyle = helpers.getValueOrDefault(scaleLabel.fontStyle, globalDefaults.defaultFontStyle);
-				var scaleLabelFontFamily = helpers.getValueOrDefault(scaleLabel.fontFamily, globalDefaults.defaultFontFamily);
-				var scaleLabelFont = helpers.fontString(scaleLabelFontSize, scaleLabelFontStyle, scaleLabelFontFamily);
+				var scaleLabelFont = parseFontOptions(scaleLabel);
 
 				var labelRotationRadians = helpers.toRadians(me.labelRotation);
 				var cosRotation = Math.cos(labelRotationRadians);
@@ -35758,22 +36675,19 @@ var app =
 						y1 = chartArea.top;
 						y2 = chartArea.bottom;
 					} else {
-						if (options.position === 'left') {
-							if (optionTicks.mirror) {
-								labelX = me.right + optionTicks.padding;
-								textAlign = 'left';
-							} else {
-								labelX = me.right - optionTicks.padding;
-								textAlign = 'right';
-							}
-						// right side
-						} else if (optionTicks.mirror) {
-							labelX = me.left - optionTicks.padding;
-							textAlign = 'right';
+						var isLeft = options.position === 'left';
+						var tickPadding = optionTicks.padding;
+						var labelXOffset;
+
+						if (optionTicks.mirror) {
+							textAlign = isLeft ? 'left' : 'right';
+							labelXOffset = tickPadding;
 						} else {
-							labelX = me.left + optionTicks.padding;
-							textAlign = 'left';
+							textAlign = isLeft ? 'right' : 'left';
+							labelXOffset = tl + tickPadding;
 						}
+
+						labelX = isLeft ? me.right - labelXOffset : me.left + labelXOffset;
 
 						var yLineValue = me.getPixelForTick(index); // xvalues for grid lines
 						yLineValue += helpers.aliasPixel(lineWidth);
@@ -35839,17 +36753,17 @@ var app =
 						context.save();
 						context.translate(itemToDraw.labelX, itemToDraw.labelY);
 						context.rotate(itemToDraw.rotation);
-						context.font = tickLabelFont;
+						context.font = tickFont.font;
 						context.textBaseline = itemToDraw.textBaseline;
 						context.textAlign = itemToDraw.textAlign;
 
 						var label = itemToDraw.label;
 						if (helpers.isArray(label)) {
-							for (var i = 0, y = -(label.length - 1)*tickFontSize*0.75; i < label.length; ++i) {
+							for (var i = 0, y = 0; i < label.length; ++i) {
 								// We just make sure the multiline element is a string here..
 								context.fillText('' + label[i], 0, y);
 								// apply same lineSpacing as calculated @ L#320
-								y += (tickFontSize * 1.5);
+								y += (tickFont.size * 1.5);
 							}
 						} else {
 							context.fillText(label, 0, 0);
@@ -35866,10 +36780,10 @@ var app =
 
 					if (isHorizontal) {
 						scaleLabelX = me.left + ((me.right - me.left) / 2); // midpoint of the width
-						scaleLabelY = options.position === 'bottom' ? me.bottom - (scaleLabelFontSize / 2) : me.top + (scaleLabelFontSize / 2);
+						scaleLabelY = options.position === 'bottom' ? me.bottom - (scaleLabelFont.size / 2) : me.top + (scaleLabelFont.size / 2);
 					} else {
 						var isLeft = options.position === 'left';
-						scaleLabelX = isLeft ? me.left + (scaleLabelFontSize / 2) : me.right - (scaleLabelFontSize / 2);
+						scaleLabelX = isLeft ? me.left + (scaleLabelFont.size / 2) : me.right - (scaleLabelFont.size / 2);
 						scaleLabelY = me.top + ((me.bottom - me.top) / 2);
 						rotation = isLeft ? -0.5 * Math.PI : 0.5 * Math.PI;
 					}
@@ -35880,7 +36794,7 @@ var app =
 					context.textAlign = 'center';
 					context.textBaseline = 'middle';
 					context.fillStyle = scaleLabelFontColor; // render in correct colour
-					context.font = scaleLabelFont;
+					context.font = scaleLabelFont.font;
 					context.fillText(scaleLabel.labelString, 0, 0);
 					context.restore();
 				}
@@ -35916,7 +36830,7 @@ var app =
 
 
 /***/ },
-/* 194 */
+/* 198 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35943,7 +36857,6 @@ var app =
 			initialize: function(config) {
 				var me = this;
 				helpers.extend(me, config);
-				me.options = helpers.configMerge(Chart.defaults.global.title, config.options);
 
 				// Contains hit boxes for each dataset (in dataset order)
 				me.legendHitBoxes = [];
@@ -35951,12 +36864,7 @@ var app =
 
 			// These methods are ordered by lifecycle. Utilities then follow.
 
-			beforeUpdate: function() {
-				var chartOpts = this.chart.options;
-				if (chartOpts && chartOpts.title) {
-					this.options = helpers.configMerge(Chart.defaults.global.title, chartOpts.title);
-				}
-			},
+			beforeUpdate: noop,
 			update: function(maxWidth, maxHeight, margins) {
 				var me = this;
 
@@ -36108,20 +37016,39 @@ var app =
 			}
 		});
 
+		function createNewTitleBlockAndAttach(chartInstance, titleOpts) {
+			var title = new Chart.Title({
+				ctx: chartInstance.chart.ctx,
+				options: titleOpts,
+				chart: chartInstance
+			});
+			chartInstance.titleBlock = title;
+			Chart.layoutService.addBox(chartInstance, title);
+		}
+
 		// Register the title plugin
 		Chart.plugins.register({
 			beforeInit: function(chartInstance) {
-				var opts = chartInstance.options;
-				var titleOpts = opts.title;
+				var titleOpts = chartInstance.options.title;
 
 				if (titleOpts) {
-					chartInstance.titleBlock = new Chart.Title({
-						ctx: chartInstance.chart.ctx,
-						options: titleOpts,
-						chart: chartInstance
-					});
+					createNewTitleBlockAndAttach(chartInstance, titleOpts);
+				}
+			},
+			beforeUpdate: function(chartInstance) {
+				var titleOpts = chartInstance.options.title;
 
-					Chart.layoutService.addBox(chartInstance, chartInstance.titleBlock);
+				if (titleOpts) {
+					titleOpts = helpers.configMerge(Chart.defaults.global.title, titleOpts);
+
+					if (chartInstance.titleBlock) {
+						chartInstance.titleBlock.options = titleOpts;
+					} else {
+						createNewTitleBlockAndAttach(chartInstance, titleOpts);
+					}
+				} else {
+					Chart.layoutService.removeBox(chartInstance, chartInstance.titleBlock);
+					delete chartInstance.titleBlock;
 				}
 			}
 		});
@@ -36129,7 +37056,7 @@ var app =
 
 
 /***/ },
-/* 195 */
+/* 199 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36573,7 +37500,7 @@ var app =
 			/**
 			 * Handle an event
 			 * @private
-			 * @param e {Event} the event to handle
+			 * @param e {Core.Event} the event to handle
 			 * @return {Boolean} true if a change occured
 			 */
 			handleEvent: function(e) {
@@ -36594,9 +37521,9 @@ var app =
 					return;
 				}
 
-				var position = helpers.getRelativePosition(e, me.chart.chart),
-					x = position.x,
-					y = position.y;
+				// Chart event already has relative position in it
+				var x = e.x,
+					y = e.y;
 
 				if (x >= me.left && x <= me.right && y >= me.top && y <= me.bottom) {
 					// See if we are touching one of the dataset boxes
@@ -36607,11 +37534,13 @@ var app =
 						if (x >= hitBox.left && x <= hitBox.left + hitBox.width && y >= hitBox.top && y <= hitBox.top + hitBox.height) {
 							// Touching an element
 							if (type === 'click') {
-								opts.onClick.call(me, e, me.legendItems[i]);
+								// use e.native for backwards compatibility
+								opts.onClick.call(me, e.native, me.legendItems[i]);
 								changed = true;
 								break;
 							} else if (type === 'mousemove') {
-								opts.onHover.call(me, e, me.legendItems[i]);
+								// use e.native for backwards compatibility
+								opts.onHover.call(me, e.native, me.legendItems[i]);
 								changed = true;
 								break;
 							}
@@ -36623,20 +37552,45 @@ var app =
 			}
 		});
 
+		function createNewLegendAndAttach(chartInstance, legendOpts) {
+			var legend = new Chart.Legend({
+				ctx: chartInstance.chart.ctx,
+				options: legendOpts,
+				chart: chartInstance
+			});
+			chartInstance.legend = legend;
+			Chart.layoutService.addBox(chartInstance, legend);
+		}
+
 		// Register the legend plugin
 		Chart.plugins.register({
 			beforeInit: function(chartInstance) {
-				var opts = chartInstance.options;
-				var legendOpts = opts.legend;
+				var legendOpts = chartInstance.options.legend;
 
 				if (legendOpts) {
-					chartInstance.legend = new Chart.Legend({
-						ctx: chartInstance.chart.ctx,
-						options: legendOpts,
-						chart: chartInstance
-					});
+					createNewLegendAndAttach(chartInstance, legendOpts);
+				}
+			},
+			beforeUpdate: function(chartInstance) {
+				var legendOpts = chartInstance.options.legend;
 
-					Chart.layoutService.addBox(chartInstance, chartInstance.legend);
+				if (legendOpts) {
+					legendOpts = helpers.configMerge(Chart.defaults.global.legend, legendOpts);
+
+					if (chartInstance.legend) {
+						chartInstance.legend.options = legendOpts;
+					} else {
+						createNewLegendAndAttach(chartInstance, legendOpts);
+					}
+				} else {
+					Chart.layoutService.removeBox(chartInstance, chartInstance.legend);
+					delete chartInstance.legend;
+				}
+			},
+			onEvent: function(chartInstance, e) {
+				var legend = chartInstance.legend;
+				if (legend) {
+					legend.handleEvent(e);
 				}
 			}
 		});
@@ -36644,13 +37598,30 @@ var app =
 
 
 /***/ },
-/* 196 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	module.exports = function(Chart) {
 		var helpers = Chart.helpers;
+
+		/**
+		 * Helper function to get relative position for an event
+		 * @param e {Event|Core.Event} the event to get the position for
+		 * @param chart {chart} the chart
+		 * @returns {Point} the event position
+		 */
+		function getRelativePosition(e, chart) {
+			if (e.native) {
+				return {
+					x: e.x,
+					y: e.y
+				};
+			}
+
+			return helpers.getRelativePosition(e, chart);
+		}
 
 		/**
 		 * Helper function to traverse all of the visible elements in the chart
@@ -36731,7 +37702,7 @@ var app =
 		}
 
 		function indexMode(chart, e, options) {
-			var position = helpers.getRelativePosition(e, chart.chart);
+			var position = getRelativePosition(e, chart.chart);
 			var distanceMetric = function(pt1, pt2) {
 				return Math.abs(pt1.x - pt2.x);
 			};
@@ -36774,7 +37745,7 @@ var app =
 			// Helper function for different modes
 			modes: {
 				single: function(chart, e) {
-					var position = helpers.getRelativePosition(e, chart.chart);
+					var position = getRelativePosition(e, chart.chart);
 					var elements = [];
 
 					parseVisibleItems(chart, function(element) {
@@ -36815,7 +37786,7 @@ var app =
 				 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
 				 */
 				dataset: function(chart, e, options) {
-					var position = helpers.getRelativePosition(e, chart.chart);
+					var position = getRelativePosition(e, chart.chart);
 					var items = options.intersect ? getIntersectItems(chart, position) : getNearestItems(chart, position, false);
 
 					if (items.length > 0) {
@@ -36842,7 +37813,7 @@ var app =
 				 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
 				 */
 				point: function(chart, e) {
-					var position = helpers.getRelativePosition(e, chart.chart);
+					var position = getRelativePosition(e, chart.chart);
 					return getIntersectItems(chart, position);
 				},
 
@@ -36855,7 +37826,7 @@ var app =
 				 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
 				 */
 				nearest: function(chart, e, options) {
-					var position = helpers.getRelativePosition(e, chart.chart);
+					var position = getRelativePosition(e, chart.chart);
 					var nearestItems = getNearestItems(chart, position, options.intersect);
 
 					// We have multiple items at the same distance from the event. Now sort by smallest
@@ -36887,7 +37858,7 @@ var app =
 				 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
 				 */
 				x: function(chart, e, options) {
-					var position = helpers.getRelativePosition(e, chart.chart);
+					var position = getRelativePosition(e, chart.chart);
 					var items = [];
 					var intersectsItem = false;
 
@@ -36918,7 +37889,7 @@ var app =
 				 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
 				 */
 				y: function(chart, e, options) {
-					var position = helpers.getRelativePosition(e, chart.chart);
+					var position = getRelativePosition(e, chart.chart);
 					var items = [];
 					var intersectsItem = false;
 
@@ -36945,7 +37916,7 @@ var app =
 
 
 /***/ },
-/* 197 */
+/* 201 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37713,7 +38684,7 @@ var app =
 			/**
 			 * Handle an event
 			 * @private
-			 * @param e {Event} the event to handle
+			 * @param e {Core.Event} the event to handle
 			 * @returns {Boolean} true if the tooltip changed
 			 */
 			handleEvent: function(e) {
@@ -37735,7 +38706,10 @@ var app =
 				me._lastActive = me._active;
 
 				if (options.enabled || options.custom) {
-					me._eventPosition = helpers.getRelativePosition(e, me._chart);
+					me._eventPosition = {
+						x: e.x,
+						y: e.y
+					};
 
 					var model = me._model;
 					me.update(true);
@@ -37828,7 +38802,250 @@ var app =
 
 
 /***/ },
-/* 198 */
+/* 202 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * @interface IPlatform
+	 * Allows abstracting platform dependencies away from the chart
+	 */
+	/**
+	 * Creates a chart.js event from a platform specific event
+	 * @method IPlatform#createEvent
+	 * @param e {Event} : the platform event to translate
+	 * @returns {Core.Event} chart.js event
+	 */
+	/**
+	 * @method IPlatform#acquireContext
+	 * @param item {Object} the context or canvas to use
+	 * @param config {ChartOptions} the chart options
+	 * @returns {CanvasRenderingContext2D} a context2d instance implementing the w3c Canvas 2D context API standard.
+	 */
+	/**
+	 * @method IPlatform#releaseContext
+	 * @param context {CanvasRenderingContext2D} the context to release. This is the item returned by @see {@link IPlatform#acquireContext}
+	 */
+
+	// Chart.Platform implementation for targeting a web browser
+	module.exports = function(Chart) {
+		var helpers = Chart.helpers;
+
+		/*
+		 * Key is the browser event type
+		 * Chart.js internal events are:
+		 * 		mouseenter
+		 *		mousedown
+		 *		mousemove
+		 *		mouseup
+		 *		mouseout
+		 *		click
+		 *		dblclick
+		 *		contextmenu
+		 *		keydown
+		 *		keypress
+		 *		keyup
+		 */
+		var typeMap = {
+			// Mouse events
+			mouseenter: 'mouseenter',
+			mousedown: 'mousedown',
+			mousemove: 'mousemove',
+			mouseup: 'mouseup',
+			mouseout: 'mouseout',
+			mouseleave: 'mouseout',
+			click: 'click',
+			dblclick: 'dblclick',
+			contextmenu: 'contextmenu',
+
+			// Touch events
+			touchstart: 'mousedown',
+			touchmove: 'mousemove',
+			touchend: 'mouseup',
+
+			// Pointer events
+			pointerenter: 'mouseenter',
+			pointerdown: 'mousedown',
+			pointermove: 'mousemove',
+			pointerup: 'mouseup',
+			pointerleave: 'mouseout',
+			pointerout: 'mouseout',
+
+			// Key events
+			keydown: 'keydown',
+			keypress: 'keypress',
+			keyup: 'keyup',
+		};
+
+		/**
+		 * The "used" size is the final value of a dimension property after all calculations have
+		 * been performed. This method uses the computed style of `element` but returns undefined
+		 * if the computed style is not expressed in pixels. That can happen in some cases where
+		 * `element` has a size relative to its parent and this last one is not yet displayed,
+		 * for example because of `display: none` on a parent node.
+		 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/used_value
+		 * @returns {Number} Size in pixels or undefined if unknown.
+		 */
+		function readUsedSize(element, property) {
+			var value = helpers.getStyle(element, property);
+			var matches = value && value.match(/(\d+)px/);
+			return matches? Number(matches[1]) : undefined;
+		}
+
+		/**
+		 * Initializes the canvas style and render size without modifying the canvas display size,
+		 * since responsiveness is handled by the controller.resize() method. The config is used
+		 * to determine the aspect ratio to apply in case no explicit height has been specified.
+		 */
+		function initCanvas(canvas, config) {
+			var style = canvas.style;
+
+			// NOTE(SB) canvas.getAttribute('width') !== canvas.width: in the first case it
+			// returns null or '' if no explicit value has been set to the canvas attribute.
+			var renderHeight = canvas.getAttribute('height');
+			var renderWidth = canvas.getAttribute('width');
+
+			// Chart.js modifies some canvas values that we want to restore on destroy
+			canvas._chartjs = {
+				initial: {
+					height: renderHeight,
+					width: renderWidth,
+					style: {
+						display: style.display,
+						height: style.height,
+						width: style.width
+					}
+				}
+			};
+
+			// Force canvas to display as block to avoid extra space caused by inline
+			// elements, which would interfere with the responsive resize process.
+			// https://github.com/chartjs/Chart.js/issues/2538
+			style.display = style.display || 'block';
+
+			if (renderWidth === null || renderWidth === '') {
+				var displayWidth = readUsedSize(canvas, 'width');
+				if (displayWidth !== undefined) {
+					canvas.width = displayWidth;
+				}
+			}
+
+			if (renderHeight === null || renderHeight === '') {
+				if (canvas.style.height === '') {
+					// If no explicit render height and style height, let's apply the aspect ratio,
+					// which one can be specified by the user but also by charts as default option
+					// (i.e. options.aspectRatio). If not specified, use canvas aspect ratio of 2.
+					canvas.height = canvas.width / (config.options.aspectRatio || 2);
+				} else {
+					var displayHeight = readUsedSize(canvas, 'height');
+					if (displayWidth !== undefined) {
+						canvas.height = displayHeight;
+					}
+				}
+			}
+
+			return canvas;
+		}
+
+		return {
+			/**
+			 * Creates a Chart.js event from a raw event
+			 * @method BrowserPlatform#createEvent
+			 * @implements IPlatform.createEvent
+			 * @param e {Event} the raw event (such as a mouse event)
+			 * @param chart {Chart} the chart to use
+			 * @returns {Core.Event} the chart.js event for this event
+			 */
+			createEvent: function(e, chart) {
+				var relativePosition = helpers.getRelativePosition(e, chart);
+				return {
+					// allow access to the native event
+					native: e,
+
+					// our interal event type
+					type: typeMap[e.type],
+
+					// width and height of chart
+					width: chart.width,
+					height: chart.height,
+
+					// Position relative to the canvas
+					x: relativePosition.x,
+					y: relativePosition.y
+				};
+			},
+
+			/**
+			 * @method BrowserPlatform#acquireContext
+			 * @implements IPlatform#acquireContext
+			 */
+			acquireContext: function(item, config) {
+				if (typeof item === 'string') {
+					item = document.getElementById(item);
+				} else if (item.length) {
+					// Support for array based queries (such as jQuery)
+					item = item[0];
+				}
+
+				if (item && item.canvas) {
+					// Support for any object associated to a canvas (including a context2d)
+					item = item.canvas;
+				}
+
+				if (item instanceof HTMLCanvasElement) {
+					// To prevent canvas fingerprinting, some add-ons undefine the getContext
+					// method, for example: https://github.com/kkapsner/CanvasBlocker
+					// https://github.com/chartjs/Chart.js/issues/2807
+					var context = item.getContext && item.getContext('2d');
+					if (context instanceof CanvasRenderingContext2D) {
+						initCanvas(item, config);
+						return context;
+					}
+				}
+
+				return null;
+			},
+
+			/**
+			 * Restores the canvas initial state, such as render/display sizes and style.
+			 * @method BrowserPlatform#releaseContext
+			 * @implements IPlatform#releaseContext
+			 */
+			releaseContext: function(context) {
+				var canvas = context.canvas;
+				if (!canvas._chartjs) {
+					return;
+				}
+
+				var initial = canvas._chartjs.initial;
+				['height', 'width'].forEach(function(prop) {
+					var value = initial[prop];
+					if (value === undefined || value === null) {
+						canvas.removeAttribute(prop);
+					} else {
+						canvas.setAttribute(prop, value);
+					}
+				});
+
+				helpers.each(initial.style || {}, function(value, key) {
+					canvas.style[key] = value;
+				});
+
+				// The canvas render size might have been changed (and thus the state stack discarded),
+				// we can't use save() and restore() to restore the initial state. So make sure that at
+				// least the canvas context is reset to the default state by setting the canvas width.
+				// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
+				canvas.width = canvas.width;
+
+				delete canvas._chartjs;
+			}
+		};
+	};
+
+
+/***/ },
+/* 203 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37938,7 +39155,7 @@ var app =
 
 
 /***/ },
-/* 199 */
+/* 204 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38128,7 +39345,7 @@ var app =
 
 
 /***/ },
-/* 200 */
+/* 205 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38189,13 +39406,17 @@ var app =
 					padding: vm.radius + vm.borderWidth
 				};
 			},
-			draw: function() {
+			draw: function(chartArea) {
 				var vm = this._view;
+				var model = this._model;
 				var ctx = this._chart.ctx;
 				var pointStyle = vm.pointStyle;
 				var radius = vm.radius;
 				var x = vm.x;
 				var y = vm.y;
+				var color = Chart.helpers.color;
+				var errMargin = 1.01; // 1.01 is margin for Accumulated error. (Especially Edge, IE.)
+				var ratio = 0;
 
 				if (vm.skip) {
 					return;
@@ -38205,6 +39426,24 @@ var app =
 				ctx.lineWidth = helpers.getValueOrDefault(vm.borderWidth, globalOpts.elements.point.borderWidth);
 				ctx.fillStyle = vm.backgroundColor || defaultColor;
 
+				// Cliping for Points.
+				// going out from inner charArea?
+				if ((chartArea !== undefined) && ((model.x < chartArea.left) || (chartArea.right*errMargin < model.x) || (model.y < chartArea.top) || (chartArea.bottom*errMargin < model.y))) {
+					// Point fade out
+					if (model.x < chartArea.left) {
+						ratio = (x - model.x) / (chartArea.left - model.x);
+					} else if (chartArea.right*errMargin < model.x) {
+						ratio = (model.x - x) / (model.x - chartArea.right);
+					} else if (model.y < chartArea.top) {
+						ratio = (y - model.y) / (chartArea.top - model.y);
+					} else if (chartArea.bottom*errMargin < model.y) {
+						ratio = (model.y - y) / (model.y - chartArea.bottom);
+					}
+					ratio = Math.round(ratio*100) / 100;
+					ctx.strokeStyle = color(ctx.strokeStyle).alpha(ratio).rgbString();
+					ctx.fillStyle = color(ctx.fillStyle).alpha(ratio).rgbString();
+				}
+
 				Chart.canvasHelpers.drawPoint(ctx, pointStyle, radius, x, y);
 			}
 		});
@@ -38212,7 +39451,7 @@ var app =
 
 
 /***/ },
-/* 201 */
+/* 206 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38270,39 +39509,71 @@ var app =
 			draw: function() {
 				var ctx = this._chart.ctx;
 				var vm = this._view;
+				var left, right, top, bottom, signX, signY, borderSkipped;
+				var borderWidth = vm.borderWidth;
 
-				var halfWidth = vm.width / 2,
-					leftX = vm.x - halfWidth,
-					rightX = vm.x + halfWidth,
-					top = vm.base - (vm.base - vm.y),
-					halfStroke = vm.borderWidth / 2;
+				if (!vm.horizontal) {
+					// bar
+					left = vm.x - vm.width / 2;
+					right = vm.x + vm.width / 2;
+					top = vm.y;
+					bottom = vm.base;
+					signX = 1;
+					signY = bottom > top? 1: -1;
+					borderSkipped = vm.borderSkipped || 'bottom';
+				} else {
+					// horizontal bar
+					left = vm.base;
+					right = vm.x;
+					top = vm.y - vm.height / 2;
+					bottom = vm.y + vm.height / 2;
+					signX = right > left? 1: -1;
+					signY = 1;
+					borderSkipped = vm.borderSkipped || 'left';
+				}
 
 				// Canvas doesn't allow us to stroke inside the width so we can
 				// adjust the sizes to fit if we're setting a stroke on the line
-				if (vm.borderWidth) {
-					leftX += halfStroke;
-					rightX -= halfStroke;
-					top += halfStroke;
+				if (borderWidth) {
+					// borderWidth shold be less than bar width and bar height.
+					var barSize = Math.min(Math.abs(left - right), Math.abs(top - bottom));
+					borderWidth = borderWidth > barSize? barSize: borderWidth;
+					var halfStroke = borderWidth / 2;
+					// Adjust borderWidth when bar top position is near vm.base(zero).
+					var borderLeft = left + (borderSkipped !== 'left'? halfStroke * signX: 0);
+					var borderRight = right + (borderSkipped !== 'right'? -halfStroke * signX: 0);
+					var borderTop = top + (borderSkipped !== 'top'? halfStroke * signY: 0);
+					var borderBottom = bottom + (borderSkipped !== 'bottom'? -halfStroke * signY: 0);
+					// not become a vertical line?
+					if (borderLeft !== borderRight) {
+						top = borderTop;
+						bottom = borderBottom;
+					}
+					// not become a horizontal line?
+					if (borderTop !== borderBottom) {
+						left = borderLeft;
+						right = borderRight;
+					}
 				}
 
 				ctx.beginPath();
 				ctx.fillStyle = vm.backgroundColor;
 				ctx.strokeStyle = vm.borderColor;
-				ctx.lineWidth = vm.borderWidth;
+				ctx.lineWidth = borderWidth;
 
 				// Corner points, from bottom-left to bottom-right clockwise
 				// | 1 2 |
 				// | 0 3 |
 				var corners = [
-					[leftX, vm.base],
-					[leftX, top],
-					[rightX, top],
-					[rightX, vm.base]
+					[left, bottom],
+					[left, top],
+					[right, top],
+					[right, bottom]
 				];
 
 				// Find first (starting) corner with fallback to 'bottom'
 				var borders = ['bottom', 'left', 'top', 'right'];
-				var startCorner = borders.indexOf(vm.borderSkipped, 0);
+				var startCorner = borders.indexOf(borderSkipped, 0);
 				if (startCorner === -1) {
 					startCorner = 0;
 				}
@@ -38321,7 +39592,7 @@ var app =
 				}
 
 				ctx.fill();
-				if (vm.borderWidth) {
+				if (borderWidth) {
 					ctx.stroke();
 				}
 			},
@@ -38394,7 +39665,7 @@ var app =
 
 
 /***/ },
-/* 202 */
+/* 207 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38498,7 +39769,7 @@ var app =
 
 
 /***/ },
-/* 203 */
+/* 208 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38557,10 +39828,10 @@ var app =
 				var data = me.chart.data;
 				var isHorizontal = me.isHorizontal();
 
-				if ((data.xLabels && isHorizontal) || (data.yLabels && !isHorizontal)) {
+				if (data.yLabels && !isHorizontal) {
 					return me.getRightValue(data.datasets[datasetIndex].data[index]);
 				}
-				return me.ticks[index];
+				return me.ticks[index - me.minIndex];
 			},
 
 			// Used to get data value locations.  Value can either be an index or a numerical value
@@ -38629,7 +39900,7 @@ var app =
 
 
 /***/ },
-/* 204 */
+/* 209 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38662,21 +39933,43 @@ var app =
 				me.min = null;
 				me.max = null;
 
-				if (opts.stacked) {
-					var valuesPerType = {};
+				var hasStacks = opts.stacked;
+				if (hasStacks === undefined) {
+					helpers.each(datasets, function(dataset, datasetIndex) {
+						if (hasStacks) {
+							return;
+						}
+
+						var meta = chart.getDatasetMeta(datasetIndex);
+						if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta) &&
+							meta.stack !== undefined) {
+							hasStacks = true;
+						}
+					});
+				}
+
+				if (opts.stacked || hasStacks) {
+					var valuesPerStack = {};
 
 					helpers.each(datasets, function(dataset, datasetIndex) {
 						var meta = chart.getDatasetMeta(datasetIndex);
-						if (valuesPerType[meta.type] === undefined) {
-							valuesPerType[meta.type] = {
+						var key = [
+							meta.type,
+							// we have a separate stack for stack=undefined datasets when the opts.stacked is undefined
+							((opts.stacked === undefined && meta.stack === undefined) ? datasetIndex : ''),
+							meta.stack
+						].join('.');
+
+						if (valuesPerStack[key] === undefined) {
+							valuesPerStack[key] = {
 								positiveValues: [],
 								negativeValues: []
 							};
 						}
 
 						// Store these per type
-						var positiveValues = valuesPerType[meta.type].positiveValues;
-						var negativeValues = valuesPerType[meta.type].negativeValues;
+						var positiveValues = valuesPerStack[key].positiveValues;
+						var negativeValues = valuesPerStack[key].negativeValues;
 
 						if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
 							helpers.each(dataset.data, function(rawValue, index) {
@@ -38699,7 +39992,7 @@ var app =
 						}
 					});
 
-					helpers.each(valuesPerType, function(valuesForType) {
+					helpers.each(valuesPerStack, function(valuesForType) {
 						var values = valuesForType.positiveValues.concat(valuesForType.negativeValues);
 						var minVal = helpers.min(values);
 						var maxVal = helpers.max(values);
@@ -38797,7 +40090,7 @@ var app =
 
 
 /***/ },
-/* 205 */
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38834,18 +40127,40 @@ var app =
 				me.max = null;
 				me.minNotZero = null;
 
-				if (opts.stacked) {
-					var valuesPerType = {};
+				var hasStacks = opts.stacked;
+				if (hasStacks === undefined) {
+					helpers.each(datasets, function(dataset, datasetIndex) {
+						if (hasStacks) {
+							return;
+						}
+
+						var meta = chart.getDatasetMeta(datasetIndex);
+						if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta) &&
+							meta.stack !== undefined) {
+							hasStacks = true;
+						}
+					});
+				}
+
+				if (opts.stacked || hasStacks) {
+					var valuesPerStack = {};
 
 					helpers.each(datasets, function(dataset, datasetIndex) {
 						var meta = chart.getDatasetMeta(datasetIndex);
+						var key = [
+							meta.type,
+							// we have a separate stack for stack=undefined datasets when the opts.stacked is undefined
+							((opts.stacked === undefined && meta.stack === undefined) ? datasetIndex : ''),
+							meta.stack
+						].join('.');
+
 						if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
-							if (valuesPerType[meta.type] === undefined) {
-								valuesPerType[meta.type] = [];
+							if (valuesPerStack[key] === undefined) {
+								valuesPerStack[key] = [];
 							}
 
 							helpers.each(dataset.data, function(rawValue, index) {
-								var values = valuesPerType[meta.type];
+								var values = valuesPerStack[key];
 								var value = +me.getRightValue(rawValue);
 								if (isNaN(value) || meta.data[index].hidden) {
 									return;
@@ -38863,7 +40178,7 @@ var app =
 						}
 					});
 
-					helpers.each(valuesPerType, function(valuesForType) {
+					helpers.each(valuesPerStack, function(valuesForType) {
 						var minVal = helpers.min(valuesForType);
 						var maxVal = helpers.max(valuesForType);
 						me.min = me.min === null ? minVal : Math.min(me.min, minVal);
@@ -39025,7 +40340,7 @@ var app =
 
 
 /***/ },
-/* 206 */
+/* 211 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -39077,10 +40392,266 @@ var app =
 			}
 		};
 
+		function getValueCount(scale) {
+			return !scale.options.lineArc ? scale.chart.data.labels.length : 0;
+		}
+
+		function getPointLabelFontOptions(scale) {
+			var pointLabelOptions = scale.options.pointLabels;
+			var fontSize = helpers.getValueOrDefault(pointLabelOptions.fontSize, globalDefaults.defaultFontSize);
+			var fontStyle = helpers.getValueOrDefault(pointLabelOptions.fontStyle, globalDefaults.defaultFontStyle);
+			var fontFamily = helpers.getValueOrDefault(pointLabelOptions.fontFamily, globalDefaults.defaultFontFamily);
+			var font = helpers.fontString(fontSize, fontStyle, fontFamily);
+
+			return {
+				size: fontSize,
+				style: fontStyle,
+				family: fontFamily,
+				font: font
+			};
+		}
+
+		function measureLabelSize(ctx, fontSize, label) {
+			if (helpers.isArray(label)) {
+				return {
+					w: helpers.longestText(ctx, ctx.font, label),
+					h: (label.length * fontSize) + ((label.length - 1) * 1.5 * fontSize)
+				};
+			}
+
+			return {
+				w: ctx.measureText(label).width,
+				h: fontSize
+			};
+		}
+
+		function determineLimits(angle, pos, size, min, max) {
+			if (angle === min || angle === max) {
+				return {
+					start: pos - (size / 2),
+					end: pos + (size / 2)
+				};
+			} else if (angle < min || angle > max) {
+				return {
+					start: pos - size - 5,
+					end: pos
+				};
+			}
+
+			return {
+				start: pos,
+				end: pos + size + 5
+			};
+		}
+
+		/**
+		 * Helper function to fit a radial linear scale with point labels
+		 */
+		function fitWithPointLabels(scale) {
+			/*
+			 * Right, this is really confusing and there is a lot of maths going on here
+			 * The gist of the problem is here: https://gist.github.com/nnnick/696cc9c55f4b0beb8fe9
+			 *
+			 * Reaction: https://dl.dropboxusercontent.com/u/34601363/toomuchscience.gif
+			 *
+			 * Solution:
+			 *
+			 * We assume the radius of the polygon is half the size of the canvas at first
+			 * at each index we check if the text overlaps.
+			 *
+			 * Where it does, we store that angle and that index.
+			 *
+			 * After finding the largest index and angle we calculate how much we need to remove
+			 * from the shape radius to move the point inwards by that x.
+			 *
+			 * We average the left and right distances to get the maximum shape radius that can fit in the box
+			 * along with labels.
+			 *
+			 * Once we have that, we can find the centre point for the chart, by taking the x text protrusion
+			 * on each side, removing that from the size, halving it and adding the left x protrusion width.
+			 *
+			 * This will mean we have a shape fitted to the canvas, as large as it can be with the labels
+			 * and position it in the most space efficient manner
+			 *
+			 * https://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
+			 */
+
+			var plFont = getPointLabelFontOptions(scale);
+
+			// Get maximum radius of the polygon. Either half the height (minus the text width) or half the width.
+			// Use this to calculate the offset + change. - Make sure L/R protrusion is at least 0 to stop issues with centre points
+			var largestPossibleRadius = Math.min(scale.height / 2, scale.width / 2);
+			var furthestLimits = {
+				l: scale.width,
+				r: 0,
+				t: scale.height,
+				b: 0
+			};
+			var furthestAngles = {};
+			var i;
+			var textSize;
+			var pointPosition;
+
+			scale.ctx.font = plFont.font;
+			scale._pointLabelSizes = [];
+
+			var valueCount = getValueCount(scale);
+			for (i = 0; i < valueCount; i++) {
+				pointPosition = scale.getPointPosition(i, largestPossibleRadius);
+				textSize = measureLabelSize(scale.ctx, plFont.size, scale.pointLabels[i] || '');
+				scale._pointLabelSizes[i] = textSize;
+
+				// Add quarter circle to make degree 0 mean top of circle
+				var angleRadians = scale.getIndexAngle(i);
+				var angle = helpers.toDegrees(angleRadians) % 360;
+				var hLimits = determineLimits(angle, pointPosition.x, textSize.w, 0, 180);
+				var vLimits = determineLimits(angle, pointPosition.y, textSize.h, 90, 270);
+
+				if (hLimits.start < furthestLimits.l) {
+					furthestLimits.l = hLimits.start;
+					furthestAngles.l = angleRadians;
+				}
+
+				if (hLimits.end > furthestLimits.r) {
+					furthestLimits.r = hLimits.end;
+					furthestAngles.r = angleRadians;
+				}
+
+				if (vLimits.start < furthestLimits.t) {
+					furthestLimits.t = vLimits.start;
+					furthestAngles.t = angleRadians;
+				}
+
+				if (vLimits.end > furthestLimits.b) {
+					furthestLimits.b = vLimits.end;
+					furthestAngles.b = angleRadians;
+				}
+			}
+
+			scale.setReductions(largestPossibleRadius, furthestLimits, furthestAngles);
+		}
+
+		/**
+		 * Helper function to fit a radial linear scale with no point labels
+		 */
+		function fit(scale) {
+			var largestPossibleRadius = Math.min(scale.height / 2, scale.width / 2);
+			scale.drawingArea = Math.round(largestPossibleRadius);
+			scale.setCenterPoint(0, 0, 0, 0);
+		}
+
+		function getTextAlignForAngle(angle) {
+			if (angle === 0 || angle === 180) {
+				return 'center';
+			} else if (angle < 180) {
+				return 'left';
+			}
+
+			return 'right';
+		}
+
+		function fillText(ctx, text, position, fontSize) {
+			if (helpers.isArray(text)) {
+				var y = position.y;
+				var spacing = 1.5 * fontSize;
+
+				for (var i = 0; i < text.length; ++i) {
+					ctx.fillText(text[i], position.x, y);
+					y+= spacing;
+				}
+			} else {
+				ctx.fillText(text, position.x, position.y);
+			}
+		}
+
+		function adjustPointPositionForLabelHeight(angle, textSize, position) {
+			if (angle === 90 || angle === 270) {
+				position.y -= (textSize.h / 2);
+			} else if (angle > 270 || angle < 90) {
+				position.y -= textSize.h;
+			}
+		}
+
+		function drawPointLabels(scale) {
+			var ctx = scale.ctx;
+			var getValueOrDefault = helpers.getValueOrDefault;
+			var opts = scale.options;
+			var angleLineOpts = opts.angleLines;
+			var pointLabelOpts = opts.pointLabels;
+
+			ctx.lineWidth = angleLineOpts.lineWidth;
+			ctx.strokeStyle = angleLineOpts.color;
+
+			var outerDistance = scale.getDistanceFromCenterForValue(opts.reverse ? scale.min : scale.max);
+
+			// Point Label Font
+			var plFont = getPointLabelFontOptions(scale);
+
+			ctx.textBaseline = 'top';
+
+			for (var i = getValueCount(scale) - 1; i >= 0; i--) {
+				if (angleLineOpts.display) {
+					var outerPosition = scale.getPointPosition(i, outerDistance);
+					ctx.beginPath();
+					ctx.moveTo(scale.xCenter, scale.yCenter);
+					ctx.lineTo(outerPosition.x, outerPosition.y);
+					ctx.stroke();
+					ctx.closePath();
+				}
+				// Extra 3px out for some label spacing
+				var pointLabelPosition = scale.getPointPosition(i, outerDistance + 5);
+
+				// Keep this in loop since we may support array properties here
+				var pointLabelFontColor = getValueOrDefault(pointLabelOpts.fontColor, globalDefaults.defaultFontColor);
+				ctx.font = plFont.font;
+				ctx.fillStyle = pointLabelFontColor;
+
+				var angleRadians = scale.getIndexAngle(i);
+				var angle = helpers.toDegrees(angleRadians);
+				ctx.textAlign = getTextAlignForAngle(angle);
+				adjustPointPositionForLabelHeight(angle, scale._pointLabelSizes[i], pointLabelPosition);
+				fillText(ctx, scale.pointLabels[i] || '', pointLabelPosition, plFont.size);
+			}
+		}
+
+		function drawRadiusLine(scale, gridLineOpts, radius, index) {
+			var ctx = scale.ctx;
+			ctx.strokeStyle = helpers.getValueAtIndexOrDefault(gridLineOpts.color, index - 1);
+			ctx.lineWidth = helpers.getValueAtIndexOrDefault(gridLineOpts.lineWidth, index - 1);
+
+			if (scale.options.lineArc) {
+				// Draw circular arcs between the points
+				ctx.beginPath();
+				ctx.arc(scale.xCenter, scale.yCenter, radius, 0, Math.PI * 2);
+				ctx.closePath();
+				ctx.stroke();
+			} else {
+				// Draw straight lines connecting each index
+				var valueCount = getValueCount(scale);
+
+				if (valueCount === 0) {
+					return;
+				}
+
+				ctx.beginPath();
+				var pointPosition = scale.getPointPosition(0, radius);
+				ctx.moveTo(pointPosition.x, pointPosition.y);
+
+				for (var i = 1; i < valueCount; i++) {
+					pointPosition = scale.getPointPosition(i, radius);
+					ctx.lineTo(pointPosition.x, pointPosition.y);
+				}
+
+				ctx.closePath();
+				ctx.stroke();
+			}
+		}
+
+		function numberOrZero(param) {
+			return helpers.isNumber(param) ? param : 0;
+		}
+
 		var LinearRadialScale = Chart.LinearScaleBase.extend({
-			getValueCount: function() {
-				return this.chart.data.labels.length;
-			},
 			setDimensions: function() {
 				var me = this;
 				var opts = me.options;
@@ -39098,9 +40669,8 @@ var app =
 			determineDataLimits: function() {
 				var me = this;
 				var chart = me.chart;
-				me.min = null;
-				me.max = null;
-
+				var min = Number.POSITIVE_INFINITY;
+				var max = Number.NEGATIVE_INFINITY;
 
 				helpers.each(chart.data.datasets, function(dataset, datasetIndex) {
 					if (chart.isDatasetVisible(datasetIndex)) {
@@ -39112,20 +40682,14 @@ var app =
 								return;
 							}
 
-							if (me.min === null) {
-								me.min = value;
-							} else if (value < me.min) {
-								me.min = value;
-							}
-
-							if (me.max === null) {
-								me.max = value;
-							} else if (value > me.max) {
-								me.max = value;
-							}
+							min = Math.min(value, min);
+							max = Math.max(value, max);
 						});
 					}
 				});
+
+				me.min = (min === Number.POSITIVE_INFINITY ? 0 : min);
+				me.max = (max === Number.NEGATIVE_INFINITY ? 0 : max);
 
 				// Common base implementation to handle ticks.min, ticks.max, ticks.beginAtZero
 				me.handleTickRangeOptions();
@@ -39146,122 +40710,46 @@ var app =
 				return +this.getRightValue(this.chart.data.datasets[datasetIndex].data[index]);
 			},
 			fit: function() {
-				/*
-				 * Right, this is really confusing and there is a lot of maths going on here
-				 * The gist of the problem is here: https://gist.github.com/nnnick/696cc9c55f4b0beb8fe9
-				 *
-				 * Reaction: https://dl.dropboxusercontent.com/u/34601363/toomuchscience.gif
-				 *
-				 * Solution:
-				 *
-				 * We assume the radius of the polygon is half the size of the canvas at first
-				 * at each index we check if the text overlaps.
-				 *
-				 * Where it does, we store that angle and that index.
-				 *
-				 * After finding the largest index and angle we calculate how much we need to remove
-				 * from the shape radius to move the point inwards by that x.
-				 *
-				 * We average the left and right distances to get the maximum shape radius that can fit in the box
-				 * along with labels.
-				 *
-				 * Once we have that, we can find the centre point for the chart, by taking the x text protrusion
-				 * on each side, removing that from the size, halving it and adding the left x protrusion width.
-				 *
-				 * This will mean we have a shape fitted to the canvas, as large as it can be with the labels
-				 * and position it in the most space efficient manner
-				 *
-				 * https://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
-				 */
-
-				var pointLabels = this.options.pointLabels;
-				var pointLabelFontSize = helpers.getValueOrDefault(pointLabels.fontSize, globalDefaults.defaultFontSize);
-				var pointLabeFontStyle = helpers.getValueOrDefault(pointLabels.fontStyle, globalDefaults.defaultFontStyle);
-				var pointLabeFontFamily = helpers.getValueOrDefault(pointLabels.fontFamily, globalDefaults.defaultFontFamily);
-				var pointLabeFont = helpers.fontString(pointLabelFontSize, pointLabeFontStyle, pointLabeFontFamily);
-
-				// Get maximum radius of the polygon. Either half the height (minus the text width) or half the width.
-				// Use this to calculate the offset + change. - Make sure L/R protrusion is at least 0 to stop issues with centre points
-				var largestPossibleRadius = helpers.min([(this.height / 2 - pointLabelFontSize - 5), this.width / 2]),
-					pointPosition,
-					i,
-					textWidth,
-					halfTextWidth,
-					furthestRight = this.width,
-					furthestRightIndex,
-					furthestRightAngle,
-					furthestLeft = 0,
-					furthestLeftIndex,
-					furthestLeftAngle,
-					xProtrusionLeft,
-					xProtrusionRight,
-					radiusReductionRight,
-					radiusReductionLeft;
-				this.ctx.font = pointLabeFont;
-
-				for (i = 0; i < this.getValueCount(); i++) {
-					// 5px to space the text slightly out - similar to what we do in the draw function.
-					pointPosition = this.getPointPosition(i, largestPossibleRadius);
-					textWidth = this.ctx.measureText(this.pointLabels[i] ? this.pointLabels[i] : '').width + 5;
-
-					// Add quarter circle to make degree 0 mean top of circle
-					var angleRadians = this.getIndexAngle(i) + (Math.PI / 2);
-					var angle = (angleRadians * 360 / (2 * Math.PI)) % 360;
-
-					if (angle === 0 || angle === 180) {
-						// At angle 0 and 180, we're at exactly the top/bottom
-						// of the radar chart, so text will be aligned centrally, so we'll half it and compare
-						// w/left and right text sizes
-						halfTextWidth = textWidth / 2;
-						if (pointPosition.x + halfTextWidth > furthestRight) {
-							furthestRight = pointPosition.x + halfTextWidth;
-							furthestRightIndex = i;
-						}
-						if (pointPosition.x - halfTextWidth < furthestLeft) {
-							furthestLeft = pointPosition.x - halfTextWidth;
-							furthestLeftIndex = i;
-						}
-					} else if (angle < 180) {
-						// Less than half the values means we'll left align the text
-						if (pointPosition.x + textWidth > furthestRight) {
-							furthestRight = pointPosition.x + textWidth;
-							furthestRightIndex = i;
-						}
-					// More than half the values means we'll right align the text
-					} else if (pointPosition.x - textWidth < furthestLeft) {
-						furthestLeft = pointPosition.x - textWidth;
-						furthestLeftIndex = i;
-					}
+				if (this.options.lineArc) {
+					fit(this);
+				} else {
+					fitWithPointLabels(this);
 				}
-
-				xProtrusionLeft = furthestLeft;
-				xProtrusionRight = Math.ceil(furthestRight - this.width);
-
-				furthestRightAngle = this.getIndexAngle(furthestRightIndex);
-				furthestLeftAngle = this.getIndexAngle(furthestLeftIndex);
-
-				radiusReductionRight = xProtrusionRight / Math.sin(furthestRightAngle + Math.PI / 2);
-				radiusReductionLeft = xProtrusionLeft / Math.sin(furthestLeftAngle + Math.PI / 2);
-
-				// Ensure we actually need to reduce the size of the chart
-				radiusReductionRight = (helpers.isNumber(radiusReductionRight)) ? radiusReductionRight : 0;
-				radiusReductionLeft = (helpers.isNumber(radiusReductionLeft)) ? radiusReductionLeft : 0;
-
-				this.drawingArea = Math.round(largestPossibleRadius - (radiusReductionLeft + radiusReductionRight) / 2);
-				this.setCenterPoint(radiusReductionLeft, radiusReductionRight);
 			},
-			setCenterPoint: function(leftMovement, rightMovement) {
+			/**
+			 * Set radius reductions and determine new radius and center point
+			 * @private
+			 */
+			setReductions: function(largestPossibleRadius, furthestLimits, furthestAngles) {
+				var me = this;
+				var radiusReductionLeft = furthestLimits.l / Math.sin(furthestAngles.l);
+				var radiusReductionRight = Math.max(furthestLimits.r - me.width, 0) / Math.sin(furthestAngles.r);
+				var radiusReductionTop = -furthestLimits.t / Math.cos(furthestAngles.t);
+				var radiusReductionBottom = -Math.max(furthestLimits.b - me.height, 0) / Math.cos(furthestAngles.b);
+
+				radiusReductionLeft = numberOrZero(radiusReductionLeft);
+				radiusReductionRight = numberOrZero(radiusReductionRight);
+				radiusReductionTop = numberOrZero(radiusReductionTop);
+				radiusReductionBottom = numberOrZero(radiusReductionBottom);
+
+				me.drawingArea = Math.min(
+					Math.round(largestPossibleRadius - (radiusReductionLeft + radiusReductionRight) / 2),
+					Math.round(largestPossibleRadius - (radiusReductionTop + radiusReductionBottom) / 2));
+				me.setCenterPoint(radiusReductionLeft, radiusReductionRight, radiusReductionTop, radiusReductionBottom);
+			},
+			setCenterPoint: function(leftMovement, rightMovement, topMovement, bottomMovement) {
 				var me = this;
 				var maxRight = me.width - rightMovement - me.drawingArea,
-					maxLeft = leftMovement + me.drawingArea;
+					maxLeft = leftMovement + me.drawingArea,
+					maxTop = topMovement + me.drawingArea,
+					maxBottom = me.height - bottomMovement - me.drawingArea;
 
 				me.xCenter = Math.round(((maxLeft + maxRight) / 2) + me.left);
-				// Always vertically in the centre as the text height doesn't change
-				me.yCenter = Math.round((me.height / 2) + me.top);
+				me.yCenter = Math.round(((maxTop + maxBottom) / 2) + me.top);
 			},
 
 			getIndexAngle: function(index) {
-				var angleMultiplier = (Math.PI * 2) / this.getValueCount();
+				var angleMultiplier = (Math.PI * 2) / getValueCount(this);
 				var startAngle = this.chart.options && this.chart.options.startAngle ?
 					this.chart.options.startAngle :
 					0;
@@ -39269,7 +40757,7 @@ var app =
 				var startAngleRadians = startAngle * Math.PI * 2 / 360;
 
 				// Start from the top instead of right, so remove a quarter of the circle
-				return index * angleMultiplier - (Math.PI / 2) + startAngleRadians;
+				return index * angleMultiplier + startAngleRadians;
 			},
 			getDistanceFromCenterForValue: function(value) {
 				var me = this;
@@ -39287,7 +40775,7 @@ var app =
 			},
 			getPointPosition: function(index, distanceFromCenter) {
 				var me = this;
-				var thisAngle = me.getIndexAngle(index);
+				var thisAngle = me.getIndexAngle(index) - (Math.PI / 2);
 				return {
 					x: Math.round(Math.cos(thisAngle) * distanceFromCenter) + me.xCenter,
 					y: Math.round(Math.sin(thisAngle) * distanceFromCenter) + me.yCenter
@@ -39314,8 +40802,6 @@ var app =
 				var opts = me.options;
 				var gridLineOpts = opts.gridLines;
 				var tickOpts = opts.ticks;
-				var angleLineOpts = opts.angleLines;
-				var pointLabelOpts = opts.pointLabels;
 				var getValueOrDefault = helpers.getValueOrDefault;
 
 				if (opts.display) {
@@ -39335,29 +40821,7 @@ var app =
 
 							// Draw circular lines around the scale
 							if (gridLineOpts.display && index !== 0) {
-								ctx.strokeStyle = helpers.getValueAtIndexOrDefault(gridLineOpts.color, index - 1);
-								ctx.lineWidth = helpers.getValueAtIndexOrDefault(gridLineOpts.lineWidth, index - 1);
-
-								if (opts.lineArc) {
-									// Draw circular arcs between the points
-									ctx.beginPath();
-									ctx.arc(me.xCenter, me.yCenter, yCenterOffset, 0, Math.PI * 2);
-									ctx.closePath();
-									ctx.stroke();
-								} else {
-									// Draw straight lines connecting each index
-									ctx.beginPath();
-									for (var i = 0; i < me.getValueCount(); i++) {
-										var pointPosition = me.getPointPosition(i, yCenterOffset);
-										if (i === 0) {
-											ctx.moveTo(pointPosition.x, pointPosition.y);
-										} else {
-											ctx.lineTo(pointPosition.x, pointPosition.y);
-										}
-									}
-									ctx.closePath();
-									ctx.stroke();
-								}
+								drawRadiusLine(me, gridLineOpts, yCenterOffset, index);
 							}
 
 							if (tickOpts.display) {
@@ -39384,59 +40848,7 @@ var app =
 					});
 
 					if (!opts.lineArc) {
-						ctx.lineWidth = angleLineOpts.lineWidth;
-						ctx.strokeStyle = angleLineOpts.color;
-
-						var outerDistance = me.getDistanceFromCenterForValue(opts.reverse ? me.min : me.max);
-
-						// Point Label Font
-						var pointLabelFontSize = getValueOrDefault(pointLabelOpts.fontSize, globalDefaults.defaultFontSize);
-						var pointLabeFontStyle = getValueOrDefault(pointLabelOpts.fontStyle, globalDefaults.defaultFontStyle);
-						var pointLabeFontFamily = getValueOrDefault(pointLabelOpts.fontFamily, globalDefaults.defaultFontFamily);
-						var pointLabeFont = helpers.fontString(pointLabelFontSize, pointLabeFontStyle, pointLabeFontFamily);
-
-						for (var i = me.getValueCount() - 1; i >= 0; i--) {
-							if (angleLineOpts.display) {
-								var outerPosition = me.getPointPosition(i, outerDistance);
-								ctx.beginPath();
-								ctx.moveTo(me.xCenter, me.yCenter);
-								ctx.lineTo(outerPosition.x, outerPosition.y);
-								ctx.stroke();
-								ctx.closePath();
-							}
-							// Extra 3px out for some label spacing
-							var pointLabelPosition = me.getPointPosition(i, outerDistance + 5);
-
-							// Keep this in loop since we may support array properties here
-							var pointLabelFontColor = getValueOrDefault(pointLabelOpts.fontColor, globalDefaults.defaultFontColor);
-							ctx.font = pointLabeFont;
-							ctx.fillStyle = pointLabelFontColor;
-
-							var pointLabels = me.pointLabels;
-
-							// Add quarter circle to make degree 0 mean top of circle
-							var angleRadians = this.getIndexAngle(i) + (Math.PI / 2);
-							var angle = (angleRadians * 360 / (2 * Math.PI)) % 360;
-
-							if (angle === 0 || angle === 180) {
-								ctx.textAlign = 'center';
-							} else if (angle < 180) {
-								ctx.textAlign = 'left';
-							} else {
-								ctx.textAlign = 'right';
-							}
-
-							// Set the correct text baseline based on outer positioning
-							if (angle === 90 || angle === 270) {
-								ctx.textBaseline = 'middle';
-							} else if (angle > 270 || angle < 90) {
-								ctx.textBaseline = 'bottom';
-							} else {
-								ctx.textBaseline = 'top';
-							}
-
-							ctx.fillText(pointLabels[i] ? pointLabels[i] : '', pointLabelPosition.x, pointLabelPosition.y);
-						}
+						drawPointLabels(me);
 					}
 				}
 			}
@@ -39447,13 +40859,13 @@ var app =
 
 
 /***/ },
-/* 207 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global window: false */
 	'use strict';
 
-	var moment = __webpack_require__(208);
+	var moment = __webpack_require__(213);
 	moment = typeof(moment) === 'function' ? moment : window.moment;
 
 	module.exports = function(Chart) {
@@ -39911,11 +41323,11 @@ var app =
 
 
 /***/ },
-/* 208 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
-	//! version : 2.16.0
+	//! version : 2.17.1
 	//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 	//! license : MIT
 	//! momentjs.com
@@ -39958,7 +41370,7 @@ var app =
 	}
 
 	function isNumber(input) {
-	    return typeof value === 'number' || Object.prototype.toString.call(input) === '[object Number]';
+	    return typeof input === 'number' || Object.prototype.toString.call(input) === '[object Number]';
 	}
 
 	function isDate(input) {
@@ -40150,6 +41562,9 @@ var app =
 	function Moment(config) {
 	    copyConfig(this, config);
 	    this._d = new Date(config._d != null ? config._d.getTime() : NaN);
+	    if (!this.isValid()) {
+	        this._d = new Date(NaN);
+	    }
 	    // Prevent infinite loop in case updateOffset creates new moment
 	    // objects.
 	    if (updateInProgress === false) {
@@ -41725,7 +43140,7 @@ var app =
 	            module && module.exports) {
 	        try {
 	            oldLocale = globalLocale._abbr;
-	            __webpack_require__(210)("./" + name);
+	            __webpack_require__(215)("./" + name);
 	            // because defineLocale currently also sets the global locale, we
 	            // want to undo that for lazy loaded locales
 	            getSetGlobalLocale(oldLocale);
@@ -44177,7 +45592,7 @@ var app =
 	// Side effect imports
 
 
-	hooks.version = '2.16.0';
+	hooks.version = '2.17.1';
 
 	setHookCallback(createLocal);
 
@@ -44213,10 +45628,10 @@ var app =
 
 	})));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(209)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(214)(module)))
 
 /***/ },
-/* 209 */
+/* 214 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -44232,226 +45647,226 @@ var app =
 
 
 /***/ },
-/* 210 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 211,
-		"./af.js": 211,
-		"./ar": 212,
-		"./ar-dz": 213,
-		"./ar-dz.js": 213,
-		"./ar-ly": 214,
-		"./ar-ly.js": 214,
-		"./ar-ma": 215,
-		"./ar-ma.js": 215,
-		"./ar-sa": 216,
-		"./ar-sa.js": 216,
-		"./ar-tn": 217,
-		"./ar-tn.js": 217,
-		"./ar.js": 212,
-		"./az": 218,
-		"./az.js": 218,
-		"./be": 219,
-		"./be.js": 219,
-		"./bg": 220,
-		"./bg-x": 221,
-		"./bg-x.js": 221,
-		"./bg.js": 220,
-		"./bn": 222,
-		"./bn.js": 222,
-		"./bo": 223,
-		"./bo.js": 223,
-		"./br": 224,
-		"./br.js": 224,
-		"./bs": 225,
-		"./bs.js": 225,
-		"./ca": 226,
-		"./ca.js": 226,
-		"./cs": 227,
-		"./cs.js": 227,
-		"./cv": 228,
-		"./cv.js": 228,
-		"./cy": 229,
-		"./cy.js": 229,
-		"./da": 230,
-		"./da.js": 230,
-		"./de": 231,
-		"./de-at": 232,
-		"./de-at.js": 232,
-		"./de.js": 231,
-		"./dv": 233,
-		"./dv.js": 233,
-		"./el": 234,
-		"./el.js": 234,
-		"./en-au": 235,
-		"./en-au.js": 235,
-		"./en-ca": 236,
-		"./en-ca.js": 236,
-		"./en-gb": 237,
-		"./en-gb.js": 237,
-		"./en-ie": 238,
-		"./en-ie.js": 238,
-		"./en-nz": 239,
-		"./en-nz.js": 239,
-		"./eo": 240,
-		"./eo.js": 240,
-		"./es": 241,
-		"./es-do": 242,
-		"./es-do.js": 242,
-		"./es.js": 241,
-		"./et": 243,
-		"./et.js": 243,
-		"./eu": 244,
-		"./eu.js": 244,
-		"./fa": 245,
-		"./fa.js": 245,
-		"./fi": 246,
-		"./fi.js": 246,
-		"./fo": 247,
-		"./fo.js": 247,
-		"./fr": 248,
-		"./fr-ca": 249,
-		"./fr-ca.js": 249,
-		"./fr-ch": 250,
-		"./fr-ch.js": 250,
-		"./fr.js": 248,
-		"./fy": 251,
-		"./fy.js": 251,
-		"./gd": 252,
-		"./gd.js": 252,
-		"./gl": 253,
-		"./gl.js": 253,
-		"./he": 254,
-		"./he.js": 254,
-		"./hi": 255,
-		"./hi.js": 255,
-		"./hr": 256,
-		"./hr.js": 256,
-		"./hu": 257,
-		"./hu.js": 257,
-		"./hy-am": 258,
-		"./hy-am.js": 258,
-		"./id": 259,
-		"./id.js": 259,
-		"./is": 260,
-		"./is.js": 260,
-		"./it": 261,
-		"./it.js": 261,
-		"./ja": 262,
-		"./ja.js": 262,
-		"./jv": 263,
-		"./jv.js": 263,
-		"./ka": 264,
-		"./ka.js": 264,
-		"./kk": 265,
-		"./kk.js": 265,
-		"./km": 266,
-		"./km.js": 266,
-		"./ko": 267,
-		"./ko.js": 267,
-		"./ky": 268,
-		"./ky.js": 268,
-		"./lb": 269,
-		"./lb.js": 269,
-		"./lo": 270,
-		"./lo.js": 270,
-		"./lt": 271,
-		"./lt.js": 271,
-		"./lv": 272,
-		"./lv.js": 272,
-		"./me": 273,
-		"./me.js": 273,
-		"./mi": 274,
-		"./mi.js": 274,
-		"./mk": 275,
-		"./mk.js": 275,
-		"./ml": 276,
-		"./ml.js": 276,
-		"./mr": 277,
-		"./mr.js": 277,
-		"./ms": 278,
-		"./ms-my": 279,
-		"./ms-my.js": 279,
-		"./ms.js": 278,
-		"./my": 280,
-		"./my.js": 280,
-		"./nb": 281,
-		"./nb.js": 281,
-		"./ne": 282,
-		"./ne.js": 282,
-		"./nl": 283,
-		"./nl-be": 284,
-		"./nl-be.js": 284,
-		"./nl.js": 283,
-		"./nn": 285,
-		"./nn.js": 285,
-		"./pa-in": 286,
-		"./pa-in.js": 286,
-		"./pl": 287,
-		"./pl.js": 287,
-		"./pt": 288,
-		"./pt-br": 289,
-		"./pt-br.js": 289,
-		"./pt.js": 288,
-		"./ro": 290,
-		"./ro.js": 290,
-		"./ru": 291,
-		"./ru.js": 291,
-		"./se": 292,
-		"./se.js": 292,
-		"./si": 293,
-		"./si.js": 293,
-		"./sk": 294,
-		"./sk.js": 294,
-		"./sl": 295,
-		"./sl.js": 295,
-		"./sq": 296,
-		"./sq.js": 296,
-		"./sr": 297,
-		"./sr-cyrl": 298,
-		"./sr-cyrl.js": 298,
-		"./sr.js": 297,
-		"./ss": 299,
-		"./ss.js": 299,
-		"./sv": 300,
-		"./sv.js": 300,
-		"./sw": 301,
-		"./sw.js": 301,
-		"./ta": 302,
-		"./ta.js": 302,
-		"./te": 303,
-		"./te.js": 303,
-		"./tet": 304,
-		"./tet.js": 304,
-		"./th": 305,
-		"./th.js": 305,
-		"./tl-ph": 306,
-		"./tl-ph.js": 306,
-		"./tlh": 307,
-		"./tlh.js": 307,
-		"./tr": 308,
-		"./tr.js": 308,
-		"./tzl": 309,
-		"./tzl.js": 309,
-		"./tzm": 310,
-		"./tzm-latn": 311,
-		"./tzm-latn.js": 311,
-		"./tzm.js": 310,
-		"./uk": 312,
-		"./uk.js": 312,
-		"./uz": 313,
-		"./uz.js": 313,
-		"./vi": 314,
-		"./vi.js": 314,
-		"./x-pseudo": 315,
-		"./x-pseudo.js": 315,
-		"./zh-cn": 316,
-		"./zh-cn.js": 316,
-		"./zh-hk": 317,
-		"./zh-hk.js": 317,
-		"./zh-tw": 318,
-		"./zh-tw.js": 318
+		"./af": 216,
+		"./af.js": 216,
+		"./ar": 217,
+		"./ar-dz": 218,
+		"./ar-dz.js": 218,
+		"./ar-ly": 219,
+		"./ar-ly.js": 219,
+		"./ar-ma": 220,
+		"./ar-ma.js": 220,
+		"./ar-sa": 221,
+		"./ar-sa.js": 221,
+		"./ar-tn": 222,
+		"./ar-tn.js": 222,
+		"./ar.js": 217,
+		"./az": 223,
+		"./az.js": 223,
+		"./be": 224,
+		"./be.js": 224,
+		"./bg": 225,
+		"./bg.js": 225,
+		"./bn": 226,
+		"./bn.js": 226,
+		"./bo": 227,
+		"./bo.js": 227,
+		"./br": 228,
+		"./br.js": 228,
+		"./bs": 229,
+		"./bs.js": 229,
+		"./ca": 230,
+		"./ca.js": 230,
+		"./cs": 231,
+		"./cs.js": 231,
+		"./cv": 232,
+		"./cv.js": 232,
+		"./cy": 233,
+		"./cy.js": 233,
+		"./da": 234,
+		"./da.js": 234,
+		"./de": 235,
+		"./de-at": 236,
+		"./de-at.js": 236,
+		"./de.js": 235,
+		"./dv": 237,
+		"./dv.js": 237,
+		"./el": 238,
+		"./el.js": 238,
+		"./en-au": 239,
+		"./en-au.js": 239,
+		"./en-ca": 240,
+		"./en-ca.js": 240,
+		"./en-gb": 241,
+		"./en-gb.js": 241,
+		"./en-ie": 242,
+		"./en-ie.js": 242,
+		"./en-nz": 243,
+		"./en-nz.js": 243,
+		"./eo": 244,
+		"./eo.js": 244,
+		"./es": 245,
+		"./es-do": 246,
+		"./es-do.js": 246,
+		"./es.js": 245,
+		"./et": 247,
+		"./et.js": 247,
+		"./eu": 248,
+		"./eu.js": 248,
+		"./fa": 249,
+		"./fa.js": 249,
+		"./fi": 250,
+		"./fi.js": 250,
+		"./fo": 251,
+		"./fo.js": 251,
+		"./fr": 252,
+		"./fr-ca": 253,
+		"./fr-ca.js": 253,
+		"./fr-ch": 254,
+		"./fr-ch.js": 254,
+		"./fr.js": 252,
+		"./fy": 255,
+		"./fy.js": 255,
+		"./gd": 256,
+		"./gd.js": 256,
+		"./gl": 257,
+		"./gl.js": 257,
+		"./he": 258,
+		"./he.js": 258,
+		"./hi": 259,
+		"./hi.js": 259,
+		"./hr": 260,
+		"./hr.js": 260,
+		"./hu": 261,
+		"./hu.js": 261,
+		"./hy-am": 262,
+		"./hy-am.js": 262,
+		"./id": 263,
+		"./id.js": 263,
+		"./is": 264,
+		"./is.js": 264,
+		"./it": 265,
+		"./it.js": 265,
+		"./ja": 266,
+		"./ja.js": 266,
+		"./jv": 267,
+		"./jv.js": 267,
+		"./ka": 268,
+		"./ka.js": 268,
+		"./kk": 269,
+		"./kk.js": 269,
+		"./km": 270,
+		"./km.js": 270,
+		"./ko": 271,
+		"./ko.js": 271,
+		"./ky": 272,
+		"./ky.js": 272,
+		"./lb": 273,
+		"./lb.js": 273,
+		"./lo": 274,
+		"./lo.js": 274,
+		"./lt": 275,
+		"./lt.js": 275,
+		"./lv": 276,
+		"./lv.js": 276,
+		"./me": 277,
+		"./me.js": 277,
+		"./mi": 278,
+		"./mi.js": 278,
+		"./mk": 279,
+		"./mk.js": 279,
+		"./ml": 280,
+		"./ml.js": 280,
+		"./mr": 281,
+		"./mr.js": 281,
+		"./ms": 282,
+		"./ms-my": 283,
+		"./ms-my.js": 283,
+		"./ms.js": 282,
+		"./my": 284,
+		"./my.js": 284,
+		"./nb": 285,
+		"./nb.js": 285,
+		"./ne": 286,
+		"./ne.js": 286,
+		"./nl": 287,
+		"./nl-be": 288,
+		"./nl-be.js": 288,
+		"./nl.js": 287,
+		"./nn": 289,
+		"./nn.js": 289,
+		"./pa-in": 290,
+		"./pa-in.js": 290,
+		"./pl": 291,
+		"./pl.js": 291,
+		"./pt": 292,
+		"./pt-br": 293,
+		"./pt-br.js": 293,
+		"./pt.js": 292,
+		"./ro": 294,
+		"./ro.js": 294,
+		"./ru": 295,
+		"./ru.js": 295,
+		"./se": 296,
+		"./se.js": 296,
+		"./si": 297,
+		"./si.js": 297,
+		"./sk": 298,
+		"./sk.js": 298,
+		"./sl": 299,
+		"./sl.js": 299,
+		"./sq": 300,
+		"./sq.js": 300,
+		"./sr": 301,
+		"./sr-cyrl": 302,
+		"./sr-cyrl.js": 302,
+		"./sr.js": 301,
+		"./ss": 303,
+		"./ss.js": 303,
+		"./sv": 304,
+		"./sv.js": 304,
+		"./sw": 305,
+		"./sw.js": 305,
+		"./ta": 306,
+		"./ta.js": 306,
+		"./te": 307,
+		"./te.js": 307,
+		"./tet": 308,
+		"./tet.js": 308,
+		"./th": 309,
+		"./th.js": 309,
+		"./tl-ph": 310,
+		"./tl-ph.js": 310,
+		"./tlh": 311,
+		"./tlh.js": 311,
+		"./tr": 312,
+		"./tr.js": 312,
+		"./tzl": 313,
+		"./tzl.js": 313,
+		"./tzm": 314,
+		"./tzm-latn": 315,
+		"./tzm-latn.js": 315,
+		"./tzm.js": 314,
+		"./uk": 316,
+		"./uk.js": 316,
+		"./uz": 317,
+		"./uz.js": 317,
+		"./vi": 318,
+		"./vi.js": 318,
+		"./x-pseudo": 319,
+		"./x-pseudo.js": 319,
+		"./yo": 320,
+		"./yo.js": 320,
+		"./zh-cn": 321,
+		"./zh-cn.js": 321,
+		"./zh-hk": 322,
+		"./zh-hk.js": 322,
+		"./zh-tw": 323,
+		"./zh-tw.js": 323
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -44464,11 +45879,11 @@ var app =
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 210;
+	webpackContext.id = 215;
 
 
 /***/ },
-/* 211 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44476,7 +45891,7 @@ var app =
 	//! author : Werner Mollentze : https://github.com/wernerm
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44546,7 +45961,7 @@ var app =
 
 
 /***/ },
-/* 212 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44556,7 +45971,7 @@ var app =
 	//! author : forabi https://github.com/forabi
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44693,7 +46108,7 @@ var app =
 
 
 /***/ },
-/* 213 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44701,7 +46116,7 @@ var app =
 	//! author : Noureddine LOUAHEDJ : https://github.com/noureddineme
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44757,7 +46172,7 @@ var app =
 
 
 /***/ },
-/* 214 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44765,7 +46180,7 @@ var app =
 	//! author : Ali Hmer: https://github.com/kikoanis
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44888,7 +46303,7 @@ var app =
 
 
 /***/ },
-/* 215 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44897,7 +46312,7 @@ var app =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44953,7 +46368,7 @@ var app =
 
 
 /***/ },
-/* 216 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44961,7 +46376,7 @@ var app =
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45063,7 +46478,7 @@ var app =
 
 
 /***/ },
-/* 217 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45071,7 +46486,7 @@ var app =
 	//! author : Nader Toukabri : https://github.com/naderio
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45127,7 +46542,7 @@ var app =
 
 
 /***/ },
-/* 218 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45135,7 +46550,7 @@ var app =
 	//! author : topchiyev : https://github.com/topchiyev
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45237,7 +46652,7 @@ var app =
 
 
 /***/ },
-/* 219 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45247,7 +46662,7 @@ var app =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45376,7 +46791,7 @@ var app =
 
 
 /***/ },
-/* 220 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45384,7 +46799,7 @@ var app =
 	//! author : Krasen Borisov : https://github.com/kraz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45471,27 +46886,7 @@ var app =
 
 
 /***/ },
-/* 221 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
-	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
-	   factory(global.moment)
-	}(this, (function (moment) { 'use strict';
-
-	var bgX = moment.defineLocale('bg-x', {
-	    parentLocale: 'bg'
-	});
-
-	return bgX;
-
-	})));
-
-
-/***/ },
-/* 222 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45499,7 +46894,7 @@ var app =
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45615,7 +47010,7 @@ var app =
 
 
 /***/ },
-/* 223 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45623,7 +47018,7 @@ var app =
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45739,7 +47134,7 @@ var app =
 
 
 /***/ },
-/* 224 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45747,7 +47142,7 @@ var app =
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45852,7 +47247,7 @@ var app =
 
 
 /***/ },
-/* 225 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45861,7 +47256,7 @@ var app =
 	//! based on (hr) translation by Bojan Marković
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46000,7 +47395,7 @@ var app =
 
 
 /***/ },
-/* 226 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46008,7 +47403,7 @@ var app =
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46049,7 +47444,7 @@ var app =
 	        sameElse : 'L'
 	    },
 	    relativeTime : {
-	        future : 'en %s',
+	        future : 'd\'aquí %s',
 	        past : 'fa %s',
 	        s : 'uns segons',
 	        m : 'un minut',
@@ -46086,7 +47481,7 @@ var app =
 
 
 /***/ },
-/* 227 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46094,7 +47489,7 @@ var app =
 	//! author : petrbela : https://github.com/petrbela
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46263,7 +47658,7 @@ var app =
 
 
 /***/ },
-/* 228 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46271,7 +47666,7 @@ var app =
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46331,7 +47726,7 @@ var app =
 
 
 /***/ },
-/* 229 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46340,7 +47735,7 @@ var app =
 	//! author : https://github.com/ryangreaves
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46417,7 +47812,7 @@ var app =
 
 
 /***/ },
-/* 230 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46425,7 +47820,7 @@ var app =
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46482,7 +47877,7 @@ var app =
 
 
 /***/ },
-/* 231 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46492,7 +47887,7 @@ var app =
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46565,7 +47960,7 @@ var app =
 
 
 /***/ },
-/* 232 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46576,7 +47971,7 @@ var app =
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46649,7 +48044,7 @@ var app =
 
 
 /***/ },
-/* 233 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46657,7 +48052,7 @@ var app =
 	//! author : Jawish Hameed : https://github.com/jawish
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46754,7 +48149,7 @@ var app =
 
 
 /***/ },
-/* 234 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46762,7 +48157,7 @@ var app =
 	//! author : Aggelos Karalias : https://github.com/mehiel
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46857,7 +48252,7 @@ var app =
 
 
 /***/ },
-/* 235 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46865,7 +48260,7 @@ var app =
 	//! author : Jared Morse : https://github.com/jarcoal
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46929,7 +48324,7 @@ var app =
 
 
 /***/ },
-/* 236 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46937,7 +48332,7 @@ var app =
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46997,7 +48392,7 @@ var app =
 
 
 /***/ },
-/* 237 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47005,7 +48400,7 @@ var app =
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47069,7 +48464,7 @@ var app =
 
 
 /***/ },
-/* 238 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47077,7 +48472,7 @@ var app =
 	//! author : Chris Cartlidge : https://github.com/chriscartlidge
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47141,7 +48536,7 @@ var app =
 
 
 /***/ },
-/* 239 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47149,7 +48544,7 @@ var app =
 	//! author : Luke McGregor : https://github.com/lukemcgregor
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47213,7 +48608,7 @@ var app =
 
 
 /***/ },
-/* 240 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47223,7 +48618,7 @@ var app =
 	//!          Se ne, bonvolu korekti kaj avizi min por ke mi povas lerni!
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47291,7 +48686,7 @@ var app =
 
 
 /***/ },
-/* 241 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47299,7 +48694,7 @@ var app =
 	//! author : Julio Napurí : https://github.com/julionc
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47377,14 +48772,14 @@ var app =
 
 
 /***/ },
-/* 242 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Spanish (Dominican Republic) [es-do]
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47462,7 +48857,7 @@ var app =
 
 
 /***/ },
-/* 243 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47471,7 +48866,7 @@ var app =
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47547,7 +48942,7 @@ var app =
 
 
 /***/ },
-/* 244 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47555,7 +48950,7 @@ var app =
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47618,7 +49013,7 @@ var app =
 
 
 /***/ },
-/* 245 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47626,7 +49021,7 @@ var app =
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47730,7 +49125,7 @@ var app =
 
 
 /***/ },
-/* 246 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47738,7 +49133,7 @@ var app =
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47842,7 +49237,7 @@ var app =
 
 
 /***/ },
-/* 247 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47850,7 +49245,7 @@ var app =
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47907,7 +49302,7 @@ var app =
 
 
 /***/ },
-/* 248 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47915,7 +49310,7 @@ var app =
 	//! author : John Fischer : https://github.com/jfroffice
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47976,7 +49371,7 @@ var app =
 
 
 /***/ },
-/* 249 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47984,7 +49379,7 @@ var app =
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48041,7 +49436,7 @@ var app =
 
 
 /***/ },
-/* 250 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48049,7 +49444,7 @@ var app =
 	//! author : Gaspard Bucher : https://github.com/gaspard
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48110,7 +49505,7 @@ var app =
 
 
 /***/ },
-/* 251 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48118,7 +49513,7 @@ var app =
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48188,7 +49583,7 @@ var app =
 
 
 /***/ },
-/* 252 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48196,7 +49591,7 @@ var app =
 	//! author : Jon Ashdown : https://github.com/jonashdown
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48269,7 +49664,7 @@ var app =
 
 
 /***/ },
-/* 253 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48277,7 +49672,7 @@ var app =
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48351,7 +49746,7 @@ var app =
 
 
 /***/ },
-/* 254 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48361,7 +49756,7 @@ var app =
 	//! author : Tal Ater : https://github.com/TalAter
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48455,7 +49850,7 @@ var app =
 
 
 /***/ },
-/* 255 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48463,7 +49858,7 @@ var app =
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48584,7 +49979,7 @@ var app =
 
 
 /***/ },
-/* 256 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48592,7 +49987,7 @@ var app =
 	//! author : Bojan Marković : https://github.com/bmarkovic
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48734,7 +50129,7 @@ var app =
 
 
 /***/ },
-/* 257 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48742,7 +50137,7 @@ var app =
 	//! author : Adam Brunner : https://github.com/adambrunner
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48848,7 +50243,7 @@ var app =
 
 
 /***/ },
-/* 258 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48856,7 +50251,7 @@ var app =
 	//! author : Armendarabyan : https://github.com/armendarabyan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48948,7 +50343,7 @@ var app =
 
 
 /***/ },
-/* 259 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48957,7 +50352,7 @@ var app =
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49036,7 +50431,7 @@ var app =
 
 
 /***/ },
-/* 260 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49044,7 +50439,7 @@ var app =
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49168,7 +50563,7 @@ var app =
 
 
 /***/ },
-/* 261 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49177,7 +50572,7 @@ var app =
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49243,7 +50638,7 @@ var app =
 
 
 /***/ },
-/* 262 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49251,7 +50646,7 @@ var app =
 	//! author : LI Long : https://github.com/baryon
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49324,7 +50719,7 @@ var app =
 
 
 /***/ },
-/* 263 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49333,7 +50728,7 @@ var app =
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49412,7 +50807,7 @@ var app =
 
 
 /***/ },
-/* 264 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49420,7 +50815,7 @@ var app =
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49506,7 +50901,7 @@ var app =
 
 
 /***/ },
-/* 265 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49514,7 +50909,7 @@ var app =
 	//! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49598,7 +50993,7 @@ var app =
 
 
 /***/ },
-/* 266 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49606,7 +51001,7 @@ var app =
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49661,7 +51056,7 @@ var app =
 
 
 /***/ },
-/* 267 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49670,7 +51065,7 @@ var app =
 	//! author : Jeeeyul Lee <jeeeyul@gmail.com>
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49731,7 +51126,7 @@ var app =
 
 
 /***/ },
-/* 268 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49739,7 +51134,7 @@ var app =
 	//! author : Chyngyz Arystan uulu : https://github.com/chyngyz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49824,7 +51219,7 @@ var app =
 
 
 /***/ },
-/* 269 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49833,7 +51228,7 @@ var app =
 	//! author : David Raison : https://github.com/kwisatz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49966,7 +51361,7 @@ var app =
 
 
 /***/ },
-/* 270 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49974,7 +51369,7 @@ var app =
 	//! author : Ryan Hart : https://github.com/ryanhart2
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50041,7 +51436,7 @@ var app =
 
 
 /***/ },
-/* 271 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50049,7 +51444,7 @@ var app =
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50163,7 +51558,7 @@ var app =
 
 
 /***/ },
-/* 272 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50172,7 +51567,7 @@ var app =
 	//! author : Jānis Elmeris : https://github.com/JanisE
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50265,7 +51660,7 @@ var app =
 
 
 /***/ },
-/* 273 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50273,7 +51668,7 @@ var app =
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50381,7 +51776,7 @@ var app =
 
 
 /***/ },
-/* 274 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50389,7 +51784,7 @@ var app =
 	//! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50450,7 +51845,7 @@ var app =
 
 
 /***/ },
-/* 275 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50458,7 +51853,7 @@ var app =
 	//! author : Borislav Mickov : https://github.com/B0k0
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50545,7 +51940,7 @@ var app =
 
 
 /***/ },
-/* 276 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50553,7 +51948,7 @@ var app =
 	//! author : Floyd Pink : https://github.com/floydpink
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50631,7 +52026,7 @@ var app =
 
 
 /***/ },
-/* 277 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50640,7 +52035,7 @@ var app =
 	//! author : Vivek Athalye : https://github.com/vnathalye
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50795,7 +52190,7 @@ var app =
 
 
 /***/ },
-/* 278 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50803,7 +52198,7 @@ var app =
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50882,7 +52277,7 @@ var app =
 
 
 /***/ },
-/* 279 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50891,7 +52286,7 @@ var app =
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50970,7 +52365,7 @@ var app =
 
 
 /***/ },
-/* 280 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50980,7 +52375,7 @@ var app =
 	//! author : Tin Aung Lin : https://github.com/thanyawzinmin
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51071,7 +52466,7 @@ var app =
 
 
 /***/ },
-/* 281 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51080,7 +52475,7 @@ var app =
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51139,7 +52534,7 @@ var app =
 
 
 /***/ },
-/* 282 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51147,7 +52542,7 @@ var app =
 	//! author : suvash : https://github.com/suvash
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51267,7 +52662,7 @@ var app =
 
 
 /***/ },
-/* 283 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51276,7 +52671,7 @@ var app =
 	//! author : Jacob Middag : https://github.com/middagj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51358,7 +52753,7 @@ var app =
 
 
 /***/ },
-/* 284 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51367,7 +52762,7 @@ var app =
 	//! author : Jacob Middag : https://github.com/middagj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51449,7 +52844,7 @@ var app =
 
 
 /***/ },
-/* 285 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51457,7 +52852,7 @@ var app =
 	//! author : https://github.com/mechuwind
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51514,7 +52909,7 @@ var app =
 
 
 /***/ },
-/* 286 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51522,7 +52917,7 @@ var app =
 	//! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51643,7 +53038,7 @@ var app =
 
 
 /***/ },
-/* 287 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51651,7 +53046,7 @@ var app =
 	//! author : Rafal Hirsz : https://github.com/evoL
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51753,7 +53148,7 @@ var app =
 
 
 /***/ },
-/* 288 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51761,7 +53156,7 @@ var app =
 	//! author : Jefferson : https://github.com/jalex79
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51823,7 +53218,7 @@ var app =
 
 
 /***/ },
-/* 289 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51831,7 +53226,7 @@ var app =
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51889,7 +53284,7 @@ var app =
 
 
 /***/ },
-/* 290 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51898,7 +53293,7 @@ var app =
 	//! author : Valentin Agachi : https://github.com/avaly
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51969,7 +53364,7 @@ var app =
 
 
 /***/ },
-/* 291 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51979,7 +53374,7 @@ var app =
 	//! author : Коренберг Марк : https://github.com/socketpair
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52157,7 +53552,7 @@ var app =
 
 
 /***/ },
-/* 292 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52165,7 +53560,7 @@ var app =
 	//! authors : Bård Rolstad Henriksen : https://github.com/karamell
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52223,7 +53618,7 @@ var app =
 
 
 /***/ },
-/* 293 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52231,7 +53626,7 @@ var app =
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52299,7 +53694,7 @@ var app =
 
 
 /***/ },
-/* 294 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52308,7 +53703,7 @@ var app =
 	//! based on work of petrbela : https://github.com/petrbela
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52454,7 +53849,7 @@ var app =
 
 
 /***/ },
-/* 295 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52462,7 +53857,7 @@ var app =
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52621,7 +54016,7 @@ var app =
 
 
 /***/ },
-/* 296 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52631,7 +54026,7 @@ var app =
 	//! author : Oerd Cukalla : https://github.com/oerd
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52696,7 +54091,7 @@ var app =
 
 
 /***/ },
-/* 297 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52704,7 +54099,7 @@ var app =
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52811,7 +54206,7 @@ var app =
 
 
 /***/ },
-/* 298 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52819,7 +54214,7 @@ var app =
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52926,7 +54321,7 @@ var app =
 
 
 /***/ },
-/* 299 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52934,7 +54329,7 @@ var app =
 	//! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53020,7 +54415,7 @@ var app =
 
 
 /***/ },
-/* 300 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53028,7 +54423,7 @@ var app =
 	//! author : Jens Alm : https://github.com/ulmus
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53094,7 +54489,7 @@ var app =
 
 
 /***/ },
-/* 301 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53102,7 +54497,7 @@ var app =
 	//! author : Fahad Kassim : https://github.com/fadsel
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53158,7 +54553,7 @@ var app =
 
 
 /***/ },
-/* 302 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53166,7 +54561,7 @@ var app =
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53293,7 +54688,7 @@ var app =
 
 
 /***/ },
-/* 303 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53301,7 +54696,7 @@ var app =
 	//! author : Krishna Chaitanya Thota : https://github.com/kcthota
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53387,7 +54782,7 @@ var app =
 
 
 /***/ },
-/* 304 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53396,7 +54791,7 @@ var app =
 	//! author : Onorio De J. Afonso : https://github.com/marobo
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53460,7 +54855,7 @@ var app =
 
 
 /***/ },
-/* 305 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53468,7 +54863,7 @@ var app =
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53532,7 +54927,7 @@ var app =
 
 
 /***/ },
-/* 306 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53540,7 +54935,7 @@ var app =
 	//! author : Dan Hagman : https://github.com/hagmandan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53599,7 +54994,7 @@ var app =
 
 
 /***/ },
-/* 307 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53607,7 +55002,7 @@ var app =
 	//! author : Dominika Kruk : https://github.com/amaranthrose
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53724,7 +55119,7 @@ var app =
 
 
 /***/ },
-/* 308 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53733,7 +55128,7 @@ var app =
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53819,7 +55214,7 @@ var app =
 
 
 /***/ },
-/* 309 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53828,7 +55223,7 @@ var app =
 	//! author : Iustì Canun
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53915,7 +55310,7 @@ var app =
 
 
 /***/ },
-/* 310 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53923,7 +55318,7 @@ var app =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53978,7 +55373,7 @@ var app =
 
 
 /***/ },
-/* 311 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53986,7 +55381,7 @@ var app =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54041,7 +55436,7 @@ var app =
 
 
 /***/ },
-/* 312 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54050,7 +55445,7 @@ var app =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54192,7 +55587,7 @@ var app =
 
 
 /***/ },
-/* 313 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54200,7 +55595,7 @@ var app =
 	//! author : Sardor Muminov : https://github.com/muminoff
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54255,7 +55650,7 @@ var app =
 
 
 /***/ },
-/* 314 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54263,7 +55658,7 @@ var app =
 	//! author : Bang Nguyen : https://github.com/bangnk
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54339,7 +55734,7 @@ var app =
 
 
 /***/ },
-/* 315 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54347,7 +55742,7 @@ var app =
 	//! author : Andrew Hood : https://github.com/andrewhood125
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54412,7 +55807,72 @@ var app =
 
 
 /***/ },
-/* 316 */
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
+
+	//! moment.js locale configuration
+	//! locale : Yoruba Nigeria [yo]
+	//! author : Atolagbe Abisoye : https://github.com/andela-batolagbe
+
+	;(function (global, factory) {
+	    true ? factory(__webpack_require__(213)) :
+	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+	   factory(global.moment)
+	}(this, (function (moment) { 'use strict';
+
+
+	var yo = moment.defineLocale('yo', {
+	    months : 'Sẹ́rẹ́_Èrèlè_Ẹrẹ̀nà_Ìgbé_Èbibi_Òkùdu_Agẹmo_Ògún_Owewe_Ọ̀wàrà_Bélú_Ọ̀pẹ̀̀'.split('_'),
+	    monthsShort : 'Sẹ́r_Èrl_Ẹrn_Ìgb_Èbi_Òkù_Agẹ_Ògú_Owe_Ọ̀wà_Bél_Ọ̀pẹ̀̀'.split('_'),
+	    weekdays : 'Àìkú_Ajé_Ìsẹ́gun_Ọjọ́rú_Ọjọ́bọ_Ẹtì_Àbámẹ́ta'.split('_'),
+	    weekdaysShort : 'Àìk_Ajé_Ìsẹ́_Ọjr_Ọjb_Ẹtì_Àbá'.split('_'),
+	    weekdaysMin : 'Àì_Aj_Ìs_Ọr_Ọb_Ẹt_Àb'.split('_'),
+	    longDateFormat : {
+	        LT : 'h:mm A',
+	        LTS : 'h:mm:ss A',
+	        L : 'DD/MM/YYYY',
+	        LL : 'D MMMM YYYY',
+	        LLL : 'D MMMM YYYY h:mm A',
+	        LLLL : 'dddd, D MMMM YYYY h:mm A'
+	    },
+	    calendar : {
+	        sameDay : '[Ònì ni] LT',
+	        nextDay : '[Ọ̀la ni] LT',
+	        nextWeek : 'dddd [Ọsẹ̀ tón\'bọ] [ni] LT',
+	        lastDay : '[Àna ni] LT',
+	        lastWeek : 'dddd [Ọsẹ̀ tólọ́] [ni] LT',
+	        sameElse : 'L'
+	    },
+	    relativeTime : {
+	        future : 'ní %s',
+	        past : '%s kọjá',
+	        s : 'ìsẹjú aayá die',
+	        m : 'ìsẹjú kan',
+	        mm : 'ìsẹjú %d',
+	        h : 'wákati kan',
+	        hh : 'wákati %d',
+	        d : 'ọjọ́ kan',
+	        dd : 'ọjọ́ %d',
+	        M : 'osù kan',
+	        MM : 'osù %d',
+	        y : 'ọdún kan',
+	        yy : 'ọdún %d'
+	    },
+	    ordinalParse : /ọjọ́\s\d{1,2}/,
+	    ordinal : 'ọjọ́ %d',
+	    week : {
+	        dow : 1, // Monday is the first day of the week.
+	        doy : 4 // The week that contains Jan 4th is the first week of the year.
+	    }
+	});
+
+	return yo;
+
+	})));
+
+
+/***/ },
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54421,7 +55881,7 @@ var app =
 	//! author : Zeno Zeng : https://github.com/zenozeng
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54544,7 +56004,7 @@ var app =
 
 
 /***/ },
-/* 317 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54554,7 +56014,7 @@ var app =
 	//! author : Konstantin : https://github.com/skfd
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54654,7 +56114,7 @@ var app =
 
 
 /***/ },
-/* 318 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -54663,7 +56123,7 @@ var app =
 	//! author : Chris Lam : https://github.com/hehachris
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(208)) :
+	    true ? factory(__webpack_require__(213)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -54763,7 +56223,7 @@ var app =
 
 
 /***/ },
-/* 319 */
+/* 324 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54803,21 +56263,33 @@ var app =
 			initialize: function(chart, datasetIndex) {
 				Chart.DatasetController.prototype.initialize.call(this, chart, datasetIndex);
 
+				var me = this;
+				var meta = me.getMeta();
+				var dataset = me.getDataset();
+
+				meta.stack = dataset.stack;
 				// Use this to indicate that this is a bar dataset.
-				this.getMeta().bar = true;
+				meta.bar = true;
 			},
 
-			// Get the number of datasets that display bars. We use this to correctly calculate the bar width
-			getBarCount: function() {
+			// Correctly calculate the bar width accounting for stacks and the fact that not all bars are visible
+			getStackCount: function() {
 				var me = this;
-				var barCount = 0;
+				var meta = me.getMeta();
+				var yScale = me.getScaleForId(meta.yAxisID);
+
+				var stacks = [];
 				helpers.each(me.chart.data.datasets, function(dataset, datasetIndex) {
-					var meta = me.chart.getDatasetMeta(datasetIndex);
-					if (meta.bar && me.chart.isDatasetVisible(datasetIndex)) {
-						++barCount;
+					var dsMeta = me.chart.getDatasetMeta(datasetIndex);
+					if (dsMeta.bar && me.chart.isDatasetVisible(datasetIndex) &&
+						(yScale.options.stacked === false ||
+						(yScale.options.stacked === true && stacks.indexOf(dsMeta.stack) === -1) ||
+						(yScale.options.stacked === undefined && (dsMeta.stack === undefined || stacks.indexOf(dsMeta.stack) === -1)))) {
+						stacks.push(dsMeta.stack);
 					}
 				}, me);
-				return barCount;
+
+				return stacks.length;
 			},
 
 			update: function(reset) {
@@ -54842,7 +56314,7 @@ var app =
 				rectangle._datasetIndex = me.index;
 				rectangle._index = index;
 
-				var ruler = me.getRuler(index);
+				var ruler = me.getRuler(index); // The index argument for compatible
 				rectangle._model = {
 					x: me.calculateBarX(index, me.index, ruler),
 					y: reset ? scaleBase : me.calculateBarY(index, me.index),
@@ -54852,6 +56324,7 @@ var app =
 					datasetLabel: dataset.label,
 
 					// Appearance
+					horizontal: false,
 					base: reset ? scaleBase : me.calculateBarBase(me.index, index),
 					width: me.calculateBarWidth(ruler),
 					backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
@@ -54867,9 +56340,11 @@ var app =
 				var me = this;
 				var meta = me.getMeta();
 				var yScale = me.getScaleForId(meta.yAxisID);
-				var base = 0;
+				var base = yScale.getBaseValue();
+				var original = base;
 
-				if (yScale.options.stacked) {
+				if ((yScale.options.stacked === true) ||
+					(yScale.options.stacked === undefined && meta.stack !== undefined)) {
 					var chart = me.chart;
 					var datasets = chart.data.datasets;
 					var value = Number(datasets[datasetIndex].data[index]);
@@ -54877,9 +56352,10 @@ var app =
 					for (var i = 0; i < datasetIndex; i++) {
 						var currentDs = datasets[i];
 						var currentDsMeta = chart.getDatasetMeta(i);
-						if (currentDsMeta.bar && currentDsMeta.yAxisID === yScale.id && chart.isDatasetVisible(i)) {
+						if (currentDsMeta.bar && currentDsMeta.yAxisID === yScale.id && chart.isDatasetVisible(i) &&
+							meta.stack === currentDsMeta.stack) {
 							var currentVal = Number(currentDs.data[index]);
-							base += value < 0 ? Math.min(currentVal, 0) : Math.max(currentVal, 0);
+							base += value < 0 ? Math.min(currentVal, original) : Math.max(currentVal, original);
 						}
 					}
 
@@ -54889,34 +56365,22 @@ var app =
 				return yScale.getBasePixel();
 			},
 
-			getRuler: function(index) {
+			getRuler: function() {
 				var me = this;
 				var meta = me.getMeta();
 				var xScale = me.getScaleForId(meta.xAxisID);
-				var datasetCount = me.getBarCount();
+				var stackCount = me.getStackCount();
 
-				var tickWidth;
-
-				if (xScale.options.type === 'category') {
-					tickWidth = xScale.getPixelForTick(index + 1) - xScale.getPixelForTick(index);
-				} else {
-					// Average width
-					tickWidth = xScale.width / xScale.ticks.length;
-				}
+				var tickWidth = xScale.width / xScale.ticks.length;
 				var categoryWidth = tickWidth * xScale.options.categoryPercentage;
 				var categorySpacing = (tickWidth - (tickWidth * xScale.options.categoryPercentage)) / 2;
-				var fullBarWidth = categoryWidth / datasetCount;
-
-				if (xScale.ticks.length !== me.chart.data.labels.length) {
-					var perc = xScale.ticks.length / me.chart.data.labels.length;
-					fullBarWidth = fullBarWidth * perc;
-				}
+				var fullBarWidth = categoryWidth / stackCount;
 
 				var barWidth = fullBarWidth * xScale.options.barPercentage;
 				var barSpacing = fullBarWidth - (fullBarWidth * xScale.options.barPercentage);
 
 				return {
-					datasetCount: datasetCount,
+					stackCount: stackCount,
 					tickWidth: tickWidth,
 					categoryWidth: categoryWidth,
 					categorySpacing: categorySpacing,
@@ -54927,46 +56391,50 @@ var app =
 			},
 
 			calculateBarWidth: function(ruler) {
-				var xScale = this.getScaleForId(this.getMeta().xAxisID);
+				var me = this;
+				var meta = me.getMeta();
+				var xScale = me.getScaleForId(meta.xAxisID);
 				if (xScale.options.barThickness) {
 					return xScale.options.barThickness;
 				}
-				return xScale.options.stacked ? ruler.categoryWidth : ruler.barWidth;
+				return ruler.barWidth;
 			},
 
-			// Get bar index from the given dataset index accounting for the fact that not all bars are visible
-			getBarIndex: function(datasetIndex) {
-				var barIndex = 0;
-				var meta, j;
+			// Get stack index from the given dataset index accounting for stacks and the fact that not all bars are visible
+			getStackIndex: function(datasetIndex) {
+				var me = this;
+				var meta = me.chart.getDatasetMeta(datasetIndex);
+				var yScale = me.getScaleForId(meta.yAxisID);
+				var dsMeta, j;
+				var stacks = [meta.stack];
 
 				for (j = 0; j < datasetIndex; ++j) {
-					meta = this.chart.getDatasetMeta(j);
-					if (meta.bar && this.chart.isDatasetVisible(j)) {
-						++barIndex;
+					dsMeta = this.chart.getDatasetMeta(j);
+					if (dsMeta.bar && this.chart.isDatasetVisible(j) &&
+						(yScale.options.stacked === false ||
+						(yScale.options.stacked === true && stacks.indexOf(dsMeta.stack) === -1) ||
+						(yScale.options.stacked === undefined && (dsMeta.stack === undefined || stacks.indexOf(dsMeta.stack) === -1)))) {
+						stacks.push(dsMeta.stack);
 					}
 				}
 
-				return barIndex;
+				return stacks.length - 1;
 			},
 
 			calculateBarX: function(index, datasetIndex, ruler) {
 				var me = this;
 				var meta = me.getMeta();
 				var xScale = me.getScaleForId(meta.xAxisID);
-				var barIndex = me.getBarIndex(datasetIndex);
+				var stackIndex = me.getStackIndex(datasetIndex);
 				var leftTick = xScale.getPixelForValue(null, index, datasetIndex, me.chart.isCombo);
 				leftTick -= me.chart.isCombo ? (ruler.tickWidth / 2) : 0;
-
-				if (xScale.options.stacked) {
-					return leftTick + (ruler.categoryWidth / 2) + ruler.categorySpacing;
-				}
 
 				return leftTick +
 					(ruler.barWidth / 2) +
 					ruler.categorySpacing +
-					(ruler.barWidth * barIndex) +
+					(ruler.barWidth * stackIndex) +
 					(ruler.barSpacing / 2) +
-					(ruler.barSpacing * barIndex);
+					(ruler.barSpacing * stackIndex);
 			},
 
 			calculateBarY: function(index, datasetIndex) {
@@ -54975,15 +56443,17 @@ var app =
 				var yScale = me.getScaleForId(meta.yAxisID);
 				var value = Number(me.getDataset().data[index]);
 
-				if (yScale.options.stacked) {
-
-					var sumPos = 0,
-						sumNeg = 0;
+				if (yScale.options.stacked ||
+					(yScale.options.stacked === undefined && meta.stack !== undefined)) {
+					var base = yScale.getBaseValue();
+					var sumPos = base,
+						sumNeg = base;
 
 					for (var i = 0; i < datasetIndex; i++) {
 						var ds = me.chart.data.datasets[i];
 						var dsMeta = me.chart.getDatasetMeta(i);
-						if (dsMeta.bar && dsMeta.yAxisID === yScale.id && me.chart.isDatasetVisible(i)) {
+						if (dsMeta.bar && dsMeta.yAxisID === yScale.id && me.chart.isDatasetVisible(i) &&
+							meta.stack === dsMeta.stack) {
 							var stackedVal = Number(ds.data[index]);
 							if (stackedVal < 0) {
 								sumNeg += stackedVal || 0;
@@ -55009,12 +56479,14 @@ var app =
 				var dataset = me.getDataset();
 				var i, len;
 
+				Chart.canvasHelpers.clipArea(me.chart.chart.ctx, me.chart.chartArea);
 				for (i = 0, len = metaData.length; i < len; ++i) {
 					var d = dataset.data[i];
 					if (d !== null && d !== undefined && !isNaN(d)) {
 						metaData[i].transition(easingDecimal).draw();
 					}
 				}
+				Chart.canvasHelpers.unclipArea(me.chart.chart.ctx);
 			},
 
 			setHoverStyle: function(rectangle) {
@@ -55099,6 +56571,27 @@ var app =
 		};
 
 		Chart.controllers.horizontalBar = Chart.controllers.bar.extend({
+
+			// Correctly calculate the bar width accounting for stacks and the fact that not all bars are visible
+			getStackCount: function() {
+				var me = this;
+				var meta = me.getMeta();
+				var xScale = me.getScaleForId(meta.xAxisID);
+
+				var stacks = [];
+				helpers.each(me.chart.data.datasets, function(dataset, datasetIndex) {
+					var dsMeta = me.chart.getDatasetMeta(datasetIndex);
+					if (dsMeta.bar && me.chart.isDatasetVisible(datasetIndex) &&
+						(xScale.options.stacked === false ||
+						(xScale.options.stacked === true && stacks.indexOf(dsMeta.stack) === -1) ||
+						(xScale.options.stacked === undefined && (dsMeta.stack === undefined || stacks.indexOf(dsMeta.stack) === -1)))) {
+						stacks.push(dsMeta.stack);
+					}
+				}, me);
+
+				return stacks.length;
+			},
+
 			updateElement: function(rectangle, index, reset) {
 				var me = this;
 				var meta = me.getMeta();
@@ -55114,7 +56607,7 @@ var app =
 				rectangle._datasetIndex = me.index;
 				rectangle._index = index;
 
-				var ruler = me.getRuler(index);
+				var ruler = me.getRuler(index); // The index argument for compatible
 				rectangle._model = {
 					x: reset ? scaleBase : me.calculateBarX(index, me.index),
 					y: me.calculateBarY(index, me.index, ruler),
@@ -55124,68 +56617,13 @@ var app =
 					datasetLabel: dataset.label,
 
 					// Appearance
+					horizontal: true,
 					base: reset ? scaleBase : me.calculateBarBase(me.index, index),
 					height: me.calculateBarHeight(ruler),
 					backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
 					borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
 					borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
 					borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
-				};
-				rectangle.draw = function() {
-					var ctx = this._chart.ctx;
-					var vm = this._view;
-
-					var halfHeight = vm.height / 2,
-						topY = vm.y - halfHeight,
-						bottomY = vm.y + halfHeight,
-						right = vm.base - (vm.base - vm.x),
-						halfStroke = vm.borderWidth / 2;
-
-					// Canvas doesn't allow us to stroke inside the width so we can
-					// adjust the sizes to fit if we're setting a stroke on the line
-					if (vm.borderWidth) {
-						topY += halfStroke;
-						bottomY -= halfStroke;
-						right += halfStroke;
-					}
-
-					ctx.beginPath();
-
-					ctx.fillStyle = vm.backgroundColor;
-					ctx.strokeStyle = vm.borderColor;
-					ctx.lineWidth = vm.borderWidth;
-
-					// Corner points, from bottom-left to bottom-right clockwise
-					// | 1 2 |
-					// | 0 3 |
-					var corners = [
-						[vm.base, bottomY],
-						[vm.base, topY],
-						[right, topY],
-						[right, bottomY]
-					];
-
-					// Find first (starting) corner with fallback to 'bottom'
-					var borders = ['bottom', 'left', 'top', 'right'];
-					var startCorner = borders.indexOf(vm.borderSkipped, 0);
-					if (startCorner === -1) {
-						startCorner = 0;
-					}
-
-					function cornerAt(cornerIndex) {
-						return corners[(startCorner + cornerIndex) % 4];
-					}
-
-					// Draw rectangle from 'startCorner'
-					ctx.moveTo.apply(ctx, cornerAt(0));
-					for (var i = 1; i < 4; i++) {
-						ctx.lineTo.apply(ctx, cornerAt(i));
-					}
-
-					ctx.fill();
-					if (vm.borderWidth) {
-						ctx.stroke();
-					}
 				};
 
 				rectangle.pivot();
@@ -55195,9 +56633,11 @@ var app =
 				var me = this;
 				var meta = me.getMeta();
 				var xScale = me.getScaleForId(meta.xAxisID);
-				var base = 0;
+				var base = xScale.getBaseValue();
+				var originalBase = base;
 
-				if (xScale.options.stacked) {
+				if (xScale.options.stacked ||
+					(xScale.options.stacked === undefined && meta.stack !== undefined)) {
 					var chart = me.chart;
 					var datasets = chart.data.datasets;
 					var value = Number(datasets[datasetIndex].data[index]);
@@ -55205,9 +56645,10 @@ var app =
 					for (var i = 0; i < datasetIndex; i++) {
 						var currentDs = datasets[i];
 						var currentDsMeta = chart.getDatasetMeta(i);
-						if (currentDsMeta.bar && currentDsMeta.xAxisID === xScale.id && chart.isDatasetVisible(i)) {
+						if (currentDsMeta.bar && currentDsMeta.xAxisID === xScale.id && chart.isDatasetVisible(i) &&
+							meta.stack === currentDsMeta.stack) {
 							var currentVal = Number(currentDs.data[index]);
-							base += value < 0 ? Math.min(currentVal, 0) : Math.max(currentVal, 0);
+							base += value < 0 ? Math.min(currentVal, originalBase) : Math.max(currentVal, originalBase);
 						}
 					}
 
@@ -55217,33 +56658,22 @@ var app =
 				return xScale.getBasePixel();
 			},
 
-			getRuler: function(index) {
+			getRuler: function() {
 				var me = this;
 				var meta = me.getMeta();
 				var yScale = me.getScaleForId(meta.yAxisID);
-				var datasetCount = me.getBarCount();
+				var stackCount = me.getStackCount();
 
-				var tickHeight;
-				if (yScale.options.type === 'category') {
-					tickHeight = yScale.getPixelForTick(index + 1) - yScale.getPixelForTick(index);
-				} else {
-					// Average width
-					tickHeight = yScale.width / yScale.ticks.length;
-				}
+				var tickHeight = yScale.height / yScale.ticks.length;
 				var categoryHeight = tickHeight * yScale.options.categoryPercentage;
 				var categorySpacing = (tickHeight - (tickHeight * yScale.options.categoryPercentage)) / 2;
-				var fullBarHeight = categoryHeight / datasetCount;
-
-				if (yScale.ticks.length !== me.chart.data.labels.length) {
-					var perc = yScale.ticks.length / me.chart.data.labels.length;
-					fullBarHeight = fullBarHeight * perc;
-				}
+				var fullBarHeight = categoryHeight / stackCount;
 
 				var barHeight = fullBarHeight * yScale.options.barPercentage;
 				var barSpacing = fullBarHeight - (fullBarHeight * yScale.options.barPercentage);
 
 				return {
-					datasetCount: datasetCount,
+					stackCount: stackCount,
 					tickHeight: tickHeight,
 					categoryHeight: categoryHeight,
 					categorySpacing: categorySpacing,
@@ -55255,11 +56685,33 @@ var app =
 
 			calculateBarHeight: function(ruler) {
 				var me = this;
-				var yScale = me.getScaleForId(me.getMeta().yAxisID);
+				var meta = me.getMeta();
+				var yScale = me.getScaleForId(meta.yAxisID);
 				if (yScale.options.barThickness) {
 					return yScale.options.barThickness;
 				}
-				return yScale.options.stacked ? ruler.categoryHeight : ruler.barHeight;
+				return ruler.barHeight;
+			},
+
+			// Get stack index from the given dataset index accounting for stacks and the fact that not all bars are visible
+			getStackIndex: function(datasetIndex) {
+				var me = this;
+				var meta = me.chart.getDatasetMeta(datasetIndex);
+				var xScale = me.getScaleForId(meta.xAxisID);
+				var dsMeta, j;
+				var stacks = [meta.stack];
+
+				for (j = 0; j < datasetIndex; ++j) {
+					dsMeta = this.chart.getDatasetMeta(j);
+					if (dsMeta.bar && this.chart.isDatasetVisible(j) &&
+						(xScale.options.stacked === false ||
+						(xScale.options.stacked === true && stacks.indexOf(dsMeta.stack) === -1) ||
+						(xScale.options.stacked === undefined && (dsMeta.stack === undefined || stacks.indexOf(dsMeta.stack) === -1)))) {
+						stacks.push(dsMeta.stack);
+					}
+				}
+
+				return stacks.length - 1;
 			},
 
 			calculateBarX: function(index, datasetIndex) {
@@ -55268,15 +56720,17 @@ var app =
 				var xScale = me.getScaleForId(meta.xAxisID);
 				var value = Number(me.getDataset().data[index]);
 
-				if (xScale.options.stacked) {
-
-					var sumPos = 0,
-						sumNeg = 0;
+				if (xScale.options.stacked ||
+					(xScale.options.stacked === undefined && meta.stack !== undefined)) {
+					var base = xScale.getBaseValue();
+					var sumPos = base,
+						sumNeg = base;
 
 					for (var i = 0; i < datasetIndex; i++) {
 						var ds = me.chart.data.datasets[i];
 						var dsMeta = me.chart.getDatasetMeta(i);
-						if (dsMeta.bar && dsMeta.xAxisID === xScale.id && me.chart.isDatasetVisible(i)) {
+						if (dsMeta.bar && dsMeta.xAxisID === xScale.id && me.chart.isDatasetVisible(i) &&
+							meta.stack === dsMeta.stack) {
 							var stackedVal = Number(ds.data[index]);
 							if (stackedVal < 0) {
 								sumNeg += stackedVal || 0;
@@ -55299,27 +56753,23 @@ var app =
 				var me = this;
 				var meta = me.getMeta();
 				var yScale = me.getScaleForId(meta.yAxisID);
-				var barIndex = me.getBarIndex(datasetIndex);
+				var stackIndex = me.getStackIndex(datasetIndex);
 				var topTick = yScale.getPixelForValue(null, index, datasetIndex, me.chart.isCombo);
 				topTick -= me.chart.isCombo ? (ruler.tickHeight / 2) : 0;
-
-				if (yScale.options.stacked) {
-					return topTick + (ruler.categoryHeight / 2) + ruler.categorySpacing;
-				}
 
 				return topTick +
 					(ruler.barHeight / 2) +
 					ruler.categorySpacing +
-					(ruler.barHeight * barIndex) +
+					(ruler.barHeight * stackIndex) +
 					(ruler.barSpacing / 2) +
-					(ruler.barSpacing * barIndex);
+					(ruler.barSpacing * stackIndex);
 			}
 		});
 	};
 
 
 /***/ },
-/* 320 */
+/* 325 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55447,7 +56897,7 @@ var app =
 
 
 /***/ },
-/* 321 */
+/* 326 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55756,7 +57206,7 @@ var app =
 
 
 /***/ },
-/* 322 */
+/* 327 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56053,14 +57503,16 @@ var app =
 					points[i].transition(easingDecimal);
 				}
 
+				Chart.canvasHelpers.clipArea(me.chart.chart.ctx, me.chart.chartArea);
 				// Transition and Draw the line
 				if (lineEnabled(me.getDataset(), me.chart.options)) {
 					meta.dataset.transition(easingDecimal).draw();
 				}
+				Chart.canvasHelpers.unclipArea(me.chart.chart.ctx);
 
 				// Draw the points
 				for (i=0, ilen=points.length; i<ilen; ++i) {
-					points[i].draw();
+					points[i].draw(me.chart.chartArea);
 				}
 			},
 
@@ -56099,7 +57551,7 @@ var app =
 
 
 /***/ },
-/* 323 */
+/* 328 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56320,7 +57772,7 @@ var app =
 
 
 /***/ },
-/* 324 */
+/* 329 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56507,7 +57959,7 @@ var app =
 
 
 /***/ },
-/* 325 */
+/* 330 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56524,7 +57976,7 @@ var app =
 
 
 /***/ },
-/* 326 */
+/* 331 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56540,7 +57992,7 @@ var app =
 
 
 /***/ },
-/* 327 */
+/* 332 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56557,7 +58009,7 @@ var app =
 
 
 /***/ },
-/* 328 */
+/* 333 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56574,7 +58026,7 @@ var app =
 
 
 /***/ },
-/* 329 */
+/* 334 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56591,7 +58043,7 @@ var app =
 
 
 /***/ },
-/* 330 */
+/* 335 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56608,7 +58060,7 @@ var app =
 
 
 /***/ },
-/* 331 */
+/* 336 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -56661,7 +58113,7 @@ var app =
 
 
 /***/ },
-/* 332 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56672,9 +58124,9 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var title_content_1 = __webpack_require__(333);
-	var collapsable_title_1 = __webpack_require__(334);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var title_content_1 = __webpack_require__(338);
+	var collapsable_title_1 = __webpack_require__(339);
 	/**
 	 * 手风琴控件。它有多个页面，在每一时刻只展开一个。
 	 */
@@ -56777,7 +58229,7 @@ var app =
 
 
 /***/ },
-/* 333 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56789,7 +58241,7 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var Events = __webpack_require__(8);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 一个用来显示标题和内容的控件。通常用于Accordion和PropertySheets的子控件。
 	 */
@@ -57008,7 +58460,7 @@ var app =
 
 
 /***/ },
-/* 334 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57020,7 +58472,7 @@ var app =
 	var rect_1 = __webpack_require__(3);
 	var point_1 = __webpack_require__(4);
 	var widget_1 = __webpack_require__(21);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 可折叠的标题控件，点击折叠图片或双击时折叠或展开。
 	 * 只能用于TitleContent的titleWidget。
@@ -57094,7 +58546,7 @@ var app =
 
 
 /***/ },
-/* 335 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57105,7 +58557,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var recyclable_creator_1 = __webpack_require__(86);
+	var recyclable_creator_1 = __webpack_require__(91);
 	var Ruler = (function (_super) {
 	    __extends(Ruler, _super);
 	    function Ruler(type) {
@@ -57403,7 +58855,7 @@ var app =
 
 
 /***/ },
-/* 336 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57412,11 +58864,11 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var scroll_view_1 = __webpack_require__(103);
+	var scroll_view_1 = __webpack_require__(108);
 	var widget_factory_1 = __webpack_require__(25);
-	var title_content_1 = __webpack_require__(333);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var collapsable_title_1 = __webpack_require__(334);
+	var title_content_1 = __webpack_require__(338);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var collapsable_title_1 = __webpack_require__(339);
 	/**
 	 * 管理多个页面，每个页面可以展开或折叠。
 	 */
@@ -57514,7 +58966,7 @@ var app =
 
 
 /***/ },
-/* 337 */
+/* 342 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57539,7 +58991,7 @@ var app =
 
 
 /***/ },
-/* 338 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57549,10 +59001,10 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var delegate_command_1 = __webpack_require__(337);
-	var ivalidation_rule_1 = __webpack_require__(163);
-	var iview_model_1 = __webpack_require__(84);
-	var view_model_default_1 = __webpack_require__(160);
+	var delegate_command_1 = __webpack_require__(342);
+	var ivalidation_rule_1 = __webpack_require__(167);
+	var iview_model_1 = __webpack_require__(87);
+	var view_model_default_1 = __webpack_require__(164);
 	/**
 	 * 集合ViewModel。delProp/getProp/setProp操作当前的项。
 	 */
@@ -57950,7 +59402,7 @@ var app =
 
 
 /***/ },
-/* 339 */
+/* 344 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57975,7 +59427,7 @@ var app =
 
 
 /***/ },
-/* 340 */
+/* 345 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57996,7 +59448,7 @@ var app =
 
 
 /***/ },
-/* 341 */
+/* 346 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58016,7 +59468,7 @@ var app =
 
 
 /***/ },
-/* 342 */
+/* 347 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58041,7 +59493,7 @@ var app =
 
 
 /***/ },
-/* 343 */
+/* 348 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58062,7 +59514,7 @@ var app =
 
 
 /***/ },
-/* 344 */
+/* 349 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58102,7 +59554,7 @@ var app =
 
 
 /***/ },
-/* 345 */
+/* 350 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58122,7 +59574,7 @@ var app =
 
 
 /***/ },
-/* 346 */
+/* 351 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58142,7 +59594,7 @@ var app =
 
 
 /***/ },
-/* 347 */
+/* 352 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58161,7 +59613,7 @@ var app =
 
 
 /***/ },
-/* 348 */
+/* 353 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58207,7 +59659,7 @@ var app =
 
 
 /***/ },
-/* 349 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58218,7 +59670,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 表格中的一行。
 	 */
@@ -58257,7 +59709,7 @@ var app =
 
 
 /***/ },
-/* 350 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58268,11 +59720,11 @@ var app =
 	};
 	var rect_1 = __webpack_require__(3);
 	var point_1 = __webpack_require__(4);
-	var range_1 = __webpack_require__(351);
-	var list_view_1 = __webpack_require__(115);
+	var range_1 = __webpack_require__(356);
+	var list_view_1 = __webpack_require__(120);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 表格内容区域
 	 */
@@ -58521,7 +59973,7 @@ var app =
 
 
 /***/ },
-/* 351 */
+/* 356 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58548,7 +60000,7 @@ var app =
 
 
 /***/ },
-/* 352 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58558,8 +60010,8 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_factory_1 = __webpack_require__(25);
-	var passive_scrollable_group_1 = __webpack_require__(353);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var passive_scrollable_group_1 = __webpack_require__(358);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 表格左边的行序数。
 	 */
@@ -58581,7 +60033,7 @@ var app =
 
 
 /***/ },
-/* 353 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58718,7 +60170,7 @@ var app =
 
 
 /***/ },
-/* 354 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58728,8 +60180,8 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_factory_1 = __webpack_require__(25);
-	var passive_scrollable_group_1 = __webpack_require__(353);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var passive_scrollable_group_1 = __webpack_require__(358);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 表格头
 	 */
@@ -58751,7 +60203,7 @@ var app =
 
 
 /***/ },
-/* 355 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58763,13 +60215,13 @@ var app =
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
-	var table_row_1 = __webpack_require__(349);
-	var table_index_1 = __webpack_require__(352);
-	var table_client_1 = __webpack_require__(350);
-	var table_header_1 = __webpack_require__(354);
-	var table_index_item_1 = __webpack_require__(356);
-	var table_header_item_1 = __webpack_require__(357);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
+	var table_row_1 = __webpack_require__(354);
+	var table_index_1 = __webpack_require__(357);
+	var table_client_1 = __webpack_require__(355);
+	var table_header_1 = __webpack_require__(359);
+	var table_index_item_1 = __webpack_require__(361);
+	var table_header_item_1 = __webpack_require__(362);
 	/**
 	 * 描述表格中某列的信息。
 	 */
@@ -59059,7 +60511,7 @@ var app =
 
 
 /***/ },
-/* 356 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59070,7 +60522,7 @@ var app =
 	};
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 表格左边的行序数项。
 	 */
@@ -59092,7 +60544,7 @@ var app =
 
 
 /***/ },
-/* 357 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59105,7 +60557,7 @@ var app =
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
-	var widget_recyclable_creator_1 = __webpack_require__(85);
+	var widget_recyclable_creator_1 = __webpack_require__(90);
 	/**
 	 * 表格头的一项。
 	 */
@@ -59195,7 +60647,7 @@ var app =
 
 
 /***/ },
-/* 358 */
+/* 363 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59216,7 +60668,7 @@ var app =
 
 
 /***/ },
-/* 359 */
+/* 364 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59237,7 +60689,7 @@ var app =
 
 
 /***/ },
-/* 360 */
+/* 365 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59324,7 +60776,7 @@ var app =
 
 
 /***/ },
-/* 361 */
+/* 366 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59363,7 +60815,7 @@ var app =
 
 
 /***/ },
-/* 362 */
+/* 367 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59387,7 +60839,7 @@ var app =
 
 
 /***/ },
-/* 363 */
+/* 368 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59416,7 +60868,7 @@ var app =
 
 
 /***/ },
-/* 364 */
+/* 369 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59448,7 +60900,25 @@ var app =
 
 
 /***/ },
-/* 365 */
+/* 370 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var MainModel = (function () {
+	    function MainModel() {
+	        this.title = "Hello QTK";
+	    }
+	    MainModel.create = function () {
+	        return new MainModel();
+	    };
+	    return MainModel;
+	}());
+	exports.MainModel = MainModel;
+	;
+	//# sourceMappingURL=main-model.js.map
+
+/***/ },
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59458,24 +60928,21 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var qtk_1 = __webpack_require__(2);
-	var main_menu_bar_1 = __webpack_require__(366);
-	var main_tool_bar_1 = __webpack_require__(367);
 	var qtk_2 = __webpack_require__(2);
 	var MainWindow = (function (_super) {
 	    __extends(MainWindow, _super);
 	    function MainWindow() {
-	        _super.apply(this, arguments);
+	        return _super.apply(this, arguments) || this;
 	    }
-	    MainWindow.prototype.onCreated = function () {
-	        _super.prototype.onCreated.call(this);
-	        var viewModel = this.viewModel;
-	        this.childrenLayouter = qtk_2.DockLayouter.create();
-	        this.addChild(main_menu_bar_1.MainMenuBar.create({ viewModel: viewModel,
-	            layoutParam: qtk_2.DockLayouterParam.create({ position: qtk_1.Direction.TOP, size: 30 })
-	        }));
-	        this.addChild(main_tool_bar_1.MainToolBar.create({ viewModel: viewModel,
-	            layoutParam: qtk_2.DockLayouterParam.create({ position: qtk_1.Direction.TOP, size: 30 })
-	        }));
+	    MainWindow.prototype.onInit = function () {
+	        _super.prototype.onInit.call(this);
+	        this.childrenLayouter = qtk_1.SimpleLayouter.create();
+	        var label = qtk_2.Label.create({
+	            dataBindingRule: "title",
+	            layoutParam: qtk_1.SimpleLayouterParam.create({ x: "center", y: "middle", w: "100", h: "90" })
+	        });
+	        this.addChild(label);
+	        this.bindData(this.viewModel);
 	    };
 	    MainWindow.create = function (options) {
 	        var win = new MainWindow();
@@ -59484,671 +60951,44 @@ var app =
 	        return win;
 	    };
 	    return MainWindow;
-	}(qtk_2.WindowNormal));
+	}(qtk_1.WindowNormal));
 	exports.MainWindow = MainWindow;
 	;
 	//# sourceMappingURL=main-window.js.map
-
-/***/ },
-/* 366 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var qtk_1 = __webpack_require__(2);
-	var MainMenuBar = (function (_super) {
-	    __extends(MainMenuBar, _super);
-	    function MainMenuBar() {
-	        _super.apply(this, arguments);
-	    }
-	    MainMenuBar.prototype.onFileMenu = function (menu) {
-	        menu.w = 128;
-	        menu.addItem("New", null).set({ dataBindingRule: { click: { command: "new" } } });
-	        menu.addItem("Open", null).set({ dataBindingRule: { click: { command: "open" } } });
-	        menu.addItem("Save", null).set({ dataBindingRule: { click: { command: "save" } } });
-	        menu.addItem("Save As", null).set({ dataBindingRule: { click: { command: "save-as" } } });
-	        menu.addItem("Remove", null).set({ dataBindingRule: { click: { command: "remove" } } });
-	        menu.addSpace();
-	        menu.addItem("Export", null).set({ dataBindingRule: { click: { command: "export" } } });
-	        menu.bindData(this.viewModel);
-	    };
-	    MainMenuBar.prototype.onHelpMenu = function (menu) {
-	        menu.w = 128;
-	        menu.addItem("Content", null).set({ dataBindingRule: { click: { command: "content" } } });
-	        menu.addItem("About", null).set({ dataBindingRule: { click: { command: "about" } } });
-	        menu.bindData(this.viewModel);
-	    };
-	    MainMenuBar.prototype.onCreated = function () {
-	        _super.prototype.onCreated.call(this);
-	        this.addLogo("/www/assets/theme/default/images/@density/logo.png");
-	        this.addItem("File", this.onFileMenu.bind(this));
-	        this.addItem("Help", this.onHelpMenu.bind(this));
-	    };
-	    MainMenuBar.create = function (options) {
-	        var menuBar = new MainMenuBar();
-	        menuBar.reset("menu-bar", options);
-	        return menuBar;
-	    };
-	    return MainMenuBar;
-	}(qtk_1.MenuBar));
-	exports.MainMenuBar = MainMenuBar;
-	;
-	//# sourceMappingURL=main-menu-bar.js.map
-
-/***/ },
-/* 367 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var qtk_1 = __webpack_require__(2);
-	var MainToolBar = (function (_super) {
-	    __extends(MainToolBar, _super);
-	    function MainToolBar() {
-	        _super.apply(this, arguments);
-	    }
-	    MainToolBar.prototype.addButton = function (command, tips) {
-	        var btn = qtk_1.Button.create({
-	            tips: tips,
-	            styleType: "toolbar." + command,
-	            dataBindingRule: { click: { command: command } },
-	            layoutParam: qtk_1.LinearLayouterParam.create({ w: 40 }) });
-	        this.addChild(btn);
-	    };
-	    MainToolBar.prototype.onCreated = function () {
-	        _super.prototype.onCreated.call(this);
-	        this.childrenLayouter = qtk_1.LinearLayouter.createH();
-	        this.addButton("new", "Create New File");
-	        this.addButton("save", "Save File");
-	        this.addButton("open", "Open File");
-	        this.bindData(this.viewModel);
-	    };
-	    MainToolBar.create = function (options) {
-	        var toolBar = new MainToolBar();
-	        toolBar.reset("tool-bar", options);
-	        return toolBar;
-	    };
-	    return MainToolBar;
-	}(qtk_1.Group));
-	exports.MainToolBar = MainToolBar;
-	;
-	//# sourceMappingURL=main-tool-bar.js.map
-
-/***/ },
-/* 368 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var qtk_1 = __webpack_require__(2);
-	var command_new_1 = __webpack_require__(369);
-	var command_save_1 = __webpack_require__(370);
-	var command_open_1 = __webpack_require__(371);
-	var command_remove_1 = __webpack_require__(372);
-	var command_download_1 = __webpack_require__(373);
-	var command_content_1 = __webpack_require__(375);
-	var command_about_1 = __webpack_require__(376);
-	var StudioViewModel = (function (_super) {
-	    __extends(StudioViewModel, _super);
-	    function StudioViewModel(data) {
-	        _super.call(this, data);
-	        this.initCommands();
-	    }
-	    StudioViewModel.prototype.initCommands = function () {
-	        this.registerCommand("new", command_new_1.CommandNew.create(this));
-	        this.registerCommand("open", command_open_1.CommandOpen.create(this));
-	        this.registerCommand("save", command_save_1.CommandSave.create(this, true));
-	        this.registerCommand("remove", command_remove_1.CommandRemove.create(this));
-	        this.registerCommand("download", command_download_1.CommandDownload.create(this));
-	        this.registerCommand("content", command_content_1.CommandContent.create(this, "https://github.com/qtoolkit/qtk"));
-	        this.registerCommand("about", command_about_1.CommandAbout.create(this));
-	    };
-	    StudioViewModel.prototype.removeDoc = function (fileName) {
-	    };
-	    StudioViewModel.prototype.saveDoc = function (fileName) {
-	    };
-	    StudioViewModel.prototype.openDoc = function (fileName) {
-	    };
-	    StudioViewModel.prototype.getDocList = function () {
-	        return [];
-	    };
-	    StudioViewModel.create = function (data) {
-	        return new StudioViewModel(data);
-	    };
-	    return StudioViewModel;
-	}(qtk_1.ViewModel));
-	exports.StudioViewModel = StudioViewModel;
-	//# sourceMappingURL=studio-view-model.js.map
-
-/***/ },
-/* 369 */
-/***/ function(module, exports) {
-
-	"use strict";
-	var CommandNew = (function () {
-	    function CommandNew(viewModel) {
-	        this._viewModel = viewModel;
-	    }
-	    CommandNew.prototype.canExecute = function () {
-	        return true;
-	    };
-	    CommandNew.prototype.execute = function (args) {
-	        return true;
-	    };
-	    CommandNew.create = function (viewModel) {
-	        return new CommandNew(viewModel);
-	    };
-	    return CommandNew;
-	}());
-	exports.CommandNew = CommandNew;
-	;
-	//# sourceMappingURL=command-new.js.map
-
-/***/ },
-/* 370 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var qtk_1 = __webpack_require__(2);
-	var CommandSave = (function () {
-	    function CommandSave(viewModel, isSaveAs) {
-	        this._isSaveAs = isSaveAs;
-	        this._viewModel = viewModel;
-	        this._inputInfo = qtk_1.InputInfo.create("Please input file name:", null);
-	    }
-	    CommandSave.prototype.canExecute = function () {
-	        return false;
-	    };
-	    CommandSave.prototype.execute = function (args) {
-	        var viewModel = this._viewModel;
-	        var fileName = null;
-	        if (!fileName || this._isSaveAs) {
-	            qtk_1.InteractionRequest.input(this._inputInfo, function (ret) {
-	            });
-	        }
-	        else {
-	            viewModel.saveDoc(fileName);
-	            qtk_1.InteractionRequest.toast(qtk_1.ToastInfo.create("Save done."));
-	        }
-	        return true;
-	    };
-	    CommandSave.create = function (viewModel, isSaveAs) {
-	        return new CommandSave(viewModel, isSaveAs);
-	    };
-	    return CommandSave;
-	}());
-	exports.CommandSave = CommandSave;
-	;
-	//# sourceMappingURL=command-save.js.map
-
-/***/ },
-/* 371 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var qtk_1 = __webpack_require__(2);
-	var CommandOpen = (function () {
-	    function CommandOpen(viewModel) {
-	        this._viewModel = viewModel;
-	    }
-	    CommandOpen.prototype.canExecute = function () {
-	        var viewModel = this._viewModel;
-	        return true;
-	    };
-	    CommandOpen.prototype.execute = function (args) {
-	        var viewModel = this._viewModel;
-	        var docList = viewModel.getDocList();
-	        var choiceInfo = qtk_1.ChoiceInfo.create("Open...", false, 300, 300);
-	        docList.forEach(function (item) {
-	            choiceInfo.addOption(item);
-	        });
-	        qtk_1.InteractionRequest.choice(choiceInfo, function (ret) {
-	            var arr = ret.value;
-	            if (arr && arr.length) {
-	                var fileName = arr[0].text;
-	                viewModel.openDoc(fileName);
-	            }
-	        });
-	        return true;
-	    };
-	    CommandOpen.create = function (viewModel) {
-	        return new CommandOpen(viewModel);
-	    };
-	    return CommandOpen;
-	}());
-	exports.CommandOpen = CommandOpen;
-	;
-	//# sourceMappingURL=command-open.js.map
 
 /***/ },
 /* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
 	var qtk_1 = __webpack_require__(2);
-	var CommandRemove = (function () {
-	    function CommandRemove(viewModel) {
-	        this._viewModel = viewModel;
+	var MainViewModel = (function (_super) {
+	    __extends(MainViewModel, _super);
+	    function MainViewModel(data) {
+	        var _this = _super.call(this, data) || this;
+	        _this.initFilters();
+	        _this.initCommands();
+	        _this.initConverters();
+	        return _this;
 	    }
-	    CommandRemove.prototype.canExecute = function () {
-	        var viewModel = this._viewModel;
-	        var docList = viewModel.getDocList();
-	        return docList && docList.length > 0;
+	    MainViewModel.prototype.initFilters = function () {
 	    };
-	    CommandRemove.prototype.confirmRemove = function (items) {
-	        var viewModel = this._viewModel;
-	        var fileNames = items.map(function (item) {
-	            return item.text;
-	        }).join(",");
-	        var info = qtk_1.ConfirmationInfo.create("Are you sure to remove " + fileNames + " ?", 300);
-	        qtk_1.InteractionRequest.confirm(info, function (ret) {
-	            if (info.confirmed) {
-	                items.forEach(function (item) {
-	                    viewModel.removeDoc(item.text);
-	                });
-	            }
-	        });
+	    MainViewModel.prototype.initCommands = function () {
 	    };
-	    CommandRemove.prototype.execute = function (args) {
-	        var _this = this;
-	        var viewModel = this._viewModel;
-	        var docList = viewModel.getDocList();
-	        var choiceInfo = qtk_1.ChoiceInfo.create("Remove...", true, 300, 300);
-	        docList.forEach(function (item) {
-	            choiceInfo.addOption(item);
-	        });
-	        qtk_1.InteractionRequest.choice(choiceInfo, function (ret) {
-	            var arr = ret.value;
-	            if (arr && arr.length) {
-	                _this.confirmRemove(arr);
-	            }
-	        });
-	        return true;
+	    MainViewModel.prototype.initConverters = function () {
 	    };
-	    CommandRemove.create = function (viewModel) {
-	        return new CommandRemove(viewModel);
+	    MainViewModel.create = function (data) {
+	        return new MainViewModel(data);
 	    };
-	    return CommandRemove;
-	}());
-	exports.CommandRemove = CommandRemove;
-	;
-	//# sourceMappingURL=command-remove.js.map
-
-/***/ },
-/* 373 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var saveAs = __webpack_require__(374).default;
-	var CommandDownload = (function () {
-	    function CommandDownload(viewModel) {
-	        this._viewModel = viewModel;
-	    }
-	    CommandDownload.prototype.canExecute = function () {
-	        return true;
-	    };
-	    CommandDownload.prototype.execute = function (args) {
-	        var viewModel = this._viewModel;
-	        //	let blob = new Blob([result], { type: 'text/plain;charset=utf-8' })
-	        //	saveAs(blob, 'dialog.json')
-	        return true;
-	    };
-	    CommandDownload.create = function (viewModel) {
-	        return new CommandDownload(viewModel);
-	    };
-	    return CommandDownload;
-	}());
-	exports.CommandDownload = CommandDownload;
-	;
-	//# sourceMappingURL=command-download.js.map
-
-/***/ },
-/* 374 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	/* FileSaver.js
-	 * A saveAs() FileSaver implementation.
-	 *
-	 * By Eli Grey, http://eligrey.com
-	 * ES6ified by Cole Chamberlain, https://github.com/cchamberlain
-	 *
-	 * License: MIT
-	 *   See https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md
-	 */
-
-	/*global self */
-	/*jslint bitwise: true, indent: 4, laxbreak: true, laxcomma: true, smarttabs: true, plusplus: true */
-
-	/*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
-
-	var saveAs = window.saveAs || function (view) {
-	  // IE <10 is explicitly unsupported
-	  if (typeof navigator !== 'undefined' && /MSIE [1-9]\./.test(navigator.userAgent)) return;
-	  var doc = view.document;
-	  // only get URL when necessary in case Blob.js hasn't overridden it yet
-	  var get_URL = function get_URL() {
-	    return view.URL || view.webkitURL || view;
-	  };
-	  var save_link = doc.createElementNS('http://www.w3.org/1999/xhtml', 'a');
-	  var can_use_save_link = 'download' in save_link;
-	  var click = function click(node) {
-	    var event = new MouseEvent('click');
-	    node.dispatchEvent(event);
-	  };
-	  var is_safari = /Version\/[\d\.]+.*Safari/.test(navigator.userAgent);
-	  var webkit_req_fs = view.webkitRequestFileSystem;
-	  var req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem;
-	  var throw_outside = function throw_outside(ex) {
-	    (view.setImmediate || view.setTimeout)(function () {
-	      throw ex;
-	    }, 0);
-	  };
-	  var force_saveable_type = 'application/octet-stream';
-	  var fs_min_size = 0;
-	  // the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
-	  var arbitrary_revoke_timeout = 1000 * 40; // in ms
-	  var revoke = function revoke(file) {
-	    var revoker = function revoker() {
-	      if (typeof file === 'string') // file is an object URL
-	        get_URL().revokeObjectURL(file);else // file is a File
-	        file.remove();
-	    };
-	    /* // Take note W3C:
-	    var
-	      uri = typeof file === "string" ? file : file.toURL()
-	    , revoker = function(evt) {
-	      // idealy DownloadFinishedEvent.data would be the URL requested
-	      if (evt.data === uri) {
-	        if (typeof file === "string") { // file is an object URL
-	          get_URL().revokeObjectURL(file);
-	        } else { // file is a File
-	          file.remove();
-	        }
-	      }
-	    }
-	    ;
-	    view.addEventListener("downloadfinished", revoker);
-	    */
-	    setTimeout(revoker, arbitrary_revoke_timeout);
-	  };
-	  var dispatch = function dispatch(filesaver, event_types, event) {
-	    event_types = [].concat(event_types);
-	    var i = event_types.length;
-	    while (i--) {
-	      var listener = filesaver['on' + event_types[i]];
-	      if (typeof listener === 'function') {
-	        try {
-	          listener.call(filesaver, event || filesaver);
-	        } catch (ex) {
-	          throw_outside(ex);
-	        }
-	      }
-	    }
-	  };
-	  var auto_bom = function auto_bom(blob) {
-	    // prepend BOM for UTF-8 XML and text/* types (including HTML)
-	    if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) return new Blob(['﻿', blob], { type: blob.type });
-	    return blob;
-	  };
-
-	  var FileSaver = function FileSaver(blob, name, no_auto_bom) {
-	    _classCallCheck(this, FileSaver);
-
-	    if (!no_auto_bom) blob = auto_bom(blob);
-	    // First try a.download, then web filesystem, then object URLs
-	    var filesaver = this,
-	        type = blob.type,
-	        blob_changed = false,
-	        object_url,
-	        target_view,
-	        dispatch_all = function dispatch_all() {
-	      dispatch(filesaver, 'writestart progress write writeend'.split(' '));
-	    }
-	    // on any filesys errors revert to saving with object URLs
-	    ,
-	        fs_error = function fs_error() {
-	      if (target_view && is_safari && typeof FileReader !== 'undefined') {
-	        // Safari doesn't allow downloading of blob urls
-	        var reader = new FileReader();
-	        reader.onloadend = function () {
-	          var base64Data = reader.result;
-	          target_view.location.href = 'data:attachment/file' + base64Data.slice(base64Data.search(/[,;]/));
-	          filesaver.readyState = filesaver.DONE;
-	          dispatch_all();
-	        };
-	        reader.readAsDataURL(blob);
-	        filesaver.readyState = filesaver.INIT;
-	        return;
-	      }
-	      // don't create more object URLs than needed
-	      if (blob_changed || !object_url) {
-	        object_url = get_URL().createObjectURL(blob);
-	      }
-	      if (target_view) {
-	        target_view.location.href = object_url;
-	      } else {
-	        var new_tab = view.open(object_url, '_blank');
-	        if (new_tab === undefined && is_safari) {
-	          //Apple do not allow window.open, see http://bit.ly/1kZffRI
-	          view.location.href = object_url;
-	        }
-	      }
-	      filesaver.readyState = filesaver.DONE;
-	      dispatch_all();
-	      revoke(object_url);
-	    },
-	        abortable = function abortable(func) {
-	      return function () {
-	        if (filesaver.readyState !== filesaver.DONE) {
-	          return func.apply(this, arguments);
-	        }
-	      };
-	    },
-	        create_if_not_found = { create: true, exclusive: false },
-	        slice;
-
-	    filesaver.readyState = filesaver.INIT;
-	    if (!name) {
-	      name = 'download';
-	    }
-	    if (can_use_save_link) {
-	      object_url = get_URL().createObjectURL(blob);
-	      setTimeout(function () {
-	        save_link.href = object_url;
-	        save_link.download = name;
-	        click(save_link);
-	        dispatch_all();
-	        revoke(object_url);
-	        filesaver.readyState = filesaver.DONE;
-	      });
-	      return;
-	    }
-	    // Object and web filesystem URLs have a problem saving in Google Chrome when
-	    // viewed in a tab, so I force save with application/octet-stream
-	    // http://code.google.com/p/chromium/issues/detail?id=91158
-	    // Update: Google errantly closed 91158, I submitted it again:
-	    // https://code.google.com/p/chromium/issues/detail?id=389642
-	    if (view.chrome && type && type !== force_saveable_type) {
-	      slice = blob.slice || blob.webkitSlice;
-	      blob = slice.call(blob, 0, blob.size, force_saveable_type);
-	      blob_changed = true;
-	    }
-	    // Since I can't be sure that the guessed media type will trigger a download
-	    // in WebKit, I append .download to the filename.
-	    // https://bugs.webkit.org/show_bug.cgi?id=65440
-	    if (webkit_req_fs && name !== 'download') {
-	      name += '.download';
-	    }
-	    if (type === force_saveable_type || webkit_req_fs) {
-	      target_view = view;
-	    }
-	    if (!req_fs) {
-	      fs_error();
-	      return;
-	    }
-	    fs_min_size += blob.size;
-	    req_fs(view.TEMPORARY, fs_min_size, abortable(function (fs) {
-	      fs.root.getDirectory('saved', create_if_not_found, abortable(function (dir) {
-	        var save = function save() {
-	          dir.getFile(name, create_if_not_found, abortable(function (file) {
-	            file.createWriter(abortable(function (writer) {
-	              writer.onwriteend = function (event) {
-	                target_view.location.href = file.toURL();
-	                filesaver.readyState = filesaver.DONE;
-	                dispatch(filesaver, 'writeend', event);
-	                revoke(file);
-	              };
-	              writer.onerror = function () {
-	                var error = writer.error;
-	                if (error.code !== error.ABORT_ERR) {
-	                  fs_error();
-	                }
-	              };
-	              'writestart progress write abort'.split(' ').forEach(function (event) {
-	                writer['on' + event] = filesaver['on' + event];
-	              });
-	              writer.write(blob);
-	              filesaver.abort = function () {
-	                writer.abort();
-	                filesaver.readyState = filesaver.DONE;
-	              };
-	              filesaver.readyState = filesaver.WRITING;
-	            }), fs_error);
-	          }), fs_error);
-	        };
-	        dir.getFile(name, { create: false }, abortable(function (file) {
-	          // delete file if it already exists
-	          file.remove();
-	          save();
-	        }), abortable(function (ex) {
-	          if (ex.code === ex.NOT_FOUND_ERR) {
-	            save();
-	          } else {
-	            fs_error();
-	          }
-	        }));
-	      }), fs_error);
-	    }), fs_error);
-	  };
-
-	  var FS_proto = FileSaver.prototype;
-	  var saveAs = function saveAs(blob, name, no_auto_bom) {
-	    return new FileSaver(blob, name, no_auto_bom);
-	  };
-
-	  // IE 10+ (native saveAs)
-	  if (typeof navigator !== 'undefined' && navigator.msSaveOrOpenBlob) {
-	    return function (blob, name, no_auto_bom) {
-	      if (!no_auto_bom) blob = auto_bom(blob);
-	      return navigator.msSaveOrOpenBlob(blob, name || 'download');
-	    };
-	  }
-
-	  FS_proto.abort = function () {
-	    var filesaver = this;
-	    filesaver.readyState = filesaver.DONE;
-	    dispatch(filesaver, 'abort');
-	  };
-	  FS_proto.readyState = FS_proto.INIT = 0;
-	  FS_proto.WRITING = 1;
-	  FS_proto.DONE = 2;
-
-	  FS_proto.error = FS_proto.onwritestart = FS_proto.onprogress = FS_proto.onwrite = FS_proto.onabort = FS_proto.onerror = FS_proto.onwriteend = null;
-
-	  return saveAs;
-	}(typeof self !== 'undefined' && self || typeof window !== 'undefined' && window || undefined.content);
-	// `self` is undefined in Firefox for Android content script context
-	// while `this` is nsIContentFrameMessageManager
-	// with an attribute `content` that corresponds to the window
-
-	exports.default = saveAs;
-
-/***/ },
-/* 375 */
-/***/ function(module, exports) {
-
-	"use strict";
-	var CommandContent = (function () {
-	    function CommandContent(viewModel, helpURL) {
-	        this._viewModel = viewModel;
-	        this._helpURL = helpURL;
-	    }
-	    CommandContent.prototype.canExecute = function () {
-	        return true;
-	    };
-	    CommandContent.prototype.execute = function (args) {
-	        console.log("CommandContent");
-	        window.open(this._helpURL, "_blank");
-	        return true;
-	    };
-	    CommandContent.create = function (viewModel, helpURL) {
-	        return new CommandContent(viewModel, helpURL);
-	    };
-	    return CommandContent;
-	}());
-	exports.CommandContent = CommandContent;
-	;
-	//# sourceMappingURL=command-content.js.map
-
-/***/ },
-/* 376 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var qtk_1 = __webpack_require__(2);
-	var CommandAbout = (function () {
-	    function CommandAbout(viewModel, propsInfo) {
-	        this._viewModel = viewModel;
-	        this._propsInfo = propsInfo;
-	    }
-	    CommandAbout.prototype.canExecute = function () {
-	        return true;
-	    };
-	    CommandAbout.prototype.execute = function (args) {
-	        qtk_1.InteractionRequest.props(this._propsInfo, function (ret) {
-	        });
-	        return true;
-	    };
-	    CommandAbout.create = function (viewModel) {
-	        var data = {
-	            author: "Li XianJing",
-	            email: "xianjimli@hotmail.com",
-	            home: "https://github.com/qtoolkit/qtk",
-	        };
-	        var descJson = [
-	            { type: "text-readonly", name: "Author", path: "author" },
-	            { type: "link", name: "Email", path: "email" },
-	            { type: "link", name: "Home", path: "home" },
-	        ];
-	        var pagePropsDesc = qtk_1.PagePropsDesc.create("About", descJson);
-	        var propsInfo = qtk_1.PropsInfo.create(pagePropsDesc, data, false, 300);
-	        return new CommandAbout(viewModel, propsInfo);
-	    };
-	    return CommandAbout;
-	}());
-	exports.CommandAbout = CommandAbout;
-	;
-	//# sourceMappingURL=command-about.js.map
+	    return MainViewModel;
+	}(qtk_1.ViewModel));
+	exports.MainViewModel = MainViewModel;
+	//# sourceMappingURL=main-view-model.js.map
 
 /***/ }
 /******/ ]);

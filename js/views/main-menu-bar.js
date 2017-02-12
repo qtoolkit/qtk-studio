@@ -4,34 +4,67 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var main_cmds_desc_1 = require("./main-cmds-desc");
 var qtk_1 = require("qtk");
+var qtk_2 = require("qtk");
 var MainMenuBar = (function (_super) {
     __extends(MainMenuBar, _super);
     function MainMenuBar() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    MainMenuBar.prototype.onFileMenu = function (menu) {
-        menu.w = 128;
-        menu.addItem("New", null).set({ dataBindingRule: { click: { command: "new" } } });
-        menu.addItem("Open", null).set({ dataBindingRule: { click: { command: "open" } } });
-        menu.addItem("Save", null).set({ dataBindingRule: { click: { command: "save" } } });
-        menu.addItem("Save As", null).set({ dataBindingRule: { click: { command: "save-as" } } });
-        menu.addItem("Remove", null).set({ dataBindingRule: { click: { command: "remove" } } });
-        menu.addSpace();
-        menu.addItem("Export", null).set({ dataBindingRule: { click: { command: "export" } } });
-        menu.bindData(this.viewModel);
+    MainMenuBar.prototype.addShortcut = function (key, command) {
+        var shortcut = key.toLowerCase();
+        var viewModel = this.viewModel;
+        this.win.on(qtk_1.Events.SHORTCUT, function (evt) {
+            if (evt.keys === shortcut) {
+                viewModel.execCommand(command, null);
+            }
+        });
     };
-    MainMenuBar.prototype.onHelpMenu = function (menu) {
-        menu.w = 128;
-        menu.addItem("Content", null).set({ dataBindingRule: { click: { command: "content" } } });
-        menu.addItem("About", null).set({ dataBindingRule: { click: { command: "about" } } });
-        menu.bindData(this.viewModel);
+    MainMenuBar.prototype.addMenuItem = function (menu, text, key, command) {
+        var item = null;
+        if (!text) {
+            item = menu.addSpace();
+        }
+        else {
+            item = menu.addItem(text, null, null, key);
+            item.set({ dataBindingRule: { click: { command: command } } });
+        }
+        return item;
     };
-    MainMenuBar.prototype.onCreated = function () {
-        _super.prototype.onCreated.call(this);
-        this.addLogo("/www/assets/theme/default/images/@density/logo.png");
-        this.addItem("File", this.onFileMenu.bind(this));
-        this.addItem("Help", this.onHelpMenu.bind(this));
+    MainMenuBar.prototype.addShortcuts = function (cmdsDesc) {
+        for (var category in cmdsDesc) {
+            for (var cmd in cmdsDesc[category]) {
+                var desc = cmdsDesc[category][cmd];
+                if (desc.shortcut) {
+                    this.addShortcut(desc.shortcut, desc.command);
+                }
+            }
+        }
+    };
+    MainMenuBar.prototype.createMenu = function (cmdsDesc) {
+        var bar = this;
+        var viewModel = this.viewModel;
+        this.addLogo("https://qtoolkit.github.io/demos/assets/icons/@density/apple.png");
+        function addItem(key, descs) {
+            var w = key.length > 5 ? 70 : 50;
+            bar.addItem(key, function (menu) {
+                menu.w = 200;
+                for (var cmd in descs) {
+                    var desc = descs[cmd];
+                    bar.addMenuItem(menu, desc.text, desc.shortcut, desc.command);
+                }
+                menu.bindData(viewModel);
+            }, w);
+        }
+        for (var key in cmdsDesc) {
+            addItem(key, cmdsDesc[key]);
+        }
+    };
+    MainMenuBar.prototype.onInit = function () {
+        _super.prototype.onInit.call(this);
+        this.createMenu(main_cmds_desc_1.MainCmdsDesc);
+        this.addShortcuts(main_cmds_desc_1.MainCmdsDesc);
     };
     MainMenuBar.create = function (options) {
         var menuBar = new MainMenuBar();
@@ -39,7 +72,7 @@ var MainMenuBar = (function (_super) {
         return menuBar;
     };
     return MainMenuBar;
-}(qtk_1.MenuBar));
+}(qtk_2.MenuBar));
 exports.MainMenuBar = MainMenuBar;
 ;
 //# sourceMappingURL=main-menu-bar.js.map

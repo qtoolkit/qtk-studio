@@ -1,10 +1,10 @@
-import {StudioViewModel} from "./studio-view-model";
+import {MainViewModel} from "./main-view-model";
 import {ICommand, InteractionRequest, ConfirmationInfo, ChoiceInfo} from "qtk";
 
 export class CommandRemove implements ICommand {
-	protected _viewModel : StudioViewModel;
+	protected _viewModel : MainViewModel;
 
-	constructor(viewModel:StudioViewModel) {
+	constructor(viewModel:MainViewModel) {
 		this._viewModel = viewModel;
 	}
 
@@ -48,7 +48,7 @@ export class CommandRemove implements ICommand {
 		return true;
 	}
 
-	public static create(viewModel:StudioViewModel) : ICommand {
+	public static create(viewModel:MainViewModel) : ICommand {
 		return new CommandRemove(viewModel);
 	}
 };

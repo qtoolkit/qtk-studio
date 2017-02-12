@@ -1,8 +1,10 @@
-import { MenuBar, Menu, IViewModel } from "qtk";
+import { IViewModel, MenuBar, Menu, MenuItem } from "qtk";
 export declare class MainMenuBar extends MenuBar {
     protected viewModel: IViewModel;
-    protected onFileMenu(menu: Menu): void;
-    protected onHelpMenu(menu: Menu): void;
-    protected onCreated(): void;
+    protected addShortcut(key: string, command: string): void;
+    protected addMenuItem(menu: Menu, text: string, key: string, command: string): MenuItem;
+    protected addShortcuts(cmdsDesc: any): void;
+    protected createMenu(cmdsDesc: any): void;
+    protected onInit(): void;
     static create(options: any): MainMenuBar;
 }

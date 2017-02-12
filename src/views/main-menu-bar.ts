@@ -1,35 +1,73 @@
-import {Widget, MenuBar, MenuBarItem, Menu, MenuItem, IViewModel} from "qtk";
+import {MainCmdsDesc} from "./main-cmds-desc";
+import {Events, DockLayouterParam, Direction, DeviceInfo} from "qtk";
+import {IViewModel, Widget, MenuBar, MenuBarItem, Menu, MenuItem} from "qtk";
 
 export class MainMenuBar extends MenuBar {
 	protected viewModel : IViewModel;
 
-	protected onFileMenu(menu:Menu) {
-		menu.w = 128;
-		menu.addItem("New", null).set({dataBindingRule:{click:{command:"new"}}});
-		menu.addItem("Open", null).set({dataBindingRule:{click:{command:"open"}}});
-		menu.addItem("Save", null).set({dataBindingRule:{click:{command:"save"}}});
-		menu.addItem("Save As", null).set({dataBindingRule:{click:{command:"save-as"}}});
-		menu.addItem("Remove", null).set({dataBindingRule:{click:{command:"remove"}}});
-		menu.addSpace();
-		menu.addItem("Export", null).set({dataBindingRule:{click:{command:"export"}}});
+	protected addShortcut(key:string, command:string) {
+		var shortcut = key.toLowerCase();
+		var viewModel = this.viewModel;
 
-		menu.bindData(this.viewModel);
-	}
-	
-	protected onHelpMenu(menu:Menu) {
-		menu.w = 128;
-		menu.addItem("Content", null).set({dataBindingRule:{click:{command:"content"}}});
-		menu.addItem("About", null).set({dataBindingRule:{click:{command:"about"}}});
-
-		menu.bindData(this.viewModel);
+		this.win.on(Events.SHORTCUT, (evt:Events.ShortcutEvent) => {
+			if(evt.keys === shortcut) {
+				viewModel.execCommand(command, null);
+			}
+		});
 	}
 
-	protected onCreated() {
-		super.onCreated();
+	protected addMenuItem(menu:Menu, text:string, key:string, command:string) : MenuItem {
+		var item:MenuItem = null;
+		if(!text) {
+			item = <MenuItem>menu.addSpace();
+		}else{
+			item = <MenuItem>menu.addItem(text, null, null, key);
+			item.set({dataBindingRule:{click:{command:command}}});
+		}
+		
+		return item;
+	}
 
-		this.addLogo("/www/assets/theme/default/images/@density/logo.png");
-		this.addItem("File", this.onFileMenu.bind(this));
-		this.addItem("Help", this.onHelpMenu.bind(this));
+	protected addShortcuts(cmdsDesc:any) {
+		for(var category in cmdsDesc) {
+			for(var cmd in cmdsDesc[category]) {
+				var desc = cmdsDesc[category][cmd];
+				if(desc.shortcut) {
+					this.addShortcut(desc.shortcut, desc.command);
+				}
+			}
+		}
+	}
+
+	protected createMenu(cmdsDesc:any) {
+		var bar = this;
+		var viewModel = this.viewModel;
+
+		this.addLogo("https://qtoolkit.github.io/demos/assets/icons/@density/apple.png");
+
+		function addItem(key:string, descs:any) {
+			var w = key.length > 5 ? 70 : 50;
+
+			bar.addItem(key, (menu:Menu) => {
+				menu.w = 200;
+				for(var cmd in descs) {
+					var desc = descs[cmd];
+					bar.addMenuItem(menu, desc.text, desc.shortcut, desc.command); 
+				}
+				menu.bindData(viewModel);
+			}, w);
+		}
+
+		for(var key in cmdsDesc) {
+			addItem(key, cmdsDesc[key]);
+		}
+	}
+
+	protected onInit() {
+		super.onInit();
+
+		this.createMenu(MainCmdsDesc);
+		this.addShortcuts(MainCmdsDesc);
 	}
 
 	public static create(options: any) : MainMenuBar {

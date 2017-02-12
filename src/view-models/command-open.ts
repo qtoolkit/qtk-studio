@@ -1,16 +1,17 @@
-import {StudioViewModel} from "./studio-view-model";
+import {MainViewModel} from "./main-view-model";
 import {ICommand, InteractionRequest, ChoiceInfo} from "qtk";
 
 export class CommandOpen implements ICommand {
-	protected _viewModel : StudioViewModel;
+	protected _viewModel : MainViewModel;
 
-	constructor(viewModel:StudioViewModel) {
+	constructor(viewModel:MainViewModel) {
 		this._viewModel = viewModel;
 	}
 
 	public canExecute() : boolean {
 		var viewModel = this._viewModel;
-		return true;
+		var docList = viewModel.getDocList();
+		return docList && docList.length > 0;
 	}
 
 	public execute(args:any) : boolean {
@@ -32,8 +33,7 @@ export class CommandOpen implements ICommand {
 		return true;
 	}
 
-	public static create(viewModel:StudioViewModel) : ICommand {
-
+	public static create(viewModel:MainViewModel) : ICommand {
 		return new CommandOpen(viewModel);
 	}
 };

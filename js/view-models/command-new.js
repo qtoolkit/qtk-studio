@@ -7,6 +7,7 @@ var CommandNew = (function () {
         return true;
     };
     CommandNew.prototype.execute = function (args) {
+        this._viewModel.newDoc();
         return true;
     };
     CommandNew.create = function (viewModel) {

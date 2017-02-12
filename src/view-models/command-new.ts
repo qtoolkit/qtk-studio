@@ -1,10 +1,10 @@
-import {StudioViewModel} from "./studio-view-model";
+import {MainViewModel} from "./main-view-model";
 import {ICommand, InteractionRequest, ChoiceInfo} from "qtk";
 
 export class CommandNew implements ICommand {
-	protected _viewModel : StudioViewModel;
+	protected _viewModel : MainViewModel;
 
-	constructor(viewModel:StudioViewModel) {
+	constructor(viewModel:MainViewModel) {
 		this._viewModel = viewModel;
 	}
 
@@ -13,12 +13,11 @@ export class CommandNew implements ICommand {
 	}
 
 	public execute(args:any) : boolean {
-
+		this._viewModel.newDoc();			
 		return true;
 	}
 
-	public static create(viewModel:StudioViewModel) : ICommand {
-
+	public static create(viewModel:MainViewModel) : ICommand {
 		return new CommandNew(viewModel);
 	}
 };

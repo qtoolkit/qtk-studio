@@ -12,8 +12,8 @@ var CommandContent = (function () {
         window.open(this._helpURL, "_blank");
         return true;
     };
-    CommandContent.create = function (viewModel, helpURL) {
-        return new CommandContent(viewModel, helpURL);
+    CommandContent.create = function (viewModel) {
+        return new CommandContent(viewModel, "https://github.com/qtoolkit/qtk");
     };
     return CommandContent;
 }());

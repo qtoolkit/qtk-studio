@@ -1,10 +1,10 @@
-import { StudioViewModel } from "./studio-view-model";
+import { MainViewModel } from "./main-view-model";
 import { ICommand } from "qtk";
 export declare class CommandRemove implements ICommand {
-    protected _viewModel: StudioViewModel;
-    constructor(viewModel: StudioViewModel);
+    protected _viewModel: MainViewModel;
+    constructor(viewModel: MainViewModel);
     canExecute(): boolean;
     protected confirmRemove(items: Array<any>): void;
     execute(args: any): boolean;
-    static create(viewModel: StudioViewModel): ICommand;
+    static create(viewModel: MainViewModel): ICommand;
 }
